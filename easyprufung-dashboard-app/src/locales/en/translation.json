@@ -1,0 +1,77 @@
+{
+  "navbar_create_app":"Create App",
+  "navbar_pricing":"Pricing",
+  "navbar_demo":"Demo",
+  "navbar_tips":"Tips",
+  "navbar_contact":"Contact",
+
+  "discover_label" : "Discover More",
+  "contact_us_label" : "Contact us",
+
+  "hero_part_1": "Create Mobile and Desktop Applications using",
+  "hero_part_2": "AI",
+  "hero_part_4": "Effortlessly create cross-platform mobile and desktop applications from a prompt or a description with our powerful .NET MAUI-based solution, helping you bring your concepts to life faster than ever.",
+  "hero_part_5": "Turn your ideas into reality faster.",
+
+  "play_video" : "Play Video",
+  "video_player_error" : "Sorry, your browser doesn't support videos.",
+
+  "easyprufung_trynow" : "Try Now",
+  "easyprufung_mode_details" : "More details ",
+
+  "pricing_section_pretitle" : "Pricing",
+  "pricing_section_title" : "Our Best Plans For You",
+  "pricing_section_getstarted" : "Get started",
+
+  "faq_section_pretitle" : "FAQ",
+  "faq_section_title" : "Frequently Asked Questions",
+  "faq_section_question_1" : "What is .NET MAUI and how does it benefit me?",
+  "faq_section_answer_1" : ".NET MAUI (Multi-platform App UI) is a cross-platform framework for creating native mobile and desktop apps with C# and XAML. It allows you to write code once and deploy it across Android, iOS, Windows, and macOS. This means faster development times, reduced costs, and a consistent user experience across all platforms.",
+  "faq_section_question_3" : "What happens if I exceed the application limit in my current plan?",
+  "faq_section_answer_3" : "If you exceed the application limit in your current plan, you will need to upgrade to a higher-tier plan that supports more applications.",
+  "faq_section_question_4" : "Can I cancel or change my plan at any time?",
+  "faq_section_answer_4" : "Yes, you can cancel or change your plan at any time. If you decide to upgrade or downgrade your plan, the changes will take effect immediately, and your billing will be adjusted accordingly. If you cancel, you will retain access to your current plan’s features until the end of the billing cycle.",
+  "faq_section_question_2" : "How long does it take to generate an app using your platform?",
+  "faq_section_answer_2" : "The time it takes to generate an app depends on the complexity of the project. However, our platform is designed to streamline the process, allowing you to create a functional app in just a few seconds. More complex customizations may take longer, but our intuitive interface ensures a swift development process.",
+
+
+
+  "easyprufung_title_1" : "From",
+  "easyprufung_title_2" : "Idea",
+  "easyprufung_title_3" : "to Reality in Seconds",
+  "easyprufung_appname" : "App name:",
+  "easyprufung_appname_placeholder" : "Enter your app name.",
+  "easyprufung_appbundle" : "Bundle id",
+  "easyprufung_appbundle_placeholder" : "com.company.awesomeapp",
+  "easyprufung_appdescription" : "Fine-tune the functionality and purpose to suit your vision:",
+  "easyprufung_appdescription_placeholder" : "Outline the main pages and functionalities of your app, including design preferences.\n",
+  "easyprufung_generate_button" : "Create My App",
+
+  "contact_us_title" : "Contact Us",
+  "contact_us_description" : "We’re here to help! Reach out with inquiries about our app generation solutions or to share your thoughts using the contact form below.",
+  "contact_us_firstname" : "First name",
+  "contact_us_firstname_placeholder" : "Your first name",
+  "contact_us_lastname" : "Last name",
+  "contact_us_lastname_placeholder" : "Your last name",
+  "contact_us_email" : "Email",
+  "contact_us_email_placeholder" : "Your email",
+  "contact_us_subject" : "Subject",
+  "contact_us_subject_placeholder" : "Let us know how we can help you",
+  "contact_us_message" : "Message",
+  "contact_us_message_placeholder" : "Leave a comment...",
+  "contact_us_send_message" : "Send message",
+  "contact_us_popup_description" : "Thank you for reaching out! Your message has been successfully submitted. We value your inquiry and will get back to you shortly. Have a great day!",
+  "contact_us_popup_close" : "Close",
+
+  "cta_title" : "Want to Dive into App Creation?",
+  "cta_description" : "Start transforming your ideas into reality with our powerful app generation platform.",
+  "cta_button" : "Try Now!",
+
+  "not_found_title" : "Whoops! That page doesn’t exist.",
+  "not_found_description" : "Sorry, we can't find that page. You can navigate to the home page.",
+  "not_found_button" : "Back to Homepage",
+
+  "footer_slogan" : "Innovate, Create, Mobilize with EasyPrufung.",
+  "footer_followus" : "Follow us",
+  "copy_right" : "EasyPrufung. All rights reserved."
+}
