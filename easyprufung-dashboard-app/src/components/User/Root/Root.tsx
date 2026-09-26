@@ -9,16 +9,11 @@ import PaymentCheckOut from "../Pricing/PaymentCheckOut";
 import {createTheme, ThemeProvider} from "@mui/material";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
-import PromptProject from "../Projects/PromptProject";
 import Settings from "./Settings";
 import Pricing from "../Pricing/Pricing";
 import Contact from "../Contact/Contact";
 import CodeRedemption from "../Pricing/CodeRedemption";
 import PricingContact from "../Pricing/PricingContact";
-import MainProject from "../Projects/MainProject";
-import StarterMap from "../Map/StarterMap.tsx";
-import AddBusiness from "../Projects/Prebuilt/AddBusiness.tsx";
-import MainBusiness from "../Projects/Prebuilt/MainBusiness.tsx";
 
 const Root: React.FC = () => {
     const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -75,12 +70,7 @@ const Root: React.FC = () => {
                             }}>
                                 <ThemeProvider theme={usedTheme}>
                                     <Routes>
-                                        <Route path="/*"  element={<PromptProject />}></Route>
-                                        <Route path="/new"  element={<PromptProject/>}></Route>
-                                        <Route path="/projects/:id"  element={<MainProject />}></Route>
-                                        <Route path="/add"  element={<AddBusiness/>}></Route>
-                                        <Route path="/businesses/:id"  element={<MainBusiness />}></Route>
-                                        <Route path="/startermap"  element={<StarterMap showFilter={true}/>}></Route>
+                                        <Route path="/*"  element={<NotFound />}></Route>
                                         <Route path="/login"  element={<Login />}></Route>
                                         <Route path="/settings"  element={<Settings />}></Route>
                                         <Route path="/register"  element={<Registration />}></Route>

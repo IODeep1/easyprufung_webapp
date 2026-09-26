@@ -1,16 +1,11 @@
-import React, {Dispatch, useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {NavLink, useLocation} from 'react-router-dom';
 import {IUserAccount} from "../../../store/models/user/userAccount.interface";
-import {useDispatch, useSelector} from "react-redux";
 import {IProjectState, IStateType} from "../../../store/models/root.interface";
-import { requestGetUserWithProjects} from "../../../api/user/api-helper";
-import {
-    loadProjectsList
-} from "../../../store/actions/user/project.actions";
 import SidebarLinkGroup from "../../Shared/SidebarLinkGroup";
-import {updateUser} from "../../../store/actions/user/userAccount.actions";
 import DarkModeSwitcher from "../../Shared/DarkModeSwitcher";
 import DropdownUser from "./DropdownUser";
+import {useSelector} from "react-redux";
 
 interface SidebarProps {
     sidebarOpen: boolean;
@@ -20,7 +15,6 @@ interface SidebarProps {
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen, setTheme }: SidebarProps) => {
     const location = useLocation();
-    const dispatch: Dispatch<any> = useDispatch();
     const { pathname } = location;
 
     const trigger = useRef<any>(null);
@@ -74,19 +68,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, setTheme }: SidebarProps) => {
     {
         isPayedSubscription = false;
     }
-    useEffect(() => {
-        const processApi = async () => {
-            if(account !== null && account !== undefined && account.user?.email)
-            {
-                let user = await requestGetUserWithProjects(dispatch);
-                if(user !== null && user !== undefined){
-                    dispatch(updateUser(user));
-                    dispatch(loadProjectsList(user.projects));
-                }
-            }
-        };
-        processApi();
-    }, [projectState?.selectedProject?.updatedDate]);
 
     return (
         <aside
@@ -318,37 +299,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, setTheme }: SidebarProps) => {
                             </SidebarLinkGroup>
                             {/* <!-- End Businesses --> */}
 
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 className="mb-4 ml-4 text-md font-bold text-gray-900 dark:text-gray-200">
-                            Public
-                        </h3>
-                        <ul className="mb-6 flex flex-col gap-1.5">
-                            {/* <!-- StarterMap--> */}
-                            <li>
-                                <NavLink
-                                    to="/startermap"
-                                    className={`group relative flex items-center gap-2.5 py-2 px-4 rounded-xl font-normal text-gray-700 duration-300 ease-in-out hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700 ${
-                                        pathname.includes('/startermap') &&
-                                        'bg-gray-100 dark:bg-gray-800'
-                                    }`}
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                         stroke-linejoin="round">
-                                        <path d="M21.54 15H17a2 2 0 0 0-2 2v4.54"/>
-                                        <path
-                                            d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17"/>
-                                        <path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05"/>
-                                        <circle cx="12" cy="12" r="10"/>
-                                    </svg>
-
-                                    StarterMap
-                                </NavLink>
-                            </li>
-                            {/* <!-- StarterMap--> */}
                         </ul>
                     </div>
 

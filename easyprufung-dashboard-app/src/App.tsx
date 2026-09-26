@@ -10,7 +10,6 @@ import {AdminPrivateRoute} from "./common/routes/AdminPrivateRoute";
 import AdminRoot from "./components/Admin/Root/AdminRoot";
 import ForgotPassword from "./components/User/Login/ForgotPassword";
 import ResetPassword from "./components/User/Login/ResetPassword";
-import StarterMap from "./components/User/Map/StarterMap.tsx";
 
 const App: React.FC = () => {
   return (
@@ -31,9 +30,6 @@ const App: React.FC = () => {
                   </Route>
                   <Route path="/forgot_password"
                          element={<ForgotPassword></ForgotPassword>}>
-                  </Route>
-                  <Route path="/map_fullscreen"
-                         element={<StarterMap showFilter={true}></StarterMap>}>
                   </Route>
                   <Route path="/reset_password"
                          element={<ResetPassword></ResetPassword>}>
