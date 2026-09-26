@@ -101,10 +101,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, setTheme }: SidebarProps) => {
                                               clip-rule="evenodd"/>
                                     </svg>
 
-                                    New project
+                                    New exam
                                 </NavLink>
                             </li>
-                            {/* <!-- Projects --> */}
+                            {/* <!-- Exams --> */}
                             <SidebarLinkGroup
                                 activeCondition={pathname === '/projects' || pathname.includes('projects/')}
                             >
@@ -132,7 +132,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, setTheme }: SidebarProps) => {
                                                     <circle cx="12" cy="13" r="1"/>
                                                 </svg>
 
-                                                Projects
+                                                Exams
                                                 <svg
                                                     className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current transition-transform ${!open && 'rotate-90'}`}
                                                     width="20"
@@ -184,120 +184,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, setTheme }: SidebarProps) => {
                                     );
                                 }}
                             </SidebarLinkGroup>
-                            {/* <!-- End Projects --> */}
-
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 className="text-left mb-4 ml-4 text-md font-bold text-gray-900 dark:text-gray-200">
-                            Prebuilt
-                        </h3>
-                        <ul className="mb-6 flex flex-col gap-1.5">
-                            {/* <!-- Add Business --> */}
-                            <li>
-                                <NavLink
-                                    to="/add"
-                                    className={`group relative flex items-center gap-2.5 py-2 px-4 rounded-xl font-normal text-gray-700 duration-300 ease-in-out hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700 ${
-                                        pathname.includes('/add') ? 'bg-gray-100 dark:bg-gray-800' : ''
-                                    }`}
-                                >
-                                    <svg  aria-hidden="true"
-                                          xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                                          viewBox="0 0 24 24">
-                                        <path fillRule="evenodd"
-                                              d="M4.857 3A1.857 1.857 0 0 0 3 4.857v4.286C3 10.169 3.831 11 4.857 11h4.286A1.857 1.857 0 0 0 11 9.143V4.857A1.857 1.857 0 0 0 9.143 3H4.857Zm10 0A1.857 1.857 0 0 0 13 4.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 21 9.143V4.857A1.857 1.857 0 0 0 19.143 3h-4.286Zm-10 10A1.857 1.857 0 0 0 3 14.857v4.286C3 20.169 3.831 21 4.857 21h4.286A1.857 1.857 0 0 0 11 19.143v-4.286A1.857 1.857 0 0 0 9.143 13H4.857ZM18 14a1 1 0 1 0-2 0v2h-2a1 1 0 1 0 0 2h2v2a1 1 0 1 0 2 0v-2h2a1 1 0 1 0 0-2h-2v-2Z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-
-                                    Add business
-                                </NavLink>
-                            </li>
-                            {/* <!-- Businesses --> */}
-                            <SidebarLinkGroup
-                                activeCondition={pathname === '/businesses' || pathname.includes('businesses/')}
-                            >
-                                {(handleClick, open) => {
-                                    return (
-                                        <React.Fragment>
-                                            <NavLink
-                                                to="#"
-                                                className={`group relative flex items-center gap-2.5 py-2 px-4 rounded-xl font-normal text-gray-700 duration-300 ease-in-out hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700 ${
-                                                    (pathname === '/businesses' || pathname.includes('businesses/')) &&
-                                                    'bg-gray-100 dark:bg-gray-800'
-                                                }`}
-                                                onClick={(e) => {
-                                                    e.preventDefault();
-                                                    sidebarExpanded
-                                                        ? handleClick()
-                                                        : setSidebarExpanded(true);
-                                                }}
-                                            >
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
-                                                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
-                                                    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/>
-                                                    <path d="M10 6h4"/>
-                                                    <path d="M10 10h4"/>
-                                                    <path d="M10 14h4"/>
-                                                    <path d="M10 18h4"/>
-                                                </svg>
-
-                                                Businesses
-                                                <svg
-                                                    className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current transition-transform ${!open && 'rotate-90'}`}
-                                                    width="20"
-                                                    height="20"
-                                                    viewBox="0 0 20 20"
-                                                    fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                >
-                                                    <path
-                                                        fillRule="evenodd"
-                                                        clipRule="evenodd"
-                                                        d="M7 5C7 4.44772 7.44772 4 8 4C8.26522 4 8.51957 4.10536 8.70711 4.29289L13.7071 9.29289C14.0976 9.68342 14.0976 10.3166 13.7071 10.7071L8.70711 15.7071C8.31658 16.0976 7.68342 16.0976 7.29289 15.7071C6.90237 15.3166 6.90237 14.6834 7.29289 14.2929L11.5858 10L7.29289 5.70711C7.10536 5.51957 7 5.26522 7 5Z"
-                                                        fill=""
-                                                    />
-                                                </svg>
-                                            </NavLink>
-                                            {/* <!-- Dropdown Menu Start --> */}
-                                            <div
-                                                className={`translate transform overflow-hidden ${
-                                                    open && 'hidden'
-                                                }`}
-                                            >
-                                            <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">
-                                                    {(projectState && projectState.projects && projectState.projects.filter(item => item.source === "external").map((item, index) => (
-                                                        <li>
-                                                            <NavLink
-                                                                to={`/businesses/${item.uuid}`}
-                                                                className={({ isActive }) =>
-                                                                    'group relative flex items-center gap-2.5 py-2 px-4 rounded-xl font-normal text-gray-700 duration-300 ease-in-out hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700' +
-                                                                    (isActive && ' bg-gray-200 dark:bg-gray-800')
-                                                                }
-                                                            >
-                                                                <div className="flex flex-row" key="1">
-                                                                    {item.logoUrl &&  <img
-                                                                        className="h-6 w-6 mr-2"
-                                                                        src={`${(process.env.NODE_ENV === 'development') ?"http://localhost:8080":"https://app.easyprufung.com"}${item.logoUrl}`}
-                                                                    />
-                                                                    }
-                                                                    {item.name? item.name : `Business [${index+1}]`}
-
-                                                                </div>
-                                                            </NavLink>
-                                                        </li>
-                                                    )))}
-                                                </ul>
-                                            </div>
-                                            {/* <!-- Dropdown Menu End --> */}
-                                        </React.Fragment>
-                                    );
-                                }}
-                            </SidebarLinkGroup>
-                            {/* <!-- End Businesses --> */}
+                            {/* <!-- End Exams --> */}
 
                         </ul>
                     </div>
