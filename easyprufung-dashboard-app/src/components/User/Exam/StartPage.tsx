@@ -1,7 +1,8 @@
-import { ArrowRight, BookOpen, Clock3, Headphones, PenLine } from "lucide-react";
 import { useState, type FormEvent } from "react";
-import type { LucideIcon } from "lucide-react";
-import type { StartExamRequest } from "./models/exam.ts";
+import type {CefrLevel, ExamProvider, StartExamRequest} from "./models/exam.ts";
+import type {IUserAccount} from "../../../store/models/user/userAccount.interface.ts";
+import {useSelector} from "react-redux";
+import type {IStateType} from "../../../store/models/root.interface.ts";
 
 const providers: Array<{
     value: ExamProvider;
@@ -37,7 +38,12 @@ export function StartPage({
                           }: {
     onStart: (request: StartExamRequest) => void;
 }) {
-    const [userId, setUserId] = useState("user-123");
+
+    const account: IUserAccount = useSelector(
+        (state: IStateType) => state.userAccount
+    );
+
+    const  userId = account.user.uuid;
     const [provider, setProvider] =
         useState<ExamProvider>("TELC");
     const [level, setLevel] = useState<CefrLevel>("B1");

@@ -26,14 +26,12 @@ interface SidebarProps {
     sidebarOpen: boolean;
     setSidebarOpen: (open: boolean) => void;
     setTheme: (theme: string) => void;
-    userId: string;
 }
 
 const Sidebar = ({
                      sidebarOpen,
                      setSidebarOpen,
-                     setTheme,
-                     userId
+                     setTheme
                  }: SidebarProps) => {
     const { pathname } = useLocation();
     const sidebar = useRef<HTMLElement | null>(null);
@@ -63,6 +61,7 @@ const Sidebar = ({
         (state: IStateType) => state.userAccount
     );
 
+    const userId = account.user?.uuid;
     const subscriptionPlan =
         account.subscription?.plan;
 

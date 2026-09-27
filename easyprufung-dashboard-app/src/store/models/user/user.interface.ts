@@ -3,7 +3,7 @@ import {IProject} from "./project/project.interface";
 
 export interface IUser {
     id: number;
-    uuid: number;
+    uuid: string;
     githubUsername: string;
     firstname: string;
     lastname: string;
@@ -15,5 +15,4 @@ export interface IUser {
     createdDate: string;
     token: string;
     subscriptions: ISubscription[]
-    projects: IProject[]
 }

@@ -10,6 +10,9 @@ import { useEffect, useState } from "react";
 import {PassedExamEntry} from "./models/exam.ts";
 import {getPassedUserExams} from "../../../api/exam/api-helper.ts";
 import { ExamReviewPage } from "./ExamReviewPage.tsx";
+import type {IUserAccount} from "../../../store/models/user/userAccount.interface.ts";
+import {useSelector} from "react-redux";
+import type {IStateType} from "../../../store/models/root.interface.ts";
 
 
 function formatScore(value: number): string {
@@ -232,7 +235,11 @@ function ExamResultDetails({
 }
 
 export function PassedExamsPage() {
-    const userId = "user-12223";
+    const account: IUserAccount = useSelector(
+        (state: IStateType) => state.userAccount
+    );
+
+    const userId = account.user.uuid;
     const [exams, setExams] = useState<
         PassedExamEntry[]
     >([]);

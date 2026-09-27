@@ -57,7 +57,7 @@ const Root: React.FC = () => {
                 {/* <!-- ===== Page Wrapper Start ===== --> */}
                 <div className="flex h-screen overflow-hidden">
                     {/* <!-- ===== Sidebar Start ===== --> */}
-                    <Sidebar userId="user-12223" sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setTheme={setTheme}/>
+                    <Sidebar  sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setTheme={setTheme}/>
                     {/* <!-- ===== Sidebar End ===== --> */}
 
                     {/* <!-- ===== Content Area Start ===== --> */}
