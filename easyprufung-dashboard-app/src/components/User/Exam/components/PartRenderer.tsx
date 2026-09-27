@@ -1,6 +1,6 @@
-import { GripVertical, X } from "lucide-react";
+import { X } from "lucide-react";
 import {Fragment, useMemo, useState, type DragEvent, useRef} from "react";
-import type { AnswerMap, ExerciseView, QuestionView } from "../models/exam.ts";
+import type { AnswerMap, ExerciseView, QuestionResultView, QuestionView } from "../models/exam.ts";
 import { AnswerSelect, RadioAnswers, TrueFalseAnswers } from "./AnswerControls.tsx";
 import { ContentFrame } from "./ExamChrome";
 
@@ -9,6 +9,45 @@ interface PartRendererProps {
   answers: AnswerMap;
   onSelection: (questionNumber: string, key: string) => void;
   onText: (questionNumber: string, text: string) => void;
+  readOnly?: boolean;
+  reviewResults?: ReadonlyMap<string, QuestionResultView>;
+}
+
+function WrongAnswerMark({
+                           question,
+                           readOnly,
+                           reviewResults,
+                           compact = false
+                         }: {
+  question: QuestionView;
+  readOnly?: boolean;
+  reviewResults?: ReadonlyMap<string, QuestionResultView>;
+  compact?: boolean;
+}) {
+  const result = reviewResults?.get(question.number);
+
+  if (!readOnly || question.type === "FREE_TEXT" || !result || result.correct) {
+    return null;
+  }
+
+  if (compact) {
+    return (
+        <span
+            className="ml-1 inline-grid h-7 w-7 place-items-center rounded-full border border-red-600 bg-red-50 align-middle text-red-700"
+            aria-label={`Aufgabe ${question.number}: falsche Antwort`}
+            title="Falsche Antwort"
+        >
+          <X size={15} strokeWidth={3} />
+        </span>
+    );
+  }
+
+  return (
+      <span className="mt-3 inline-flex items-center gap-2 rounded-full border border-red-600 bg-red-50 px-3 py-1.5 text-xs font-black text-red-700">
+        <X size={15} strokeWidth={3} />
+        Falsche Antwort
+      </span>
+  );
 }
 
 function QuestionNumber({ value }: { value: string }) {
@@ -33,7 +72,9 @@ function SharedContent({ content }: { content: string | null }) {
 function LesenTeil1({
                       exercise,
                       answers,
-                      onSelection
+                      onSelection,
+                      readOnly,
+                      reviewResults
                     }: PartRendererProps) {
   const usedOptionKeys = useMemo(
       () =>
@@ -70,11 +111,18 @@ function LesenTeil1({
                         value={selectedKey}
                         options={question.options}
                         disabledOptionKeys={usedOptionKeys}
+                        readOnly={readOnly}
                         onChange={(key) =>
                             onSelection(question.number, key)
                         }
                     />
                   </div>
+
+                  <WrongAnswerMark
+                      question={question}
+                      readOnly={readOnly}
+                      reviewResults={reviewResults}
+                  />
 
                   <p className="whitespace-pre-wrap text-sm leading-7 text-black">
                     {question.stimulus || question.prompt}
@@ -87,7 +135,7 @@ function LesenTeil1({
   );
 }
 
-function LesenTeil2({ exercise, answers, onSelection }: PartRendererProps) {
+function LesenTeil2({ exercise, answers, onSelection, readOnly, reviewResults }: PartRendererProps) {
   return (
       <ContentFrame>
         <div className="grid items-start gap-6 lg:grid-cols-[1.1fr_0.9fr]">
@@ -106,7 +154,13 @@ function LesenTeil2({ exercise, answers, onSelection }: PartRendererProps) {
                       name={`question-${question.number}`}
                       value={answers[question.number]?.selectedOptionKeys[0]}
                       options={question.options}
+                      readOnly={readOnly}
                       onChange={(key) => onSelection(question.number, key)}
+                  />
+                  <WrongAnswerMark
+                      question={question}
+                      readOnly={readOnly}
+                      reviewResults={reviewResults}
                   />
                 </article>
             ))}
@@ -119,7 +173,9 @@ function LesenTeil2({ exercise, answers, onSelection }: PartRendererProps) {
 function LesenTeil3({
                       exercise,
                       answers,
-                      onSelection
+                      onSelection,
+                      readOnly,
+                      reviewResults
                     }: PartRendererProps) {
   const contentParts = useMemo(() => {
     if (!exercise.content?.trim()) {
@@ -170,13 +226,16 @@ function LesenTeil3({
                           id={`question-${question.number}`}
                           aria-label={`Antwort für Aufgabe ${question.number}`}
                           value={selectedKey}
+                          disabled={readOnly}
                           onChange={(event) =>
                               onSelection(
                                   question.number,
                                   event.target.value
                               )
                           }
-                          className={`w-full cursor-pointer rounded-lg border-0 px-4 text-sm font-black text-black outline-none ${
+                          className={`w-full rounded-lg border-0 px-4 text-sm font-black text-black outline-none disabled:cursor-default disabled:opacity-100 ${
+                              readOnly ? "cursor-default" : "cursor-pointer"
+                          } ${
                               selectedKey
                                   ? "bg-yellow-200"
                                   : "bg-white"
@@ -213,6 +272,12 @@ function LesenTeil3({
                       </select>
                     </div>
 
+                    <WrongAnswerMark
+                        question={question}
+                        readOnly={readOnly}
+                        reviewResults={reviewResults}
+                    />
+
                     <p className="mt-5 whitespace-pre-wrap text-sm font-bold leading-7 text-black">
                       {question.stimulus || question.prompt}
                     </p>
@@ -240,7 +305,7 @@ function LesenTeil3({
   );
 }
 
-function SprachbausteineTeil1({ exercise, answers, onSelection }: PartRendererProps) {
+function SprachbausteineTeil1({ exercise, answers, onSelection, readOnly, reviewResults }: PartRendererProps) {
   const questions = useMemo(
       () => new Map(exercise.questions.map((question) => [question.number, question])),
       [exercise.questions]
@@ -265,18 +330,26 @@ function SprachbausteineTeil1({ exercise, answers, onSelection }: PartRendererPr
                   const question = questions.get(match[0]);
                   if (!question) return <Fragment key={index}>{part}</Fragment>;
                   return (
+                    <Fragment key={`${question.number}-${index}`}>
                       <select
-                          key={`${question.number}-${index}`}
                           aria-label={`Lücke ${question.number}`}
                           value={answers[question.number]?.selectedOptionKeys[0] ?? ""}
+                          disabled={readOnly}
                           onChange={(event) => onSelection(question.number, event.target.value)}
-                          className={`mx-1 inline-block min-w-32 rounded-lg border border-black px-3 py-2 text-sm font-black ${answers[question.number]?.selectedOptionKeys[0] ? "bg-yellow-200" : "bg-white"}`}
+                          className={`mx-1 inline-block min-w-32 rounded-lg border border-black px-3 py-2 text-sm font-black disabled:cursor-default disabled:opacity-100 ${answers[question.number]?.selectedOptionKeys[0] ? "bg-yellow-200" : "bg-white"}`}
                       >
                         <option value="" disabled>(____{question.number})</option>
                         {question.options.map((option) => (
                             <option key={option.key} value={option.key}>{option.key}: {option.text}</option>
                         ))}
                       </select>
+                      <WrongAnswerMark
+                          question={question}
+                          readOnly={readOnly}
+                          reviewResults={reviewResults}
+                          compact
+                      />
+                    </Fragment>
                   );
                 })}
               </div>
@@ -285,14 +358,21 @@ function SprachbausteineTeil1({ exercise, answers, onSelection }: PartRendererPr
                 <div className="mt-5"><SharedContent content={exercise.content} /></div>
                 <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                   {exercise.questions.map((question) => (
-                      <AnswerSelect
-                          key={question.id}
-                          id={`question-${question.number}`}
-                          label={`Lücke ${question.number}`}
-                          value={answers[question.number]?.selectedOptionKeys[0]}
-                          options={question.options}
-                          onChange={(key) => onSelection(question.number, key)}
-                      />
+                      <div key={question.id}>
+                        <AnswerSelect
+                            id={`question-${question.number}`}
+                            label={`Lücke ${question.number}`}
+                            value={answers[question.number]?.selectedOptionKeys[0]}
+                            options={question.options}
+                            readOnly={readOnly}
+                            onChange={(key) => onSelection(question.number, key)}
+                        />
+                        <WrongAnswerMark
+                            question={question}
+                            readOnly={readOnly}
+                            reviewResults={reviewResults}
+                        />
+                      </div>
                   ))}
                 </div>
               </>
@@ -307,7 +387,7 @@ function SprachbausteineTeil1({ exercise, answers, onSelection }: PartRendererPr
   );
 }
 
-function SprachbausteineTeil2({ exercise, answers, onSelection }: PartRendererProps) {
+function SprachbausteineTeil2({ exercise, answers, onSelection, readOnly, reviewResults }: PartRendererProps) {
   const [activeKey, setActiveKey] = useState<string | null>(null);
   const wordBank = useMemo(() => {
     const unique = new Map<string, string>();
@@ -317,6 +397,7 @@ function SprachbausteineTeil2({ exercise, answers, onSelection }: PartRendererPr
   const used = new Set(exercise.questions.flatMap((question) => answers[question.number]?.selectedOptionKeys ?? []));
 
   const assign = (question: QuestionView, key: string) => {
+    if (readOnly) return;
     exercise.questions.forEach((other) => {
       if (other.number !== question.number && answers[other.number]?.selectedOptionKeys[0] === key) {
         onSelection(other.number, "");
@@ -328,6 +409,7 @@ function SprachbausteineTeil2({ exercise, answers, onSelection }: PartRendererPr
 
   const onDrop = (event: DragEvent<HTMLSpanElement>, question: QuestionView) => {
     event.preventDefault();
+    if (readOnly) return;
     const key = event.dataTransfer.getData("text/plain");
     if (key) assign(question, key);
   };
@@ -356,16 +438,18 @@ function SprachbausteineTeil2({ exercise, answers, onSelection }: PartRendererPr
                 return (
                     <span
                         key={`${question.number}-${index}`}
-                        onDragOver={(event) => event.preventDefault()}
+                        onDragOver={(event) => {
+                          if (!readOnly) event.preventDefault();
+                        }}
                         onDrop={(event) => onDrop(event, question)}
-                        onClick={() => activeKey && assign(question, activeKey)}
-                        className={`mx-1 inline-flex min-h-10 min-w-32 cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-black px-3 py-1 align-middle text-sm font-black leading-6 ${selected ? "bg-yellow-200" : "bg-white"}`}
-                        role="button"
-                        tabIndex={0}
+                        onClick={() => !readOnly && activeKey && assign(question, activeKey)}
+                        className={`mx-1 inline-flex min-h-10 min-w-32 items-center justify-center gap-2 rounded-lg border border-dashed border-black px-3 py-1 align-middle text-sm font-black leading-6 ${readOnly ? "cursor-default" : "cursor-pointer"} ${selected ? "bg-yellow-200" : "bg-white"}`}
+                        role={readOnly ? undefined : "button"}
+                        tabIndex={readOnly ? undefined : 0}
                         aria-label={`Lücke ${question.number}`}
                     >
                   <span>{selected ? selected.text : `(____${question.number})`}</span>
-                      {selected && (
+                      {selected && !readOnly && (
                           <button
                               type="button"
                               onClick={(event) => {
@@ -378,6 +462,12 @@ function SprachbausteineTeil2({ exercise, answers, onSelection }: PartRendererPr
                             <X size={12} />
                           </button>
                       )}
+                      <WrongAnswerMark
+                          question={question}
+                          readOnly={readOnly}
+                          reviewResults={reviewResults}
+                          compact
+                      />
                 </span>
                 );
               })}
@@ -394,10 +484,10 @@ function SprachbausteineTeil2({ exercise, answers, onSelection }: PartRendererPr
                     <button
                         type="button"
                         key={option.key}
-                        draggable={!unavailable}
-                        disabled={unavailable}
+                        draggable={!readOnly && !unavailable}
+                        disabled={readOnly || unavailable}
                         onDragStart={(event) => event.dataTransfer.setData("text/plain", option.key)}
-                        onClick={() => setActiveKey(active ? null : option.key)}
+                        onClick={() => !readOnly && setActiveKey(active ? null : option.key)}
                         className={`flex w-full items-center gap-3 rounded-xl border px-3 py-3 text-left text-sm font-bold transition ${
                             active ? "border-black bg-yellow-200 text-black" : "border-black bg-white text-black"
                         } disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 disabled:text-gray-600`}
@@ -413,18 +503,26 @@ function SprachbausteineTeil2({ exercise, answers, onSelection }: PartRendererPr
   );
 }
 
-function Hoerverstehen({ exercise, answers, onSelection }: PartRendererProps) {
+function Hoerverstehen({ exercise, answers, onSelection, readOnly, reviewResults }: PartRendererProps) {
   return (
       <ContentFrame>
         <div className="divide-y divide-black overflow-hidden rounded-2xl border border-black">
           {exercise.questions.map((question) => (
               <article key={question.id} className="grid gap-5 bg-white p-5 sm:grid-cols-[auto_1fr] sm:items-center sm:p-6">
-                <TrueFalseAnswers
-                    name={`question-${question.number}`}
-                    value={answers[question.number]?.selectedOptionKeys[0]}
-                    options={question.options}
-                    onChange={(key) => onSelection(question.number, key)}
-                />
+                <div>
+                  <TrueFalseAnswers
+                      name={`question-${question.number}`}
+                      value={answers[question.number]?.selectedOptionKeys[0]}
+                      options={question.options}
+                      readOnly={readOnly}
+                      onChange={(key) => onSelection(question.number, key)}
+                  />
+                  <WrongAnswerMark
+                      question={question}
+                      readOnly={readOnly}
+                      reviewResults={reviewResults}
+                  />
+                </div>
                 <p className="text-sm font-bold leading-6">{question.number}. {question.prompt}</p>
               </article>
           ))}
@@ -433,7 +531,7 @@ function Hoerverstehen({ exercise, answers, onSelection }: PartRendererProps) {
   );
 }
 
-function Schreiben({ exercise, answers, onText }: PartRendererProps) {
+function Schreiben({ exercise, answers, onText, readOnly }: PartRendererProps) {
   const question = exercise.questions[0];
   const value = answers[question.number]?.text ?? "";
   const words = value.trim() ? value.trim().split(/\s+/).length : 0;
@@ -441,6 +539,7 @@ function Schreiben({ exercise, answers, onText }: PartRendererProps) {
   const specialCharacters = ["ä", "ö", "ü", "Ä", "Ö", "Ü", "ß"];
 
   const insertCharacter = (character: string) => {
+    if (readOnly) return;
     const editor = editorRef.current;
     const start = editor?.selectionStart ?? value.length;
     const end = editor?.selectionEnd ?? value.length;
@@ -473,12 +572,13 @@ function Schreiben({ exercise, answers, onText }: PartRendererProps) {
             <textarea
                 ref={editorRef}
                 value={value}
+                readOnly={readOnly}
                 onChange={(event) => onText(question.number, event.target.value)}
                 placeholder="Schreiben Sie hier Ihre E-Mail …"
                 spellCheck="true"
-                className="min-h-0 flex-1 resize-none rounded-xl border border-black bg-white p-5 text-base leading-8 outline-none transition placeholder:text-black/25"
+                className={`min-h-0 flex-1 rounded-xl border border-black bg-white p-5 text-base leading-8 outline-none transition placeholder:text-black/25 ${readOnly ? "cursor-default resize-none" : "resize-none"}`}
             />
-            <div className="mt-4 flex flex-wrap items-center gap-2" aria-label="Deutsche Sonderzeichen">
+            {!readOnly && <div className="mt-4 flex flex-wrap items-center gap-2" aria-label="Deutsche Sonderzeichen">
               {specialCharacters.map((character) => (
                   <button
                       key={character}
@@ -489,14 +589,14 @@ function Schreiben({ exercise, answers, onText }: PartRendererProps) {
                     {character}
                   </button>
               ))}
-            </div>
+            </div>}
           </div>
         </div>
       </ContentFrame>
   );
 }
 
-function GenericPart({ exercise, answers, onSelection }: PartRendererProps) {
+function GenericPart({ exercise, answers, onSelection, readOnly, reviewResults }: PartRendererProps) {
   return (
       <ContentFrame>
         {exercise.content && <div className="mb-7 rounded-2xl border border-black bg-white p-6"><SharedContent content={exercise.content} /></div>}
@@ -511,7 +611,13 @@ function GenericPart({ exercise, answers, onSelection }: PartRendererProps) {
                         name={`question-${question.number}`}
                         value={answers[question.number]?.selectedOptionKeys[0]}
                         options={question.options}
+                        readOnly={readOnly}
                         onChange={(key) => onSelection(question.number, key)}
+                    />
+                    <WrongAnswerMark
+                        question={question}
+                        readOnly={readOnly}
+                        reviewResults={reviewResults}
                     />
                   </div>
                 </div>
@@ -544,4 +650,3 @@ export function PartRenderer(props: PartRendererProps) {
       return <GenericPart {...props} />;
   }
 }
-

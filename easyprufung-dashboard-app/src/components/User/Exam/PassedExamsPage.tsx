@@ -3,11 +3,13 @@ import {
     ArrowLeft,
     ArrowRight,
     Check,
+    Eye,
     LoaderCircle
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import {PassedExamEntry} from "./models/exam.ts";
 import {getPassedUserExams} from "../../../api/exam/api-helper.ts";
+import { ExamReviewPage } from "./ExamReviewPage.tsx";
 
 
 function formatScore(value: number): string {
@@ -28,10 +30,12 @@ function formatDate(value: string): string {
 
 function ExamResultDetails({
                                entry,
-                               onBack
+                               onBack,
+                               onShowDetails
                            }: {
     entry: PassedExamEntry;
     onBack: () => void;
+    onShowDetails: () => void;
 }) {
     const { session, result } = entry;
 
@@ -213,6 +217,15 @@ function ExamResultDetails({
                         ))}
                     </div>
                 </section>
+
+                <button
+                    type="button"
+                    onClick={onShowDetails}
+                    className="mt-6 inline-flex items-center gap-2 rounded-full bg-black px-7 py-4 text-sm font-black text-white"
+                >
+                    <Eye size={17} />
+                    Alle Aufgaben ansehen
+                </button>
             </div>
         </main>
     );
@@ -224,6 +237,8 @@ export function PassedExamsPage() {
         PassedExamEntry[]
     >([]);
     const [selectedExam, setSelectedExam] =
+        useState<PassedExamEntry | null>(null);
+    const [reviewExam, setReviewExam] =
         useState<PassedExamEntry | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(
@@ -262,11 +277,22 @@ export function PassedExamsPage() {
         };
     }, [userId]);
 
+    if (reviewExam) {
+        return (
+            <ExamReviewPage
+                session={reviewExam.session}
+                result={reviewExam.result}
+                onBack={() => setReviewExam(null)}
+            />
+        );
+    }
+
     if (selectedExam) {
         return (
             <ExamResultDetails
                 entry={selectedExam}
                 onBack={() => setSelectedExam(null)}
+                onShowDetails={() => setReviewExam(selectedExam)}
             />
         );
     }
@@ -375,16 +401,24 @@ export function PassedExamsPage() {
                                     </p>
                                 </div>
 
-                                <button
-                                    type="button"
-                                    onClick={() =>
-                                        setSelectedExam(entry)
-                                    }
-                                    className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-black text-white"
-                                >
-                                    Ergebnis öffnen
-                                    <ArrowRight size={17} />
-                                </button>
+                                <div className="flex flex-col gap-2">
+                                    <button
+                                        type="button"
+                                        onClick={() => setReviewExam(entry)}
+                                        className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-black text-white"
+                                    >
+                                        Prüfung ansehen
+                                        <Eye size={17} />
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => setSelectedExam(entry)}
+                                        className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-black text-white"
+                                    >
+                                        Ergebnis öffnen
+                                        <ArrowRight size={17} />
+                                    </button>
+                                </div>
                             </article>
                         ))}
                     </div>

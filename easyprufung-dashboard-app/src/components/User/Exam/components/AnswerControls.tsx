@@ -8,6 +8,7 @@ export function AnswerSelect(props: {
     onChange: (value: string) => void;
     label?: string;
     disabledOptionKeys?: ReadonlySet<string>;
+    readOnly?: boolean;
 }) {
     return (
         <label className="block">
@@ -20,8 +21,11 @@ export function AnswerSelect(props: {
             <select
                 id={props.id}
                 value={props.value ?? ""}
+                disabled={props.readOnly}
                 onChange={(event) => props.onChange(event.target.value)}
-                className={`w-full cursor-pointer appearance-none rounded-lg border-0 px-2 pr-10 text-sm font-black text-black outline-none ${
+                className={`w-full appearance-none rounded-lg border-0 px-2 pr-10 text-sm font-black text-black outline-none disabled:cursor-default disabled:opacity-100 ${
+                    props.readOnly ? "cursor-default" : "cursor-pointer"
+                } ${
                     props.value ? "bg-yellow-200" : "bg-white"
                 }`}
             >
@@ -62,6 +66,7 @@ export function RadioAnswers(props: {
   options: OptionDto[];
   onChange: (value: string) => void;
   compact?: boolean;
+  readOnly?: boolean;
 }) {
   return (
       <div className={`grid gap-2 ${props.compact ? "sm:grid-cols-2" : ""}`}>
@@ -70,7 +75,9 @@ export function RadioAnswers(props: {
           return (
               <label
                   key={option.key}
-                  className={`group flex cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 transition ${
+                  className={`group flex items-center gap-3 rounded-xl border px-4 py-3 transition ${
+                      props.readOnly ? "cursor-default" : "cursor-pointer"
+                  } ${
                       selected ? "border-black bg-yellow-200 text-black" : "border-black bg-white"
                   }`}
               >
@@ -79,6 +86,7 @@ export function RadioAnswers(props: {
                     name={props.name}
                     value={option.key}
                     checked={selected}
+                    disabled={props.readOnly}
                     onChange={() => props.onChange(option.key)}
                     className="sr-only"
                 />
@@ -100,6 +108,7 @@ export function TrueFalseAnswers(props: {
   value?: string;
   options: OptionDto[];
   onChange: (value: string) => void;
+  readOnly?: boolean;
 }) {
   const find = (key: string) => props.options.find((option) => option.key === key);
   return (
@@ -110,7 +119,9 @@ export function TrueFalseAnswers(props: {
           return (
               <label
                   key={key}
-                  className={`cursor-pointer rounded-xl border px-3 py-3 text-center transition ${
+                  className={`rounded-xl border px-3 py-3 text-center transition ${
+                      props.readOnly ? "cursor-default" : "cursor-pointer"
+                  } ${
                       selected ? "border-black bg-yellow-200" : "border-black bg-white"
                   }`}
               >
@@ -119,6 +130,7 @@ export function TrueFalseAnswers(props: {
                     type="radio"
                     name={props.name}
                     checked={selected}
+                    disabled={props.readOnly}
                     onChange={() => props.onChange(key)}
                 />
                 <span className="block text-xl font-black">{key}</span>

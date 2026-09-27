@@ -1,4 +1,6 @@
-import { ArrowRight, Check, RotateCcw, X } from "lucide-react";
+import { ArrowRight, Check, Eye, RotateCcw, X } from "lucide-react";
+import { useState } from "react";
+import { ExamReviewPage } from "./ExamReviewPage.tsx";
 import type { ExamResultView, ExamSessionView, QuestionType } from "./models/exam.ts";
 
 export function ResultPage(props: {
@@ -7,10 +9,21 @@ export function ResultPage(props: {
     onRestart: () => void;
 }) {
     const { session, result, onRestart } = props;
+    const [showDetails, setShowDetails] = useState(false);
     const questionTypes = new Map<string, QuestionType>();
     session.exercises.forEach((exercise) =>
         exercise.questions.forEach((question) => questionTypes.set(question.number, question.type))
     );
+
+    if (showDetails) {
+        return (
+            <ExamReviewPage
+                session={session}
+                result={result}
+                onBack={() => setShowDetails(false)}
+            />
+        );
+    }
 
     return (
         <main className="min-h-screen bg-white text-black">
@@ -125,13 +138,22 @@ export function ResultPage(props: {
                     </div>
                 </section>
 
-                <button
-                    type="button"
-                    onClick={onRestart}
-                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-black px-7 py-4 text-sm font-black text-white transition hover:-translate-y-0.5"
-                >
-                    <RotateCcw size={17} /> Neue Prüfung
-                </button>
+                <div className="mt-8 flex flex-wrap gap-3">
+                    <button
+                        type="button"
+                        onClick={() => setShowDetails(true)}
+                        className="inline-flex items-center gap-2 rounded-full bg-black px-7 py-4 text-sm font-black text-white transition hover:-translate-y-0.5"
+                    >
+                        <Eye size={17} /> Details anzeigen
+                    </button>
+                    <button
+                        type="button"
+                        onClick={onRestart}
+                        className="inline-flex items-center gap-2 rounded-full bg-black px-7 py-4 text-sm font-black text-white transition hover:-translate-y-0.5"
+                    >
+                        <RotateCcw size={17} /> Neue Prüfung
+                    </button>
+                </div>
             </div>
         </main>
     );

@@ -166,11 +166,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, setTheme }: SidebarProps) => {
                                                                 }
                                                             >
                                                                 <div className="flex flex-row" key="1">
-                                                                    {item.logoUrl &&  <img
-                                                                         className="h-6 w-6 mr-2"
-                                                                         src={`${(process.env.NODE_ENV === 'development') ?"http://localhost:8080":"https://app.easyprufung.com"}${item.logoUrl}`}
-                                                                     />
-                                                                    }
                                                                     {item.name? item.name : `Project [${index+1}]`}
 
                                                                 </div>
