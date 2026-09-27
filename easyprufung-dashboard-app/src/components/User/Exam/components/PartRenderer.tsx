@@ -503,32 +503,88 @@ function SprachbausteineTeil2({ exercise, answers, onSelection, readOnly, review
   );
 }
 
-function Hoerverstehen({ exercise, answers, onSelection, readOnly, reviewResults }: PartRendererProps) {
-  return (
-      <ContentFrame>
-        <div className="divide-y divide-black overflow-hidden rounded-2xl border border-black">
-          {exercise.questions.map((question) => (
-              <article key={question.id} className="grid gap-5 bg-white p-5 sm:grid-cols-[auto_1fr] sm:items-center sm:p-6">
-                <div>
-                  <TrueFalseAnswers
-                      name={`question-${question.number}`}
-                      value={answers[question.number]?.selectedOptionKeys[0]}
-                      options={question.options}
-                      readOnly={readOnly}
-                      onChange={(key) => onSelection(question.number, key)}
-                  />
-                  <WrongAnswerMark
-                      question={question}
-                      readOnly={readOnly}
-                      reviewResults={reviewResults}
-                  />
+function Hoerverstehen({
+                           exercise,
+                           answers,
+                           onSelection,
+                           readOnly,
+                           reviewResults
+                       }: PartRendererProps) {
+    return (
+        <ContentFrame>
+            <div className="overflow-hidden rounded-2xl border border-black bg-white">
+                {/* Table header */}
+                <div className="grid grid-cols-[80px_80px_minmax(0,1fr)] items-center border-b border-black bg-white">
+                    <div className="px-2 py-4 text-center">
+                        <p className="text-xs font-black uppercase tracking-wide">
+                            Richtig
+                        </p>
+                        <p className="mt-1 text-sm font-black">
+                            (+)
+                        </p>
+                    </div>
+
+                    <div className="border-l border-black px-2 py-4 text-center">
+                        <p className="text-xs font-black uppercase tracking-wide">
+                            Falsch
+                        </p>
+                        <p className="mt-1 text-sm font-black">
+                            (−)
+                        </p>
+                    </div>
+
+                    <div className="border-l border-black px-5 py-4">
+                        <p className="text-xs font-black uppercase tracking-wide">
+                            Aussage
+                        </p>
+                    </div>
                 </div>
-                <p className="text-sm font-bold leading-6">{question.number}. {question.prompt}</p>
-              </article>
-          ))}
-        </div>
-      </ContentFrame>
-  );
+
+                {/* Question rows */}
+                <div className="divide-y divide-black">
+                    {exercise.questions.map((question) => (
+                        <article
+                            key={question.id}
+                            className="grid grid-cols-[160px_minmax(0,1fr)] items-center bg-white"
+                        >
+                            <div className="px-0 py-5">
+                                <TrueFalseAnswers
+                                    name={`question-${question.number}`}
+                                    value={
+                                        answers[question.number]
+                                            ?.selectedOptionKeys[0]
+                                    }
+                                    readOnly={readOnly}
+                                    onChange={(key) =>
+                                        onSelection(
+                                            question.number,
+                                            key
+                                        )
+                                    }
+                                />
+                            </div>
+
+                            <div className="border-l border-black px-5 py-5">
+                                <p className="text-sm font-bold leading-6">
+                                    <span className="mr-2 font-black">
+                                        {question.number}.
+                                    </span>
+
+                                    {question.prompt}
+                                </p>
+
+                                <WrongAnswerMark
+                                    question={question}
+                                    readOnly={readOnly}
+                                    reviewResults={reviewResults}
+                                />
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </div>
+        </ContentFrame>
+    );
 }
 
 function Schreiben({ exercise, answers, onText, readOnly }: PartRendererProps) {
@@ -563,13 +619,7 @@ function Schreiben({ exercise, answers, onText, readOnly }: PartRendererProps) {
             </div>
           </div>
           <div className="flex min-h-[34rem] flex-col rounded-2xl border border-black bg-white p-5 sm:p-7">
-            <div className="mb-4 flex items-center justify-between gap-4">
-              <span className="eyebrow">Ihre Antwort</span>
-              <span className="rounded-full border border-black px-3 py-1 text-xs font-black text-black">
-              {words} Wörter
-            </span>
-            </div>
-            <textarea
+              <textarea
                 ref={editorRef}
                 value={value}
                 readOnly={readOnly}

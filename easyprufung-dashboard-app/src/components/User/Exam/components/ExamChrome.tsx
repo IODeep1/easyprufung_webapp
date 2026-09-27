@@ -48,10 +48,8 @@ export function ExamHeader({ title, level, expiresAt, currentIndex, total }: Exa
         <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4 px-4 py-4 sm:px-7 lg:px-10">
           <div className="min-w-0">
             <div className="flex items-center gap-3">
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-black bg-white font-black text-black">E</span>
               <div className="min-w-0">
-                <p className="truncate text-sm font-black uppercase tracking-[0.16em]">EasyPrüfung</p>
-                <p className="truncate text-xs text-black/55">{title} · {level}</p>
+                <p className="truncate text-lg text-black/55">{title} · {level}</p>
               </div>
             </div>
           </div>
@@ -77,30 +75,20 @@ export function PartInformation({
 }) {
     return (
         <section className="overflow-hidden rounded-[1.75rem] border border-black bg-white shadow-frame">
-            <div className="grid gap-2 p-6 sm:p-8 lg:grid-cols-[minmax(0,0.65fr)_minmax(0,1.35fr)] lg:p-10">
-                <div>
-                    <p className="eyebrow">
-                        Abschnitt {index + 1} von {total}
-                    </p>
+            <div className="p-6 sm:p-8 lg:p-10">
+                <p className="text-sm font-bold text-black/50">
+                    {exercise.sectionTitle}
+                </p>
 
-                    <p className="mt-3 text-sm font-bold text-black/50">
-                        {exercise.sectionTitle}
-                    </p>
+                <h1 className="mt-1 font-display text-3xl leading-none tracking-[-0.04em] text-black sm:text-4xl">
+                    {exercise.partTitle}
+                </h1>
 
-                    <h1 className="mt-1 font-display text-3xl leading-none tracking-[-0.04em] text-black sm:text-4xl">
-                        {exercise.partTitle}
-                    </h1>
-                </div>
+                <p className="mt-3 whitespace-pre-wrap text-sm leading-7 text-black/80 sm:text-base">
+                    {exercise.instructions}
+                </p>
 
-                <div>
-                    <p className="eyebrow">Anweisungen</p>
-
-                    <p className="mt-3 whitespace-pre-wrap text-sm leading-7 text-black/80 sm:text-base">
-                        {exercise.instructions}
-                    </p>
-
-                    {extra && <div className="mt-6">{extra}</div>}
-                </div>
+                {extra && <div className="mt-6">{extra}</div>}
             </div>
         </section>
     );
@@ -127,7 +115,7 @@ export function BottomNavigation(props: BottomNavigationProps) {
             disabled={!canGoBack}
             className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-black text-white transition disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-600"
         >
-          <ArrowLeft size={17} /> Return
+          <ArrowLeft size={17} /> Zurück
         </button>
 
         <div className="text-center text-xs font-bold uppercase tracking-[0.12em] text-black/45">
@@ -140,7 +128,7 @@ export function BottomNavigation(props: BottomNavigationProps) {
             disabled={!canContinue}
             className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-7 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:translate-y-0 disabled:bg-gray-300 disabled:text-gray-600 disabled:shadow-none"
         >
-          {isLast ? "Submit" : "Next"}
+          {isLast ? "Einreichen" : "Nächste"}
           <ArrowRight size={17} />
         </button>
       </footer>
