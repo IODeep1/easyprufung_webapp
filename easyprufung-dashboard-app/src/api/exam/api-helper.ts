@@ -1,10 +1,11 @@
 import type {
     ApiErrorBody,
-    ExamResultView,
-    ExamSessionView,
+    ExamResultView, ExamSessionSummaryView,
+    ExamSessionView, PageResponse,
+    PassedExamEntry,
     StartExamRequest,
     SubmitExamRequest
-} from "../../store/models/user/exam/exam";
+} from "../../components/User/Exam/models/exam.ts";
 
 
 export class ExamApiError extends Error {
@@ -79,4 +80,91 @@ export function getExamResult(sessionId: string): Promise<ExamResultView> {
     return request<ExamResultView>(
         `/api/exams/sessions/${encodeURIComponent(sessionId)}/result`
     );
+}
+
+export function getUserExamSessionsPage(
+    userId: string,
+    page = 0,
+    size = 20
+): Promise<PageResponse<ExamSessionSummaryView>> {
+    const query = new URLSearchParams({
+        userId,
+        page: page.toString(),
+        size: size.toString()
+    });
+
+    return request<PageResponse<ExamSessionSummaryView>>(
+        `/api/exams/sessions?${query.toString()}`
+    );
+}
+
+export async function getAllUserExamSessions(
+    userId: string
+): Promise<ExamSessionSummaryView[]> {
+    const firstPage = await getUserExamSessionsPage(
+        userId,
+        0,
+        20
+    );
+
+    if (firstPage.totalPages <= 1) {
+        return firstPage.content;
+    }
+
+    const remainingPages = await Promise.all(
+        Array.from(
+            {
+                length: firstPage.totalPages - 1
+            },
+            (_, index) =>
+                getUserExamSessionsPage(userId, index + 1, 20)
+        )
+    );
+
+    return [
+        ...firstPage.content,
+        ...remainingPages.flatMap((page) => page.content)
+    ];
+}
+
+export async function getPassedUserExams(
+    userId: string
+): Promise<PassedExamEntry[]> {
+    const summaries =
+        await getAllUserExamSessions(userId);
+
+    const evaluatedSummaries = summaries.filter(
+        (session) => session.status === "EVALUATED"
+    );
+
+    const entries: PassedExamEntry[] =
+        await Promise.all(
+            evaluatedSummaries.map(async (summary) => {
+                const session = await getExamSession(
+                    summary.sessionId
+                );
+
+                const result = await getExamResult(
+                    summary.sessionId
+                );
+
+                return {
+                    session,
+                    result
+                };
+            })
+        );
+
+    console.log("Loaded exam entries:", entries);
+
+    return entries
+        .filter(
+            (entry): entry is PassedExamEntry =>
+                entry !== null
+        )
+        .sort(
+            (first, second) =>
+                new Date(second.result.evaluatedAt).getTime() -
+                new Date(first.result.evaluatedAt).getTime()
+        );
 }

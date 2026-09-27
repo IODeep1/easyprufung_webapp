@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import type { OptionDto } from "../../../../store/models/user/exam/exam.ts";
+import type { OptionDto } from "../models/exam.ts";
 
 export function AnswerSelect(props: {
     id: string;

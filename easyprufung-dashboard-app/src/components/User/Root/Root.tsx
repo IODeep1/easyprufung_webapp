@@ -16,6 +16,7 @@ import CodeRedemption from "../Pricing/CodeRedemption";
 import PricingContact from "../Pricing/PricingContact";
 import {StartPage} from "../Exam/StartPage.tsx";
 import MainExamPage from "../Exam/MainExamPage.tsx";
+import {PassedExamsPage} from "../Exam/PassedExamsPage.tsx";
 
 const Root: React.FC = () => {
     const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -74,6 +75,7 @@ const Root: React.FC = () => {
                                     <Routes>
                                         <Route path="/*"  element={<NotFound />}></Route>
                                         <Route path="/new"  element={<MainExamPage />}></Route>
+                                        <Route path="/exams"  element={<PassedExamsPage />}></Route>
                                         <Route path="/login"  element={<Login />}></Route>
                                         <Route path="/settings"  element={<Settings />}></Route>
                                         <Route path="/register"  element={<Registration />}></Route>

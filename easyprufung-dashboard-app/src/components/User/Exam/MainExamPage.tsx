@@ -5,7 +5,7 @@ import { LoadingScreen } from "./components/ExamChrome";
 import { ExamRunnerPage } from "./ExamRunnerPage";
 import { ResultPage } from "./ResultPage";
 import { StartPage } from "./StartPage";
-import type { ExamResultView, ExamSessionView, StartExamRequest, SubmitExamRequest } from "../../../store/models/user/exam/exam.ts";
+import type { ExamResultView, ExamSessionView, StartExamRequest, SubmitExamRequest } from "./models/exam.ts";
 
 type Screen = "start" | "loading" | "exam" | "result" | "error";
 

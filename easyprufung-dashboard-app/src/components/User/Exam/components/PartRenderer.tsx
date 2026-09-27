@@ -1,6 +1,6 @@
 import { GripVertical, X } from "lucide-react";
 import {Fragment, useMemo, useState, type DragEvent, useRef} from "react";
-import type { AnswerMap, ExerciseView, QuestionView } from "../../../../store/models/user/exam/exam.ts";
+import type { AnswerMap, ExerciseView, QuestionView } from "../models/exam.ts";
 import { AnswerSelect, RadioAnswers, TrueFalseAnswers } from "./AnswerControls.tsx";
 import { ContentFrame } from "./ExamChrome";
 

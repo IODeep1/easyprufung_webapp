@@ -67,22 +67,57 @@ export function SubmitConfirmation(props: {
           <button
               type="button"
               disabled={submitting}
-              onPointerDown={begin}
-              onPointerUp={clear}
-              onPointerLeave={clear}
-              onPointerCancel={clear}
+              onPointerDown={(event) => {
+                event.currentTarget.setPointerCapture(event.pointerId);
+                begin();
+              }}
+              onPointerUp={() => {
+                if (!firedRef.current) {
+                  clear();
+                }
+              }}
+              onPointerLeave={() => {
+                if (!firedRef.current) {
+                  clear();
+                }
+              }}
+              onPointerCancel={() => {
+                if (!firedRef.current) {
+                  clear();
+                }
+              }}
               onKeyDown={(event) => {
-                if ((event.key === " " || event.key === "Enter") && !event.repeat) begin();
+                if (
+                    (event.key === " " || event.key === "Enter") &&
+                    !event.repeat
+                ) {
+                  event.preventDefault();
+                  begin();
+                }
               }}
               onKeyUp={(event) => {
-                if (event.key === " " || event.key === "Enter") clear();
+                if (
+                    (event.key === " " || event.key === "Enter") &&
+                    !firedRef.current
+                ) {
+                  clear();
+                }
               }}
-              className="relative mt-8 w-full touch-none overflow-hidden rounded-2xl bg-black px-6 py-5 text-sm font-black uppercase tracking-[0.16em] text-white disabled:opacity-60"
+              className="relative mt-8 w-full touch-none overflow-hidden rounded-2xl bg-black px-6 py-5 text-sm font-black uppercase tracking-[0.16em] text-white disabled:cursor-not-allowed"
           >
-            <span className="absolute inset-y-0 left-0 bg-white/35 transition-[width] duration-75" style={{ width: `${progress}%` }} />
-            <span className="relative z-10 text-white">
-            {submitting ? "Wird ausgewertet …" : "2 Sekunden halten"}
-          </span>
+            <span
+                aria-hidden="true"
+                className="absolute inset-0 origin-left bg-gray-500 transition-transform duration-75 ease-linear"
+                style={{
+                  transform: `scaleX(${progress / 100})`
+                }}
+            />
+
+                      <span className="relative z-10 text-white">
+              {submitting
+                  ? "Wird ausgewertet …"
+                  : "2 Sekunden halten"}
+            </span>
           </button>
         </div>
       </div>

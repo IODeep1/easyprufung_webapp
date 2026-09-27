@@ -117,4 +117,35 @@ export interface LocalAnswer {
     text: string;
 }
 
+
+export interface ExamSessionSummaryView {
+    sessionId: string;
+    examCode: string;
+    title: string;
+    provider: ExamProvider;
+    level: CefrLevel;
+    definitionVersion: number;
+    status: SessionStatus;
+    createdAt: string;
+    startedAt: string;
+    expiresAt: string | null;
+    submittedAt: string | null;
+}
+
+export interface PageResponse<T> {
+    content: T[];
+    totalPages: number;
+    totalElements: number;
+    size: number;
+    number: number;
+    numberOfElements: number;
+    first: boolean;
+    last: boolean;
+    empty: boolean;
+}
+export interface PassedExamEntry {
+    session: ExamSessionView;
+    result: ExamResultView;
+}
+
 export type AnswerMap = Record<string, LocalAnswer>;

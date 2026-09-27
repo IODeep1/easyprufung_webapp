@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { BottomNavigation, ExamHeader, PartInformation } from "./components/ExamChrome";
 import { SubmitConfirmation } from "./components/HoldToSubmit";
 import { PartRenderer } from "./components/PartRenderer";
-import type { AnswerMap, ExamSessionView, SubmitExamRequest } from "../../../store/models/user/exam/exam.ts";
+import type { AnswerMap, ExamSessionView, SubmitExamRequest } from "./models/exam.ts";
 import {AudioPlayer} from "./components/AudioPlayer.tsx";
 
 export function ExamRunnerPage(props: {

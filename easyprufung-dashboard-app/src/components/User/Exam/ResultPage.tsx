@@ -1,5 +1,5 @@
 import { ArrowRight, Check, RotateCcw, X } from "lucide-react";
-import type { ExamResultView, ExamSessionView, QuestionType } from "../../../store/models/user/exam/exam.ts";
+import type { ExamResultView, ExamSessionView, QuestionType } from "./models/exam.ts";
 
 export function ResultPage(props: {
     session: ExamSessionView;
@@ -16,23 +16,61 @@ export function ResultPage(props: {
         <main className="min-h-screen bg-white text-black">
             <section className="border-b border-black bg-white px-5 py-12 text-black sm:px-10 sm:py-16">
                 <div className="mx-auto max-w-6xl">
-                    <div className="flex items-center gap-3">
-                        <span className="grid h-10 w-10 place-items-center rounded-full border border-black bg-white font-black text-black">E</span>
-                        <span className="text-sm font-black uppercase tracking-[0.18em]">EasyPrüfung</span>
-                    </div>
                     <div className="mt-14 grid items-end gap-10 lg:grid-cols-[1fr_auto]">
                         <div>
-                            <p className="text-xs font-black uppercase tracking-[0.25em] text-black/50">Prüfung abgeschlossen</p>
+                            <p className="text-xs font-black uppercase tracking-[0.25em] text-black/50">
+                                Prüfung abgeschlossen
+                            </p>
+
                             <h1 className="mt-4 max-w-3xl font-display text-5xl leading-none tracking-[-0.055em] sm:text-7xl">
                                 {result.passed ? "Bestanden." : "Weiter üben."}
                             </h1>
-                            <p className="mt-5 text-black/50">{session.title}</p>
+
+                            <p className="mt-5 text-black/50">
+                                {session.title}
+                            </p>
                         </div>
-                        <div className="flex items-end gap-3">
-              <span className="text-7xl font-black tracking-[-0.08em] text-black sm:text-8xl">
-                {Math.round(result.percentage)}
-              </span>
-                            <span className="pb-2 text-2xl font-black text-black/35">%</span>
+
+                        <div className="flex flex-wrap items-end gap-8 sm:gap-12">
+                            <div>
+                                <p className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-black/50">
+                                    Punkte
+                                </p>
+
+                                <div className="flex items-end gap-2">
+                                    <span className="text-5xl font-black tracking-[-0.06em] text-black sm:text-6xl">
+                                      {Number(result.score).toLocaleString("de-DE", {
+                                          maximumFractionDigits: 2
+                                      })}
+                                    </span>
+
+                                                            <span className="pb-1 text-xl font-black text-black/35">
+                                      /{" "}
+                                                                {Number(result.maximumScore).toLocaleString(
+                                                                    "de-DE",
+                                                                    {
+                                                                        maximumFractionDigits: 2
+                                                                    }
+                                                                )}
+                                    </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div>
+                                                        <p className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-black/50">
+                                                            Ergebnis
+                                                        </p>
+
+                                                        <div className="flex items-end gap-2">
+                                                            <span className="text-5xl font-black tracking-[-0.08em] text-black sm:text-6xl">
+                                                              {Math.round(result.percentage)}
+                                                            </span>
+
+                                                            <span className="pb-2 text-2xl font-black text-black/35">
+                                      %
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
