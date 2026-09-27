@@ -68,7 +68,7 @@ const ForgotPassword = () => {
                 <div className="px-6 pt-7">
                     <Link to="/" className="inline-flex items-center text-2xl font-semibold">
                         <img alt="logo" width="44" height="44" src={Logo} className="mr-2 rounded-md" />
-                        <span>EasyPrufung</span>
+                        <span>EasyPrüfung</span>
                     </Link>
                 </div>
 
@@ -140,7 +140,7 @@ const ForgotPassword = () => {
                             <div className="w-full max-w-lg rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-black shadow-2xl overflow-hidden">
                                 <div className="h-1 w-full bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600" />
                                 <div className="flex items-center justify-between px-6 py-4 border-b border-black/10 dark:border-white/10">
-                                    <h3 className="text-lg font-semibold">EasyPrufung</h3>
+                                    <h3 className="text-lg font-semibold">EasyPrüfung</h3>
                                     <button
                                         type="button"
                                         onClick={() => setPopup(false)}

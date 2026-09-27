@@ -164,7 +164,7 @@ const Header: React.FC<HeaderProps> = ({
                             </svg>
                         )}
                     </div>
-                    <span className="text-black dark:text-white">EasyPrufung</span>
+                    <span className="text-black dark:text-white">EasyPrüfung</span>
                 </div>
             </div>
             {/* Right: Plan + Credits + CTAs + Settings */}

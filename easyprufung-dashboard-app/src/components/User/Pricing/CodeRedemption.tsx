@@ -73,7 +73,7 @@ const CodeRedemption = () => {
                     </h2>
                     <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-blue-500/80" />
                     <p className="mx-auto mt-4 max-w-2xl text-base text-neutral-600 dark:text-neutral-400">
-                        Enter your code to unlock exclusive EasyPrufung features and enhance your idea validation, branding, and landing page generation. Redeem now to take your ideas to the next level!
+                        Enter your code to unlock exclusive EasyPrüfung features and enhance your idea validation, branding, and landing page generation. Redeem now to take your ideas to the next level!
                     </p>
                 </div>
 

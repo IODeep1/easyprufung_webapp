@@ -67,7 +67,7 @@ const AdvancedUserData = () => {
                     <div className="mr-2">
                         <img alt="logo" width="44" height="44" src={Logo}/>
                     </div>
-                    <span className="text-black dark:text-white">EasyPrufung</span>
+                    <span className="text-black dark:text-white">EasyPrüfung</span>
                 </Link>
             </div>
             <div className="py-8  px-4 mx-auto max-w-screen-md">

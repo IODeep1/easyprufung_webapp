@@ -45,7 +45,7 @@ const AdminLogin = () => {
                             <div className="mr-2">
                                 <img alt="logo" width="88" height="88" src={Logo}/>
                             </div>
-                            <span className="text-black dark:text-white">EasyPrufung</span>
+                            <span className="text-black dark:text-white">EasyPrüfung</span>
                         </div>
                         <div className="items-center gap-10 max-w-6xl w-full">
 

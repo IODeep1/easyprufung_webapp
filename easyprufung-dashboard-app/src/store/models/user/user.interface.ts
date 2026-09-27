@@ -1,5 +1,4 @@
 import {ISubscription} from "../subscription.interface";
-import {IProject} from "./project/project.interface";
 
 export interface IUser {
     id: number;

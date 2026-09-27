@@ -1,1 +1,1 @@
-#EasyPrufung website
+#EasyPrüfung website

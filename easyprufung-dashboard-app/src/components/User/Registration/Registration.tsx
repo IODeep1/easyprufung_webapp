@@ -140,7 +140,7 @@ const Registration = () => {
                         className="inline-flex items-center text-2xl font-semibold text-gray-900 dark:text-white"
                     >
                         <img alt="logo" width="44" height="44" src={Logo} className="mr-2 rounded-md" />
-                        <span>EasyPrufung</span>
+                        <span>EasyPrüfung</span>
                     </Link>
                 </div>
 
@@ -151,7 +151,7 @@ const Registration = () => {
                             Create your account
                         </h1>
                         <p className="mt-4 text-sm text-gray-700 dark:text-gray-300">
-                            Join EasyPrufung to validate ideas, generate names, craft logos, and launch landing pages—faster.
+                            Join EasyPrüfung to validate ideas, generate names, craft logos, and launch landing pages—faster.
                         </p>
 
                         <div className="mt-8 space-y-3">

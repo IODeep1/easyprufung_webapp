@@ -81,14 +81,14 @@ const Login = () => {
                 {/* Logo & Brand */}
                 <div className="flex items-center justify-center gap-3 pb-12">
                     <img
-                        alt="EasyPrufung logo"
+                        alt="EasyPrüfung logo"
                         width="64"
                         height="64"
                         src={Logo}
                         className="h-12 w-12 rounded-md"
                     />
                     <span className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
-        EasyPrufung
+        EasyPrüfung
       </span>
                 </div>
 

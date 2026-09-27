@@ -80,7 +80,7 @@ const PaymentCheckOut = () => {
                             </p>
                         ) : (
                             <p className="text-l mt-6 text-gray-500 dark:text-gray-400">
-                                Enjoy access to EasyPrufung's powerful tools for idea validation, branding, and landing page creation. Get started on your next big idea today!
+                                Enjoy access to EasyPrüfung's powerful tools for idea validation, branding, and landing page creation. Get started on your next big idea today!
                             </p>
                         )}
 
