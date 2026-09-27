@@ -170,6 +170,48 @@ function LesenTeil2({ exercise, answers, onSelection, readOnly, reviewResults }:
   );
 }
 
+function parseAdvertisement(contentPart: string) {
+    const normalized = contentPart.trim();
+
+    const labelMatch = normalized.match(
+        /^([a-lA-L])\s*[\).:\-]\s*([\s\S]*)$/
+    );
+
+    const label = labelMatch?.[1]?.toLowerCase() ?? "";
+    const advertisement = labelMatch?.[2]?.trim() ?? normalized;
+
+    const lines = advertisement
+        .split("\n")
+        .map((line) => line.trim())
+        .filter(Boolean);
+
+    if (lines.length > 1) {
+        return {
+            label,
+            title: lines[0],
+            description: lines.slice(1).join("\n")
+        };
+    }
+
+    const colonIndex = advertisement.indexOf(":");
+
+    if (colonIndex > 0 && colonIndex < 70) {
+        return {
+            label,
+            title: advertisement.slice(0, colonIndex).trim(),
+            description: advertisement
+                .slice(colonIndex + 1)
+                .trim()
+        };
+    }
+
+    return {
+        label,
+        title: "",
+        description: advertisement
+    };
+}
+
 function LesenTeil3({
                       exercise,
                       answers,
@@ -286,20 +328,59 @@ function LesenTeil3({
             })}
           </section>
 
-          <section className="space-y-4 rounded-2xl border border-black bg-white p-5 lg:p-6">
-            <p className="eyebrow">Anzeigen</p>
+            <section className="rounded-2xl border border-black bg-white p-5 lg:p-6">
+                <div className="border-b border-black pb-4">
+                    <p className="eyebrow">Anzeigen a–l</p>
 
-            {contentParts.map((contentPart, index) => (
-                <article
-                    key={`${index}-${contentPart.slice(0, 20)}`}
-                    className="rounded-xl border border-black bg-white p-5"
-                >
-                  <p className="whitespace-pre-wrap text-sm leading-7 text-black">
-                    {contentPart}
-                  </p>
-                </article>
-            ))}
-          </section>
+                    <p className="mt-2 text-sm leading-6 text-black/60">
+                        Lesen Sie die Anzeigen und wählen Sie für jede
+                        Situation die passende Anzeige aus.
+                    </p>
+                </div>
+
+                <div className="mt-6 grid gap-5 xl:grid-cols-2">
+                    {contentParts.map((contentPart, index) => {
+                        const advertisement =
+                            parseAdvertisement(contentPart);
+
+                        return (
+                            <article
+                                key={`${index}-${contentPart.slice(0, 20)}`}
+                                className="relative flex min-h-48 flex-col border-2 border-black bg-white p-5 pt-8"
+                            >
+                                {/* Advertisement letter */}
+                                <div className="absolute -left-0.5 -top-0.5 grid h-9 w-10 place-items-center border-b-2 border-r-2 border-black bg-black text-base font-black uppercase text-white">
+                                    {advertisement.label ||
+                                        String.fromCharCode(97 + index)}
+                                </div>
+
+                                {/* Advertisement heading */}
+                                {advertisement.title && (
+                                    <h3 className="ml-8 border-b border-black pb-3 font-display text-xl font-black leading-tight tracking-[-0.02em] text-black">
+                                        {advertisement.title}
+                                    </h3>
+                                )}
+
+                                {/* Advertisement content */}
+                                <p
+                                    className={`whitespace-pre-wrap text-sm font-medium leading-7 text-black ${
+                                        advertisement.title
+                                            ? "mt-4"
+                                            : "ml-8"
+                                    }`}
+                                >
+                                    {advertisement.description}
+                                </p>
+
+                                {/* Classified-ad decoration */}
+                                <div className="mt-auto pt-5">
+                                    <div className="border-t border-black/30" />
+                                </div>
+                            </article>
+                        );
+                    })}
+                </div>
+            </section>
         </div>
       </ContentFrame>
   );

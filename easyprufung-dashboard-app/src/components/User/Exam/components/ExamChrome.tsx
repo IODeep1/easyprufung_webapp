@@ -135,7 +135,7 @@ export function BottomNavigation(props: BottomNavigationProps) {
   );
 }
 
-const EXAM_PREPARATION_DURATION_MS = 2 * 60 * 1000;
+const EXAM_PREPARATION_DURATION_MS = 3 * 60 * 1000;
 
 const preparationSteps = [
     "Leseverstehen Teil 1",
