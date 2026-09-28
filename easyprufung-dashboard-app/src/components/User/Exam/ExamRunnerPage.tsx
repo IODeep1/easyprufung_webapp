@@ -142,7 +142,7 @@ export function ExamRunnerPage(props: {
     const audio = exercise.audioUrl ? (
         <AudioPlayer
             src={exercise.audioUrl}
-            playLimit={exercise.audioPlayLimit}
+            playbackId={`${session.sessionId}:${index}`}
         />
     ) : undefined;
 

@@ -138,7 +138,7 @@ export function TrueFalseAnswers(props: {
                         <span
                             className={`grid h-7 w-7 place-items-center rounded-full border-2 border-black transition ${
                                 selected
-                                    ? "bg-yellow-200"
+                                    ? "bg-white"
                                     : "bg-white"
                             }`}
                         >

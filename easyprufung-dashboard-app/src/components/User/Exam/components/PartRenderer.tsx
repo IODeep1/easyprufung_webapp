@@ -193,11 +193,15 @@ function LesenTeil3({
         () =>
             new Set(
                 exercise.questions
-                    .map(
-                        (question) =>
-                            answers[question.number]?.selectedOptionKeys[0]
+                    .map((question) =>
+                        answers[question.number]?.selectedOptionKeys[0]
+                            ?.trim()
+                            .toLowerCase()
                     )
-                    .filter((key): key is string => Boolean(key))
+                    .filter(
+                        (key): key is string =>
+                            Boolean(key) && key !== "x"
+                    )
             ),
         [answers, exercise.questions]
     );
