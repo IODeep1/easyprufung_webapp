@@ -200,7 +200,7 @@ const Sidebar = ({
                 <nav className="flex h-full flex-col px-4 pb-5 pt-20 lg:mt-2">
                     <div>
                         <h3 className="mb-4 ml-4 text-left text-base font-bold text-gray-900 dark:text-gray-200">
-                            Workspace
+                            Practice
                         </h3>
 
                         <ul className="mb-6 flex flex-col gap-1.5">
@@ -293,7 +293,7 @@ const Sidebar = ({
                                                 </svg>
 
                                                 <span className="min-w-0 flex-1">
-                                                    Exams
+                                                    Exam history
                                                 </span>
 
                                                 {passedExams.length >
@@ -458,7 +458,7 @@ const Sidebar = ({
                     {!isPaidSubscription && (
                         <div>
                             <h3 className="mb-4 ml-4 text-base font-bold text-gray-900 dark:text-gray-200">
-                                Subscribe
+                                Plans
                             </h3>
 
                             <ul className="mb-6 flex flex-col gap-1.5">
@@ -500,7 +500,7 @@ const Sidebar = ({
                                             <path d="m16.71 13.88.7.71-2.82 2.82" />
                                         </svg>
 
-                                        Pricing
+                                        Plans & pricing
                                     </NavLink>
                                 </li>
 

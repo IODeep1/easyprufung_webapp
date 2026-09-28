@@ -81,14 +81,14 @@ const Login = () => {
                 {/* Logo & Brand */}
                 <div className="flex items-center justify-center gap-3 pb-12">
                     <img
-                        alt="EasyPrüfung logo"
+                        alt="EasyPrufung logo"
                         width="64"
                         height="64"
                         src={Logo}
                         className="h-12 w-12 rounded-md"
                     />
                     <span className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
-        EasyPrüfung
+        EasyPrufung
       </span>
                 </div>
 
@@ -100,22 +100,22 @@ const Login = () => {
                         </h1>
 
                         <p className="mt-5 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-                            Access your dashboard to validate ideas, generate names, create logos, and build high‑converting landing pages.
+                            Continue your German exam preparation with realistic timed mock exams, AI scoring, and personalized feedback.
                         </p>
 
                         {/* Highlights */}
                         <div className="mt-8 space-y-3">
                             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur px-3 py-1 text-xs text-gray-700 dark:text-gray-300">
                                 <span className="h-2 w-2 rounded-full bg-blue-500" />
-                                AI‑assisted ideation
+                                Realistic TELC exam practice
                             </div>
                             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur px-3 py-1 text-xs text-gray-700 dark:text-gray-300 ml-2">
                                 <span className="h-2 w-2 rounded-full bg-blue-500" />
-                                No‑code landing pages
+                                AI scoring & written feedback
                             </div>
                             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur px-3 py-1 text-xs text-gray-700 dark:text-gray-300 ml-2">
                                 <span className="h-2 w-2 rounded-full bg-blue-500" />
-                                Instant branding kit
+                                Review mistakes and past results
                             </div>
                         </div>
 
@@ -234,7 +234,7 @@ const Login = () => {
 
                 {/* Footer small note */}
                 <div className="mt-10 text-center text-xs text-gray-600 dark:text-gray-400">
-                    Secured by industry‑standard encryption. Need help?{" "}
+                    Practice in a familiar environment. Build confidence. Be ready for the real exam. Need help?{" "}
                     <a
                         href="http://easyprufung.com/contact"
                         className="font-semibold text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
@@ -242,6 +242,7 @@ const Login = () => {
                         Contact support
                     </a>
                     .
+                    <div className="mt-2">EasyPrufung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.</div>
                 </div>
             </div>
         </section>

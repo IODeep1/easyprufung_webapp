@@ -98,7 +98,7 @@ const Header: React.FC<HeaderProps> = ({
     const isStarterSubscription = currentPlan === "starter";
     const isPaidSubscription = isAutopilotSubscription || isStarterSubscription;
     const planLabel = isAutopilotSubscription
-        ? "AutoPilot"
+        ? "Lifetime"
         : isStarterSubscription
             ? "Starter"
             : "Free";
@@ -164,7 +164,7 @@ const Header: React.FC<HeaderProps> = ({
                             </svg>
                         )}
                     </div>
-                    <span className="text-black dark:text-white">EasyPrüfung</span>
+                    <span className="text-black dark:text-white">EasyPrufung</span>
                 </div>
             </div>
             {/* Right: Plan + Credits + CTAs + Settings */}
@@ -181,13 +181,13 @@ const Header: React.FC<HeaderProps> = ({
                 >
           {planLabel}
         </span>
-                {/* Credits chip (shown for all; Starter matches AutoPilot behavior) */}
+                {/* Practice credits chip (shown for all paid plans) */}
                 <span
                     className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:ring-blue-800"
-                    title="Available credits"
+                    title="Available practice credits"
                 >
           <CoinIcon className="h-3.5 w-3.5" />
-                    {availableCredits} credits
+                    {availableCredits} practice credits
         </span>
                 {/* Upgrade button (Free -> Pricing) */}
                 {showUpgradeBtn && (
@@ -203,7 +203,7 @@ const Header: React.FC<HeaderProps> = ({
                         <ArrowUpRight />
                     </button>
                 )}
-                {/* Add credits button (Paid with 0 credits -> Settings credits section) */}
+                {/* Add practice credits button (Paid with 0 credits -> Settings credits section) */}
                 {showAddCreditsBtn && (
                     <button
                         type="button"
@@ -211,9 +211,9 @@ const Header: React.FC<HeaderProps> = ({
                         className="inline-flex items-center gap-2 rounded-xl px-3 py-1 text-xs font-semibold transition
           border border-black bg-black text-white hover:bg-black/90 active:bg-black
           dark:border-white dark:bg-white dark:text-black dark:hover:bg-white/90"
-                        title="Buy credit packs"
+                        title="Buy practice credit packs"
                     >
-                        Add credits
+                        Add practice credits
                         <PlusIcon />
                     </button>
                 )}

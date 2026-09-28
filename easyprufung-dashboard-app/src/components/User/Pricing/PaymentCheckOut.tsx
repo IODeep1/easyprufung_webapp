@@ -69,18 +69,18 @@ const PaymentCheckOut = () => {
 
                     <div className="text-center">
                         <h3 className="lg:text-4xl text-3xl font-extrabold lg:leading-[55px] text-gray-800 dark:text-white">
-                            {isCreditsPurchase ? "Credits Added!" : "Payment Successful!"}
+                            {isCreditsPurchase ? "Practice Credits Added!" : "Payment Successful!"}
                         </h3>
 
                         {isCreditsPurchase ? (
                             <p className="text-l mt-6 text-gray-500 dark:text-gray-400">
                                 {creditsPurchased > 0
-                                    ? `Your purchase of ${creditsPurchased} credits was successful. Your balance will update shortly.`
-                                    : "Your credits purchase was successful. Your balance will update shortly."}
+                                    ? `Your purchase of ${creditsPurchased} practice credits was successful. Your balance will update shortly.`
+                                    : "Your practice-credit purchase was successful. Your balance will update shortly."}
                             </p>
                         ) : (
                             <p className="text-l mt-6 text-gray-500 dark:text-gray-400">
-                                Enjoy access to EasyPrüfung's powerful tools for idea validation, branding, and landing page creation. Get started on your next big idea today!
+                                Use EasyPrufung to practice realistic TELC mock exams, get AI-powered scoring and feedback, and review your mistakes before exam day.
                             </p>
                         )}
 
@@ -88,11 +88,11 @@ const PaymentCheckOut = () => {
                         <div className="mt-6 flex items-center justify-center gap-3">
                             {isCreditsPurchase && creditsPurchased > 0 && (
                                 <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:ring-blue-800">
-              Purchased: {creditsPurchased} credits
+              Purchased: {creditsPurchased} practice credits
             </span>
                             )}
                             <span className="inline-flex items-center rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700 ring-1 ring-inset ring-green-200 dark:bg-green-900/30 dark:text-green-300 dark:ring-green-800">
-            {isRefreshing ? "Updating account..." : `Balance: ${availableCredits} credits`}
+            {isRefreshing ? "Updating account..." : `Balance: ${availableCredits} practice credits`}
           </span>
                         </div>
 
@@ -105,12 +105,12 @@ const PaymentCheckOut = () => {
                                 className="py-3 px-6 bg-black text-white border border-black rounded-lg hover:bg-gray-800 active:bg-gray-900
                        dark:bg-white dark:text-black dark:border-white dark:hover:bg-gray-300 dark:active:bg-gray-400"
                             >
-                                Go to Dashboard
+                                Start practicing
                             </button>
                         </div>
 
                         <p className="text-xs text-gray-500 dark:text-gray-400">
-                            If your credits don’t appear immediately, please wait a few seconds and refresh — it can take a moment to confirm your payment.
+                            If your practice credits don’t appear immediately, refresh after a moment — payment confirmation can take a few seconds.
                         </p>
                     </div>
                 </div>

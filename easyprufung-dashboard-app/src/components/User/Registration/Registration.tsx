@@ -140,7 +140,7 @@ const Registration = () => {
                         className="inline-flex items-center text-2xl font-semibold text-gray-900 dark:text-white"
                     >
                         <img alt="logo" width="44" height="44" src={Logo} className="mr-2 rounded-md" />
-                        <span>EasyPrüfung</span>
+                        <span>EasyPrufung</span>
                     </Link>
                 </div>
 
@@ -151,21 +151,21 @@ const Registration = () => {
                             Create your account
                         </h1>
                         <p className="mt-4 text-sm text-gray-700 dark:text-gray-300">
-                            Join EasyPrüfung to validate ideas, generate names, craft logos, and launch landing pages—faster.
+                            Join EasyPrufung to prepare for German TELC and Goethe exams with realistic mock exams and AI-powered feedback.
                         </p>
 
                         <div className="mt-8 space-y-3">
                             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur px-3 py-1 text-xs text-gray-700 dark:text-gray-300">
                                 <span className="h-2 w-2 rounded-full bg-blue-500" />
-                                Quick onboarding
+                                TELC Deutsch B1 available now
                             </div>
                             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur px-3 py-1 text-xs text-gray-700 dark:text-gray-300 ml-2">
                                 <span className="h-2 w-2 rounded-full bg-blue-500" />
-                                Secure by design
+                                AI scoring & personalized feedback
                             </div>
                             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur px-3 py-1 text-xs text-gray-700 dark:text-gray-300 ml-2">
                                 <span className="h-2 w-2 rounded-full bg-blue-500" />
-                                Built for speed
+                                A1–C2 exam roadmap
                             </div>
                         </div>
 
@@ -330,6 +330,9 @@ const Registration = () => {
                 </div>
             </div>
 
+            <div className="relative z-10 px-6 pb-6 text-center text-xs text-gray-500 dark:text-gray-400">
+                EasyPrufung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.
+            </div>
             {loading && <Loading text={loadingMessage} />}
         </section>
     );

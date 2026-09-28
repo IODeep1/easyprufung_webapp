@@ -67,20 +67,20 @@ const AdvancedUserData = () => {
                     <div className="mr-2">
                         <img alt="logo" width="44" height="44" src={Logo}/>
                     </div>
-                    <span className="text-black dark:text-white">EasyPrüfung</span>
+                    <span className="text-black dark:text-white">EasyPrufung</span>
                 </Link>
             </div>
             <div className="py-8  px-4 mx-auto max-w-screen-md">
-                <h2 className="text-4xl text-center font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">Set Up Your Workspace</h2>
-                <p className="py-5 mb-8 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Let's get started by setting up your workspace and letting us know a bit more about your role and coding experience. This will help us tailor your experience to suit your needs.</p>
+                <h2 className="text-4xl text-center font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">Personalize Your Exam Practice</h2>
+                <p className="py-5 mb-8 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Tell us your current German level and exam goal so we can tailor your EasyPrufung experience.</p>
 
                 <form onSubmit={updateuser} className="mt-10 space-y-8">
                     <div className="space-y-5">
                         <SelectInput
                             id="input_codingKnowledgeLevel"
                             field="codingKnowledgeLevel"
-                            label="How familiar are you with coding? "
-                            options={["Not familiar", "Basic knowledge", "Expert"]}
+                            label="What is your current German level?"
+                            options={["A1", "A2", "B1", "B2", "C1", "C2"]}
                             required={true}
                             onChange={hasFormValueChanged}
                             value={formState.codingKnowledgeLevel.value}
@@ -89,8 +89,8 @@ const AdvancedUserData = () => {
                         <SelectInput
                             id="input_userRole"
                             field="userRole"
-                            label="Role"
-                            options={["Founder", "Engineer", "Product", "Operations", "Support", " Human Resources", "Marketing", "Sales", "Data", "Finance", "Student", "other"]}
+                            label="Which exam are you preparing for?"
+                            options={["TELC Deutsch B1", "TELC — another level (coming soon)", "Goethe-Zertifikat (coming soon)", "General German exam preparation"]}
                             required={true}
                             onChange={hasFormValueChanged}
                             value={formState.userRole.value}

@@ -76,7 +76,7 @@ const Pricing = () => {
                     <div className="relative mx-auto max-w-7xl px-4 lg:px-6">
                         <div className="mx-auto mb-10 max-w-2xl text-center lg:mb-12">
                             <p className="text-base text-neutral-600 sm:text-lg dark:text-neutral-400">
-                                Choose the plan that works best for you: a flexible monthly subscription or a one-time lifetime payment.
+                                Choose how you want to prepare: a flexible monthly plan or one-time lifetime access.
                             </p>
                         </div>
                         <div className="pt-2 lg:grid lg:grid-cols-2 lg:gap-6 xl:gap-10">
@@ -84,7 +84,7 @@ const Pricing = () => {
                             <div className={cardBase}>
                                 <h3 className={headingBase}>Starter</h3>
                                 <p className="text-neutral-600 sm:text-lg dark:text-neutral-400">
-                                    Perfect for testing new ideas, launching small projects, or getting your startup off the ground.
+                                    A focused plan for regular TELC Deutsch B1 practice and exam-day preparation.
                                 </p>
                                 <div className={priceRow}>
                                     <span className={price}>$9</span>
@@ -93,39 +93,39 @@ const Pricing = () => {
                                 <ul role="list" className={listBase}>
                                     <li className={listItem}>
                                         <CheckIcon />
-                                        <span className="font-semibold">Try 3 business ideas this month</span>
+                                        <span className="font-semibold">Complete up to 3 full mock exams each month</span>
                                     </li>
                                     <li className={listItem}>
                                         <CheckIcon />
-                                        <span>Validate, brand, and launch 3 startups</span>
+                                        <span>Practice in a realistic digital TELC-style exam interface</span>
                                     </li>
                                     <li className={listItem}>
                                         <CheckIcon />
-                                        <span>3 AI-generated business names</span>
+                                        <span>AI-generated, level-appropriate practice tasks</span>
                                     </li>
                                     <li className={listItem}>
                                         <CheckIcon />
-                                        <span>3 AI-generated logos</span>
+                                        <span>Practice Leseverstehen, Sprachbausteine and Hörverstehen</span>
                                     </li>
                                     <li className={listItem}>
                                         <CheckIcon />
-                                        <span>3 AI-generated professional landing pages</span>
+                                        <span>Practice Schriftlicher Ausdruck with AI evaluation</span>
                                     </li>
                                     <li className={listItem}>
                                         <CheckIcon />
-                                        <span className="font-semibold">50 credits for refining and improving</span>
+                                        <span className="font-semibold">50 AI practice credits for extra exercises and feedback</span>
                                     </li>
                                     <li className={listItem}>
                                         <CheckIcon />
-                                        <span>Built-in waitlist & contact form</span>
+                                        <span>Automatic scoring with explanations</span>
                                     </li>
                                     <li className={listItem}>
                                         <CheckIcon />
-                                        <span>Connect your own custom domain</span>
+                                        <span>Review mistakes and previous results</span>
                                     </li>
                                     <li className={listItem}>
                                         <CheckIcon />
-                                        <span>Free SSL certificate for security</span>
+                                        <span>Timed practice to build exam confidence</span>
                                     </li>
                                     <li className={listItem}>
                                         <CheckIcon />
@@ -142,7 +142,7 @@ const Pricing = () => {
                                     </a>
                                 </div>
                             </div>
-                            {/* AutoPilot - Lifetime (Most Popular) */}
+                            {/* Lifetime - Most Popular */}
                             <div className="relative pt-4 md:scale-105 md:[transform:translateY(-0.5rem)]">
                                 <div className="pointer-events-none absolute -top-3 left-1/2 z-10 -translate-x-1/2">
                                     <div className="rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-white shadow-sm">
@@ -151,11 +151,11 @@ const Pricing = () => {
                                 </div>
                                 <div className={`${cardBase} border-blue-100 ring-1 ring-blue-500/20 shadow-blue-200/40 dark:border-blue-900/40`}>
                                     <h3 className={headingBase}>
-                                        AutoPilot{" "}
-                                        <span className="text-xl font-normal text-neutral-500 dark:text-neutral-400">(Lifetime Access)</span>
+                                        Lifetime{" "}
+                                        <span className="text-xl font-normal text-neutral-500 dark:text-neutral-400">(One-Time Access)</span>
                                     </h3>
                                     <p className="text-neutral-600 sm:text-lg dark:text-neutral-400">
-                                        Unlock unlimited potential—build, launch, and validate as many ideas as you want, forever.
+                                        Prepare without monthly limits and keep lifetime access to EasyPrufung practice.
                                     </p>
                                     <div className={priceRow}>
                                         <span className={price}>$149</span>
@@ -164,43 +164,43 @@ const Pricing = () => {
                                     <ul role="list" className={listBase}>
                                         <li className={listItem}>
                                             <CheckIcon />
-                                            <span className="font-semibold">Unlimited projects—launch as many businesses as you want</span>
+                                            <span className="font-semibold">Unlimited mock exam sessions</span>
                                         </li>
                                         <li className={listItem}>
                                             <CheckIcon />
-                                            <span>Unlimited business idea validations</span>
+                                            <span>Unlimited TELC Deutsch B1 practice</span>
                                         </li>
                                         <li className={listItem}>
                                             <CheckIcon />
-                                            <span>Unlimited AI-generated business names</span>
+                                            <span>Unlimited AI-generated practice tasks</span>
                                         </li>
                                         <li className={listItem}>
                                             <CheckIcon />
-                                            <span>Unlimited AI-generated logos</span>
+                                            <span>AI evaluation for written answers</span>
                                         </li>
                                         <li className={listItem}>
                                             <CheckIcon />
-                                            <span>Unlimited AI-generated professional landing pages</span>
+                                            <span>Scores, explanations, and personalized feedback</span>
                                         </li>
                                         <li className={listItem}>
                                             <CheckIcon />
-                                            <span className="font-semibold">Unlimited iterations for endless creativity</span>
+                                            <span className="font-semibold">Unlimited practice credits for continued preparation</span>
                                         </li>
                                         <li className={listItem}>
                                             <CheckIcon />
-                                            <span>Built-in waitlist & contact form</span>
+                                            <span>Review mistakes and revisit previous results</span>
                                         </li>
                                         <li className={listItem}>
                                             <CheckIcon />
-                                            <span>Connect your own custom domain</span>
+                                            <span>Realistic timed digital exam experience</span>
                                         </li>
                                         <li className={listItem}>
                                             <CheckIcon />
-                                            <span>Free SSL certificate for security</span>
+                                            <span>Access to additional TELC and Goethe levels as they are released</span>
                                         </li>
                                         <li className={listItem}>
                                             <CheckIcon />
-                                            <span>Priority support & early access to new features</span>
+                                            <span>Priority support & early access to new exam support</span>
                                         </li>
                                     </ul>
                                     <div className="mt-auto pt-2">
@@ -208,7 +208,7 @@ const Pricing = () => {
                                             href={lifetimeUrl}
                                             className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-lg font-medium text-white shadow-sm ring-1 ring-blue-600/20 transition hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500/30"
                                         >
-                                            Start your lifetime access
+                                            Get lifetime access
                                             <ArrowRight />
                                         </a>
                                     </div>
@@ -216,7 +216,10 @@ const Pricing = () => {
                             </div>
                         </div>
                         <p className="mt-8 text-center text-sm text-neutral-500 dark:text-neutral-400">
-                            Prices in USD. Cancel anytime.
+                            Prices in USD. Monthly plans can be cancelled anytime.
+                        </p>
+                        <p className="mt-3 text-center text-xs text-neutral-500 dark:text-neutral-500">
+                            EasyPrufung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.
                         </p>
                     </div>
                 </Container>

@@ -24,7 +24,7 @@ const StarIcon = () => (
 const JoinMakers = () => {
     return (
         <div className="mt-8 text-center lg:text-left">
-            <p className="text-lg font-semibold mb-3 text-black dark:text-white text-foreground">Join over 500 creators launching their ideas a single session with EasyPrüfung.</p>
+            <p className="text-lg font-semibold mb-3 text-black dark:text-white text-foreground">Prepare with realistic TELC-style practice and build confidence before exam day.</p>
             <div className="flex items-center justify-center lg:justify-start space-x-4">
                 <div className="flex -space-x-3">
                     {UserImages.map((user, index) => (

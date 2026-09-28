@@ -106,7 +106,7 @@ const AdminSideBar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <div className="mr-2">
                     <img alt="logo" width="44" height="44" src={Logo}/>
                 </div>
-                <span className="text-black dark:text-white">EasyPrüfung</span>
+                <span className="text-black dark:text-white">EasyPrufung</span>
             </NavLink>
 
             <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">

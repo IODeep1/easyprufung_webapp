@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 
 // Progress steps
 const PROGRESS_STEPS = [
-    { threshold: 0, text: "Analyzing your input..." },
-    { threshold: 5, text: "Designing the layout..." },
-    { threshold: 40, text: "Generating content..." },
-    { threshold: 60, text: "Applying branding..." },
-    { threshold: 80, text: "Finalizing..." },
-    { threshold: 100, text: "Preparing view..." },
+    { threshold: 0, text: "Preparing your practice session..." },
+    { threshold: 5, text: "Checking exam level and format..." },
+    { threshold: 40, text: "Generating level-appropriate exercises..." },
+    { threshold: 60, text: "Preparing scoring and feedback..." },
+    { threshold: 80, text: "Finalizing your practice set..." },
+    { threshold: 100, text: "Ready to practice..." },
 ];
 
 const getProgressText = (progress) => {

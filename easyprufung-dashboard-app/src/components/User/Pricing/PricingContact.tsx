@@ -62,20 +62,20 @@ const PricingContact = () => {
                     <div className="flex flex-wrap items-center w-full lg:w-1/2 ">
                         <div className="flex flex-col xl:flex-row gap-4 xl:gap-8">
                             <div className="px-4 mx-auto max-w-screen-md">
-                                <h2 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-5xl xl:leading-tight dark:text-white">Turn your vision into reality
+                                <h2 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-5xl xl:leading-tight dark:text-white">Need a custom exam-preparation plan?
                                 </h2>
-                                <p className="py-5 mb-8 font-light text-gray-500 dark:text-gray-400 sm:text-xl">Let our experts help you transform your idea into a fully functional mobile in a few weeks.
+                                <p className="py-5 mb-8 font-light text-gray-500 dark:text-gray-400 sm:text-xl">Tell us about your language school, course, organization, or learner group and the German exams you want to prepare for.
                                 </p>
                                 <form onSubmit={sendContactForm} className="space-y-8">
                                     <div className="sm:col-span-2">
-                                        <label htmlFor="message" className="block mb-2 text-lg font-semibold text-gray-900 dark:text-white">Tell us about your app project.</label>
+                                        <label htmlFor="message" className="block mb-2 text-lg font-semibold text-gray-900 dark:text-white">Tell us about your exam-preparation needs.</label>
                                         <TextAreaInput id="input_message"
                                                        field="message"
                                                        value={formState.message.value}
                                                        required
-                                                       onChange={hasFormValueChanged} rows="6" inputClass="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Kindly provide a detailed description of your project."></TextAreaInput>
+                                                       onChange={hasFormValueChanged} rows="6" inputClass="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tell us which TELC or Goethe levels you need, how many learners you support, and any specific requirements."></TextAreaInput>
                                     </div>
-                                    <label className="block mb-2 text-lg font-semibold font-medium text-gray-900 dark:text-white">What is your budget?</label>
+                                    <label className="block mb-2 text-lg font-semibold font-medium text-gray-900 dark:text-white">What is your estimated budget?</label>
                                     <div className="flex space-x-4">
                                         <button type="button" className={`px-6 py-3 w-60 text-sm font-semibold transition-colors duration-300 rounded-md 
                                               ${selectedButton === 1 ? 'border-blue-500 bg-blue-100 dark:bg-blue-400' : 'border-gray-300'} 
@@ -142,7 +142,7 @@ const PricingContact = () => {
                                 <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                     <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                                         <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                                            EasyPrüfung
+                                            EasyPrufung
                                         </h3>
                                         <button type="button"
                                                 onClick={() => {

@@ -71,7 +71,7 @@ const Contact = () => {
                     </h2>
                     <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-blue-500/80" />
                     <p className="mx-auto mt-4 max-w-2xl text-base text-neutral-600 dark:text-neutral-400">
-                        Need help? Contact us with questions or feedback using the form below.
+                        Need help with TELC B1 practice, your account, billing, or upcoming exam levels? Send us a message below.
                     </p>
                 </div>
 

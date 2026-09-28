@@ -67,7 +67,7 @@ const Settings = () => {
     const isStarterSubscription = currentPlan === "starter";
     const isPaidSubscription = isAutopilotSubscription || isStarterSubscription;
     const planLabel = isAutopilotSubscription
-        ? "AutoPilot"
+        ? "Lifetime"
         : isStarterSubscription
             ? "Starter"
             : "Free";
@@ -95,28 +95,28 @@ const Settings = () => {
     // Pack data
     const creditPacks = [
         {
-            name: "Starter",
-            title: "Credit Pack",
+            name: "Quick Boost",
+            title: "Practice Credits",
             credits: 50,
             priceUSD: 9,
             href: `${creditPackLinksBase[50]}?prefilled_email=${email}&client_reference_id=${refId}`,
-            description: "Great for quick iterations and small updates.",
+            description: "Useful for extra AI-generated exercises and written feedback.",
         },
         {
-            name: "Builder",
-            title: "Credit Pack",
+            name: "Practice Plus",
+            title: "Practice Credits",
             credits: 100,
             priceUSD: 16,
             href: `${creditPackLinksBase[100]}?prefilled_email=${email}&client_reference_id=${refId}`,
-            description: "Perfect for active builders and testing multiple ideas.",
+            description: "A larger top-up for regular mock-exam preparation.",
         },
         {
-            name: "Pro",
-            title: "Credit Pack",
+            name: "Intensive",
+            title: "Practice Credits",
             credits: 200,
             priceUSD: 30,
             href: `${creditPackLinksBase[200]}?prefilled_email=${email}&client_reference_id=${refId}`,
-            description: "Best for heavy usage and team workflows.",
+            description: "Best for intensive preparation and frequent AI feedback.",
         },
     ];
 
@@ -264,7 +264,7 @@ const Settings = () => {
                         Settings
                     </h1>
                     <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
-                        Manage your personal information and update your password.
+                        Manage your profile, subscription, password, and EasyPrufung practice credits.
                     </p>
                 </div>
 
@@ -276,7 +276,7 @@ const Settings = () => {
                             <div>
                                 <h2 className="text-xl font-bold">Subscription</h2>
                                 <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                                    Your current plan and available credits.
+                                    Your current plan and remaining AI practice credits.
                                 </p>
                             </div>
                             <div className="flex items-center gap-3">
@@ -291,7 +291,7 @@ const Settings = () => {
                 </span>
                                 {isPaidSubscription && (
                                     <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-md font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:ring-blue-800">
-                    {availableCredits} credits
+                    {availableCredits} practice credits
                   </span>
                                 )}
                             </div>
@@ -299,7 +299,7 @@ const Settings = () => {
                         {!isPaidSubscription && (
                             <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                                 <p className="text-sm text-gray-700 dark:text-gray-300">
-                                    Unlock unlimited building: a flexible monthly subscription or a one-time lifetime payment.
+                                    Unlock more exam practice with a flexible monthly plan or one-time lifetime access.
                                 </p>
                                 <button
                                     onClick={async () => {
@@ -469,16 +469,15 @@ const Settings = () => {
                 </div>
             </div>
 
-            {/* Credit Packs section (visible for paid plans: Starter and AutoPilot) */}
+            {/* Practice credit packs section (visible for paid plans) */}
             {isPaidSubscription && (
                 <div id="credits" ref={creditsRef} className="relative z-10 mx-auto mt-10 max-w-6xl">
                     <div className="mb-6">
                         <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-                            Credit packs
+                            Practice credit packs
                         </h2>
                         <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
-                            Top up your credits anytime. One-time purchase, instantly added to
-                            your account.
+                            Top up your practice credits anytime. One-time purchase, instantly added to your account.
                         </p>
                     </div>
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -509,7 +508,7 @@ const Settings = () => {
                         {pack.credits}
                       </span>
                                             <span className="text-neutral-600 dark:text-neutral-400">
-                        Credits
+                        Practice credits
                       </span>
                                         </div>
                                     </div>
@@ -524,7 +523,7 @@ const Settings = () => {
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <CheckIcon />
-                                            <span>Use for refining, improving, and more</span>
+                                            <span>Use for AI-generated exercises, evaluation, feedback, and explanations</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <CheckIcon />
@@ -539,7 +538,7 @@ const Settings = () => {
                       bg-black text-white hover:bg-black/90 active:bg-black
                       dark:bg-white dark:text-black dark:hover:bg-white/90"
                                         >
-                                            Buy {pack.credits} Credits
+                                            Buy {pack.credits} practice credits
                                             <ArrowRight />
                                         </a>
                                     </div>
@@ -558,7 +557,7 @@ const Settings = () => {
                         <div className="w-full max-w-lg rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-black shadow-2xl overflow-hidden">
                             <div className="h-1 w-full bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600" />
                             <div className="flex items-center justify-between px-6 py-4 border-b border-black/10 dark:border-white/10">
-                                <h3 className="text-lg font-semibold">EasyPrüfung</h3>
+                                <h3 className="text-lg font-semibold">EasyPrufung</h3>
                                 <button
                                     type="button"
                                     onClick={() => setPopup(false)}
