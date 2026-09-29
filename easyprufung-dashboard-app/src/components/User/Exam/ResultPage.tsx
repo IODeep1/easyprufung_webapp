@@ -1,10 +1,16 @@
-import { Eye, RotateCcw } from "lucide-react";
+import { Eye, Lock, RotateCcw, Sparkles } from "lucide-react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { ExamReviewPage } from "./ExamReviewPage.tsx";
 import type {
     ExamResultView,
     ExamSessionView
 } from "./models/exam.ts";
+import type { IUserAccount } from "../../../store/models/user/userAccount.interface.ts";
+import type { IStateType } from "../../../store/models/root.interface.ts";
+
+const STRIPE_B1_PAYMENT_LINK =
+    "https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00";
 
 export function ResultPage(props: {
     session: ExamSessionView;
@@ -14,7 +20,57 @@ export function ResultPage(props: {
     const { session, result, onRestart } = props;
     const [showDetails, setShowDetails] = useState(false);
 
-    if (showDetails) {
+    const account: IUserAccount = useSelector(
+        (state: IStateType) => state.userAccount
+    );
+
+    const subscription = account.user.subscription;
+    const currentPlan = subscription?.plan?.toLowerCase?.() || "free";
+
+    const isTester = currentPlan === "tester";
+    const isB1 = currentPlan === "b1";
+
+    const endDate = subscription?.endDate
+        ? new Date(subscription.endDate)
+        : null;
+
+    const hasValidEndDate =
+        !!endDate && !Number.isNaN(endDate.getTime());
+
+    const isExpired =
+        !isTester &&
+        hasValidEndDate &&
+        endDate!.getTime() <= Date.now();
+
+    const hasPremiumAccess =
+        isTester ||
+        (isB1 &&
+            !isExpired &&
+            subscription?.isActive !== false &&
+            subscription?.status?.toLowerCase?.() !== "expired");
+
+    const openCheckout = () => {
+        const params = new URLSearchParams();
+
+        const email = account.user?.email;
+        const uuid = account.user?.uuid;
+
+        if (email) {
+            params.set("prefilled_email", email);
+        }
+
+        if (uuid) {
+            params.set("client_reference_id", uuid);
+        }
+
+        const checkoutUrl = params.toString()
+            ? `${STRIPE_B1_PAYMENT_LINK}?${params.toString()}`
+            : STRIPE_B1_PAYMENT_LINK;
+
+        window.location.href = checkoutUrl;
+    };
+
+    if (showDetails && hasPremiumAccess) {
         return (
             <ExamReviewPage
                 session={session}
@@ -43,6 +99,7 @@ export function ResultPage(props: {
                             </p>
                         </div>
 
+                        {/* Overall result stays visible for free users */}
                         <div className="flex flex-wrap items-end gap-8 sm:gap-12">
                             <div>
                                 <p className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-black/50">
@@ -50,18 +107,18 @@ export function ResultPage(props: {
                                 </p>
 
                                 <div className="flex items-end gap-2">
-                  <span className="text-5xl font-black tracking-[-0.06em] text-black sm:text-6xl">
-                    {Number(result.score).toLocaleString("de-DE", {
-                        maximumFractionDigits: 2
-                    })}
-                  </span>
+                                    <span className="text-5xl font-black tracking-[-0.06em] text-black sm:text-6xl">
+                                        {Number(result.score).toLocaleString("de-DE", {
+                                            maximumFractionDigits: 2
+                                        })}
+                                    </span>
 
                                     <span className="pb-1 text-xl font-black text-black/35">
-                    /{" "}
+                                        /{" "}
                                         {Number(result.maximumScore).toLocaleString("de-DE", {
                                             maximumFractionDigits: 2
                                         })}
-                  </span>
+                                    </span>
                                 </div>
                             </div>
 
@@ -71,13 +128,13 @@ export function ResultPage(props: {
                                 </p>
 
                                 <div className="flex items-end gap-2">
-                  <span className="text-5xl font-black tracking-[-0.08em] text-black sm:text-6xl">
-                    {Math.round(result.percentage)}
-                  </span>
+                                    <span className="text-5xl font-black tracking-[-0.08em] text-black sm:text-6xl">
+                                        {Math.round(result.percentage)}
+                                    </span>
 
                                     <span className="pb-2 text-2xl font-black text-black/35">
-                    %
-                  </span>
+                                        %
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -86,46 +143,114 @@ export function ResultPage(props: {
             </section>
 
             <div className="mx-auto max-w-6xl px-4 py-8 sm:px-7 sm:py-12">
-                <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                    {result.sections.map((section) => {
-                        const percentage = section.maximumScore
-                            ? (section.score / section.maximumScore) * 100
-                            : 0;
+                {/* Section breakdown */}
+                <div className="relative">
+                    <section
+                        className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-4 ${
+                            !hasPremiumAccess
+                                ? "pointer-events-none select-none blur-[5px]"
+                                : ""
+                        }`}
+                        aria-hidden={!hasPremiumAccess}
+                    >
+                        {result.sections.map((section) => {
+                            const percentage = section.maximumScore
+                                ? (section.score / section.maximumScore) * 100
+                                : 0;
 
-                        return (
-                            <article
-                                key={section.sectionKey}
-                                className="frame p-5"
-                            >
-                                <p className="eyebrow">
-                                    {section.title}
-                                </p>
+                            return (
+                                <article
+                                    key={section.sectionKey}
+                                    className="frame p-5"
+                                >
+                                    <p className="eyebrow">
+                                        {section.title}
+                                    </p>
 
-                                <p className="mt-5 text-3xl font-black">
-                                    {section.score}
+                                    <p className="mt-5 text-3xl font-black">
+                                        {section.score}
 
-                                    <span className="text-base text-black/35">
-                    {" "}
-                                        / {section.maximumScore}
-                  </span>
-                                </p>
+                                        <span className="text-base text-black/35">
+                                            {" "}
+                                            / {section.maximumScore}
+                                        </span>
+                                    </p>
 
-                                <div className="mt-4 h-2 overflow-hidden rounded-full bg-black/10">
-                                    <div
-                                        className="h-full bg-black"
-                                        style={{
-                                            width: `${Math.min(Math.max(percentage, 0), 100)}%`
-                                        }}
-                                    />
+                                    <div className="mt-4 h-2 overflow-hidden rounded-full bg-black/10">
+                                        <div
+                                            className="h-full bg-black"
+                                            style={{
+                                                width: `${Math.min(
+                                                    Math.max(percentage, 0),
+                                                    100
+                                                )}%`
+                                            }}
+                                        />
+                                    </div>
+                                </article>
+                            );
+                        })}
+                    </section>
+
+                    {!hasPremiumAccess && (
+                        <div className="absolute inset-0 flex items-center justify-center p-4">
+                            <div className="w-full max-w-xl rounded-[2rem] border border-black bg-white p-6 text-center shadow-2xl sm:p-8">
+                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-black text-white">
+                                    <Lock size={20} />
                                 </div>
-                            </article>
-                        );
-                    })}
-                </section>
+
+                                <p className="mt-5 text-xs font-black uppercase tracking-[0.2em] text-black/45">
+                                    Detaillierte Auswertung
+                                </p>
+
+                                <h2 className="mt-2 text-2xl font-black tracking-[-0.04em] sm:text-3xl">
+                                    Sehen Sie, wo Sie Punkte verlieren.
+                                </h2>
+
+                                <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-black/60">
+                                    Schalten Sie die Ergebnisse der einzelnen
+                                    Prüfungsteile, falsche Antworten und
+                                    ausführliche Erklärungen frei.
+                                </p>
+
+                                <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-bold">
+                                    <span className="rounded-full bg-black/5 px-3 py-2">
+                                        10 Prüfungsquoten
+                                    </span>
+                                    <span className="rounded-full bg-black/5 px-3 py-2">
+                                        60 Tage
+                                    </span>
+                                    <span className="rounded-full bg-black/5 px-3 py-2">
+                                        Einmalig €19
+                                    </span>
+                                </div>
+
+                                <button
+                                    type="button"
+                                    onClick={openCheckout}
+                                    className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-black px-6 py-4 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-black/90"
+                                >
+                                    <Sparkles size={17} />
+                                    TELC B1 freischalten — €19
+                                </button>
+
+                                <p className="mt-3 text-xs text-black/45">
+                                    Keine automatische Verlängerung.
+                                </p>
+                            </div>
+                        </div>
+                    )}
+                </div>
+
                 <section className="mt-6 grid gap-4 md:grid-cols-2">
-                    <article className="frame flex flex-col p-6 sm:p-8">
+                    {/* Review */}
+                    <article className="frame relative flex flex-col overflow-hidden p-6 sm:p-8">
                         <div className="flex h-12 w-12 items-center justify-center rounded-full border border-black bg-white">
-                            <Eye size={20} />
+                            {hasPremiumAccess ? (
+                                <Eye size={20} />
+                            ) : (
+                                <Lock size={20} />
+                            )}
                         </div>
 
                         <h2 className="mt-6 text-2xl font-black tracking-tight">
@@ -133,21 +258,33 @@ export function ResultPage(props: {
                         </h2>
 
                         <p className="mt-3 flex-1 text-sm leading-7 text-black/60">
-                            Sehen Sie alle Aufgaben und Ihre abgegebenen Antworten noch
-                            einmal im schreibgeschützten Prüfungsmodus. Falsche Antworten
-                            werden markiert und mit einer Erklärung angezeigt.
+                            Sehen Sie alle Aufgaben und Ihre abgegebenen Antworten
+                            noch einmal im schreibgeschützten Prüfungsmodus. Falsche
+                            Antworten werden markiert und mit einer Erklärung angezeigt.
                         </p>
 
-                        <button
-                            type="button"
-                            onClick={() => setShowDetails(true)}
-                            className="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-black px-7 py-4 text-sm font-black text-white transition hover:-translate-y-0.5"
-                        >
-                            <Eye size={17} />
-                            Details anzeigen
-                        </button>
+                        {hasPremiumAccess ? (
+                            <button
+                                type="button"
+                                onClick={() => setShowDetails(true)}
+                                className="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-black px-7 py-4 text-sm font-black text-white transition hover:-translate-y-0.5"
+                            >
+                                <Eye size={17} />
+                                Details anzeigen
+                            </button>
+                        ) : (
+                            <button
+                                type="button"
+                                onClick={openCheckout}
+                                className="mt-7 inline-flex w-fit items-center gap-2 rounded-full border border-black bg-white px-7 py-4 text-sm font-black text-black transition hover:-translate-y-0.5 hover:bg-black hover:text-white"
+                            >
+                                <Lock size={17} />
+                                Details freischalten
+                            </button>
+                        )}
                     </article>
 
+                    {/* Restart stays available; StartPage will enforce quota */}
                     <article className="frame flex flex-col p-6 sm:p-8">
                         <div className="flex h-12 w-12 items-center justify-center rounded-full border border-black bg-white">
                             <RotateCcw size={20} />
