@@ -81,14 +81,14 @@ const Login = () => {
                 {/* Logo & Brand */}
                 <div className="flex items-center justify-center gap-3 pb-12">
                     <img
-                        alt="EasyPrufung logo"
+                        alt="EasyPrüfung logo"
                         width="64"
                         height="64"
                         src={Logo}
                         className="h-12 w-12 rounded-md"
                     />
                     <span className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
-        EasyPrufung
+        EasyPrüfung
       </span>
                 </div>
 
@@ -242,7 +242,7 @@ const Login = () => {
                         Contact support
                     </a>
                     .
-                    <div className="mt-2">EasyPrufung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.</div>
+                    <div className="mt-2">EasyPrüfung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.</div>
                 </div>
             </div>
         </section>

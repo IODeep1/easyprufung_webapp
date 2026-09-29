@@ -67,12 +67,12 @@ const AdvancedUserData = () => {
                     <div className="mr-2">
                         <img alt="logo" width="44" height="44" src={Logo}/>
                     </div>
-                    <span className="text-black dark:text-white">EasyPrufung</span>
+                    <span className="text-black dark:text-white">EasyPrüfung</span>
                 </Link>
             </div>
             <div className="py-8  px-4 mx-auto max-w-screen-md">
                 <h2 className="text-4xl text-center font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">Personalize Your Exam Practice</h2>
-                <p className="py-5 mb-8 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Tell us your current German level and exam goal so we can tailor your EasyPrufung experience.</p>
+                <p className="py-5 mb-8 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Tell us your current German level and exam goal so we can tailor your EasyPrüfung experience.</p>
 
                 <form onSubmit={updateuser} className="mt-10 space-y-8">
                     <div className="space-y-5">

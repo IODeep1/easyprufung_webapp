@@ -19,12 +19,12 @@
   "pricing_section_getstarted": "Get started",
   "faq_section_pretitle": "FAQ",
   "faq_section_title": "Frequently Asked Questions",
-  "faq_section_question_1": "Which exams does EasyPrufung currently support?",
-  "faq_section_answer_1": "EasyPrufung currently supports TELC Deutsch B1, including Leseverstehen, Sprachbausteine, Hörverstehen, and Schriftlicher Ausdruck. Additional TELC and Goethe exams from A1 to C2 are planned.",
+  "faq_section_question_1": "Which exams does EasyPrüfung currently support?",
+  "faq_section_answer_1": "EasyPrüfung currently supports TELC Deutsch B1, including Leseverstehen, Sprachbausteine, Hörverstehen, and Schriftlicher Ausdruck. Additional TELC and Goethe exams from A1 to C2 are planned.",
   "faq_section_question_3": "How does the AI help me prepare?",
   "faq_section_answer_3": "AI generates level-appropriate exercises, evaluates written answers, calculates scores, and provides personalized feedback and explanations so you can understand mistakes and improve.",
-  "faq_section_question_4": "Is EasyPrufung affiliated with TELC or the Goethe-Institut?",
-  "faq_section_answer_4": "No. EasyPrufung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.",
+  "faq_section_question_4": "Is EasyPrüfung affiliated with TELC or the Goethe-Institut?",
+  "faq_section_answer_4": "No. EasyPrüfung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.",
   "faq_section_question_2": "How realistic is the mock-exam experience?",
   "faq_section_answer_2": "The digital practice interface closely recreates the structure, layout, navigation, question types, answer formats, and timed experience of a TELC digital exam so you can become familiar with the workflow before exam day.",
   "easyprufung_title_1": "Practice",
@@ -56,9 +56,9 @@
   "cta_description": "Build confidence with realistic timed mock exams, AI evaluation, scoring, and personalized feedback.",
   "cta_button": "Start Practicing",
   "not_found_title": "Whoops! That page doesn’t exist.",
-  "not_found_description": "Sorry, we can't find that page. You can return to your EasyPrufung dashboard.",
+  "not_found_description": "Sorry, we can't find that page. You can return to your EasyPrüfung dashboard.",
   "not_found_button": "Back to Dashboard",
   "footer_slogan": "Practice in a familiar environment. Build confidence. Be ready for the real exam.",
   "footer_followus": "Follow us",
-  "copy_right": "EasyPrufung. All rights reserved."
+  "copy_right": "EasyPrüfung. All rights reserved."
 }

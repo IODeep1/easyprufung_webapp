@@ -42,7 +42,7 @@ const Pricing = () => {
     const refId = encodeURIComponent(account?.user?.uuid || "");
 
     // One-time TELC B1 payment. client_reference_id is used by the backend
-    // webhook to match the Stripe Checkout Session to the EasyPrufung user.
+    // webhook to match the Stripe Checkout Session to the EasyPrüfung user.
     const b1PaymentUrl = `https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00?prefilled_email=${email}&client_reference_id=${refId}`;
 
     const cardBase =
@@ -70,7 +70,7 @@ const Pricing = () => {
                     <div className="relative mx-auto max-w-7xl px-4 lg:px-6">
                         <div className="mx-auto mb-10 max-w-2xl text-center lg:mb-12">
                             <p className="text-base text-neutral-600 sm:text-lg dark:text-neutral-400">
-                                Try EasyPrufung free. When you need more practice, unlock 10 exam quotas for 60 days with one payment.
+                                Try EasyPrüfung free. When you need more practice, unlock 10 exam quotas for 60 days with one payment.
                             </p>
                         </div>
 
@@ -204,7 +204,7 @@ const Pricing = () => {
                             €19 is a one-time payment for 10 exam quotas valid for 60 days. No recurring subscription.
                         </p>
                         <p className="mt-3 text-center text-xs text-neutral-500 dark:text-neutral-500">
-                            EasyPrufung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.
+                            EasyPrüfung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.
                         </p>
                     </div>
                 </Container>

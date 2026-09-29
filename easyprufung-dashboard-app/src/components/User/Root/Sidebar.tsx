@@ -62,13 +62,36 @@ const Sidebar = ({
     );
 
     const userId = account.user?.uuid;
+    const subscription = account.user?.subscription;
     const subscriptionPlan =
-        account.user?.subscription?.plan;
+        subscription?.plan?.toLowerCase?.() || "free";
+
+    const isTesterSubscription =
+        subscriptionPlan === "tester";
+
+    const isB1Subscription =
+        subscriptionPlan === "b1";
+
+    const endDate = subscription?.endDate
+        ? new Date(subscription.endDate)
+        : null;
+
+    const hasValidEndDate =
+        !!endDate && !Number.isNaN(endDate.getTime());
+
+    const isExpiredSubscription =
+        !isTesterSubscription &&
+        hasValidEndDate &&
+        endDate!.getTime() <= Date.now();
 
     const isPaidSubscription =
-        Boolean(account.user?.subscription?.isActive) &&
-        subscriptionPlan !== "free" &&
-        subscriptionPlan !== "tester";
+        isTesterSubscription ||
+        (
+            isB1Subscription &&
+            !isExpiredSubscription &&
+            subscription?.isActive !== false &&
+            subscription?.status?.toLowerCase?.() !== "expired"
+        );
 
     useEffect(() => {
         const clickHandler = ({
@@ -332,6 +355,65 @@ const Sidebar = ({
                                                 }`}
                                             >
                                                 <ul className="no-scrollbar mb-5 mt-3 flex max-h-80 flex-col gap-2 overflow-y-auto pl-4">
+                                                    <li>
+                                                        <NavLink
+                                                            to="/exams"
+                                                            end
+                                                            onClick={() =>
+                                                                setSidebarOpen(false)
+                                                            }
+                                                            className={({ isActive }) =>
+                                                                `group flex items-center gap-3 rounded-xl px-3 py-3 duration-300 ease-in-out ${
+                                                                    isActive
+                                                                        ? "bg-gray-200 text-black dark:bg-gray-800 dark:text-white"
+                                                                        : "text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700"
+                                                                }`
+                                                            }
+                                                        >
+                                                            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-gray-400 bg-white text-black dark:border-gray-600 dark:bg-gray-900 dark:text-white">
+                                                                <svg
+                                                                    aria-hidden="true"
+                                                                    width="18"
+                                                                    height="18"
+                                                                    viewBox="0 0 24 24"
+                                                                    fill="none"
+                                                                    stroke="currentColor"
+                                                                    strokeWidth="2"
+                                                                    strokeLinecap="round"
+                                                                    strokeLinejoin="round"
+                                                                >
+                                                                    <path d="M4 6h16" />
+                                                                    <path d="M4 12h16" />
+                                                                    <path d="M4 18h16" />
+                                                                </svg>
+                                                            </span>
+
+                                                            <span className="min-w-0 flex-1">
+                                                                <span className="block truncate text-sm font-bold">
+                                                                    All exams
+                                                                </span>
+                                                                <span className="mt-0.5 block text-xs text-gray-500 dark:text-gray-400">
+                                                                    View exam history
+                                                                </span>
+                                                            </span>
+
+                                                            <svg
+                                                                aria-hidden="true"
+                                                                width="16"
+                                                                height="16"
+                                                                viewBox="0 0 24 24"
+                                                                fill="none"
+                                                                stroke="currentColor"
+                                                                strokeWidth="2"
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                className="shrink-0"
+                                                            >
+                                                                <path d="m9 18 6-6-6-6" />
+                                                            </svg>
+                                                        </NavLink>
+                                                    </li>
+
                                                     {examsLoading && (
                                                         <li className="px-4 py-3 text-xs font-semibold text-gray-500 dark:text-gray-400">
                                                             Prüfungen
@@ -359,92 +441,6 @@ const Sidebar = ({
                                                                 bestandenen
                                                                 Prüfungen
                                                             </li>
-                                                        )}
-
-                                                    {!examsLoading &&
-                                                        !examsError &&
-                                                        passedExams.map(
-                                                            (
-                                                                entry
-                                                            ) => {
-                                                                const {
-                                                                    session,
-                                                                    result
-                                                                } =
-                                                                    entry;
-
-                                                                return (
-                                                                    <li
-                                                                        key={
-                                                                            session.sessionId
-                                                                        }
-                                                                    >
-                                                                        <NavLink
-                                                                            to={`/exams/${session.sessionId}/review`}
-                                                                            state={{
-                                                                                session,
-                                                                                result
-                                                                            }}
-                                                                            onClick={() =>
-                                                                                setSidebarOpen(
-                                                                                    false
-                                                                                )
-                                                                            }
-                                                                            className={({
-                                                                                            isActive
-                                                                                        }) =>
-                                                                                `group flex items-center gap-3 rounded-xl px-3 py-3 duration-300 ease-in-out ${
-                                                                                    isActive
-                                                                                        ? "bg-gray-200 text-black dark:bg-gray-800 dark:text-white"
-                                                                                        : "text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700"
-                                                                                }`
-                                                                            }
-                                                                        >
-                                                                            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-gray-400 bg-white text-xs font-black text-black dark:border-gray-600 dark:bg-gray-900 dark:text-white">
-                                                                                {
-                                                                                    session.level
-                                                                                }
-                                                                            </span>
-
-                                                                            <span className="min-w-0 flex-1">
-                                                                                <span className="block truncate text-sm font-bold">
-                                                                                    {
-                                                                                        session.title
-                                                                                    }
-                                                                                </span>
-
-                                                                                <span className="mt-0.5 block text-xs text-gray-500 dark:text-gray-400">
-                                                                                    {
-                                                                                        session.provider
-                                                                                    }
-                                                                                    {
-                                                                                        " · "
-                                                                                    }
-                                                                                    {Math.round(
-                                                                                        result.percentage
-                                                                                    )}
-                                                                                    %
-                                                                                </span>
-                                                                            </span>
-
-                                                                            <svg
-                                                                                aria-hidden="true"
-                                                                                width="16"
-                                                                                height="16"
-                                                                                viewBox="0 0 24 24"
-                                                                                fill="none"
-                                                                                stroke="currentColor"
-                                                                                strokeWidth="2"
-                                                                                strokeLinecap="round"
-                                                                                strokeLinejoin="round"
-                                                                                className="shrink-0"
-                                                                            >
-                                                                                <path d="m9 18 6-6-6-6" />
-                                                                            </svg>
-                                                                        </NavLink>
-                                                                    </li>
-                                                                );
-                                                            }
                                                         )}
                                                 </ul>
                                             </div>
@@ -504,45 +500,41 @@ const Sidebar = ({
                                     </NavLink>
                                 </li>
 
-                                {subscriptionPlan !==
-                                    "tester" && (
-                                        <li>
-                                            <NavLink
-                                                to="/code_redemption"
-                                                onClick={() =>
-                                                    setSidebarOpen(
-                                                        false
-                                                    )
-                                                }
-                                                className={`group relative flex items-center gap-2.5 rounded-xl px-4 py-2 font-normal text-gray-700 duration-300 ease-in-out hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700 ${
-                                                    pathname.includes(
-                                                        "/code_redemption"
-                                                    )
-                                                        ? "bg-gray-100 dark:bg-gray-800"
-                                                        : ""
-                                                }`}
+                                {subscriptionPlan !== "tester" && (
+                                    <li>
+                                        <NavLink
+                                            to="/code_redemption"
+                                            onClick={() =>
+                                                setSidebarOpen(false)
+                                            }
+                                            className={`group relative flex items-center gap-2.5 rounded-xl px-4 py-2 font-normal text-gray-700 duration-300 ease-in-out hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700 ${
+                                                pathname.includes(
+                                                    "/code_redemption"
+                                                )
+                                                    ? "bg-gray-100 dark:bg-gray-800"
+                                                    : ""
+                                            }`}
+                                        >
+                                            <svg
+                                                aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="24"
+                                                height="24"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
                                             >
-                                                <svg
-                                                    aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24"
-                                                    height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                >
-                                                    <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
-                                                    <path d="m9 12 2 2 4-4" />
-                                                </svg>
+                                                <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                                                <path d="m9 12 2 2 4-4" />
+                                            </svg>
 
-                                                Redeem
-                                                your code
-                                            </NavLink>
-                                        </li>
-                                    )}
+                                            Redeem your code
+                                        </NavLink>
+                                    </li>
+                                )}
                             </ul>
                         </div>
                     )}

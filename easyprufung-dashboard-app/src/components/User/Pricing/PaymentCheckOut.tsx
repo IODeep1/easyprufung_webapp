@@ -71,7 +71,7 @@ const PaymentCheckOut = () => {
                     </h3>
 
                     <p className="mx-auto mt-6 max-w-xl text-base text-gray-500 sm:text-lg dark:text-gray-400">
-                        Your TELC Deutsch B1 Exam Pass is being activated. You now have up to 10 exam quotas and 60 days to prepare with EasyPrufung.
+                        Your TELC Deutsch B1 Exam Pass is being activated. You now have up to 10 exam quotas and 60 days to prepare with EasyPrüfung.
                     </p>
 
                     <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
