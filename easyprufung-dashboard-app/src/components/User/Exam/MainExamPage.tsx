@@ -70,6 +70,27 @@ export default function MainExamPage() {
         setRestoredUserId(currentUserId);
     }, [currentUserId, restoredUserId]);
 
+    useEffect(() => {
+        if (screen !== "result") {
+            return;
+        }
+
+        const ownerId = sessionUserId ?? currentUserId;
+
+        if (ownerId) {
+            clearActiveExam(ownerId);
+        }
+
+        if (session) {
+            clearExamProgress(session.sessionId);
+        }
+    }, [
+        screen,
+        session,
+        sessionUserId,
+        currentUserId
+    ]);
+
     const start = async (request: StartExamRequest) => {
         setScreen("loading");
         setError(null);
