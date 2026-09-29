@@ -61,7 +61,7 @@ const Root: React.FC = () => {
                     {/* <!-- ===== Sidebar End ===== --> */}
 
                     {/* <!-- ===== Content Area Start ===== --> */}
-                    <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+                    <div  id="app-scroll-container" className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
                         {/* <!-- ===== Header Start ===== --> */}
                         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setTheme={setTheme} />
                         {/* <!-- ===== Header End ===== --> */}

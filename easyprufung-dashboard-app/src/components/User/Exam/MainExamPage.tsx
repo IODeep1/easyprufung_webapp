@@ -1,7 +1,16 @@
 import { AlertCircle, RotateCcw } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { startExamSession, submitExamSession } from "../../../api/exam/api-helper";
+import type { IStateType } from "../../../store/models/root.interface.ts";
+import type { IUserAccount } from "../../../store/models/user/userAccount.interface.ts";
 import { LoadingScreen } from "./components/ExamChrome";
+import {
+    clearActiveExam,
+    clearExamProgress,
+    loadActiveExam,
+    saveActiveExam
+} from "./exam-storage.ts";
 import { ExamRunnerPage } from "./ExamRunnerPage";
 import { ResultPage } from "./ResultPage";
 import { StartPage } from "./StartPage";
@@ -10,17 +19,73 @@ import type { ExamResultView, ExamSessionView, StartExamRequest, SubmitExamReque
 type Screen = "start" | "loading" | "exam" | "result" | "error";
 
 export default function MainExamPage() {
-    const [screen, setScreen] = useState<Screen>("start");
-    const [session, setSession] = useState<ExamSessionView | null>(null);
-    const [result, setResult] = useState<ExamResultView | null>(null);
+    const account: IUserAccount = useSelector(
+        (state: IStateType) => state.userAccount
+    );
+    const currentUserId = account.user?.uuid?.trim() ?? "";
+
+    const [initialActiveExam] = useState(() =>
+        currentUserId ? loadActiveExam(currentUserId) : null
+    );
+
+    const [screen, setScreen] = useState<Screen>(
+        initialActiveExam?.screen ?? "start"
+    );
+    const [session, setSession] = useState<ExamSessionView | null>(
+        initialActiveExam?.session ?? null
+    );
+    const [result, setResult] = useState<ExamResultView | null>(
+        initialActiveExam?.result ?? null
+    );
     const [error, setError] = useState<string | null>(null);
+    const [sessionUserId, setSessionUserId] = useState<string | null>(
+        initialActiveExam?.userId ?? null
+    );
+    const [restoredUserId, setRestoredUserId] = useState(
+        currentUserId
+    );
+
+    useEffect(() => {
+        if (currentUserId === restoredUserId) {
+            return;
+        }
+
+        if (!currentUserId) {
+            setScreen("start");
+            setSession(null);
+            setResult(null);
+            setError(null);
+            setSessionUserId(null);
+            setRestoredUserId("");
+            return;
+        }
+
+        const stored = loadActiveExam(currentUserId);
+
+        setScreen(stored?.screen ?? "start");
+        setSession(stored?.session ?? null);
+        setResult(stored?.result ?? null);
+        setError(null);
+        setSessionUserId(stored?.userId ?? null);
+        setRestoredUserId(currentUserId);
+    }, [currentUserId, restoredUserId]);
 
     const start = async (request: StartExamRequest) => {
         setScreen("loading");
         setError(null);
         try {
             const created = await startExamSession(request);
+            setSessionUserId(request.userId);
             setSession(created);
+            setResult(null);
+
+            saveActiveExam({
+                userId: request.userId,
+                screen: "exam",
+                session: created,
+                result: null
+            });
+
             setScreen("exam");
         } catch (cause) {
             setError(cause instanceof Error ? cause.message : "Die Prüfung konnte nicht erstellt werden.");
@@ -32,7 +97,19 @@ export default function MainExamPage() {
         if (!session) return;
         try {
             const evaluated = await submitExamSession(session.sessionId, request);
+            const ownerId = sessionUserId ?? currentUserId;
+
             setResult(evaluated);
+
+            if (ownerId) {
+                saveActiveExam({
+                    userId: ownerId,
+                    screen: "result",
+                    session,
+                    result: evaluated
+                });
+            }
+
             setScreen("result");
         } catch (cause) {
             throw cause;
@@ -40,9 +117,20 @@ export default function MainExamPage() {
     };
 
     const reset = () => {
+        const ownerId = sessionUserId ?? currentUserId;
+
+        if (ownerId) {
+            clearActiveExam(ownerId);
+        }
+
+        if (session) {
+            clearExamProgress(session.sessionId);
+        }
+
         setSession(null);
         setResult(null);
         setError(null);
+        setSessionUserId(null);
         setScreen("start");
     };
 
@@ -71,4 +159,3 @@ export default function MainExamPage() {
     }
     return <StartPage onStart={start} />;
 }
-

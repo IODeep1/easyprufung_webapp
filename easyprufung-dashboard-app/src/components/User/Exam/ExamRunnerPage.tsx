@@ -8,6 +8,11 @@ import {
 import { SubmitConfirmation } from "./components/HoldToSubmit";
 import { PartRenderer } from "./components/PartRenderer";
 import { AudioPlayer } from "./components/AudioPlayer.tsx";
+import {
+    clearExamProgress,
+    loadExamProgress,
+    saveExamProgress
+} from "./exam-storage.ts";
 import type {
     AnswerMap,
     ExamSessionView,
@@ -20,8 +25,18 @@ export function ExamRunnerPage(props: {
 }) {
     const { session, onSubmit } = props;
 
-    const [index, setIndex] = useState(0);
-    const [answers, setAnswers] = useState<AnswerMap>({});
+    const [restoredProgress] = useState(() =>
+        loadExamProgress(session.sessionId)
+    );
+    const [index, setIndex] = useState(() =>
+        Math.min(
+            restoredProgress?.index ?? 0,
+            Math.max(session.exercises.length - 1, 0)
+        )
+    );
+    const [answers, setAnswers] = useState<AnswerMap>(
+        () => restoredProgress?.answers ?? {}
+    );
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [submitting, setSubmitting] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
@@ -32,11 +47,25 @@ export function ExamRunnerPage(props: {
      * Hooks must always be called before any conditional return.
      */
     useEffect(() => {
+        const scrollContainer =
+            document.getElementById("app-scroll-container");
+
+        if (scrollContainer) {
+            scrollContainer.scrollTop = 0;
+        }
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
     }, [index]);
+
+    useEffect(() => {
+        saveExamProgress({
+            sessionId: session.sessionId,
+            index,
+            answers
+        });
+    }, [answers, index, session.sessionId]);
 
     const payload = useMemo<SubmitExamRequest>(
         () => ({
@@ -127,6 +156,7 @@ export function ExamRunnerPage(props: {
 
         try {
             await onSubmit(payload);
+            clearExamProgress(session.sessionId);
         } catch (error) {
             setSubmitError(
                 error instanceof Error
