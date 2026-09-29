@@ -25,7 +25,7 @@ i18n.use(initReactI18next)
     }).then()
 
 ReactDOM.render(
-    <GoogleOAuthProvider clientId='644152980776-52gsir30g036f5eutfhqd4mamd465da1.apps.googleusercontent.com'>
+    <GoogleOAuthProvider clientId='69673562447-tf8a21hn4bv7is7er137d1lsj3kvlniq.apps.googleusercontent.com'>
         <Provider store={store}>
             <ThemeProvider>
                 <App />

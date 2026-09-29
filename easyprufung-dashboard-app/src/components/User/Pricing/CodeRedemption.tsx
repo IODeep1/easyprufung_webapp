@@ -97,7 +97,7 @@ const CodeRedemption = () => {
 
                         <div className="flex justify-end">
                             <ReCAPTCHA
-                                sitekey="6LdnpOwqAAAAAPGquo4cAMMo75SpoSzwpcziExhX"
+                                sitekey="6LcEq9UtAAAAAIMS8OZ8SLinOvMm1ePEO-k9GAAQ"
                                 onChange={onCaptchaChange}
                             />
                         </div>
