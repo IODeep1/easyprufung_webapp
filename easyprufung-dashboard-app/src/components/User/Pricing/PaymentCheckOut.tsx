@@ -1,5 +1,5 @@
-import React, { Dispatch, useEffect, useMemo, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import React, { Dispatch, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { requestGetUser } from "../../../api/user/api-helper.ts";
 import { updateUser } from "../../../store/actions/user/userAccount.actions.ts";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,18 +9,14 @@ import { IUserAccount } from "../../../store/models/user/userAccount.interface";
 const PaymentCheckOut = () => {
     const navigate = useNavigate();
     const dispatch: Dispatch<any> = useDispatch();
-    const { search } = useLocation();
 
     const account: IUserAccount = useSelector((state: IStateType) => state.userAccount);
-    const availableCredits = account.subscription?.iteration;
 
-    const qp = useMemo(() => new URLSearchParams(search), [search]);
-    // Expecting your Stripe success URLs for credit packs to include something like:
-    // /payment_successful?product=credits&credits=100
-    // You can set that per Payment Link in Stripe.
-    const product = (qp.get("product") || qp.get("type") || "").toLowerCase();
-    const creditsPurchased = Number(qp.get("credits") || qp.get("pack") || 0);
-    const isCreditsPurchase = product === "credits" || (!!creditsPurchased && !product);
+    // Cast keeps this component compatible while the frontend subscription
+    // interface is being migrated from the old `iteration` field to `quota`.
+    const subscription = account?.user.subscription as any;
+    const availableQuota = subscription?.quota ?? 0;
+    const accessEndDate = subscription?.endDate;
 
     const [isRefreshing, setIsRefreshing] = useState(true);
 
@@ -34,85 +30,75 @@ const PaymentCheckOut = () => {
                     dispatch(updateUser(user));
                 }
             } finally {
-                if (isMounted) setIsRefreshing(false);
+                if (isMounted) {
+                    setIsRefreshing(false);
+                }
             }
         };
 
-// Refresh immediately
+        // Refresh immediately, then once again to allow the Stripe webhook
+        // a short moment to activate the paid B1 access record.
         refreshUser();
-
-// If it's a credits purchase, optionally refresh again shortly after redirect
-// to catch webhook processing delays.
-        if (isCreditsPurchase) {
-            const t = setTimeout(refreshUser, 1500);
-            return () => {
-                isMounted = false;
-                clearTimeout(t);
-            };
-        }
+        const refreshTimer = setTimeout(refreshUser, 1500);
 
         return () => {
             isMounted = false;
+            clearTimeout(refreshTimer);
         };
-    }, [dispatch, isCreditsPurchase]);
+    }, [dispatch]);
+
+    const formattedEndDate = accessEndDate
+        ? new Intl.DateTimeFormat(undefined, {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+          }).format(new Date(accessEndDate))
+        : null;
 
     return (
-        <section id="payment_successful">
-            <div className="items-center justify-center text-center">
-                <div className="p-6 items-center justify-center lg:w-1/2 md:mx-auto">
-                    <svg viewBox="0 0 24 24" className="text-green-600 w-16 h-16 mx-auto my-6">
+        <section id="payment_successful" className="py-12 sm:py-16">
+            <div className="mx-auto flex max-w-3xl items-center justify-center px-4 text-center">
+                <div className="w-full rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm sm:p-10 dark:border-neutral-800 dark:bg-neutral-950">
+                    <svg viewBox="0 0 24 24" className="mx-auto my-6 h-16 w-16 text-green-600">
                         <path
                             fill="currentColor"
                             d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
                         />
                     </svg>
 
-                    <div className="text-center">
-                        <h3 className="lg:text-4xl text-3xl font-extrabold lg:leading-[55px] text-gray-800 dark:text-white">
-                            {isCreditsPurchase ? "Practice Credits Added!" : "Payment Successful!"}
-                        </h3>
+                    <h3 className="text-3xl font-extrabold text-gray-800 lg:text-4xl lg:leading-[55px] dark:text-white">
+                        Payment Successful!
+                    </h3>
 
-                        {isCreditsPurchase ? (
-                            <p className="text-l mt-6 text-gray-500 dark:text-gray-400">
-                                {creditsPurchased > 0
-                                    ? `Your purchase of ${creditsPurchased} practice credits was successful. Your balance will update shortly.`
-                                    : "Your practice-credit purchase was successful. Your balance will update shortly."}
-                            </p>
-                        ) : (
-                            <p className="text-l mt-6 text-gray-500 dark:text-gray-400">
-                                Use EasyPrufung to practice realistic TELC mock exams, get AI-powered scoring and feedback, and review your mistakes before exam day.
-                            </p>
-                        )}
+                    <p className="mx-auto mt-6 max-w-xl text-base text-gray-500 sm:text-lg dark:text-gray-400">
+                        Your TELC Deutsch B1 Exam Pass is being activated. You now have up to 10 exam quotas and 60 days to prepare with EasyPrufung.
+                    </p>
 
-                        {/* Small status chips */}
-                        <div className="mt-6 flex items-center justify-center gap-3">
-                            {isCreditsPurchase && creditsPurchased > 0 && (
-                                <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:ring-blue-800">
-              Purchased: {creditsPurchased} practice credits
-            </span>
-                            )}
-                            <span className="inline-flex items-center rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700 ring-1 ring-inset ring-green-200 dark:bg-green-900/30 dark:text-green-300 dark:ring-green-800">
-            {isRefreshing ? "Updating account..." : `Balance: ${availableCredits} practice credits`}
-          </span>
-                        </div>
-
-                        <div className="py-10 text-center flex items-center justify-center gap-3">
-                            <button
-                                type="button"
-                                onClick={async () => {
-                                    navigate("/");
-                                }}
-                                className="py-3 px-6 bg-black text-white border border-black rounded-lg hover:bg-gray-800 active:bg-gray-900
-                       dark:bg-white dark:text-black dark:border-white dark:hover:bg-gray-300 dark:active:bg-gray-400"
-                            >
-                                Start practicing
-                            </button>
-                        </div>
-
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
-                            If your practice credits don’t appear immediately, refresh after a moment — payment confirmation can take a few seconds.
-                        </p>
+                    <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+                        <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:ring-blue-800">
+                            TELC B1 · €19 one-time
+                        </span>
+                        <span className="inline-flex items-center rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700 ring-1 ring-inset ring-green-200 dark:bg-green-900/30 dark:text-green-300 dark:ring-green-800">
+                            {isRefreshing ? "Updating account..." : `${availableQuota} exam quotas available`}
+                        </span>
+                        <span className="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-700 ring-1 ring-inset ring-neutral-200 dark:bg-neutral-900 dark:text-neutral-300 dark:ring-neutral-800">
+                            {formattedEndDate ? `Access until ${formattedEndDate}` : "60 days of access"}
+                        </span>
                     </div>
+
+                    <div className="flex items-center justify-center gap-3 py-10 text-center">
+                        <button
+                            type="button"
+                            onClick={() => navigate("/")}
+                            className="rounded-lg border border-black bg-black px-6 py-3 text-white transition hover:bg-gray-800 active:bg-gray-900 dark:border-white dark:bg-white dark:text-black dark:hover:bg-gray-300 dark:active:bg-gray-400"
+                        >
+                            Start practicing
+                        </button>
+                    </div>
+
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                        If the quota does not update immediately, payment confirmation may still be processing. Refresh this page after a moment.
+                    </p>
                 </div>
             </div>
         </section>

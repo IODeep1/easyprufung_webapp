@@ -8,7 +8,6 @@ import { IUser } from "../../../store/models/user/user.interface";
 import { IStateType } from "../../../store/models/root.interface";
 import { updateUser } from "../../../store/actions/user/userAccount.actions";
 import { IUserAccount } from "../../../store/models/user/userAccount.interface";
-import { useNavigate } from "react-router-dom";
 
 const ArrowRight = ({ className = "h-4 w-4" }) => (
     <svg
@@ -27,31 +26,8 @@ const ArrowRight = ({ className = "h-4 w-4" }) => (
     </svg>
 );
 
-const CheckIcon = () => (
-    <svg
-        className="h-5 w-5 text-blue-600 dark:text-blue-400 flex-shrink-0"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        aria-hidden="true"
-    >
-        <path
-            fillRule="evenodd"
-            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-            clipRule="evenodd"
-        />
-    </svg>
-);
-
-const formatUSD = (amount: number) =>
-    new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-        maximumFractionDigits: 2,
-    }).format(amount);
-
 const Settings = () => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const { t } = useTranslation();
 
     const currentUser: IUser | undefined = useSelector(
@@ -61,64 +37,99 @@ const Settings = () => {
         (state: IStateType) => state.userAccount
     );
 
-    // Plans: free, starter, autopilot
-    const currentPlan = account.subscription?.plan?.toLowerCase?.() || "free";
-    const isAutopilotSubscription = currentPlan === "autopilot";
-    const isStarterSubscription = currentPlan === "starter";
-    const isPaidSubscription = isAutopilotSubscription || isStarterSubscription;
-    const planLabel = isAutopilotSubscription
-        ? "Lifetime"
-        : isStarterSubscription
-            ? "Starter"
-            : "Free";
+    // The backend now stores exactly one Subscription per user.
+    // `as any` keeps this component compatible while the frontend interface
+    // is migrated from the old `iteration` model to the new `quota` field.
+    const subscription = currentUser?.subscription as any;
 
-    const availableCredits = account.subscription?.iteration;
+    const currentPlan = (subscription?.plan || "free").toLowerCase();
+    const subscriptionStatus = (subscription?.status || "active").toLowerCase();
+    const availableQuota = subscription?.quota ?? 0;
 
-    // Derive user identifier for Stripe prefill
-    const email = encodeURIComponent(account?.user?.email || "");
-    const refId = encodeURIComponent(account?.user?.uuid || "");
-    const isDev = process.env.NODE_ENV === "development";
+    const isFree = currentPlan === "free";
+    const isB1 = currentPlan === "b1";
+    const isTester = currentPlan === "tester";
 
-    // Credit Pack Stripe Payment Links
-    const creditPackLinksBase = {
-        50: isDev
-            ? "https://buy.stripe.com/test_00wcN58bD36Q8yi2w08Ra02"
-            : "https://buy.stripe.com/bJeeVdgI95eY7ue5Ic8Ra09",
-        100: isDev
-            ? "https://buy.stripe.com/test_dRm7sL4Zr4aU5m63A48Ra03"
-            : "https://buy.stripe.com/4gM5kD63vazidSC3A48Ra0a",
-        200: isDev
-            ? "https://buy.stripe.com/test_4gMfZh9fH4aU8yib2w8Ra04"
-            : "https://buy.stripe.com/4gM6oH1Nf22M29U2w08Ra0b",
-    } as const;
+    const rawEndDate = subscription?.endDate;
+    const endDate = rawEndDate ? new Date(rawEndDate) : null;
+    const hasValidEndDate = Boolean(
+        endDate && !Number.isNaN(endDate.getTime())
+    );
+    const isPastEndDate = Boolean(
+        hasValidEndDate && endDate && endDate.getTime() <= Date.now()
+    );
+    const isExpired =
+        subscriptionStatus === "expired" ||
+        subscription?.isActive === false ||
+        isPastEndDate;
 
-    // Pack data
-    const creditPacks = [
-        {
-            name: "Quick Boost",
-            title: "Practice Credits",
-            credits: 50,
-            priceUSD: 9,
-            href: `${creditPackLinksBase[50]}?prefilled_email=${email}&client_reference_id=${refId}`,
-            description: "Useful for extra AI-generated exercises and written feedback.",
-        },
-        {
-            name: "Practice Plus",
-            title: "Practice Credits",
-            credits: 100,
-            priceUSD: 16,
-            href: `${creditPackLinksBase[100]}?prefilled_email=${email}&client_reference_id=${refId}`,
-            description: "A larger top-up for regular mock-exam preparation.",
-        },
-        {
-            name: "Intensive",
-            title: "Practice Credits",
-            credits: 200,
-            priceUSD: 30,
-            href: `${creditPackLinksBase[200]}?prefilled_email=${email}&client_reference_id=${refId}`,
-            description: "Best for intensive preparation and frequent AI feedback.",
-        },
-    ];
+    const formattedEndDate = hasValidEndDate && endDate
+        ? new Intl.DateTimeFormat(undefined, {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+        }).format(endDate)
+        : null;
+
+    const planLabel = isExpired && !isFree
+        ? "Expired"
+        : isTester
+            ? "Tester"
+            : isB1
+                ? "TELC B1 Exam Pass"
+                : "Free";
+
+    const planDescription = (() => {
+        if (isTester) {
+            if (isExpired) {
+                return "Your tester access has expired. You can continue with the TELC B1 Exam Pass.";
+            }
+            return formattedEndDate
+                ? `Tester access is active until ${formattedEndDate}.`
+                : "Tester access is active.";
+        }
+
+        if (isB1) {
+            if (isExpired) {
+                return "Your TELC B1 access period has ended. Buy a new pass to receive 10 quotas and a fresh 60-day access period.";
+            }
+            if (availableQuota <= 0) {
+                return "You have used all 10 exam quotas. Buy a new pass to reset your balance to 10 quotas and start a fresh 60-day access period.";
+            }
+            return formattedEndDate
+                ? `Your TELC B1 Exam Pass is active until ${formattedEndDate}. Quotas do not renew automatically.`
+                : "Your TELC B1 Exam Pass is active. Quotas do not renew automatically.";
+        }
+
+        if (availableQuota > 0) {
+            return "Your free account includes 1 exam quota. The free quota is granted once and does not renew.";
+        }
+
+        return "You have used your free exam quota. Unlock 10 new quotas with the TELC B1 Exam Pass.";
+    })();
+
+    // Show checkout only when it is useful. A paid purchase resets the account
+    // to 10 quotas and starts a fresh 60-day window, so active paid users with
+    // remaining quota are not encouraged to overwrite their current balance.
+    const shouldShowPurchase =
+        isFree ||
+        isExpired ||
+        ((isB1 || isTester) && availableQuota <= 0);
+
+    const paymentLinkBase =
+        "https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00";
+    const paymentParams = new URLSearchParams();
+
+    if (account?.user?.email) {
+        paymentParams.set("prefilled_email", account.user.email);
+    }
+    if (account?.user?.uuid) {
+        paymentParams.set("client_reference_id", account.user.uuid);
+    }
+
+    const paymentUrl = paymentParams.toString()
+        ? `${paymentLinkBase}?${paymentParams.toString()}`
+        : paymentLinkBase;
 
     const [popup, setPopup] = useState(false);
     const [popupMessage, setPopupMessage] = useState("");
@@ -133,21 +144,38 @@ const Settings = () => {
         confirmpassword: { error: "", value: "" },
     });
 
-    // Ref for the credits section
-    const creditsRef = useRef<HTMLDivElement>(null);
+    // Keep support for old links that point to #credits while moving the UI
+    // terminology to the more accurate "exam access" model.
+    const accessRef = useRef<HTMLDivElement>(null);
 
-    // Effect for hash scrolling
     useEffect(() => {
-        if (window.location.hash === "#credits") {
+        if (
+            window.location.hash === "#credits" ||
+            window.location.hash === "#access"
+        ) {
             setTimeout(() => {
-                // Use timeout in case the component is not yet rendered
-                const el = creditsRef.current;
-                if (el) {
-                    el.scrollIntoView({ behavior: "smooth" });
-                }
+                accessRef.current?.scrollIntoView({ behavior: "smooth" });
             }, 100);
         }
     }, []);
+
+    useEffect(() => {
+        setFormState((prev) => ({
+            ...prev,
+            firstname: {
+                error: prev.firstname.error,
+                value: currentUser?.firstname || "",
+            },
+            lastname: {
+                error: prev.lastname.error,
+                value: currentUser?.lastname || "",
+            },
+            email: {
+                error: prev.email.error,
+                value: currentUser?.email || "",
+            },
+        }));
+    }, [currentUser?.firstname, currentUser?.lastname, currentUser?.email]);
 
     function hasFormValueChanged(model: OnChangeModel): void {
         setError("");
@@ -256,7 +284,7 @@ const Settings = () => {
     return (
         <section
             id="profile"
-            className="relative min-h-screen text-black  dark:text-white px-6 py-10"
+            className="relative min-h-screen text-black dark:text-white px-6 py-10"
         >
             <div className="relative z-10 mx-auto max-w-6xl">
                 <div className="mb-8">
@@ -264,62 +292,90 @@ const Settings = () => {
                         Settings
                     </h1>
                     <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
-                        Manage your profile, subscription, password, and EasyPrufung practice credits.
+                        Manage your profile, exam access, quota, and password.
                     </p>
                 </div>
 
-                {/* Subscription status */}
-                <div className="mb-8 rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-black/60 backdrop-blur-xl shadow-xl overflow-hidden">
+                {/* Exam access / quota status */}
+                <div
+                    id="access"
+                    ref={accessRef}
+                    className="mb-8 rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-black/60 backdrop-blur-xl shadow-xl overflow-hidden"
+                >
                     <div className="h-1 w-full bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600" />
                     <div className="p-6 sm:p-8">
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
                             <div>
-                                <h2 className="text-xl font-bold">Subscription</h2>
+                                <h2 className="text-xl font-bold">Exam access</h2>
                                 <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                                    Your current plan and remaining AI practice credits.
+                                    Your current EasyPrufung access and remaining exam quota.
                                 </p>
                             </div>
-                            <div className="flex items-center gap-3">
-                <span
-                    className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-md font-semibold ring-1 ring-inset ${
-                        isPaidSubscription
-                            ? "bg-green-100 text-green-700 ring-green-200 dark:bg-green-500/10 dark:text-green-300 dark:ring-green-900/40"
-                            : "bg-neutral-100 text-neutral-700 ring-neutral-200 dark:bg-neutral-900 dark:text-neutral-300 dark:ring-neutral-800"
-                    }`}
-                >
-                  {planLabel}
-                </span>
-                                {isPaidSubscription && (
-                                    <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-md font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:ring-blue-800">
-                    {availableCredits} practice credits
-                  </span>
+
+                            <div className="flex flex-wrap items-center gap-3">
+                                <span
+                                    className={`inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold ring-1 ring-inset ${
+                                        isExpired && !isFree
+                                            ? "bg-red-50 text-red-700 ring-red-200 dark:bg-red-500/10 dark:text-red-300 dark:ring-red-900/40"
+                                            : isB1 || isTester
+                                                ? "bg-green-100 text-green-700 ring-green-200 dark:bg-green-500/10 dark:text-green-300 dark:ring-green-900/40"
+                                                : "bg-neutral-100 text-neutral-700 ring-neutral-200 dark:bg-neutral-900 dark:text-neutral-300 dark:ring-neutral-800"
+                                    }`}
+                                >
+                                    {planLabel}
+                                </span>
+
+                                <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:ring-blue-800">
+                                    {availableQuota} {availableQuota === 1 ? "quota" : "quotas"} remaining
+                                </span>
+
+                                {formattedEndDate && !isFree && (
+                                    <span className="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-sm font-semibold text-neutral-700 ring-1 ring-inset ring-neutral-200 dark:bg-neutral-900 dark:text-neutral-300 dark:ring-neutral-800">
+                                        {isExpired ? "Ended" : "Until"} {formattedEndDate}
+                                    </span>
                                 )}
                             </div>
                         </div>
-                        {!isPaidSubscription && (
-                            <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                                <p className="text-sm text-gray-700 dark:text-gray-300">
-                                    Unlock more exam practice with a flexible monthly plan or one-time lifetime access.
-                                </p>
-                                <button
-                                    onClick={async () => {
-                                        navigate("/pricing");
-                                    }}
-                                    className="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition
-                border border-black dark:border-white
-                bg-black text-white hover:bg-black/90 active:bg-black
-                dark:bg:white dark:text-black dark:hover:bg-white/90"
+
+                        <div className="mt-6 rounded-xl border border-black/10 bg-black/[0.02] p-4 dark:border-white/10 dark:bg-white/[0.04]">
+                            <p className="text-sm text-gray-700 dark:text-gray-300">
+                                {planDescription}
+                            </p>
+                        </div>
+
+                        {shouldShowPurchase && (
+                            <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                                <div>
+                                    <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                                        TELC Deutsch B1 Exam Pass
+                                    </p>
+                                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                                        €19 one-time · 10 exam quotas · 60 days · no automatic renewal
+                                    </p>
+                                </div>
+
+                                <a
+                                    href={paymentUrl}
+                                    className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl border border-black bg-black px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-black/90 active:bg-black dark:border-white dark:bg-white dark:text-black dark:hover:bg-white/90"
                                 >
-                                    Upgrade
+                                    {isFree && availableQuota > 0
+                                        ? "Unlock 10 quotas — €19"
+                                        : "Buy B1 Exam Pass — €19"}
                                     <ArrowRight />
-                                </button>
+                                </a>
+                            </div>
+                        )}
+
+                        {isB1 && !isExpired && availableQuota > 0 && (
+                            <div className="mt-6 text-sm text-gray-600 dark:text-gray-400">
+                                Your current pass is active. Use your remaining quota before buying another pass, because a new purchase starts a fresh 10-quota / 60-day period.
                             </div>
                         )}
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Settings details card */}
+                    {/* Personal details card */}
                     <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-black/60 backdrop-blur-xl shadow-xl overflow-hidden">
                         <div className="h-1 w-full bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600" />
                         <form
@@ -427,8 +483,7 @@ const Settings = () => {
                                     placeholder="Your new password"
                                 />
                                 <p className="mt-2 text-xs text-gray-600 dark:text-gray-400">
-                                    At least 8 characters with uppercase, lowercase, numbers and
-                                    symbols.
+                                    At least 8 characters with uppercase, lowercase, numbers and symbols.
                                 </p>
                             </div>
                             <div>
@@ -468,86 +523,6 @@ const Settings = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Practice credit packs section (visible for paid plans) */}
-            {isPaidSubscription && (
-                <div id="credits" ref={creditsRef} className="relative z-10 mx-auto mt-10 max-w-6xl">
-                    <div className="mb-6">
-                        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-                            Practice credit packs
-                        </h2>
-                        <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
-                            Top up your practice credits anytime. One-time purchase, instantly added to your account.
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                        {creditPacks.map((pack) => (
-                            <div
-                                key={pack.credits}
-                                className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-black/60 backdrop-blur-xl shadow-xl overflow-hidden flex flex-col"
-                            >
-                                <div className="h-1 w-full bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600" />
-                                <div className="p-6 sm:p-8 flex flex-col h-full">
-                                    <div className="mb-1 flex items-center justify-between">
-                                        <h4 className="text-xl font-semibold tracking-tight flex items-center gap-2">
-                                            {pack.title}
-                                            <span className="inline-flex items-center rounded-full bg-neutral-100 px-2 py-0.5 text-xs font-medium text-neutral-700 ring-1 ring-inset ring-neutral-200 dark:bg-neutral-900 dark:text-neutral-300 dark:ring-neutral-800">
-                        {pack.name}
-                      </span>
-                                        </h4>
-                                        <span className="ml-2 inline-flex items-center rounded-full bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:ring-blue-800">
-                      {formatUSD(pack.priceUSD)}
-                    </span>
-                                    </div>
-                                    <p className="text-gray-700 dark:text-gray-300">
-                                        {pack.description}
-                                    </p>
-                                    <div className="my-6 flex items-baseline justify-center gap-3">
-                                        <div className="flex items-baseline">
-                      <span className="mr-2 text-5xl font-extrabold tracking-tight text-black dark:text-white">
-                        {pack.credits}
-                      </span>
-                                            <span className="text-neutral-600 dark:text-neutral-400">
-                        Practice credits
-                      </span>
-                                        </div>
-                                    </div>
-                                    <ul className="mb-8 space-y-3 text-left text-sm text-gray-700 dark:text-gray-300">
-                                        <li className="flex items-start gap-3">
-                                            <CheckIcon />
-                                            <span>Instantly added to your account</span>
-                                        </li>
-                                        <li className="flex items-start gap-3">
-                                            <CheckIcon />
-                                            <span>One-time purchase, no subscription</span>
-                                        </li>
-                                        <li className="flex items-start gap-3">
-                                            <CheckIcon />
-                                            <span>Use for AI-generated exercises, evaluation, feedback, and explanations</span>
-                                        </li>
-                                        <li className="flex items-start gap-3">
-                                            <CheckIcon />
-                                            <span>Secure Stripe checkout</span>
-                                        </li>
-                                    </ul>
-                                    <div className="mt-auto pt-2">
-                                        <a
-                                            href={pack.href}
-                                            className="inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold transition
-                      border border-black dark:border-white
-                      bg-black text-white hover:bg-black/90 active:bg-black
-                      dark:bg-white dark:text-black dark:hover:bg-white/90"
-                                        >
-                                            Buy {pack.credits} practice credits
-                                            <ArrowRight />
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )}
 
             {/* Popup */}
             {popup && (

@@ -1,8 +1,15 @@
 import { useState, type FormEvent } from "react";
-import type {CefrLevel, ExamProvider, StartExamRequest} from "./models/exam.ts";
-import type {IUserAccount} from "../../../store/models/user/userAccount.interface.ts";
-import {useSelector} from "react-redux";
-import type {IStateType} from "../../../store/models/root.interface.ts";
+import type {
+    CefrLevel,
+    ExamProvider,
+    StartExamRequest
+} from "./models/exam.ts";
+import type { IUserAccount } from "../../../store/models/user/userAccount.interface.ts";
+import { useSelector } from "react-redux";
+import type { IStateType } from "../../../store/models/root.interface.ts";
+
+const STRIPE_B1_PAYMENT_LINK =
+    "https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00";
 
 const providers: Array<{
     value: ExamProvider;
@@ -38,20 +45,49 @@ export function StartPage({
                           }: {
     onStart: (request: StartExamRequest) => void;
 }) {
-
     const account: IUserAccount = useSelector(
         (state: IStateType) => state.userAccount
     );
 
-    const  userId = account.user.uuid;
+    const userId = account.user?.uuid || "";
+    const subscription = account.user.subscription;
+
+    const currentPlan = subscription?.plan?.toLowerCase?.() || "free";
+    const availableQuota = Number(subscription?.quota ?? 0);
+
+    const isTester = currentPlan === "tester";
+    const isB1 = currentPlan === "b1";
+    const isFree = currentPlan === "free";
+
+    const endDate = subscription?.endDate
+        ? new Date(subscription.endDate)
+        : null;
+
+    const hasValidEndDate =
+        !!endDate && !Number.isNaN(endDate.getTime());
+
+    const isExpired =
+        !isTester &&
+        hasValidEndDate &&
+        endDate!.getTime() <= Date.now();
+
+    const hasQuota = isTester || availableQuota > 0;
+
+    const canStartExam =
+        Boolean(userId.trim()) &&
+        hasQuota &&
+        !isExpired;
+
     const [provider, setProvider] =
         useState<ExamProvider>("TELC");
-    const [level, setLevel] = useState<CefrLevel>("B1");
+
+    const [level, setLevel] =
+        useState<CefrLevel>("B1");
 
     const submit = (event: FormEvent) => {
         event.preventDefault();
 
-        if (!userId.trim()) {
+        if (!canStartExam) {
             return;
         }
 
@@ -62,6 +98,41 @@ export function StartPage({
             examCode: "TELC_DEUTSCH_B1_WRITTEN"
         });
     };
+
+    const openCheckout = () => {
+        const params = new URLSearchParams();
+
+        const email = account.user?.email;
+        const uuid = account.user?.uuid;
+
+        if (email) {
+            params.set("prefilled_email", email);
+        }
+
+        if (uuid) {
+            params.set("client_reference_id", uuid);
+        }
+
+        const checkoutUrl = params.toString()
+            ? `${STRIPE_B1_PAYMENT_LINK}?${params.toString()}`
+            : STRIPE_B1_PAYMENT_LINK;
+
+        window.location.href = checkoutUrl;
+    };
+
+    const quotaLabel = isTester
+        ? "Tester-Zugang"
+        : `${availableQuota} ${availableQuota === 1 ? "Prüfung" : "Prüfungen"} verfügbar`;
+
+    const accessLabel = isTester
+        ? "Unbegrenzter Tester-Zugang"
+        : isExpired
+            ? "Ihr Zugang ist abgelaufen"
+            : isB1
+                ? "TELC B1 Exam Pass"
+                : isFree
+                    ? "Kostenloser Zugang"
+                    : "Prüfungszugang";
 
     return (
         <main className="min-h-screen bg-white text-black">
@@ -80,6 +151,76 @@ export function StartPage({
                             Trainieren Sie Lesen, Sprachbausteine, Hören und
                             Schreiben unter realistischen Prüfungsbedingungen.
                         </p>
+
+                        {/* Access / quota status */}
+                        <div
+                            className={`mt-8 max-w-xl rounded-2xl border p-4 ${
+                                isExpired || !hasQuota
+                                    ? "border-red-200 bg-red-50"
+                                    : isTester
+                                        ? "border-green-200 bg-green-50"
+                                        : "border-blue-200 bg-blue-50"
+                            }`}
+                        >
+                            <div className="flex items-start justify-between gap-4">
+                                <div>
+                                    <p className="text-xs font-black uppercase tracking-widest text-black/50">
+                                        Ihr Zugang
+                                    </p>
+
+                                    <p className="mt-1 font-black">
+                                        {accessLabel}
+                                    </p>
+
+                                    <p className="mt-1 text-sm text-black/60">
+                                        {quotaLabel}
+                                    </p>
+
+                                    {!isTester && hasQuota && !isExpired && (
+                                        <p className="mt-2 text-xs font-semibold text-black/50">
+                                            Beim Start dieser Prüfung wird 1 Quote verwendet.
+                                        </p>
+                                    )}
+
+                                    {isB1 && !isExpired && hasValidEndDate && (
+                                        <p className="mt-2 text-xs text-black/50">
+                                            Zugang gültig bis{" "}
+                                            {endDate!.toLocaleDateString("de-DE")}
+                                        </p>
+                                    )}
+                                </div>
+
+                                {!isTester && (
+                                    <div
+                                        className={`flex h-12 min-w-12 items-center justify-center rounded-full px-3 text-lg font-black ${
+                                            isExpired || !hasQuota
+                                                ? "bg-red-100 text-red-700"
+                                                : "bg-white text-black"
+                                        }`}
+                                        title="Verbleibende Prüfungsquoten"
+                                    >
+                                        {availableQuota}
+                                    </div>
+                                )}
+                            </div>
+
+                            {!isTester && (isExpired || !hasQuota) && (
+                                <div className="mt-4 border-t border-black/10 pt-4">
+                                    <p className="text-sm font-semibold text-black/70">
+                                        Holen Sie sich 10 Prüfungsquoten für 60 Tage.
+                                    </p>
+
+                                    <button
+                                        type="button"
+                                        onClick={openCheckout}
+                                        className="mt-3 flex w-full items-center justify-between rounded-xl bg-black px-4 py-3 text-sm font-black text-white transition hover:bg-black/90"
+                                    >
+                                        TELC B1 freischalten — €19
+                                        <span aria-hidden="true">→</span>
+                                    </button>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </section>
 
@@ -88,11 +229,15 @@ export function StartPage({
                         onSubmit={submit}
                         className="w-full rounded-[2rem] border border-black bg-white p-7 shadow-2xl sm:p-10"
                     >
-                        <p className="eyebrow">Prüfung starten</p>
+                        <p className="eyebrow">
+                            Prüfung starten
+                        </p>
 
                         <h2 className="mt-3 text-3xl font-black tracking-[-0.04em]">
                             Ihre Sitzung
                         </h2>
+
+
                         <fieldset className="mt-8">
                             <legend className="mb-3 text-xs font-black uppercase tracking-widest">
                                 Prüfungsanbieter
@@ -121,14 +266,14 @@ export function StartPage({
                                                         : "cursor-not-allowed border-gray-300 bg-gray-200 text-gray-500"
                                             }`}
                                         >
-                      <span className="block text-sm font-black">
-                        {item.label}
-                      </span>
+                                            <span className="block text-sm font-black">
+                                                {item.label}
+                                            </span>
 
                                             {!item.available && (
                                                 <span className="mt-1 block text-[0.65rem] font-bold uppercase tracking-wider">
-                          Coming soon
-                        </span>
+                                                    Coming soon
+                                                </span>
                                             )}
                                         </button>
                                     );
@@ -164,14 +309,14 @@ export function StartPage({
                                                         : "cursor-not-allowed border-gray-300 bg-gray-200 text-gray-500"
                                             }`}
                                         >
-                      <span className="block text-sm font-black">
-                        {item.value}
-                      </span>
+                                            <span className="block text-sm font-black">
+                                                {item.value}
+                                            </span>
 
                                             {!item.available && (
                                                 <span className="mt-1 block text-[0.55rem] font-bold uppercase tracking-wide">
-                          Coming soon
-                        </span>
+                                                    Coming soon
+                                                </span>
                                             )}
                                         </button>
                                     );
@@ -182,11 +327,23 @@ export function StartPage({
                         <button
                             type="submit"
                             className="mt-8 flex w-full items-center justify-between rounded-2xl bg-black px-6 py-5 text-sm font-black uppercase tracking-[0.15em] text-white transition disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-600"
-                            disabled={!userId.trim()}
+                            disabled={!canStartExam}
                         >
-                            Sitzung erstellen
+                            {isExpired
+                                ? "Zugang abgelaufen"
+                                : !hasQuota
+                                    ? "Keine Quote verfügbar"
+                                    : "Sitzung erstellen"}
+
                             <span aria-hidden="true">→</span>
                         </button>
+
+
+                        {!userId.trim() && (
+                            <p className="mt-3 text-center text-xs font-semibold text-red-600">
+                                Benutzerkonto konnte nicht geladen werden.
+                            </p>
+                        )}
                     </form>
                 </section>
             </div>

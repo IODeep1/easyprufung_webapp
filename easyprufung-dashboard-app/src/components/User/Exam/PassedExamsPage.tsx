@@ -315,10 +315,6 @@ export function PassedExamsPage() {
                     <h1 className="mt-3 font-display text-4xl leading-none tracking-[-0.04em] sm:text-6xl">
                         Bestandene Prüfungen
                     </h1>
-
-                    <p className="mt-4 text-black/55">
-                        Benutzer: {userId}
-                    </p>
                 </header>
 
                 {loading && (

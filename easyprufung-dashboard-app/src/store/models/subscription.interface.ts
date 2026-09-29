@@ -4,6 +4,6 @@ export interface ISubscription {
     status: string;
     type: string;
     isActive: boolean;
-    quota : number;
-    iteration: number;
+    quota: number;
+    endDate: string | null;
 }

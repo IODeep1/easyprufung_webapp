@@ -66,7 +66,7 @@ const Sidebar = ({
         account.subscription?.plan;
 
     const isPaidSubscription =
-        Boolean(account.subscription?.isActive) &&
+        Boolean(account.user.subscription?.isActive) &&
         subscriptionPlan !== "free" &&
         subscriptionPlan !== "tester";
 

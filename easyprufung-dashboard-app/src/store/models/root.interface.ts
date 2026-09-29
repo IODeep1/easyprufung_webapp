@@ -1,6 +1,4 @@
-import {IProject} from "./user/project/project.interface";
 import {IUserAccount} from "./user/userAccount.interface";
-import {IAdminAccount} from "./admin/adminAccount.interface";
 import {ISubscription} from "./subscription.interface";
 
 export interface IRootPageStateType {
@@ -13,17 +11,9 @@ export interface IRootStateType {
 }
 export interface IStateType {
     root: IRootStateType;
-    projects:IProjectState;
-    subscriptions:ISubscriptionState;
     userAccount: IUserAccount;
-    adminAccount: IAdminAccount;
 }
 
-export interface IProjectState {
-    projects: IProject[];
-    selectedProject: IProject | null;
-    currentStep: String;
-}
 
 export interface ISubscriptionState {
     subscriptions: ISubscription[];

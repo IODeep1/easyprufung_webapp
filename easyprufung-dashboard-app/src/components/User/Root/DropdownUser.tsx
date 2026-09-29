@@ -17,9 +17,9 @@ const DropdownUser = () => {
         twoChars = twoChars+userLastName.charAt(0);
 
     const account: IUserAccount = useSelector((state: IStateType) => state.userAccount);
-    const isSubscriptionActive = (account.subscription?.isActive);
+    const isSubscriptionActive = (account.user?.subscription?.isActive);
     let isPayedSubscription = isSubscriptionActive;
-    if(account.subscription !== undefined && account.subscription !== null && (account.subscription.plan === "free"))
+    if(account.user?.subscription.plan === "free")
     {
         isPayedSubscription = false;
     }
@@ -106,7 +106,7 @@ const DropdownUser = () => {
                     Settings
                 </button>
 
-                {(isPayedSubscription && account.subscription?.plan !== "tester") && (
+                {(isPayedSubscription && account.user?.subscription?.plan !== "tester") && (
                     <button
                         onClick={() => {
                             window.open(

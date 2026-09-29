@@ -5,9 +5,6 @@ import {PrivateRoute} from "./common/routes/PrivateRoute";
 import Root from "./components/User/Root/Root";
 import {DefaultRoute} from "./common/routes/DefaultRoute";
 import Registration from "./components/User/Registration/Registration";
-import {DefaultAdminRoute} from "./common/routes/DefaultAdminRoute";
-import {AdminPrivateRoute} from "./common/routes/AdminPrivateRoute";
-import AdminRoot from "./components/Admin/Root/AdminRoot";
 import ForgotPassword from "./components/User/Login/ForgotPassword";
 import ResetPassword from "./components/User/Login/ResetPassword";
 
@@ -33,15 +30,6 @@ const App: React.FC = () => {
                   </Route>
                   <Route path="/reset_password"
                          element={<ResetPassword></ResetPassword>}>
-                  </Route>
-                  <Route path="/crm_private_access/*"
-                         element={
-                             <AdminPrivateRoute >
-                                 <AdminRoot />
-                             </AdminPrivateRoute>}>
-                  </Route>
-                  <Route path="/crm_private_access/login"
-                         element={<DefaultAdminRoute></DefaultAdminRoute>}>
                   </Route>
               </Routes>
           </Router>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { IUserAccount } from "../../../store/models/user/userAccount.interface";
 import { useSelector } from "react-redux";
 import { IStateType } from "../../../store/models/root.interface";
@@ -42,23 +42,6 @@ const GearIcon: React.FC<IconProps> = ({ className = "h-4 w-4" }) => (
     </svg>
 );
 
-const PlusIcon: React.FC<IconProps> = ({ className = "h-4 w-4" }) => (
-    <svg
-        className={className}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-    >
-        <path d="M12 5v14" />
-        <path d="M5 12h14" />
-    </svg>
-);
-
 const ArrowUpRight: React.FC<IconProps> = ({ className = "h-4 w-4" }) => (
     <svg
         className={className}
@@ -82,42 +65,80 @@ interface HeaderProps {
     setTheme?: (theme: string) => void;
 }
 
+const STRIPE_B1_PAYMENT_LINK =
+    "https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00";
+
 const Header: React.FC<HeaderProps> = ({
                                            sidebarOpen,
                                            setSidebarOpen,
-                                           setTheme,
                                        }) => {
     const navigate = useNavigate();
+
     const account: IUserAccount = useSelector(
         (state: IStateType) => state.userAccount
     );
 
-    // Plans: free, starter, autopilot
-    const currentPlan = account.subscription?.plan?.toLowerCase?.() || "free";
-    const isAutopilotSubscription = currentPlan === "autopilot";
-    const isStarterSubscription = currentPlan === "starter";
-    const isPaidSubscription = isAutopilotSubscription || isStarterSubscription;
-    const planLabel = isAutopilotSubscription
-        ? "Lifetime"
-        : isStarterSubscription
-            ? "Starter"
-            : "Free";
+    const subscription = account.user?.subscription;
+    const currentPlan = subscription?.plan?.toLowerCase?.() || "free";
+    const availableQuota = Number(subscription?.quota ?? 0);
 
-    // Derive credits with safe fallbacks
-    const [availableCredits, setAvailableCredits] = useState(
-        account.subscription?.iteration
-    );
+    const isTester = currentPlan === "tester";
+    const isB1 = currentPlan === "b1";
+    const isFree = !subscription || currentPlan === "free";
 
-    const showUpgradeBtn = !isPaidSubscription; // only Free shows upgrade
-    const showAddCreditsBtn =
-        isPaidSubscription && Number(availableCredits) === 0;
+    const endDate = subscription?.endDate
+        ? new Date(subscription.endDate)
+        : null;
 
-    useEffect(() => {
-        setAvailableCredits(account.subscription?.iteration);
-    }, [account.subscription?.iteration]);
+    const isExpired =
+        !isTester &&
+        !!endDate &&
+        !Number.isNaN(endDate.getTime()) &&
+        endDate.getTime() <= Date.now();
+
+    const isActiveB1 = isB1 && !isExpired;
+    const hasNoQuota = !isTester && availableQuota <= 0;
+
+    const planLabel = isTester
+        ? "Tester"
+        : isExpired
+            ? "Expired"
+            : isActiveB1
+                ? "TELC B1"
+                : "Free";
+
+    const showBuyButton = !isTester && (isFree || isExpired || hasNoQuota);
+
+    const planBadgeClass =
+        isTester || isActiveB1
+            ? "bg-green-100 text-green-700 ring-green-200 dark:bg-green-500/10 dark:text-green-300 dark:ring-green-900/40"
+            : isExpired
+                ? "bg-amber-100 text-amber-700 ring-amber-200 dark:bg-amber-500/10 dark:text-amber-300 dark:ring-amber-900/40"
+                : "bg-neutral-100 text-neutral-700 ring-neutral-200 dark:bg-neutral-900 dark:text-neutral-300 dark:ring-neutral-800";
+
+    const openCheckout = () => {
+        const params = new URLSearchParams();
+
+        const email = account.user?.email;
+        const uuid = account.user?.uuid;
+
+        if (email) {
+            params.set("prefilled_email", email);
+        }
+
+        if (uuid) {
+            params.set("client_reference_id", uuid);
+        }
+
+        const checkoutUrl = params.toString()
+            ? `${STRIPE_B1_PAYMENT_LINK}?${params.toString()}`
+            : STRIPE_B1_PAYMENT_LINK;
+
+        window.location.href = checkoutUrl;
+    };
 
     return (
-        <header className="sticky top-0 z-50 bg-white dark:bg-gray-900 flex w-full border-b border-black/10 dark:border-white/10">
+        <header className="sticky top-0 z-50 flex w-full border-b border-black/10 bg-white dark:border-white/10 dark:bg-gray-900">
             {/* Left: Sidebar toggle + Brand */}
             <div
                 className="cursor-pointer flex items-center"
@@ -127,7 +148,6 @@ const Header: React.FC<HeaderProps> = ({
                 }}
             >
                 <div className="m-4 flex items-center justify-center text-2xl font-semibold text-gray-900 dark:text-white">
-                    {/* Sidebar open/close icon */}
                     <div className="mr-2">
                         {sidebarOpen ? (
                             <svg
@@ -164,73 +184,60 @@ const Header: React.FC<HeaderProps> = ({
                             </svg>
                         )}
                     </div>
-                    <span className="text-black dark:text-white">EasyPrufung</span>
+
+                    <span className="text-black dark:text-white">
+                        EasyPrufung
+                    </span>
                 </div>
             </div>
-            {/* Right: Plan + Credits + CTAs + Settings */}
-            { !showUpgradeBtn && <div className="ml-auto mr-4 flex items-center gap-3">
-                {/* Plan badge */}
+
+            {/* Right: Access status + quota + payment CTA + settings */}
+            <div className="ml-auto mr-4 flex items-center gap-3">
                 <span
-                    className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ring-1 ring-inset  
-          ${
-                        isPaidSubscription
-                            ? "bg-green-100 text-green-700 ring-green-200 dark:bg-green-500/10 dark:text-green-300 dark:ring-green-900/40"
-                            : "bg-neutral-100 text-neutral-700 ring-neutral-200 dark:bg-neutral-900 dark:text-neutral-300 dark:ring-neutral-800"
-                    }`}
-                    title="Current plan"
+                    className={`hidden sm:inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ring-1 ring-inset ${planBadgeClass}`}
+                    title="Current exam access"
                 >
-          {planLabel}
-        </span>
-                {/* Practice credits chip (shown for all paid plans) */}
-                <span
-                    className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:ring-blue-800"
-                    title="Available practice credits"
+                    {planLabel}
+                </span>
+
+                <button
+                    type="button"
+                    onClick={() => navigate("/settings#access")}
+                    className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 transition hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-300 dark:ring-blue-800 dark:hover:bg-blue-900/50"
+                    title="Available exam quota"
                 >
-          <CoinIcon className="h-3.5 w-3.5" />
-                    {availableCredits} practice credits
-        </span>
-                {/* Upgrade button (Free -> Pricing) */}
-                {showUpgradeBtn && (
+                    <CoinIcon className="h-3.5 w-3.5" />
+                    <span>
+                        {isTester ? "Tester access" : `${availableQuota} quota${availableQuota === 1 ? "" : "s"}`}
+                    </span>
+                </button>
+
+                {showBuyButton && (
                     <button
                         type="button"
-                        onClick={() => navigate("/pricing")}
-                        className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold transition
-          border border-black text-black hover:bg-black/5 active:bg-black/10
-          dark:border-white dark:text-white dark:hover:bg-white/10 dark:active:bg-white/20"
-                        title="Upgrade plan"
+                        onClick={openCheckout}
+                        className="inline-flex items-center gap-2 rounded-full border border-black bg-black px-3 py-1 text-xs font-semibold text-white transition hover:bg-black/90 active:bg-black dark:border-white dark:bg-white dark:text-black dark:hover:bg-white/90"
+                        title="Get 10 TELC B1 exam quotas for €19 — valid for 60 days"
                     >
-                        Upgrade
+                        <span className="hidden sm:inline">
+                            {isExpired || hasNoQuota ? "Get 10 quotas" : "Unlock B1"}
+                        </span>
+                        <span className="sm:hidden">€19</span>
                         <ArrowUpRight />
                     </button>
                 )}
-                {/* Add practice credits button (Paid with 0 credits -> Settings credits section) */}
-                {showAddCreditsBtn && (
-                    <button
-                        type="button"
-                        onClick={() => navigate("/settings/#credits")}
-                        className="inline-flex items-center gap-2 rounded-xl px-3 py-1 text-xs font-semibold transition
-          border border-black bg-black text-white hover:bg-black/90 active:bg-black
-          dark:border-white dark:bg-white dark:text-black dark:hover:bg-white/90"
-                        title="Buy practice credit packs"
-                    >
-                        Add practice credits
-                        <PlusIcon />
-                    </button>
-                )}
-                {/* Settings icon -> Settings */}
+
                 <button
                     type="button"
                     onClick={() => navigate("/settings")}
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full text-gray-700 hover:bg-black/5
-        dark:text-gray-300 dark:hover:bg-white/10"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full text-gray-700 hover:bg-black/5 dark:text-gray-300 dark:hover:bg-white/10"
                     title="Settings"
                 >
                     <GearIcon className="h-5 w-5" />
                 </button>
             </div>
-            }
         </header>
     );
 };
 
-export default Header;  
+export default Header;

@@ -18,7 +18,7 @@ export function getCurrentUserSubscription() {
         const userData = localStorage.getItem('user-data');
         if(userData !== null && userData.length >0){
             const user = (JSON.parse(userData)) as IUser;
-            if(user !==null && user.subscriptions) return user.subscriptions[0];
+            return user.subscription;
         }
     }
     catch (ex){
