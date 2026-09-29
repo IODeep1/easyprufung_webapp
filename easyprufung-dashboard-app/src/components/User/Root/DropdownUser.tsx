@@ -19,7 +19,7 @@ const DropdownUser = () => {
     const account: IUserAccount = useSelector((state: IStateType) => state.userAccount);
     const isSubscriptionActive = (account.user?.subscription?.isActive);
     let isPayedSubscription = isSubscriptionActive;
-    if(account.user?.subscription.plan === "free")
+    if(account.user?.subscription?.plan === "free")
     {
         isPayedSubscription = false;
     }

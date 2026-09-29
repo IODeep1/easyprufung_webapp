@@ -43,7 +43,7 @@ const Pricing = () => {
 
     // One-time TELC B1 payment. client_reference_id is used by the backend
     // webhook to match the Stripe Checkout Session to the EasyPrüfung user.
-    const b1PaymentUrl = `https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00?prefilled_email=${email}&client_reference_id=${refId}`;
+    const b1PaymentUrl = process.env.NODE_ENV === "production"? `https://buy.stripe.com/3cIeVc7Zw9xQ1vOdDw1wY00?prefilled_email=${email}&client_reference_id=${refId}` : `https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00?prefilled_email=${email}&client_reference_id=${refId}`;
 
     const cardBase =
         "relative flex h-full flex-col rounded-2xl border border-neutral-200 bg-white p-6 text-neutral-900 shadow-sm transition hover:-translate-y-1 hover:shadow-xl xl:p-8 dark:border-neutral-800 dark:bg-neutral-950 dark:text-white";

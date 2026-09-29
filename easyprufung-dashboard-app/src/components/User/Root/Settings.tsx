@@ -117,7 +117,7 @@ const Settings = () => {
         ((isB1 || isTester) && availableQuota <= 0);
 
     const paymentLinkBase =
-        "https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00";
+        process.env.NODE_ENV === "production"? "https://buy.stripe.com/3cIeVc7Zw9xQ1vOdDw1wY00" : "https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00";
     const paymentParams = new URLSearchParams();
 
     if (account?.user?.email) {

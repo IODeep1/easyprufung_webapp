@@ -17,7 +17,7 @@ import { useSelector } from "react-redux";
 import type { IStateType } from "../../../store/models/root.interface.ts";
 
 const STRIPE_B1_PAYMENT_LINK =
-    "https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00";
+    process.env.NODE_ENV === "production"? "https://buy.stripe.com/3cIeVc7Zw9xQ1vOdDw1wY00" : "https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00";
 
 function formatScore(value: number): string {
     return Number(value).toLocaleString("de-DE", {

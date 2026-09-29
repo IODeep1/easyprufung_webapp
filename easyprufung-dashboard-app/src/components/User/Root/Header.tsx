@@ -66,7 +66,7 @@ interface HeaderProps {
 }
 
 const STRIPE_B1_PAYMENT_LINK =
-    "https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00";
+    process.env.NODE_ENV === "production"? "https://buy.stripe.com/3cIeVc7Zw9xQ1vOdDw1wY00" : "https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00";
 
 const Header: React.FC<HeaderProps> = ({
                                            sidebarOpen,
