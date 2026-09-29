@@ -135,7 +135,7 @@ export default function MainExamPage() {
     };
 
     if (screen === "loading") {
-        return <LoadingScreen message="Die KI erstellt die Lese-, Sprach- und Schreibaufgaben. Ihre Hörtexte werden geladen." />;
+        return <LoadingScreen message="Mehrere Prüfungsteile werden gleichzeitig erstellt und geprüft. Ihre vorbereiteten Hörtexte werden parallel geladen." />;
     }
     if (screen === "exam" && session) {
         return <ExamRunnerPage session={session} onSubmit={submit} />;
