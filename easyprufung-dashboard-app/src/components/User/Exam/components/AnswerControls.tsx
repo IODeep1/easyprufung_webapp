@@ -93,7 +93,7 @@ export function RadioAnswers(props: {
                 <span className={`grid h-7 w-7 shrink-0 place-items-center rounded-full border text-xs font-black ${
                     selected ? "border-black bg-black text-white" : "border-black bg-white"
                 }`}>
-              {selected ? <Check size={14} strokeWidth={3} /> : option.key.toUpperCase()}
+              {selected ? <Check size={14} strokeWidth={3} /> : option.key}
             </span>
                 <span className="text-sm leading-5">{option.text}</span>
               </label>
