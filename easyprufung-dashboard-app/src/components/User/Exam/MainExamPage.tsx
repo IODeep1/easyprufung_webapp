@@ -1,6 +1,6 @@
 import { AlertCircle, RotateCcw } from "lucide-react";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import {Dispatch, useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import { startExamSession, submitExamSession } from "../../../api/exam/api-helper";
 import type { IStateType } from "../../../store/models/root.interface.ts";
 import type { IUserAccount } from "../../../store/models/user/userAccount.interface.ts";
@@ -15,10 +15,13 @@ import { ExamRunnerPage } from "./ExamRunnerPage";
 import { ResultPage } from "./ResultPage";
 import { StartPage } from "./StartPage";
 import type { ExamResultView, ExamSessionView, StartExamRequest, SubmitExamRequest } from "./models/exam.ts";
+import {requestGetUser} from "../../../api/user/api-helper.ts";
+import {updateUser} from "../../../store/actions/user/userAccount.actions.ts";
 
 type Screen = "start" | "loading" | "exam" | "result" | "error";
 
 export default function MainExamPage() {
+    const dispatch: Dispatch<any> = useDispatch();
     const account: IUserAccount = useSelector(
         (state: IStateType) => state.userAccount
     );
@@ -118,6 +121,10 @@ export default function MainExamPage() {
         if (!session) return;
         try {
             const evaluated = await submitExamSession(session.sessionId, request);
+            const user = await requestGetUser(dispatch);
+            if (user !== null && user !== undefined) {
+                dispatch(updateUser(user));
+            }
             const ownerId = sessionUserId ?? currentUserId;
 
             setResult(evaluated);

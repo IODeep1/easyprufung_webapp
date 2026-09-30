@@ -1,4 +1,5 @@
 import React, {
+    Dispatch,
     useEffect,
     useRef,
     useState
@@ -7,7 +8,7 @@ import {
     NavLink,
     useLocation
 } from "react-router-dom";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 import type { IUserAccount } from "../../../store/models/user/userAccount.interface";
 import type { IStateType } from "../../../store/models/root.interface";
@@ -16,6 +17,8 @@ import { getPassedUserExams } from "../../../api/exam/api-helper";
 import SidebarLinkGroup from "../../Shared/SidebarLinkGroup";
 import DarkModeSwitcher from "../../Shared/DarkModeSwitcher";
 import DropdownUser from "./DropdownUser";
+import {requestGetUser} from "../../../api/user/api-helper.ts";
+import {updateUser} from "../../../store/actions/user/userAccount.actions.ts";
 
 type PassedExam =
     Awaited<
@@ -35,6 +38,7 @@ const Sidebar = ({
                  }: SidebarProps) => {
     const { pathname } = useLocation();
     const sidebar = useRef<HTMLElement | null>(null);
+    const dispatch: Dispatch<any> = useDispatch();
 
     const storedSidebarExpanded =
         localStorage.getItem("sidebar-expanded");
@@ -169,6 +173,14 @@ const Sidebar = ({
 
     useEffect(() => {
         let active = true;
+
+        const processApi = async () => {
+            const user = await requestGetUser(dispatch);
+            if (user !== null && user !== undefined) {
+                dispatch(updateUser(user));
+            }
+        };
+        processApi();
 
         if (!userId?.trim()) {
             setPassedExams([]);

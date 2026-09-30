@@ -155,7 +155,6 @@ export async function getPassedUserExams(
             })
         );
 
-    console.log("Loaded exam entries:", entries);
 
     return entries
         .filter(

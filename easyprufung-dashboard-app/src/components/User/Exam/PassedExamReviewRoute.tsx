@@ -76,7 +76,6 @@ export function PassedExamReviewRoute() {
             getExamResult(sessionId)
         ])
             .then(([loadedSession, loadedResult]) => {
-                console.log("loadedSession" +loadedSession.sessionId)
 
                 if (!active) {
                     return;
