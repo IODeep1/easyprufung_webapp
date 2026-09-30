@@ -209,100 +209,112 @@ function LesenTeil3({
     return (
         <ContentFrame>
             <div className="grid items-start gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-                <section className="space-y-5 rounded-2xl border border-black bg-white p-5 lg:p-6">
-                    <p className="eyebrow">Situationen</p>
+                <section className="rounded-2xl border border-black bg-white p-5 lg:p-6">
+                    <p className="eyebrow mb-5">Situationen</p>
 
-                    {exercise.questions.map((question) => {
-                        const selectedKey =
-                            answers[question.number]?.selectedOptionKeys[0] ?? "";
+                    <div className="divide-y divide-black">
+                        {exercise.questions.map((question) => {
+                            const selectedKey =
+                                answers[question.number]?.selectedOptionKeys[0] ?? "";
 
-                        return (
-                            <article
-                                key={question.id}
-                                className="rounded-xl border border-black bg-white p-5"
-                            >
-                                <div
-                                    className={`rounded-xl border-2 border-black p-1 ${
-                                        selectedKey ? "bg-yellow-200" : "bg-white"
-                                    }`}
+                            return (
+                                <article
+                                    key={question.id}
+                                    className="py-6 first:pt-0 last:pb-0"
                                 >
-                                    <select
-                                        id={`question-${question.number}`}
-                                        aria-label={`Antwort für Aufgabe ${question.number}`}
-                                        value={selectedKey}
-                                        disabled={readOnly}
-                                        onChange={(event) =>
-                                            onSelection(
-                                                question.number,
-                                                event.target.value
-                                            )
-                                        }
-                                        className={`w-full rounded-lg border-0 px-4 text-sm font-black text-black outline-none disabled:cursor-default disabled:opacity-100 ${
-                                            readOnly ? "cursor-default" : "cursor-pointer"
-                                        } ${
+                                    <div
+                                        className={`rounded-xl border border-black p-1 ${
                                             selectedKey
                                                 ? "bg-yellow-200"
                                                 : "bg-white"
                                         }`}
                                     >
-                                        <option value="" disabled>
-                                            Antwort auswählen
-                                        </option>
+                                        <select
+                                            id={`question-${question.number}`}
+                                            aria-label={`Antwort für Aufgabe ${question.number}`}
+                                            value={selectedKey}
+                                            disabled={readOnly}
+                                            onChange={(event) =>
+                                                onSelection(
+                                                    question.number,
+                                                    event.target.value
+                                                )
+                                            }
+                                            className={`w-full rounded-lg border-0 px-4 text-sm text-black outline-none disabled:cursor-default disabled:opacity-100 ${
+                                                readOnly
+                                                    ? "cursor-default"
+                                                    : "cursor-pointer"
+                                            } ${
+                                                selectedKey
+                                                    ? "bg-yellow-200"
+                                                    : "bg-white"
+                                            }`}
+                                        >
+                                            <option value="" disabled>
+                                                Antwort auswählen
+                                            </option>
 
-                                        {question.options.map((option) => {
-                                            const usedByAnotherQuestion =
-                                                usedOptionKeys.has(option.key) &&
-                                                option.key !== selectedKey;
+                                            {question.options.map((option) => {
+                                                const usedByAnotherQuestion =
+                                                    usedOptionKeys.has(option.key) &&
+                                                    option.key !== selectedKey;
 
-                                            return (
-                                                <option
-                                                    key={option.key}
-                                                    value={option.key}
-                                                    disabled={usedByAnotherQuestion}
-                                                    className={
-                                                        usedByAnotherQuestion
-                                                            ? "bg-gray-100 text-gray-400"
-                                                            : "bg-white text-black"
-                                                    }
-                                                >
-                                                    {option.key.toLowerCase()}){" "}
-                                                    {option.text}
-                                                    {usedByAnotherQuestion
-                                                        ? " — bereits verwendet"
-                                                        : ""}
-                                                </option>
-                                            );
-                                        })}
-                                    </select>
-                                </div>
+                                                return (
+                                                    <option
+                                                        key={option.key}
+                                                        value={option.key}
+                                                        disabled={
+                                                            usedByAnotherQuestion
+                                                        }
+                                                        className={
+                                                            usedByAnotherQuestion
+                                                                ? "bg-gray-100 text-gray-400"
+                                                                : "bg-white text-black"
+                                                        }
+                                                    >
+                                                        {option.key.toLowerCase()}){" "}
+                                                        {option.text}
+                                                        {usedByAnotherQuestion
+                                                            ? " — bereits verwendet"
+                                                            : ""}
+                                                    </option>
+                                                );
+                                            })}
+                                        </select>
+                                    </div>
 
-                                <WrongAnswerMark
-                                    question={question}
-                                    readOnly={readOnly}
-                                    reviewResults={reviewResults}
-                                />
+                                    <WrongAnswerMark
+                                        question={question}
+                                        readOnly={readOnly}
+                                        reviewResults={reviewResults}
+                                    />
 
-                                <p className="mt-5 whitespace-pre-wrap text-sm font-bold leading-7 text-black">
-                                    {question.stimulus || question.prompt}
-                                </p>
-                            </article>
-                        );
-                    })}
+                                    <p className="mt-5 whitespace-pre-wrap text-sm leading-7 text-black">
+                                        {question.stimulus || question.prompt}
+                                    </p>
+                                </article>
+                            );
+                        })}
+                    </div>
                 </section>
 
-                <section className="space-y-4 rounded-2xl border border-black bg-white p-5 lg:p-6">
-                    <p className="eyebrow">Anzeigen</p>
+                <section className="rounded-2xl border border-black bg-white p-5 lg:p-6">
+                    <p className="eyebrow mb-5 text-center">
+                        Anzeigen
+                    </p>
 
-                    {contentParts.map((contentPart, index) => (
-                        <article
-                            key={`${index}-${contentPart.slice(0, 20)}`}
-                            className="rounded-xl border border-black bg-white p-5"
-                        >
-                            <p className="whitespace-pre-wrap text-sm leading-7 text-black">
-                                {contentPart}
-                            </p>
-                        </article>
-                    ))}
+                    <div className="divide-y divide-black">
+                        {contentParts.map((contentPart, index) => (
+                            <article
+                                key={`${index}-${contentPart.slice(0, 20)}`}
+                                className="px-4 py-6 text-center first:pt-0 last:pb-0"
+                            >
+                                <p className="whitespace-pre-wrap text-sm leading-7 text-black">
+                                    {contentPart}
+                                </p>
+                            </article>
+                        ))}
+                    </div>
                 </section>
             </div>
         </ContentFrame>
@@ -619,7 +631,7 @@ function Schreiben({ exercise, answers, onText, readOnly }: PartRendererProps) {
                     {exercise.content && <p className="mt-5 whitespace-pre-wrap text-sm leading-8 text-black/70">{exercise.content}</p>}
                     {question.stimulus && <p className="mt-5 whitespace-pre-wrap text-sm leading-8 text-black/70">{question.stimulus}</p>}
                     <div className="mt-6 border-t border-black pt-6">
-                        <p className="whitespace-pre-wrap text-sm font-bold leading-7">{question.prompt}</p>
+                        <p className="whitespace-pre-wrap text-sm leading-7">{question.prompt}</p>
                     </div>
                 </div>
                 <div className="flex min-h-[34rem] flex-col rounded-2xl border border-black bg-white p-5 sm:p-7">

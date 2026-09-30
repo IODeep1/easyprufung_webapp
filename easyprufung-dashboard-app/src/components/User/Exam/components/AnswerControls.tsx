@@ -23,7 +23,7 @@ export function AnswerSelect(props: {
                 value={props.value ?? ""}
                 disabled={props.readOnly}
                 onChange={(event) => props.onChange(event.target.value)}
-                className={`w-full appearance-none rounded-lg border-0 px-2 pr-10 text-sm font-black text-black outline-none disabled:cursor-default disabled:opacity-100 ${
+                className={`w-full appearance-none rounded-lg border-0 px-2 pr-10 text-sm text-black outline-none disabled:cursor-default disabled:opacity-100 ${
                     props.readOnly ? "cursor-default" : "cursor-pointer"
                 } ${
                     props.value ? "bg-yellow-200" : "bg-white"
@@ -95,7 +95,7 @@ export function RadioAnswers(props: {
                 }`}>
               {selected ? <Check size={14} strokeWidth={3} /> : option.key.toUpperCase()}
             </span>
-                <span className="text-sm font-bold leading-5">{option.text}</span>
+                <span className="text-sm leading-5">{option.text}</span>
               </label>
           );
         })}
