@@ -8,6 +8,7 @@ import { IUser } from "../../../store/models/user/user.interface";
 import { IStateType } from "../../../store/models/root.interface";
 import { updateUser } from "../../../store/actions/user/userAccount.actions";
 import { IUserAccount } from "../../../store/models/user/userAccount.interface";
+import { buildPaymentUrl } from "../Pricing/payment-links";
 
 const ArrowRight = ({ className = "h-4 w-4" }) => (
     <svg
@@ -48,6 +49,7 @@ const Settings = () => {
 
     const isFree = currentPlan === "free";
     const isB1 = currentPlan === "b1";
+    const isUnlimited = currentPlan === "b1_unlimited";
     const isTester = currentPlan === "tester";
 
     const rawEndDate = subscription?.endDate;
@@ -75,61 +77,69 @@ const Settings = () => {
         ? "Expired"
         : isTester
             ? "Tester"
-            : isB1
-                ? "TELC B1 Exam Pass"
-                : "Free";
+            : isUnlimited
+                ? "TELC B1 Unlimited"
+                : isB1
+                    ? "TELC B1 · 10 Exams"
+                    : "Free";
 
     const planDescription = (() => {
         if (isTester) {
             if (isExpired) {
-                return "Your tester access has expired. You can continue with the TELC B1 Exam Pass.";
+                return "Your tester access has expired.";
             }
             return formattedEndDate
                 ? `Tester access is active until ${formattedEndDate}.`
                 : "Tester access is active.";
         }
 
-        if (isB1) {
+        if (isUnlimited) {
             if (isExpired) {
-                return "Your TELC B1 access period has ended. Buy a new pass to receive 10 quotas and a fresh 60-day access period.";
-            }
-            if (availableQuota <= 0) {
-                return "You have used all 10 exam quotas. Buy a new pass to reset your balance to 10 quotas and start a fresh 60-day access period.";
+                return "Your unlimited TELC B1 access has expired. Choose a new 60-day pass to continue practicing.";
             }
             return formattedEndDate
-                ? `Your TELC B1 Exam Pass is active until ${formattedEndDate}. Quotas do not renew automatically.`
-                : "Your TELC B1 Exam Pass is active. Quotas do not renew automatically.";
+                ? `Unlimited TELC B1 exams are active until ${formattedEndDate}.`
+                : "Unlimited TELC B1 exams are active.";
+        }
+
+        if (isB1) {
+            if (isExpired) {
+                return "Your 10-exam TELC B1 access has expired. Choose a new 60-day pass to continue.";
+            }
+            if (availableQuota <= 0) {
+                return "You have used all 10 exams. Buy another 10-exam pack or switch to unlimited access.";
+            }
+            return formattedEndDate
+                ? `Your 10-exam pass is active until ${formattedEndDate}. ${availableQuota} exams remain.`
+                : `Your 10-exam pass is active. ${availableQuota} exams remain.`;
         }
 
         if (availableQuota > 0) {
-            return "Your free account includes 1 exam quota. The free quota is granted once and does not renew.";
+            return "Your free account includes 1 exam. The free exam is granted once and does not renew.";
         }
 
-        return "You have used your free exam quota. Unlock 10 new quotas with the TELC B1 Exam Pass.";
+        return "You have used your free exam. Choose 10 exams for €4.99 or unlimited exams for €19.99.";
     })();
 
-    // Show checkout only when it is useful. A paid purchase resets the account
-    // to 10 quotas and starts a fresh 60-day window, so active paid users with
-    // remaining quota are not encouraged to overwrite their current balance.
-    const shouldShowPurchase =
-        isFree ||
-        isExpired ||
-        ((isB1 || isTester) && availableQuota <= 0);
+    const showLimitedPurchase =
+        !isTester &&
+        (isFree || isExpired || (isB1 && availableQuota <= 0));
 
-    const paymentLinkBase =
-        process.env.NODE_ENV === "production"? "https://buy.stripe.com/3cIeVc7Zw9xQ1vOdDw1wY00" : "https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00";
-    const paymentParams = new URLSearchParams();
+    const showUnlimitedPurchase =
+        !isTester &&
+        (!isUnlimited || isExpired);
 
-    if (account?.user?.email) {
-        paymentParams.set("prefilled_email", account.user.email);
-    }
-    if (account?.user?.uuid) {
-        paymentParams.set("client_reference_id", account.user.uuid);
-    }
+    const limitedPaymentUrl = buildPaymentUrl(
+        "b1",
+        account?.user?.email,
+        account?.user?.uuid
+    );
 
-    const paymentUrl = paymentParams.toString()
-        ? `${paymentLinkBase}?${paymentParams.toString()}`
-        : paymentLinkBase;
+    const unlimitedPaymentUrl = buildPaymentUrl(
+        "b1_unlimited",
+        account?.user?.email,
+        account?.user?.uuid
+    );
 
     const [popup, setPopup] = useState(false);
     const [popupMessage, setPopupMessage] = useState("");
@@ -292,7 +302,7 @@ const Settings = () => {
                         Settings
                     </h1>
                     <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
-                        Manage your profile, exam access, quota, and password.
+                        Manage your profile, exam access, remaining exams, and password.
                     </p>
                 </div>
 
@@ -308,7 +318,7 @@ const Settings = () => {
                             <div>
                                 <h2 className="text-xl font-bold">Exam access</h2>
                                 <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                                    Your current EasyPrüfung access and remaining exam quota.
+                                    Your current EasyPrüfung plan and remaining exams.
                                 </p>
                             </div>
 
@@ -317,7 +327,7 @@ const Settings = () => {
                                     className={`inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold ring-1 ring-inset ${
                                         isExpired && !isFree
                                             ? "bg-red-50 text-red-700 ring-red-200 dark:bg-red-500/10 dark:text-red-300 dark:ring-red-900/40"
-                                            : isB1 || isTester
+                                            : isB1 || isUnlimited || isTester
                                                 ? "bg-green-100 text-green-700 ring-green-200 dark:bg-green-500/10 dark:text-green-300 dark:ring-green-900/40"
                                                 : "bg-neutral-100 text-neutral-700 ring-neutral-200 dark:bg-neutral-900 dark:text-neutral-300 dark:ring-neutral-800"
                                     }`}
@@ -326,7 +336,9 @@ const Settings = () => {
                                 </span>
 
                                 <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:ring-blue-800">
-                                    {availableQuota} {availableQuota === 1 ? "quota" : "quotas"} remaining
+                                    {isUnlimited
+                                        ? "Unlimited exams"
+                                        : `${availableQuota} ${availableQuota === 1 ? "exam" : "exams"} remaining`}
                                 </span>
 
                                 {formattedEndDate && !isFree && (
@@ -343,32 +355,49 @@ const Settings = () => {
                             </p>
                         </div>
 
-                        {shouldShowPurchase && (
-                            <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                                <div>
-                                    <p className="text-sm font-semibold text-gray-900 dark:text-white">
-                                        TELC Deutsch B1 Exam Pass
-                                    </p>
-                                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                                        €19 one-time · 10 exam quotas · 60 days · no automatic renewal
-                                    </p>
-                                </div>
+                        {(showLimitedPurchase || showUnlimitedPurchase) && (
+                            <div className="mt-6 grid gap-4 md:grid-cols-2">
+                                {showLimitedPurchase && (
+                                    <div className="rounded-xl border border-black/10 p-4 dark:border-white/10">
+                                        <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                                            10 Exams
+                                        </p>
+                                        <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                                            €4.99 one-time · 10 exams · 60 days
+                                        </p>
+                                        <a
+                                            href={limitedPaymentUrl}
+                                            className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-black bg-white px-4 py-2.5 text-sm font-semibold text-black transition hover:bg-black/5 dark:border-white dark:bg-black dark:text-white dark:hover:bg-white/10"
+                                        >
+                                            Buy 10 exams — €4.99
+                                            <ArrowRight />
+                                        </a>
+                                    </div>
+                                )}
 
-                                <a
-                                    href={paymentUrl}
-                                    className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl border border-black bg-black px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-black/90 active:bg-black dark:border-white dark:bg-white dark:text-black dark:hover:bg-white/90"
-                                >
-                                    {isFree && availableQuota > 0
-                                        ? "Unlock 10 quotas — €19"
-                                        : "Buy B1 Exam Pass — €19"}
-                                    <ArrowRight />
-                                </a>
+                                {showUnlimitedPurchase && (
+                                    <div className="rounded-xl border border-blue-200 bg-blue-50/60 p-4 dark:border-blue-900/50 dark:bg-blue-950/20">
+                                        <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                                            Unlimited Exams
+                                        </p>
+                                        <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                                            €19.99 one-time · unlimited exams · 60 days
+                                        </p>
+                                        <a
+                                            href={unlimitedPaymentUrl}
+                                            className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-black bg-black px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-black/90 dark:border-white dark:bg-white dark:text-black dark:hover:bg-white/90"
+                                        >
+                                            {isB1 && !isExpired ? "Upgrade to unlimited — €19.99" : "Get unlimited — €19.99"}
+                                            <ArrowRight />
+                                        </a>
+                                    </div>
+                                )}
                             </div>
                         )}
 
                         {isB1 && !isExpired && availableQuota > 0 && (
                             <div className="mt-6 text-sm text-gray-600 dark:text-gray-400">
-                                Your current pass is active. Use your remaining quota before buying another pass, because a new purchase starts a fresh 10-quota / 60-day period.
+                                Your current 10-exam pass remains active. You can use the remaining exams or switch to unlimited access for a fresh 60-day period.
                             </div>
                         )}
                     </div>

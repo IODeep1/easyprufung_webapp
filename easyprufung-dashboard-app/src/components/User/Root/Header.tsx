@@ -65,9 +65,6 @@ interface HeaderProps {
     setTheme?: (theme: string) => void;
 }
 
-const STRIPE_B1_PAYMENT_LINK =
-    process.env.NODE_ENV === "production"? "https://buy.stripe.com/3cIeVc7Zw9xQ1vOdDw1wY00" : "https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00";
-
 const Header: React.FC<HeaderProps> = ({
                                            sidebarOpen,
                                            setSidebarOpen,
@@ -84,6 +81,7 @@ const Header: React.FC<HeaderProps> = ({
 
     const isTester = currentPlan === "tester";
     const isB1 = currentPlan === "b1";
+    const isUnlimited = currentPlan === "b1_unlimited";
     const isFree = !subscription || currentPlan === "free";
 
     const endDate = subscription?.endDate
@@ -96,18 +94,20 @@ const Header: React.FC<HeaderProps> = ({
         !Number.isNaN(endDate.getTime()) &&
         endDate.getTime() <= Date.now();
 
-    const isActiveB1 = isB1 && !isExpired;
-    const hasNoQuota = !isTester && availableQuota <= 0;
+    const isActiveB1 = (isB1 || isUnlimited) && !isExpired;
+    const hasNoQuota = !isTester && !isUnlimited && availableQuota <= 0;
 
     const planLabel = isTester
         ? "Tester"
         : isExpired
             ? "Expired"
-            : isActiveB1
-                ? "TELC B1"
-                : "Free";
+            : isUnlimited
+                ? "B1 Unlimited"
+                : isB1
+                    ? "B1 · 10 Exams"
+                    : "Free";
 
-    const showBuyButton = !isTester && (isFree || isExpired || hasNoQuota);
+    const showBuyButton = !isTester && (isFree || isExpired || hasNoQuota || isB1);
 
     const planBadgeClass =
         isTester || isActiveB1
@@ -115,27 +115,6 @@ const Header: React.FC<HeaderProps> = ({
             : isExpired
                 ? "bg-amber-100 text-amber-700 ring-amber-200 dark:bg-amber-500/10 dark:text-amber-300 dark:ring-amber-900/40"
                 : "bg-neutral-100 text-neutral-700 ring-neutral-200 dark:bg-neutral-900 dark:text-neutral-300 dark:ring-neutral-800";
-
-    const openCheckout = () => {
-        const params = new URLSearchParams();
-
-        const email = account.user?.email;
-        const uuid = account.user?.uuid;
-
-        if (email) {
-            params.set("prefilled_email", email);
-        }
-
-        if (uuid) {
-            params.set("client_reference_id", uuid);
-        }
-
-        const checkoutUrl = params.toString()
-            ? `${STRIPE_B1_PAYMENT_LINK}?${params.toString()}`
-            : STRIPE_B1_PAYMENT_LINK;
-
-        window.location.href = checkoutUrl;
-    };
 
     return (
         <header className="sticky top-0 z-50 flex w-full border-b border-black/10 bg-white dark:border-white/10 dark:bg-gray-900">
@@ -204,25 +183,29 @@ const Header: React.FC<HeaderProps> = ({
                     type="button"
                     onClick={() => navigate("/settings#access")}
                     className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 transition hover:bg-blue-100 dark:bg-blue-900/30 dark:text-blue-300 dark:ring-blue-800 dark:hover:bg-blue-900/50"
-                    title="Available exam quota"
+                    title="Available exams"
                 >
                     <CoinIcon className="h-3.5 w-3.5" />
                     <span>
-                        {isTester ? "Tester access" : `${availableQuota} quota${availableQuota === 1 ? "" : "s"}`}
+                        {isTester
+                            ? "Tester access"
+                            : isUnlimited
+                                ? "Unlimited exams"
+                                : `${availableQuota} exam${availableQuota === 1 ? "" : "s"}`}
                     </span>
                 </button>
 
                 {showBuyButton && (
                     <button
                         type="button"
-                        onClick={openCheckout}
+                        onClick={() => navigate("/pricing")}
                         className="inline-flex items-center gap-2 rounded-full border border-black bg-black px-3 py-1 text-xs font-semibold text-white transition hover:bg-black/90 active:bg-black dark:border-white dark:bg-white dark:text-black dark:hover:bg-white/90"
-                        title="Get 10 TELC B1 exam quotas for €19 — valid for 60 days"
+                        title="View TELC B1 plans"
                     >
                         <span className="hidden sm:inline">
-                            {isExpired || hasNoQuota ? "Get 10 quotas" : "Unlock B1"}
+                            {isB1 && !isExpired && !hasNoQuota ? "Upgrade" : "View plans"}
                         </span>
-                        <span className="sm:hidden">€19</span>
+                        <span className="sm:hidden">Plans</span>
                         <ArrowUpRight />
                     </button>
                 )}

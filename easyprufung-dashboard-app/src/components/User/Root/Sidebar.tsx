@@ -76,6 +76,9 @@ const Sidebar = ({
     const isB1Subscription =
         subscriptionPlan === "b1";
 
+    const isUnlimitedSubscription =
+        subscriptionPlan === "b1_unlimited";
+
     const endDate = subscription?.endDate
         ? new Date(subscription.endDate)
         : null;
@@ -91,7 +94,7 @@ const Sidebar = ({
     const isPaidSubscription =
         isTesterSubscription ||
         (
-            isB1Subscription &&
+            (isB1Subscription || isUnlimitedSubscription) &&
             !isExpiredSubscription &&
             subscription?.isActive !== false &&
             subscription?.status?.toLowerCase?.() !== "expired"

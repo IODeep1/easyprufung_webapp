@@ -10,11 +10,15 @@ const PaymentCheckOut = () => {
     const navigate = useNavigate();
     const dispatch: Dispatch<any> = useDispatch();
 
-    const account: IUserAccount = useSelector((state: IStateType) => state.userAccount);
+    const account: IUserAccount = useSelector(
+        (state: IStateType) => state.userAccount
+    );
 
-    // Cast keeps this component compatible while the frontend subscription
-    // interface is being migrated from the old `iteration` field to `quota`.
-    const subscription = account?.user.subscription as any;
+    const subscription = account?.user?.subscription as any;
+    const currentPlan = subscription?.plan?.toLowerCase?.() || "free";
+    const isUnlimited = currentPlan === "b1_unlimited";
+    const isLimited = currentPlan === "b1";
+    const isKnownPaidPlan = isUnlimited || isLimited;
     const availableQuota = subscription?.quota ?? 0;
     const accessEndDate = subscription?.endDate;
 
@@ -36,8 +40,6 @@ const PaymentCheckOut = () => {
             }
         };
 
-        // Refresh immediately, then once again to allow the Stripe webhook
-        // a short moment to activate the paid B1 access record.
         refreshUser();
         const refreshTimer = setTimeout(refreshUser, 1500);
 
@@ -55,6 +57,12 @@ const PaymentCheckOut = () => {
           }).format(new Date(accessEndDate))
         : null;
 
+    const planName = isUnlimited ? "Unlimited Exams" : "10 Exams";
+    const planPrice = isUnlimited ? "€19.99" : "€4.99";
+    const accessText = isUnlimited
+        ? "Unlimited exams are active for your 60-day access period."
+        : "Your 10-exam pack is active for your 60-day access period.";
+
     return (
         <section id="payment_successful" className="py-12 sm:py-16">
             <div className="mx-auto flex max-w-3xl items-center justify-center px-4 text-center">
@@ -71,18 +79,28 @@ const PaymentCheckOut = () => {
                     </h3>
 
                     <p className="mx-auto mt-6 max-w-xl text-base text-gray-500 sm:text-lg dark:text-gray-400">
-                        Your TELC Deutsch B1 Exam Pass is being activated. You now have up to 10 exam quotas and 60 days to prepare with EasyPrüfung.
+                        {isRefreshing
+                            ? "Your TELC Deutsch B1 access is being activated."
+                            : accessText}
                     </p>
 
                     <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
                         <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:ring-blue-800">
-                            TELC B1 · €19 one-time
+                            {isKnownPaidPlan
+                                ? `TELC B1 · ${planName} · ${planPrice}`
+                                : "TELC B1 · Activating purchase"}
                         </span>
                         <span className="inline-flex items-center rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700 ring-1 ring-inset ring-green-200 dark:bg-green-900/30 dark:text-green-300 dark:ring-green-800">
-                            {isRefreshing ? "Updating account..." : `${availableQuota} exam quotas available`}
+                            {isRefreshing || !isKnownPaidPlan
+                                ? "Updating account..."
+                                : isUnlimited
+                                    ? "Unlimited exams"
+                                    : `${availableQuota} exams remaining`}
                         </span>
                         <span className="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-700 ring-1 ring-inset ring-neutral-200 dark:bg-neutral-900 dark:text-neutral-300 dark:ring-neutral-800">
-                            {formattedEndDate ? `Access until ${formattedEndDate}` : "60 days of access"}
+                            {formattedEndDate
+                                ? `Access until ${formattedEndDate}`
+                                : "60 days of access"}
                         </span>
                     </div>
 
@@ -97,7 +115,7 @@ const PaymentCheckOut = () => {
                     </div>
 
                     <p className="text-xs text-gray-500 dark:text-gray-400">
-                        If the quota does not update immediately, payment confirmation may still be processing. Refresh this page after a moment.
+                        If your access does not update immediately, payment confirmation may still be processing. Refresh this page after a moment.
                     </p>
                 </div>
             </div>

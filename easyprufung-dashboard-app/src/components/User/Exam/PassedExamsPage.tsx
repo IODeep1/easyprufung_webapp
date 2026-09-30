@@ -15,9 +15,7 @@ import { ExamReviewPage } from "./ExamReviewPage.tsx";
 import type { IUserAccount } from "../../../store/models/user/userAccount.interface.ts";
 import { useSelector } from "react-redux";
 import type { IStateType } from "../../../store/models/root.interface.ts";
-
-const STRIPE_B1_PAYMENT_LINK =
-    process.env.NODE_ENV === "production"? "https://buy.stripe.com/3cIeVc7Zw9xQ1vOdDw1wY00" : "https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00";
+import { buildPaymentUrl } from "../Pricing/payment-links.ts";
 
 function formatScore(value: number): string {
     return Number(value).toLocaleString("de-DE", {
@@ -46,7 +44,7 @@ function ExamResultDetails({
     onBack: () => void;
     onShowDetails: () => void;
     hasPremiumAccess: boolean;
-    onUpgrade: () => void;
+    onUpgrade: (plan: "b1" | "b1_unlimited") => void;
 }) {
     const { session, result } = entry;
 
@@ -269,28 +267,30 @@ function ExamResultDetails({
 
                                 <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-bold">
                                     <span className="rounded-full bg-black/5 px-3 py-2">
-                                        10 Prüfungsquoten
+                                        60 Tage Zugang
                                     </span>
                                     <span className="rounded-full bg-black/5 px-3 py-2">
-                                        60 Tage
-                                    </span>
-                                    <span className="rounded-full bg-black/5 px-3 py-2">
-                                        Einmalig €19
+                                        Keine automatische Verlängerung
                                     </span>
                                 </div>
 
-                                <button
-                                    type="button"
-                                    onClick={onUpgrade}
-                                    className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-black px-6 py-4 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-black/90"
-                                >
-                                    <Sparkles size={17} />
-                                    TELC B1 freischalten — €19
-                                </button>
-
-                                <p className="mt-3 text-xs text-black/45">
-                                    Keine automatische Verlängerung.
-                                </p>
+                                <div className="mt-6 grid gap-2 sm:grid-cols-2">
+                                    <button
+                                        type="button"
+                                        onClick={() => onUpgrade("b1")}
+                                        className="inline-flex items-center justify-center rounded-2xl border border-black bg-white px-5 py-4 text-sm font-black text-black transition hover:bg-black/5"
+                                    >
+                                        10 Prüfungen — €4.99
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => onUpgrade("b1_unlimited")}
+                                        className="inline-flex items-center justify-center gap-2 rounded-2xl bg-black px-5 py-4 text-sm font-black text-white transition hover:bg-black/90"
+                                    >
+                                        <Sparkles size={17} />
+                                        Unbegrenzt — €19.99
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     )}
@@ -308,7 +308,7 @@ function ExamResultDetails({
                 ) : (
                     <button
                         type="button"
-                        onClick={onUpgrade}
+                        onClick={() => { window.location.href = "/pricing"; }}
                         className="mt-6 inline-flex items-center gap-2 rounded-full border border-black bg-white px-7 py-4 text-sm font-black text-black transition hover:bg-black hover:text-white"
                     >
                         <Lock size={17} />
@@ -333,6 +333,7 @@ export function PassedExamsPage() {
 
     const isTester = currentPlan === "tester";
     const isB1 = currentPlan === "b1";
+    const isUnlimited = currentPlan === "b1_unlimited";
 
     const endDate = subscription?.endDate
         ? new Date(subscription.endDate)
@@ -348,7 +349,7 @@ export function PassedExamsPage() {
 
     const hasPremiumAccess =
         isTester ||
-        (isB1 &&
+        ((isB1 || isUnlimited) &&
             !isExpired &&
             subscription?.isActive !== false &&
             subscription?.status?.toLowerCase?.() !== "expired");
@@ -361,25 +362,12 @@ export function PassedExamsPage() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    const openCheckout = () => {
-        const params = new URLSearchParams();
-
-        const email = account.user?.email;
-        const uuid = account.user?.uuid;
-
-        if (email) {
-            params.set("prefilled_email", email);
-        }
-
-        if (uuid) {
-            params.set("client_reference_id", uuid);
-        }
-
-        const checkoutUrl = params.toString()
-            ? `${STRIPE_B1_PAYMENT_LINK}?${params.toString()}`
-            : STRIPE_B1_PAYMENT_LINK;
-
-        window.location.href = checkoutUrl;
+    const openCheckout = (plan: "b1" | "b1_unlimited") => {
+        window.location.href = buildPaymentUrl(
+            plan,
+            account.user?.email,
+            account.user?.uuid
+        );
     };
 
     useEffect(() => {
@@ -442,7 +430,7 @@ export function PassedExamsPage() {
                     if (hasPremiumAccess) {
                         setReviewExam(selectedExam);
                     } else {
-                        openCheckout();
+                        window.location.href = "/pricing";
                     }
                 }}
                 hasPremiumAccess={hasPremiumAccess}
@@ -533,14 +521,24 @@ export function PassedExamsPage() {
                                         </p>
                                     </div>
 
-                                    <button
-                                        type="button"
-                                        onClick={openCheckout}
-                                        className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-black text-black"
-                                    >
-                                        €19 freischalten
-                                        <ArrowRight size={17} />
-                                    </button>
+                                    <div className="flex flex-col gap-2 sm:min-w-52">
+                                        <button
+                                            type="button"
+                                            onClick={() => openCheckout("b1")}
+                                            className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-black text-black"
+                                        >
+                                            10 Prüfungen · €4.99
+                                            <ArrowRight size={17} />
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={() => openCheckout("b1_unlimited")}
+                                            className="inline-flex items-center justify-center gap-2 rounded-full border border-white px-6 py-3 text-sm font-black text-white"
+                                        >
+                                            Unbegrenzt · €19.99
+                                            <ArrowRight size={17} />
+                                        </button>
+                                    </div>
                                 </div>
                             </section>
                         )}
@@ -626,7 +624,7 @@ export function PassedExamsPage() {
                                             <>
                                                 <button
                                                     type="button"
-                                                    onClick={openCheckout}
+                                                    onClick={() => { window.location.href = "/pricing"; }}
                                                     className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-black text-white"
                                                 >
                                                     Details freischalten

@@ -7,9 +7,7 @@ import type {
 import type { IUserAccount } from "../../../store/models/user/userAccount.interface.ts";
 import { useSelector } from "react-redux";
 import type { IStateType } from "../../../store/models/root.interface.ts";
-
-const STRIPE_B1_PAYMENT_LINK =
-    process.env.NODE_ENV === "production"? "https://buy.stripe.com/3cIeVc7Zw9xQ1vOdDw1wY00" : "https://buy.stripe.com/test_dRmeVcaaZ7RBcES0m433W00";
+import { buildPaymentUrl } from "../Pricing/payment-links.ts";
 
 const providers: Array<{
     value: ExamProvider;
@@ -57,6 +55,7 @@ export function StartPage({
 
     const isTester = currentPlan === "tester";
     const isB1 = currentPlan === "b1";
+    const isUnlimited = currentPlan === "b1_unlimited";
     const isFree = currentPlan === "free";
 
     const endDate = subscription?.endDate
@@ -68,10 +67,13 @@ export function StartPage({
 
     const isExpired =
         !isTester &&
-        hasValidEndDate &&
-        endDate!.getTime() <= Date.now();
+        (
+            subscription?.status?.toLowerCase?.() === "expired" ||
+            subscription?.isActive === false ||
+            (hasValidEndDate && endDate!.getTime() <= Date.now())
+        );
 
-    const hasQuota = isTester || availableQuota > 0;
+    const hasQuota = isTester || isUnlimited || availableQuota > 0;
 
     const canStartExam =
         Boolean(userId.trim()) &&
@@ -99,40 +101,31 @@ export function StartPage({
         });
     };
 
-    const openCheckout = () => {
-        const params = new URLSearchParams();
-
-        const email = account.user?.email;
-        const uuid = account.user?.uuid;
-
-        if (email) {
-            params.set("prefilled_email", email);
-        }
-
-        if (uuid) {
-            params.set("client_reference_id", uuid);
-        }
-
-        const checkoutUrl = params.toString()
-            ? `${STRIPE_B1_PAYMENT_LINK}?${params.toString()}`
-            : STRIPE_B1_PAYMENT_LINK;
-
-        window.location.href = checkoutUrl;
+    const openCheckout = (plan: "b1" | "b1_unlimited") => {
+        window.location.href = buildPaymentUrl(
+            plan,
+            account.user?.email,
+            account.user?.uuid
+        );
     };
 
     const quotaLabel = isTester
         ? "Tester-Zugang"
-        : `${availableQuota} ${availableQuota === 1 ? "Prüfung" : "Prüfungen"} verfügbar`;
+        : isUnlimited
+            ? "Unbegrenzte Prüfungen"
+            : `${availableQuota} ${availableQuota === 1 ? "Prüfung" : "Prüfungen"} verfügbar`;
 
     const accessLabel = isTester
-        ? "Unbegrenzter Tester-Zugang"
+        ? "Tester-Zugang"
         : isExpired
             ? "Ihr Zugang ist abgelaufen"
-            : isB1
-                ? "TELC B1 Exam Pass"
-                : isFree
-                    ? "Kostenloser Zugang"
-                    : "Prüfungszugang";
+            : isUnlimited
+                ? "TELC B1 Unlimited"
+                : isB1
+                    ? "TELC B1 · 10 Prüfungen"
+                    : isFree
+                        ? "Kostenloser Zugang"
+                        : "Prüfungszugang";
 
     return (
         <main className="min-h-screen bg-white text-black">
@@ -176,13 +169,13 @@ export function StartPage({
                                         {quotaLabel}
                                     </p>
 
-                                    {!isTester && hasQuota && !isExpired && (
+                                    {!isTester && !isUnlimited && hasQuota && !isExpired && (
                                         <p className="mt-2 text-xs font-semibold text-black/50">
-                                            Beim Start dieser Prüfung wird 1 Quote verwendet.
+                                            Beim Start dieser Prüfung wird 1 Prüfung verwendet.
                                         </p>
                                     )}
 
-                                    {isB1 && !isExpired && hasValidEndDate && (
+                                    {(isB1 || isUnlimited) && !isExpired && hasValidEndDate && (
                                         <p className="mt-2 text-xs text-black/50">
                                             Zugang gültig bis{" "}
                                             {endDate!.toLocaleDateString("de-DE")}
@@ -197,9 +190,9 @@ export function StartPage({
                                                 ? "bg-red-100 text-red-700"
                                                 : "bg-white text-black"
                                         }`}
-                                        title="Verbleibende Prüfungsquoten"
+                                        title={isUnlimited ? "Unbegrenzte Prüfungen" : "Verbleibende Prüfungen"}
                                     >
-                                        {availableQuota}
+                                        {isUnlimited ? "∞" : availableQuota}
                                     </div>
                                 )}
                             </div>
@@ -207,17 +200,31 @@ export function StartPage({
                             {!isTester && (isExpired || !hasQuota) && (
                                 <div className="mt-4 border-t border-black/10 pt-4">
                                     <p className="text-sm font-semibold text-black/70">
-                                        Holen Sie sich 10 Prüfungsquoten für 60 Tage.
+                                        Wählen Sie den passenden TELC-B1-Zugang.
                                     </p>
 
-                                    <button
-                                        type="button"
-                                        onClick={openCheckout}
-                                        className="mt-3 flex w-full items-center justify-between rounded-xl bg-black px-4 py-3 text-sm font-black text-white transition hover:bg-black/90"
-                                    >
-                                        TELC B1 freischalten — €19
-                                        <span aria-hidden="true">→</span>
-                                    </button>
+                                    <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                                        <button
+                                            type="button"
+                                            onClick={() => openCheckout("b1")}
+                                            className="flex items-center justify-between rounded-xl border border-black bg-white px-4 py-3 text-left text-sm font-black text-black transition hover:bg-black/5"
+                                        >
+                                            <span>10 Prüfungen</span>
+                                            <span>€4.99</span>
+                                        </button>
+
+                                        <button
+                                            type="button"
+                                            onClick={() => openCheckout("b1_unlimited")}
+                                            className="flex items-center justify-between rounded-xl bg-black px-4 py-3 text-left text-sm font-black text-white transition hover:bg-black/90"
+                                        >
+                                            <span>Unbegrenzt</span>
+                                            <span>€19.99</span>
+                                        </button>
+                                    </div>
+                                    <p className="mt-2 text-xs text-black/45">
+                                        Beide Optionen sind 60 Tage gültig und verlängern sich nicht automatisch.
+                                    </p>
                                 </div>
                             )}
                         </div>
@@ -332,7 +339,7 @@ export function StartPage({
                             {isExpired
                                 ? "Zugang abgelaufen"
                                 : !hasQuota
-                                    ? "Keine Quote verfügbar"
+                                    ? "Keine Prüfung verfügbar"
                                     : "Sitzung erstellen"}
 
                             <span aria-hidden="true">→</span>
