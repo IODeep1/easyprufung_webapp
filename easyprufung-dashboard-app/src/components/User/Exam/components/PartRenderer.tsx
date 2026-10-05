@@ -403,31 +403,142 @@ function SprachbausteineTeil1({ exercise, answers, onSelection, readOnly, review
     );
 }
 
-function SprachbausteineTeil2({ exercise, answers, onSelection, readOnly, reviewResults }: PartRendererProps) {
+function SprachbausteineTeil2({
+                                  exercise,
+                                  answers,
+                                  onSelection,
+                                  readOnly,
+                                  reviewResults
+                              }: PartRendererProps) {
     const [activeKey, setActiveKey] = useState<string | null>(null);
+
+    const [activeQuestionNumber, setActiveQuestionNumber] =
+        useState<QuestionView["number"] | null>(null);
+
     const wordBank = useMemo(() => {
         const unique = new Map<string, string>();
-        exercise.questions.flatMap((question) => question.options).forEach((option) => unique.set(option.key, option.text));
-        return Array.from(unique, ([key, text]) => ({ key, text }));
-    }, [exercise.questions]);
-    const used = new Set(exercise.questions.flatMap((question) => answers[question.number]?.selectedOptionKeys ?? []));
 
-    const assign = (question: QuestionView, key: string) => {
+        exercise.questions
+            .flatMap((question) => question.options)
+            .forEach((option) =>
+                unique.set(option.key, option.text)
+            );
+
+        return Array.from(
+            unique,
+            ([key, text]) => ({
+                key,
+                text
+            })
+        );
+    }, [exercise.questions]);
+
+    const used = new Set(
+        exercise.questions.flatMap(
+            (question) =>
+                answers[question.number]?.selectedOptionKeys ?? []
+        )
+    );
+
+    const assign = (
+        question: QuestionView,
+        key: string
+    ) => {
         if (readOnly) return;
+
+        /*
+         * A word can only be used once.
+         * If it was previously assigned to another gap,
+         * remove it from that gap first.
+         */
         exercise.questions.forEach((other) => {
-            if (other.number !== question.number && answers[other.number]?.selectedOptionKeys[0] === key) {
+            if (
+                other.number !== question.number &&
+                answers[other.number]?.selectedOptionKeys[0] === key
+            ) {
                 onSelection(other.number, "");
             }
         });
+
         onSelection(question.number, key);
+
         setActiveKey(null);
+        setActiveQuestionNumber(null);
     };
 
-    const onDrop = (event: DragEvent<HTMLSpanElement>, question: QuestionView) => {
+    const onDrop = (
+        event: DragEvent<HTMLSpanElement>,
+        question: QuestionView
+    ) => {
         event.preventDefault();
+
         if (readOnly) return;
-        const key = event.dataTransfer.getData("text/plain");
-        if (key) assign(question, key);
+
+        const key =
+            event.dataTransfer.getData("text/plain");
+
+        if (key) {
+            assign(question, key);
+        }
+    };
+
+    const handleGapClick = (
+        question: QuestionView
+    ) => {
+        if (readOnly) return;
+
+        /*
+         * Existing interaction:
+         * word selected first -> click the gap.
+         */
+        if (activeKey) {
+            assign(question, activeKey);
+            return;
+        }
+
+        /*
+         * New interaction:
+         * click the gap first -> then choose a word.
+         */
+        setActiveQuestionNumber((current) =>
+            current === question.number
+                ? null
+                : question.number
+        );
+    };
+
+    const handleWordClick = (
+        key: string,
+        unavailable: boolean
+    ) => {
+        if (readOnly || unavailable) return;
+
+        /*
+         * New interaction:
+         * when a gap is already selected,
+         * clicking a word immediately fills that gap.
+         */
+        if (activeQuestionNumber !== null) {
+            const question =
+                exercise.questions.find(
+                    (item) =>
+                        item.number === activeQuestionNumber
+                );
+
+            if (question) {
+                assign(question, key);
+            }
+
+            return;
+        }
+
+        /*
+         * Existing interaction:
+         * select a word first, then select a gap.
+         */
+        setActiveKey((current) =>
+            current === key ? null : key
+        );
     };
 
     const gapPattern =
@@ -435,83 +546,312 @@ function SprachbausteineTeil2({ exercise, answers, onSelection, readOnly, review
 
     const markerPattern =
         /^(?:\{\{\s*\d+\s*\}\}|\[\s*\d+\s*\]|\(\s*(?:____\s*)?\d+\s*\))$/;
-    const parts = exercise.content?.split(gapPattern) ?? [];
-    const questions = new Map(exercise.questions.map((question) => [question.number, question]));
+
+    const parts =
+        exercise.content?.split(gapPattern) ?? [];
+
+    const questions = new Map(
+        exercise.questions.map(
+            (question) => [
+                question.number,
+                question
+            ]
+        )
+    );
 
     return (
         <ContentFrame>
             <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+                {/* Text */}
                 <div className="rounded-2xl border border-black bg-white p-6 sm:p-8">
-                    <p className="eyebrow">Text und Lücken</p>
+                    <p className="eyebrow">
+                        Text und Lücken
+                    </p>
+
                     <div className="mt-6 whitespace-pre-wrap text-base leading-[3.5rem] text-black/75">
                         {parts.map((part, index) => {
-                            if (!markerPattern.test(part)) return <Fragment key={index}>{part}</Fragment>;
-                            const number = part.match(/\d+/)?.[0];
-                            const question = number ? questions.get(number) : undefined;
-                            if (!question) return <Fragment key={index}>{part}</Fragment>;
-                            const selectedKey = answers[question.number]?.selectedOptionKeys[0];
-                            const selected = wordBank.find((option) => option.key === selectedKey);
+                            if (!markerPattern.test(part)) {
+                                return (
+                                    <Fragment key={index}>
+                                        {part}
+                                    </Fragment>
+                                );
+                            }
+
+                            const number =
+                                part.match(/\d+/)?.[0];
+
+                            const question = number
+                                ? questions.get(number)
+                                : undefined;
+
+                            if (!question) {
+                                return (
+                                    <Fragment key={index}>
+                                        {part}
+                                    </Fragment>
+                                );
+                            }
+
+                            const selectedKey =
+                                answers[
+                                    question.number
+                                    ]?.selectedOptionKeys[0];
+
+                            const selected =
+                                wordBank.find(
+                                    (option) =>
+                                        option.key ===
+                                        selectedKey
+                                );
+
+                            const active =
+                                activeQuestionNumber ===
+                                question.number;
+
                             return (
                                 <span
                                     key={`${question.number}-${index}`}
                                     onDragOver={(event) => {
-                                        if (!readOnly) event.preventDefault();
+                                        if (!readOnly) {
+                                            event.preventDefault();
+                                        }
                                     }}
-                                    onDrop={(event) => onDrop(event, question)}
-                                    onClick={() => !readOnly && activeKey && assign(question, activeKey)}
-                                    className={`mx-1 inline-flex min-h-10 min-w-32 items-center justify-center gap-2 rounded-lg border border-dashed border-black px-3 py-1 align-middle text-sm font-black leading-6 ${readOnly ? "cursor-default" : "cursor-pointer"} ${selected ? "bg-yellow-200" : "bg-white"}`}
-                                    role={readOnly ? undefined : "button"}
-                                    tabIndex={readOnly ? undefined : 0}
+                                    onDrop={(event) =>
+                                        onDrop(
+                                            event,
+                                            question
+                                        )
+                                    }
+                                    onClick={() =>
+                                        handleGapClick(
+                                            question
+                                        )
+                                    }
+                                    onKeyDown={(event) => {
+                                        if (
+                                            !readOnly &&
+                                            (event.key ===
+                                                "Enter" ||
+                                                event.key ===
+                                                " ")
+                                        ) {
+                                            event.preventDefault();
+
+                                            handleGapClick(
+                                                question
+                                            );
+                                        }
+                                    }}
+                                    className={`
+                                        mx-1
+                                        inline-flex
+                                        min-h-10
+                                        min-w-32
+                                        items-center
+                                        justify-center
+                                        gap-2
+                                        rounded-lg
+                                        border
+                                        px-3
+                                        py-1
+                                        align-middle
+                                        text-sm
+                                        font-black
+                                        leading-6
+                                        transition
+                                        ${
+                                        readOnly
+                                            ? "cursor-default"
+                                            : "cursor-pointer"
+                                    }
+                                        ${
+                                        active
+                                            ? "border-black bg-yellow-300 ring-2 ring-black ring-offset-2"
+                                            : selected
+                                                ? "border-black bg-yellow-200"
+                                                : "border-dashed border-black bg-white hover:bg-yellow-50"
+                                    }
+                                    `}
+                                    role={
+                                        readOnly
+                                            ? undefined
+                                            : "button"
+                                    }
+                                    tabIndex={
+                                        readOnly
+                                            ? undefined
+                                            : 0
+                                    }
                                     aria-label={`Lücke ${question.number}`}
+                                    aria-pressed={
+                                        readOnly
+                                            ? undefined
+                                            : active
+                                    }
                                 >
-                  <span>{selected ? selected.text : `(____${question.number})`}</span>
-                                    {selected && !readOnly && (
-                                        <button
-                                            type="button"
-                                            onClick={(event) => {
-                                                event.stopPropagation();
-                                                onSelection(question.number, "");
-                                            }}
-                                            className="grid h-6 w-6 place-items-center rounded-full bg-black text-white"
-                                            aria-label={`Antwort für Lücke ${question.number} entfernen`}
-                                        >
-                                            <X size={12} />
-                                        </button>
-                                    )}
+                                    <span>
+                                        {selected
+                                            ? selected.text
+                                            : `(____${question.number})`}
+                                    </span>
+
+                                    {selected &&
+                                        !readOnly && (
+                                            <button
+                                                type="button"
+                                                onClick={(
+                                                    event
+                                                ) => {
+                                                    event.stopPropagation();
+
+                                                    onSelection(
+                                                        question.number,
+                                                        ""
+                                                    );
+
+                                                    setActiveQuestionNumber(
+                                                        question.number
+                                                    );
+
+                                                    setActiveKey(
+                                                        null
+                                                    );
+                                                }}
+                                                className="grid h-6 w-6 place-items-center rounded-full bg-black text-white"
+                                                aria-label={`Antwort für Lücke ${question.number} entfernen`}
+                                            >
+                                                <X
+                                                    size={
+                                                        12
+                                                    }
+                                                />
+                                            </button>
+                                        )}
+
                                     <WrongAnswerMark
-                                        question={question}
-                                        readOnly={readOnly}
-                                        reviewResults={reviewResults}
+                                        question={
+                                            question
+                                        }
+                                        readOnly={
+                                            readOnly
+                                        }
+                                        reviewResults={
+                                            reviewResults
+                                        }
                                         compact
                                     />
-                </span>
+                                </span>
                             );
                         })}
                     </div>
                 </div>
+
+                {/* Word bank */}
                 <aside className="rounded-2xl border border-black bg-white p-6 lg:self-start">
-                    <p className="eyebrow">Antworten</p>
-                    <p className="mt-2 text-xs leading-5 text-black/45">Ziehen Sie eine Antwort direkt in die passende Lücke oder wählen Sie sie aus und klicken Sie auf die Lücke.</p>
+                    <p className="eyebrow">
+                        Antworten
+                    </p>
+
+                    <p className="mt-2 text-xs leading-5 text-black/45">
+                        Klicken Sie zuerst auf eine
+                        Lücke und wählen Sie danach
+                        die passende Antwort aus.
+                        Alternativ können Sie eine
+                        Antwort zuerst auswählen oder
+                        direkt in die Lücke ziehen.
+                    </p>
+
+                    {activeQuestionNumber !==
+                        null && (
+                            <div className="mt-4 rounded-xl border border-black bg-yellow-100 px-4 py-3">
+                                <p className="text-xs font-black uppercase tracking-wider text-black/50">
+                                    Ausgewählte Lücke
+                                </p>
+
+                                <p className="mt-1 text-sm font-black">
+                                    Lücke{" "}
+                                    {
+                                        activeQuestionNumber
+                                    }{" "}
+                                    — wählen Sie jetzt eine
+                                    Antwort.
+                                </p>
+                            </div>
+                        )}
+
                     <div className="mt-5 space-y-2">
-                        {wordBank.map((option) => {
-                            const unavailable = used.has(option.key);
-                            const active = activeKey === option.key;
-                            return (
-                                <button
-                                    type="button"
-                                    key={option.key}
-                                    draggable={!readOnly && !unavailable}
-                                    disabled={readOnly || unavailable}
-                                    onDragStart={(event) => event.dataTransfer.setData("text/plain", option.key)}
-                                    onClick={() => !readOnly && setActiveKey(active ? null : option.key)}
-                                    className={`flex w-full items-center gap-3 rounded-xl border px-3 py-3 text-left text-sm font-bold transition ${
-                                        active ? "border-black bg-yellow-200 text-black" : "border-black bg-white text-black"
-                                    } disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 disabled:text-gray-600`}
-                                >
-                                    {option.text.toUpperCase()}
-                                </button>
-                            );
-                        })}
+                        {wordBank.map(
+                            (option) => {
+                                const unavailable =
+                                    used.has(
+                                        option.key
+                                    );
+
+                                const active =
+                                    activeKey ===
+                                    option.key;
+
+                                return (
+                                    <button
+                                        type="button"
+                                        key={
+                                            option.key
+                                        }
+                                        draggable={
+                                            !readOnly &&
+                                            !unavailable
+                                        }
+                                        disabled={
+                                            readOnly ||
+                                            unavailable
+                                        }
+                                        onDragStart={(
+                                            event
+                                        ) => {
+                                            event.dataTransfer.setData(
+                                                "text/plain",
+                                                option.key
+                                            );
+                                        }}
+                                        onClick={() =>
+                                            handleWordClick(
+                                                option.key,
+                                                unavailable
+                                            )
+                                        }
+                                        className={`
+                                            flex
+                                            w-full
+                                            items-center
+                                            gap-3
+                                            rounded-xl
+                                            border
+                                            px-3
+                                            py-3
+                                            text-left
+                                            text-sm
+                                            font-bold
+                                            transition
+                                            ${
+                                            active
+                                                ? "border-black bg-yellow-200 text-black"
+                                                : activeQuestionNumber !==
+                                                null
+                                                    ? "border-black bg-white text-black hover:bg-yellow-100"
+                                                    : "border-black bg-white text-black hover:bg-black/5"
+                                        }
+                                            disabled:cursor-not-allowed
+                                            disabled:border-gray-300
+                                            disabled:bg-gray-300
+                                            disabled:text-gray-600
+                                        `}
+                                    >
+                                        {option.text.toUpperCase()}
+                                    </button>
+                                );
+                            }
+                        )}
                     </div>
                 </aside>
             </div>
