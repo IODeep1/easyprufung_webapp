@@ -1,65 +1,152 @@
-import { ArrowLeft, ArrowRight, Clock3, LoaderCircle } from "lucide-react";
+
+import {
+    AlertCircle,
+    ArrowLeft,
+    ArrowRight,
+    Clock3,
+    LoaderCircle,
+    X
+} from "lucide-react";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import type { ExerciseView } from "../models/exam.ts";
 
 function formatTime(totalSeconds: number): string {
-  const safe = Math.max(0, totalSeconds);
-  const hours = Math.floor(safe / 3600);
-  const minutes = Math.floor((safe % 3600) / 60);
-  const seconds = safe % 60;
-  return [hours, minutes, seconds].map((value) => value.toString().padStart(2, "0")).join(":");
+    const safe = Math.max(0, totalSeconds);
+    const hours = Math.floor(safe / 3600);
+    const minutes = Math.floor((safe % 3600) / 60);
+    const seconds = safe % 60;
+    return [hours, minutes, seconds].map((value) => value.toString().padStart(2, "0")).join(":");
 }
 
 export function CountdownTimer({ expiresAt }: { expiresAt: string | null }) {
-  const calculate = () =>
-      expiresAt ? Math.max(0, Math.floor((new Date(expiresAt).getTime() - Date.now()) / 1000)) : 0;
-  const [seconds, setSeconds] = useState(calculate);
+    const calculate = () =>
+        expiresAt
+            ? Math.max(0, Math.floor((new Date(expiresAt).getTime() - Date.now()) / 1000))
+            : 0;
 
-  useEffect(() => {
-    setSeconds(calculate());
-    if (!expiresAt) return;
-    const timer = window.setInterval(() => setSeconds(calculate()), 1000);
-    return () => window.clearInterval(timer);
-  }, [expiresAt]);
+    const [seconds, setSeconds] = useState(calculate);
+    const [dismissed, setDismissed] = useState(false);
 
-  return (
-      <div
-          className="flex min-w-36 items-center justify-end gap-2 rounded-full border border-black bg-white px-4 py-2 font-mono text-sm font-black tabular-nums text-black"
-          aria-label={`${formatTime(seconds)} verbleibend`}
-      >
-        <Clock3 size={16} aria-hidden="true" />
-        {expiresAt ? formatTime(seconds) : "--:--:--"}
-      </div>
-  );
+    useEffect(() => {
+        setSeconds(calculate());
+        setDismissed(false);
+
+        if (!expiresAt) return;
+
+        const timer = window.setInterval(() => {
+            const remaining = calculate();
+            setSeconds(remaining);
+
+            if (remaining <= 0) {
+                window.clearInterval(timer);
+            }
+        }, 1000);
+
+        return () => window.clearInterval(timer);
+    }, [expiresAt]);
+
+    const isExpired =
+        !!expiresAt &&
+        Number.isFinite(new Date(expiresAt).getTime()) &&
+        seconds <= 0;
+
+    return (
+        <>
+            <div
+                className={`flex min-w-36 items-center justify-end gap-2 rounded-full border px-4 py-2 font-mono text-sm font-black tabular-nums ${
+                    isExpired
+                        ? "border-red-600 bg-red-50 text-red-700"
+                        : "border-black bg-white text-black"
+                }`}
+                aria-label={
+                    isExpired
+                        ? "Prüfungszeit abgelaufen"
+                        : `${formatTime(seconds)} verbleibend`
+                }
+            >
+                <Clock3 size={16} aria-hidden="true" />
+                {expiresAt ? formatTime(seconds) : "--:--:--"}
+            </div>
+
+            {isExpired &&
+                !dismissed &&
+                createPortal(
+                    <div className="pointer-events-none fixed inset-x-0 top-20 z-[9999] flex justify-center px-4 sm:top-24">
+                        <div
+                            role="alert"
+                            className="pointer-events-auto relative w-full max-w-lg rounded-2xl border border-black bg-white p-5 text-black shadow-2xl sm:p-6"
+                        >
+                            <button
+                                type="button"
+                                onClick={() => setDismissed(true)}
+                                aria-label="Benachrichtigung schließen"
+                                className="absolute right-4 top-4 text-black/40 transition hover:text-black"
+                            >
+                                <X size={18} />
+                            </button>
+
+                            <div className="flex items-start gap-4 pr-6">
+                                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-black text-white">
+                                    <AlertCircle size={22} />
+                                </div>
+
+                                <div>
+                                    <h2 className="text-lg font-black">
+                                        Die Prüfungszeit ist abgelaufen.
+                                    </h2>
+
+                                    <p className="mt-3 text-sm leading-6 text-black/65">
+                                        Die vorgesehene Bearbeitungszeit ist
+                                        beendet. Sie können Ihre Prüfung
+                                        trotzdem weiterhin einreichen.
+                                        Ihre bisherigen Antworten bleiben erhalten.
+                                    </p>
+
+                                    <button
+                                        type="button"
+                                        onClick={() => setDismissed(true)}
+                                        className="mt-5 rounded-full bg-black px-5 py-2.5 text-xs font-black text-white transition hover:bg-black/85"
+                                    >
+                                        Verstanden
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>,
+                    document.body
+                )}
+        </>
+    );
 }
 
 interface ExamHeaderProps {
-  title: string;
-  level: string;
-  expiresAt: string | null;
-  currentIndex: number;
-  total: number;
+    title: string;
+    level: string;
+    expiresAt: string | null;
+    currentIndex: number;
+    total: number;
 }
 
 export function ExamHeader({ title, level, expiresAt, currentIndex, total }: ExamHeaderProps) {
-  const percentage = total === 0 ? 0 : ((currentIndex + 1) / total) * 100;
-  return (
-      <header className="sticky top-0 z-30 border-b border-black bg-white text-black">
-        <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4 px-4 py-4 sm:px-7 lg:px-10">
-          <div className="min-w-0">
-            <div className="flex items-center gap-3">
-              <div className="min-w-0">
-                <p className="truncate text-lg text-black/55">{title} · {level}</p>
-              </div>
+    const percentage = total === 0 ? 0 : ((currentIndex + 1) / total) * 100;
+    return (
+        <header className="sticky top-0 z-30 border-b border-black bg-white text-black">
+            <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4 px-4 py-4 sm:px-7 lg:px-10">
+                <div className="min-w-0">
+                    <div className="flex items-center gap-3">
+                        <div className="min-w-0">
+                            <p className="truncate text-lg text-black/55">{title} · {level}</p>
+                        </div>
+                    </div>
+                </div>
+                <CountdownTimer expiresAt={expiresAt} />
             </div>
-          </div>
-          <CountdownTimer expiresAt={expiresAt} />
-        </div>
-        <div className="h-1 bg-black/10">
-          <div className="h-full bg-black transition-all duration-500" style={{ width: `${percentage}%` }} />
-        </div>
-      </header>
-  );
+            <div className="h-1 bg-black/10">
+                <div className="h-full bg-black transition-all duration-500" style={{ width: `${percentage}%` }} />
+            </div>
+        </header>
+    );
 }
 
 export function PartInformation({
@@ -95,44 +182,44 @@ export function PartInformation({
 }
 
 interface BottomNavigationProps {
-  canGoBack: boolean;
-  canContinue: boolean;
-  isLast: boolean;
-  answered: number;
-  total: number;
-  onBack: () => void;
-  onNext: () => void;
-  onSubmit: () => void;
+    canGoBack: boolean;
+    canContinue: boolean;
+    isLast: boolean;
+    answered: number;
+    total: number;
+    onBack: () => void;
+    onNext: () => void;
+    onSubmit: () => void;
 }
 
 export function BottomNavigation(props: BottomNavigationProps) {
-  const { canGoBack, canContinue, isLast, answered, total, onBack, onNext, onSubmit } = props;
-  return (
-      <footer className="mt-6 flex flex-col-reverse items-stretch justify-between gap-4 border-t border-black/10 pt-6 sm:flex-row sm:items-center">
-        <button
-            type="button"
-            onClick={onBack}
-            disabled={!canGoBack}
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-black text-white transition disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-600"
-        >
-          <ArrowLeft size={17} /> Zurück
-        </button>
+    const { canGoBack, canContinue, isLast, answered, total, onBack, onNext, onSubmit } = props;
+    return (
+        <footer className="mt-6 flex flex-col-reverse items-stretch justify-between gap-4 border-t border-black/10 pt-6 sm:flex-row sm:items-center">
+            <button
+                type="button"
+                onClick={onBack}
+                disabled={!canGoBack}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-black text-white transition disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-600"
+            >
+                <ArrowLeft size={17} /> Zurück
+            </button>
 
-        <div className="text-center text-xs font-bold uppercase tracking-[0.12em] text-black/45">
-          {answered} / {total} beantwortet
-        </div>
+            <div className="text-center text-xs font-bold uppercase tracking-[0.12em] text-black/45">
+                {answered} / {total} beantwortet
+            </div>
 
-        <button
-            type="button"
-            onClick={isLast ? onSubmit : onNext}
-            disabled={!canContinue}
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-7 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:translate-y-0 disabled:bg-gray-300 disabled:text-gray-600 disabled:shadow-none"
-        >
-          {isLast ? "Einreichen" : "Nächste"}
-          <ArrowRight size={17} />
-        </button>
-      </footer>
-  );
+            <button
+                type="button"
+                onClick={isLast ? onSubmit : onNext}
+                disabled={!canContinue}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-7 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:translate-y-0 disabled:bg-gray-300 disabled:text-gray-600 disabled:shadow-none"
+            >
+                {isLast ? "Einreichen" : "Nächste"}
+                <ArrowRight size={17} />
+            </button>
+        </footer>
+    );
 }
 
 const EXAM_PREPARATION_DURATION_MS = 90 * 1000;
@@ -280,26 +367,26 @@ export function LoadingScreen({
                                             : "border-gray-300 bg-white text-gray-400"
                                     }`}
                                 >
-                  <span
-                      className={`grid h-8 w-8 shrink-0 place-items-center rounded-full border text-xs font-black ${
-                          completed
-                              ? "border-black bg-black text-white"
-                              : active
-                                  ? "border-black bg-white text-black"
-                                  : "border-gray-300 bg-white text-gray-400"
-                      }`}
-                  >
-                    {completed ? (
-                        "✓"
-                    ) : active ? (
-                        <LoaderCircle
-                            size={16}
-                            className="animate-spin"
-                        />
-                    ) : (
-                        index + 1
-                    )}
-                  </span>
+                                    <span
+                                        className={`grid h-8 w-8 shrink-0 place-items-center rounded-full border text-xs font-black ${
+                                            completed
+                                                ? "border-black bg-black text-white"
+                                                : active
+                                                    ? "border-black bg-white text-black"
+                                                    : "border-gray-300 bg-white text-gray-400"
+                                        }`}
+                                    >
+                                        {completed ? (
+                                            "✓"
+                                        ) : active ? (
+                                            <LoaderCircle
+                                                size={16}
+                                                className="animate-spin"
+                                            />
+                                        ) : (
+                                            index + 1
+                                        )}
+                                    </span>
 
                                     <div>
                                         <p className="text-xs font-black leading-5">
@@ -334,5 +421,5 @@ export function LoadingScreen({
 }
 
 export function ContentFrame({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <section className={`frame p-5 sm:p-7 lg:p-9 ${className}`}>{children}</section>;
+    return <section className={`frame p-5 sm:p-7 lg:p-9 ${className}`}>{children}</section>;
 }

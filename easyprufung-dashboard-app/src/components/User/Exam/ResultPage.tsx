@@ -1,5 +1,5 @@
 import { Eye, Lock, RotateCcw, Sparkles } from "lucide-react";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { useSelector } from "react-redux";
 import { ExamReviewPage } from "./ExamReviewPage.tsx";
 import type {
@@ -55,6 +55,24 @@ export function ResultPage(props: {
             account.user?.uuid
         );
     };
+
+    function scrollExamToTop(): void {
+        const scrollContainer =
+            document.getElementById("app-scroll-container");
+
+        if (scrollContainer) {
+            scrollContainer.scrollTop = 0;
+        }
+
+        window.scrollTo({
+            top: 0,
+            behavior: "auto"
+        });
+    }
+
+    useEffect(() => {
+        scrollExamToTop();
+    }, []);
 
     if (showDetails && hasPremiumAccess) {
         return (
