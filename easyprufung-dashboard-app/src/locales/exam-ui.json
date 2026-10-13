@@ -1,0 +1,440 @@
+{
+  "Deutsche Prüfungen": {
+    "en": "German exams",
+    "fr": "Examens d’allemand",
+    "ar": "الامتحانات الألمانية",
+    "uk": "Іспити з німецької мови"
+  },
+  "Bereit für die echte Prüfungssituation?": {
+    "en": "Ready for the real exam?",
+    "fr": "Prêt pour les conditions réelles de l’examen ?",
+    "ar": "هل أنت مستعد لظروف الامتحان الحقيقية؟",
+    "uk": "Готові до справжнього іспиту?"
+  },
+  "Trainieren Sie Lesen, Sprachbausteine, Hören und Schreiben unter realistischen Prüfungsbedingungen.": {
+    "en": "Practice reading, language elements, listening and writing under realistic exam conditions.",
+    "fr": "Entraînez-vous à la lecture, aux éléments linguistiques, à l’écoute et à l’écriture dans des conditions réalistes.",
+    "ar": "تدرّب على القراءة والقواعد والاستماع والكتابة في ظروف امتحان واقعية.",
+    "uk": "Тренуйте читання, мовні завдання, аудіювання та письмо в умовах справжнього іспиту."
+  },
+  "Ihr Zugang": {
+    "en": "Your access",
+    "fr": "Votre accès",
+    "ar": "صلاحية الوصول",
+    "uk": "Ваш доступ"
+  },
+  "Beim Start dieser Prüfung wird 1 Prüfung verwendet.": {
+    "en": "Starting this exam uses one exam credit.",
+    "fr": "Commencer cet examen utilise un crédit.",
+    "ar": "عند بدء هذا الامتحان سيُستخدم رصيد امتحان واحد.",
+    "uk": "Початок іспиту використає одну спробу."
+  },
+  "Wählen Sie den passenden TELC-B1-Zugang.": {
+    "en": "Choose the TELC B1 plan that suits you.",
+    "fr": "Choisissez votre formule TELC B1.",
+    "ar": "اختر باقة TELC B1 المناسبة لك.",
+    "uk": "Виберіть відповідний план TELC B1."
+  },
+  "10 Prüfungen": {
+    "en": "10 exams",
+    "fr": "10 examens",
+    "ar": "10 امتحانات",
+    "uk": "10 іспитів"
+  },
+  "Unbegrenzt": {
+    "en": "Unlimited",
+    "fr": "Illimité",
+    "ar": "غير محدود",
+    "uk": "Безліміт"
+  },
+  "Beide Optionen sind 60 Tage gültig und verlängern sich nicht automatisch.": {
+    "en": "Both options are valid for 60 days and do not renew automatically.",
+    "fr": "Les deux formules sont valables 60 jours, sans renouvellement automatique.",
+    "ar": "كلا الخيارين صالح لمدة 60 يومًا دون تجديد تلقائي.",
+    "uk": "Обидва варіанти діють 60 днів без автоматичного поновлення."
+  },
+  "Prüfung starten": {
+    "en": "Start exam",
+    "fr": "Commencer l’examen",
+    "ar": "بدء الامتحان",
+    "uk": "Почати іспит"
+  },
+  "Ihre Sitzung": {
+    "en": "Your session",
+    "fr": "Votre session",
+    "ar": "جلستك",
+    "uk": "Ваша сесія"
+  },
+  "Prüfungsanbieter": {
+    "en": "Exam provider",
+    "fr": "Organisme d’examen",
+    "ar": "جهة الامتحان",
+    "uk": "Організатор іспиту"
+  },
+  "Sprachniveau": {
+    "en": "Language level",
+    "fr": "Niveau de langue",
+    "ar": "المستوى اللغوي",
+    "uk": "Мовний рівень"
+  },
+  "Prüfung abgeschlossen": {
+    "en": "Exam completed",
+    "fr": "Examen terminé",
+    "ar": "اكتمل الامتحان",
+    "uk": "Іспит завершено"
+  },
+  "Bestanden.": {
+    "en": "Passed.",
+    "fr": "Réussi.",
+    "ar": "ناجح.",
+    "uk": "Складено."
+  },
+  "Weiter üben.": {
+    "en": "Keep practicing.",
+    "fr": "Continuez à vous entraîner.",
+    "ar": "واصل التدريب.",
+    "uk": "Продовжуйте тренуватися."
+  },
+  "Punkte": {
+    "en": "Points",
+    "fr": "Points",
+    "ar": "النقاط",
+    "uk": "Бали"
+  },
+  "Ergebnis": {
+    "en": "Result",
+    "fr": "Résultat",
+    "ar": "النتيجة",
+    "uk": "Результат"
+  },
+  "Detaillierte Auswertung": {
+    "en": "Detailed analysis",
+    "fr": "Analyse détaillée",
+    "ar": "تحليل مفصل",
+    "uk": "Детальний аналіз"
+  },
+  "Sehen Sie, wo Sie Punkte verlieren.": {
+    "en": "See where you lose points.",
+    "fr": "Découvrez où vous perdez des points.",
+    "ar": "اكتشف أين تخسر النقاط.",
+    "uk": "Дізнайтесь, де ви втрачаєте бали."
+  },
+  "Schalten Sie die Ergebnisse der einzelnen Prüfungsteile, falsche Antworten und ausführliche Erklärungen frei.": {
+    "en": "Unlock section results, incorrect answers and detailed explanations.",
+    "fr": "Débloquez les résultats par section, les mauvaises réponses et les explications détaillées.",
+    "ar": "افتح نتائج الأقسام والإجابات الخاطئة والشروحات المفصلة.",
+    "uk": "Відкрийте результати розділів, неправильні відповіді та докладні пояснення."
+  },
+  "60 Tage Zugang": {
+    "en": "60 days of access",
+    "fr": "Accès pendant 60 jours",
+    "ar": "وصول لمدة 60 يومًا",
+    "uk": "Доступ на 60 днів"
+  },
+  "Keine automatische Verlängerung": {
+    "en": "No automatic renewal",
+    "fr": "Sans renouvellement automatique",
+    "ar": "دون تجديد تلقائي",
+    "uk": "Без автоматичного поновлення"
+  },
+  "Prüfung überprüfen": {
+    "en": "Review exam",
+    "fr": "Revoir l’examen",
+    "ar": "مراجعة الامتحان",
+    "uk": "Переглянути іспит"
+  },
+  "Sehen Sie alle Aufgaben und Ihre abgegebenen Antworten noch einmal im schreibgeschützten Prüfungsmodus. Falsche Antworten werden markiert und mit einer Erklärung angezeigt.": {
+    "en": "Review all questions and your submitted answers in read-only exam mode. Incorrect answers are highlighted with explanations.",
+    "fr": "Revoyez toutes les questions et vos réponses en mode lecture seule. Les réponses incorrectes sont signalées et expliquées.",
+    "ar": "راجع جميع الأسئلة وإجاباتك في وضع العرض فقط. يتم تمييز الإجابات الخاطئة وشرحها.",
+    "uk": "Перегляньте всі завдання й відповіді в режимі лише для читання. Неправильні відповіді позначено та пояснено."
+  },
+  "Details anzeigen": {
+    "en": "Show details",
+    "fr": "Voir les détails",
+    "ar": "عرض التفاصيل",
+    "uk": "Показати деталі"
+  },
+  "Details freischalten": {
+    "en": "Unlock details",
+    "fr": "Débloquer les détails",
+    "ar": "فتح التفاصيل",
+    "uk": "Відкрити деталі"
+  },
+  "Noch einmal üben": {
+    "en": "Practice again",
+    "fr": "S’entraîner à nouveau",
+    "ar": "تدرّب مرة أخرى",
+    "uk": "Спробувати ще раз"
+  },
+  "Starten Sie eine neue Prüfung und trainieren Sie mit neuen Aufgaben. So können Sie Ihre Kenntnisse weiter verbessern und sich noch sicherer auf die echte Prüfung vorbereiten.": {
+    "en": "Start a new exam with new questions to improve your skills and prepare with confidence.",
+    "fr": "Commencez un nouvel examen avec de nouvelles questions pour progresser et mieux vous préparer.",
+    "ar": "ابدأ امتحانًا جديدًا بأسئلة جديدة لتطوير مهاراتك والاستعداد بثقة.",
+    "uk": "Почніть новий іспит із новими завданнями, щоб покращити навички та впевненість."
+  },
+  "Neue Prüfung": {
+    "en": "New exam",
+    "fr": "Nouvel examen",
+    "ar": "امتحان جديد",
+    "uk": "Новий іспит"
+  },
+  "Zurück zu meinen Prüfungen": {
+    "en": "Back to my exams",
+    "fr": "Retour à mes examens",
+    "ar": "العودة إلى امتحاناتي",
+    "uk": "Назад до моїх іспитів"
+  },
+  "Bestandene Prüfung": {
+    "en": "Passed exam",
+    "fr": "Examen réussi",
+    "ar": "امتحان ناجح",
+    "uk": "Складений іспит"
+  },
+  "Gesamtfeedback": {
+    "en": "Overall feedback",
+    "fr": "Commentaires généraux",
+    "ar": "التقييم العام",
+    "uk": "Загальний відгук"
+  },
+  "Aufgabenübersicht": {
+    "en": "Question overview",
+    "fr": "Aperçu des questions",
+    "ar": "نظرة عامة على الأسئلة",
+    "uk": "Огляд завдань"
+  },
+  "Ergebnisse im Detail": {
+    "en": "Detailed results",
+    "fr": "Résultats détaillés",
+    "ar": "النتائج بالتفصيل",
+    "uk": "Детальні результати"
+  },
+  "Premium-Auswertung": {
+    "en": "Premium analysis",
+    "fr": "Analyse premium",
+    "ar": "تحليل مميز",
+    "uk": "Преміуманаліз"
+  },
+  "Alle Details dieser Prüfung freischalten": {
+    "en": "Unlock all exam details",
+    "fr": "Débloquer tous les détails de cet examen",
+    "ar": "فتح جميع تفاصيل الامتحان",
+    "uk": "Відкрити всі деталі іспиту"
+  },
+  "Sehen Sie Ergebnisse pro Prüfungsteil, Gesamtfeedback, Ihre Antworten und Erklärungen zu den einzelnen Aufgaben.": {
+    "en": "See section results, overall feedback, your answers and explanations.",
+    "fr": "Consultez les résultats par section, les commentaires généraux, vos réponses et les explications.",
+    "ar": "اطّلع على نتائج الأقسام والتقييم العام وإجاباتك والشروحات.",
+    "uk": "Перегляньте результати розділів, загальний відгук, відповіді та пояснення."
+  },
+  "Alle Aufgaben ansehen": {
+    "en": "View all questions",
+    "fr": "Voir toutes les questions",
+    "ar": "عرض جميع الأسئلة",
+    "uk": "Переглянути всі завдання"
+  },
+  "Mein Prüfungsverlauf": {
+    "en": "My exam history",
+    "fr": "Mon historique d’examens",
+    "ar": "سجل امتحاناتي",
+    "uk": "Моя історія іспитів"
+  },
+  "Bestandene Prüfungen": {
+    "en": "Passed exams",
+    "fr": "Examens réussis",
+    "ar": "الامتحانات الناجحة",
+    "uk": "Складені іспити"
+  },
+  "Detailansicht gesperrt": {
+    "en": "Detailed view locked",
+    "fr": "Vue détaillée verrouillée",
+    "ar": "العرض التفصيلي مقفل",
+    "uk": "Детальний перегляд заблоковано"
+  },
+  "Prüfungen werden geladen …": {
+    "en": "Loading exams…",
+    "fr": "Chargement des examens…",
+    "ar": "جارٍ تحميل الامتحانات…",
+    "uk": "Завантаження іспитів…"
+  },
+  "Noch keine bestandenen Prüfungen": {
+    "en": "No passed exams yet",
+    "fr": "Aucun examen réussi pour le moment",
+    "ar": "لا توجد امتحانات ناجحة حتى الآن",
+    "uk": "Поки немає складених іспитів"
+  },
+  "Sobald Sie eine Prüfung bestanden haben, wird sie hier angezeigt.": {
+    "en": "Once you pass an exam, it will appear here.",
+    "fr": "Après avoir réussi un examen, il apparaîtra ici.",
+    "ar": "عند اجتياز امتحان سيظهر هنا.",
+    "uk": "Щойно ви складете іспит, він з’явиться тут."
+  },
+  "Alte Prüfungen vollständig auswerten": {
+    "en": "Review past exams in full",
+    "fr": "Analyser les examens précédents en détail",
+    "ar": "راجع الامتحانات السابقة بالكامل",
+    "uk": "Детально аналізуйте попередні іспити"
+  },
+  "Ihre Ergebnisse bleiben sichtbar. Mit dem Exam Pass erhalten Sie zusätzlich die Detailansicht, Erklärungen und den vollständigen schreibgeschützten Prüfungsmodus.": {
+    "en": "Your results remain visible. Exam Pass also unlocks detailed analysis, explanations and read-only exam review.",
+    "fr": "Vos résultats restent visibles. Exam Pass débloque l’analyse détaillée, les explications et le mode de révision.",
+    "ar": "ستظل نتائجك مرئية. تتيح باقة Exam Pass التحليل المفصل والشروحات ومراجعة الامتحان.",
+    "uk": "Ваші результати залишаться доступними. Exam Pass відкриває детальний аналіз, пояснення та перегляд іспиту."
+  },
+  "Prüfung ansehen": {
+    "en": "View exam",
+    "fr": "Voir l’examen",
+    "ar": "عرض الامتحان",
+    "uk": "Переглянути іспит"
+  },
+  "Ergebnis öffnen": {
+    "en": "Open result",
+    "fr": "Ouvrir le résultat",
+    "ar": "فتح النتيجة",
+    "uk": "Відкрити результат"
+  },
+  "10 Prüfungen — €4.99": {
+    "en": "10 exams — €4.99",
+    "fr": "10 examens — 4,99 €",
+    "ar": "10 امتحانات — ‎€4.99",
+    "uk": "10 іспитів — €4.99"
+  },
+  "Unbegrenzt — €19.99": {
+    "en": "Unlimited — €19.99",
+    "fr": "Illimité — 19,99 €",
+    "ar": "غير محدود — ‎€19.99",
+    "uk": "Безліміт — €19.99"
+  },
+  "10 Prüfungen · €4.99": {
+    "en": "10 exams · €4.99",
+    "fr": "10 examens · 4,99 €",
+    "ar": "10 امتحانات · ‎€4.99",
+    "uk": "10 іспитів · €4.99"
+  },
+  "Unbegrenzt · €19.99": {
+    "en": "Unlimited · €19.99",
+    "fr": "Illimité · 19,99 €",
+    "ar": "غير محدود · ‎€19.99",
+    "uk": "Безліміт · €19.99"
+  },
+  "Tester-Zugang": {
+    "en": "Tester access",
+    "fr": "Accès testeur",
+    "ar": "وصول المختبِر",
+    "uk": "Доступ тестувальника"
+  },
+  "Unbegrenzte Prüfungen": {
+    "en": "Unlimited exams",
+    "fr": "Examens illimités",
+    "ar": "امتحانات غير محدودة",
+    "uk": "Необмежені іспити"
+  },
+  "Prüfung": {
+    "en": "exam",
+    "fr": "examen",
+    "ar": "امتحان",
+    "uk": "іспит"
+  },
+  "Prüfungen": {
+    "en": "exams",
+    "fr": "examens",
+    "ar": "امتحانات",
+    "uk": "іспити"
+  },
+  "verfügbar": {
+    "en": "available",
+    "fr": "disponibles",
+    "ar": "متاحة",
+    "uk": "доступно"
+  },
+  "Ihr Zugang ist abgelaufen": {
+    "en": "Your access has expired",
+    "fr": "Votre accès a expiré",
+    "ar": "انتهت صلاحية وصولك",
+    "uk": "Ваш доступ закінчився"
+  },
+  "Kostenloser Zugang": {
+    "en": "Free access",
+    "fr": "Accès gratuit",
+    "ar": "وصول مجاني",
+    "uk": "Безкоштовний доступ"
+  },
+  "Prüfungszugang": {
+    "en": "Exam access",
+    "fr": "Accès à l’examen",
+    "ar": "الوصول إلى الامتحان",
+    "uk": "Доступ до іспитів"
+  },
+  "Zugang gültig bis": {
+    "en": "Access valid until",
+    "fr": "Accès valide jusqu’au",
+    "ar": "الوصول صالح حتى",
+    "uk": "Доступ дійсний до"
+  },
+  "Verbleibende Prüfungen": {
+    "en": "Remaining exams",
+    "fr": "Examens restants",
+    "ar": "الامتحانات المتبقية",
+    "uk": "Іспитів залишилося"
+  },
+  "Zugang abgelaufen": {
+    "en": "Access expired",
+    "fr": "Accès expiré",
+    "ar": "انتهت صلاحية الوصول",
+    "uk": "Доступ закінчився"
+  },
+  "Keine Prüfung verfügbar": {
+    "en": "No exams available",
+    "fr": "Aucun examen disponible",
+    "ar": "لا توجد امتحانات متاحة",
+    "uk": "Немає доступних іспитів"
+  },
+  "Sitzung erstellen": {
+    "en": "Create session",
+    "fr": "Créer une session",
+    "ar": "إنشاء جلسة",
+    "uk": "Створити сесію"
+  },
+  "Benutzerkonto konnte nicht geladen werden.": {
+    "en": "Could not load user account.",
+    "fr": "Impossible de charger le compte utilisateur.",
+    "ar": "تعذّر تحميل حساب المستخدم.",
+    "uk": "Не вдалося завантажити обліковий запис."
+  },
+  "Die Prüfung konnte nicht erstellt werden.": {
+    "en": "Could not create the exam.",
+    "fr": "Impossible de créer l’examen.",
+    "ar": "تعذّر إنشاء الامتحان.",
+    "uk": "Не вдалося створити іспит."
+  },
+  "Sitzung nicht verfügbar": {
+    "en": "Session unavailable",
+    "fr": "Session indisponible",
+    "ar": "الجلسة غير متاحة",
+    "uk": "Сесія недоступна"
+  },
+  "Erneut versuchen": {
+    "en": "Try again",
+    "fr": "Réessayer",
+    "ar": "حاول مجددًا",
+    "uk": "Спробувати ще раз"
+  },
+  "Prüfungen konnten nicht geladen werden.": {
+    "en": "Could not load exams.",
+    "fr": "Impossible de charger les examens.",
+    "ar": "تعذّر تحميل الامتحانات.",
+    "uk": "Не вдалося завантажити іспити."
+  },
+  "Die Prüfungen konnten nicht geladen werden.": {
+    "en": "Could not load exams.",
+    "fr": "Impossible de charger les examens.",
+    "ar": "تعذّر تحميل الامتحانات.",
+    "uk": "Не вдалося завантажити іспити."
+  },
+  "Coming soon": {
+    "en": "Coming soon",
+    "fr": "Bientôt disponible",
+    "ar": "قريبًا",
+    "uk": "Незабаром"
+  }
+}

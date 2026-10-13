@@ -1,4 +1,5 @@
 import React from "react";
+import AppLanguage from "./components/Shared/AppLanguage";
 import { BrowserRouter as Router, Routes } from "react-router-dom";
 import {Route} from "react-router";
 import {PrivateRoute} from "./common/routes/PrivateRoute";
@@ -11,6 +12,7 @@ import ResetPassword from "./components/User/Login/ResetPassword";
 const App: React.FC = () => {
   return (
       <div className="App dark:bg-gray-900" id="wrapper">
+          <AppLanguage />
           <Router>
               <Routes>
                   <Route path="*"

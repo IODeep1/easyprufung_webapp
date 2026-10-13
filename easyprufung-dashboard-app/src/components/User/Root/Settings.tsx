@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useRef, useState } from "react";
+import React, { Dispatch, FormEvent, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { OnChangeModel } from "../../../common/types/Form.types";
@@ -6,8 +6,9 @@ import { requestUpdateUser } from "../../../api/user/api-helper";
 import TextInput from "../../../common/components/TextInput";
 import { IUser } from "../../../store/models/user/user.interface";
 import { IStateType } from "../../../store/models/root.interface";
-import { updateUser } from "../../../store/actions/user/userAccount.actions";
+import { logout, updateUser } from "../../../store/actions/user/userAccount.actions";
 import { IUserAccount } from "../../../store/models/user/userAccount.interface";
+import LanguageSelector from "../../Shared/LanguageSelector";
 import { buildPaymentUrl } from "../Pricing/payment-links";
 
 const ArrowRight = ({ className = "h-4 w-4" }) => (
@@ -28,7 +29,7 @@ const ArrowRight = ({ className = "h-4 w-4" }) => (
 );
 
 const Settings = () => {
-    const dispatch = useDispatch();
+    const dispatch: Dispatch<any> = useDispatch();
     const { t } = useTranslation();
 
     const currentUser: IUser | undefined = useSelector(
@@ -306,6 +307,8 @@ const Settings = () => {
                     </p>
                 </div>
 
+                <div className="mb-8"><LanguageSelector /></div>
+
                 {/* Exam access / quota status */}
                 <div
                     id="access"
@@ -550,6 +553,22 @@ const Settings = () => {
                             </button>
                         </form>
                     </div>
+                </div>
+
+                {/* Always accessible even when the sidebar account menu is hidden. */}
+                <div className="mt-8 mb-10 rounded-2xl border border-red-200 dark:border-red-900/50 bg-white/80 dark:bg-black/60 p-6 shadow-sm" dir="auto">
+                    <button
+                        type="button"
+                        onClick={() => dispatch(logout())}
+                        className="inline-flex w-full sm:w-auto min-h-12 items-center justify-center gap-3 rounded-xl border border-red-600 bg-red-600 px-6 py-3 text-sm font-semibold text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+                    >
+                        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                            <polyline points="16 17 21 12 16 7" />
+                            <line x1="21" x2="9" y1="12" y2="12" />
+                        </svg>
+                        Log Out
+                    </button>
                 </div>
             </div>
 

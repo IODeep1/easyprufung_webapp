@@ -1,3 +1,4 @@
+import ExamLanguageLock from "./ExamLanguageLock";
 import { Eye, Lock, RotateCcw, Sparkles } from "lucide-react";
 import {useEffect, useState} from "react";
 import { useSelector } from "react-redux";
@@ -76,11 +77,11 @@ export function ResultPage(props: {
 
     if (showDetails && hasPremiumAccess) {
         return (
-            <ExamReviewPage
+            <ExamLanguageLock><ExamReviewPage
                 session={session}
                 result={result}
                 onBack={() => setShowDetails(false)}
-            />
+            /></ExamLanguageLock>
         );
     }
 

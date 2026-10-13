@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
+import { useTranslation } from "react-i18next";
 import type { ExerciseView } from "../models/exam.ts";
 
 function formatTime(totalSeconds: number): string {
@@ -72,7 +73,7 @@ export function CountdownTimer({ expiresAt }: { expiresAt: string | null }) {
             {isExpired &&
                 !dismissed &&
                 createPortal(
-                    <div className="pointer-events-none fixed inset-x-0 top-20 z-[9999] flex justify-center px-4 sm:top-24">
+                    <div lang="de" dir="ltr" style={{ direction: "ltr", textAlign: "left" }} className="pointer-events-none fixed inset-x-0 top-20 z-[9999] flex justify-center px-4 sm:top-24">
                         <div
                             role="alert"
                             className="pointer-events-auto relative w-full max-w-lg rounded-2xl border border-black bg-white p-5 text-black shadow-2xl sm:p-6"
@@ -131,7 +132,7 @@ interface ExamHeaderProps {
 export function ExamHeader({ title, level, expiresAt, currentIndex, total }: ExamHeaderProps) {
     const percentage = total === 0 ? 0 : ((currentIndex + 1) / total) * 100;
     return (
-        <header className="sticky top-0 z-30 border-b border-black bg-white text-black">
+        <header lang="de" dir="ltr" className="sticky top-0 z-30 border-b border-black bg-white text-black">
             <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4 px-4 py-4 sm:px-7 lg:px-10">
                 <div className="min-w-0">
                     <div className="flex items-center gap-3">
@@ -161,7 +162,7 @@ export function PartInformation({
     extra?: ReactNode;
 }) {
     return (
-        <section className="overflow-hidden rounded-[1.75rem] border border-black bg-white shadow-frame">
+        <section lang="de" dir="ltr" className="overflow-hidden rounded-[1.75rem] border border-black bg-white shadow-frame">
             <div className="p-6 sm:p-8 lg:p-10">
                 <p className="text-sm font-bold text-black/50">
                     {exercise.sectionTitle}
@@ -195,7 +196,7 @@ interface BottomNavigationProps {
 export function BottomNavigation(props: BottomNavigationProps) {
     const { canGoBack, canContinue, isLast, answered, total, onBack, onNext, onSubmit } = props;
     return (
-        <footer className="mt-6 flex flex-col-reverse items-stretch justify-between gap-4 border-t border-black/10 pt-6 sm:flex-row sm:items-center">
+        <footer lang="de" dir="ltr" className="mt-6 flex flex-col-reverse items-stretch justify-between gap-4 border-t border-black/10 pt-6 sm:flex-row sm:items-center">
             <button
                 type="button"
                 onClick={onBack}
@@ -255,6 +256,8 @@ export function LoadingScreen({
                               }: {
     message: string;
 }) {
+    const { t, i18n } = useTranslation();
+    const isArabic = i18n.language.startsWith("ar");
     const [elapsedTime, setElapsedTime] = useState(0);
 
     useEffect(() => {
@@ -292,17 +295,17 @@ export function LoadingScreen({
         elapsedTime >= EXAM_PREPARATION_DURATION_MS;
 
     return (
-        <main className="min-h-screen bg-white px-5 py-10 text-black sm:px-8">
+        <main lang={i18n.language} dir={isArabic ? "rtl" : "ltr"} className="min-h-screen bg-white px-5 py-10 text-black sm:px-8">
             <div className="mx-auto flex min-h-[calc(100vh-5rem)] max-w-4xl items-center">
                 <section className="w-full rounded-[2rem] border border-black bg-white p-6 shadow-frame sm:p-10">
                     <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
                         <div>
                             <p className="eyebrow">
-                                Ihre persönliche Prüfung
+                                {t("examPreparation.personal")}
                             </p>
 
                             <h1 className="mt-3 max-w-2xl font-display text-4xl leading-tight tracking-[-0.04em] sm:text-5xl">
-                                Wir bereiten Ihre Prüfung vor.
+                                {t("examPreparation.title")}
                             </h1>
 
                             <p className="mt-4 max-w-2xl text-sm leading-7 text-black/60 sm:text-base">
@@ -312,12 +315,12 @@ export function LoadingScreen({
 
                         <div className="shrink-0 rounded-2xl border border-black bg-white px-5 py-4 text-center">
                             <p className="text-[0.65rem] font-black uppercase tracking-[0.18em] text-black/50">
-                                Verbleibend
+                                {t("examPreparation.remaining")}
                             </p>
 
                             <p className="mt-1 font-mono text-2xl font-black tabular-nums">
                                 {almostFinished
-                                    ? "Fast fertig"
+                                    ? t("examPreparation.almostDone")
                                     : formatRemainingTime(remainingTime)}
                             </p>
                         </div>
@@ -326,7 +329,7 @@ export function LoadingScreen({
                     <div
                         className="mt-10"
                         role="progressbar"
-                        aria-label="Prüfung wird vorbereitet"
+                        aria-label={t("examPreparation.title")}
                         aria-valuemin={0}
                         aria-valuemax={100}
                         aria-valuenow={Math.round(progress)}
@@ -334,8 +337,8 @@ export function LoadingScreen({
                         <div className="mb-3 flex items-center justify-between gap-4">
                             <p className="text-sm font-black">
                                 {almostFinished
-                                    ? "Letzte Prüfungskontrolle"
-                                    : preparationSteps[currentStepIndex]}
+                                    ? t("examPreparation.finalCheck")
+                                    : t(`examPreparation.step${currentStepIndex + 1}`)}
                             </p>
 
                             <p className="font-mono text-sm font-black tabular-nums">
@@ -390,15 +393,15 @@ export function LoadingScreen({
 
                                     <div>
                                         <p className="text-xs font-black leading-5">
-                                            {step}
+                                            {t(`examPreparation.step${index + 1}`)}
                                         </p>
 
                                         <p className="mt-1 text-[0.65rem] font-bold uppercase tracking-wider opacity-60">
                                             {completed
-                                                ? "Vorbereitet"
+                                                ? t("examPreparation.prepared")
                                                 : active
-                                                    ? "Wird erstellt"
-                                                    : "Wartet"}
+                                                    ? t("examPreparation.creating")
+                                                    : t("examPreparation.waiting")}
                                         </p>
                                     </div>
                                 </div>
@@ -408,10 +411,7 @@ export function LoadingScreen({
 
                     <div className="mt-8 rounded-xl border border-black bg-white p-4">
                         <p className="text-xs font-bold leading-6 text-black/60">
-                            Bitte lassen Sie dieses Fenster geöffnet. Wir
-                            stellen die Aufgaben zusammen, prüfen die
-                            Antwortmöglichkeiten und richten Ihre persönliche
-                            Prüfungssitzung ein.
+                            {t("examPreparation.keepOpen")}
                         </p>
                     </div>
                 </section>
@@ -421,5 +421,5 @@ export function LoadingScreen({
 }
 
 export function ContentFrame({ children, className = "" }: { children: ReactNode; className?: string }) {
-    return <section className={`frame p-5 sm:p-7 lg:p-9 ${className}`}>{children}</section>;
+    return <section lang="de" dir="ltr" className={`frame p-5 sm:p-7 lg:p-9 ${className}`}>{children}</section>;
 }

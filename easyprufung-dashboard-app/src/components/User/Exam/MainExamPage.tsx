@@ -1,3 +1,5 @@
+import ExamLanguageLock from "./ExamLanguageLock";
+import { useTranslation } from "react-i18next";
 import { AlertCircle, RotateCcw } from "lucide-react";
 import {Dispatch, useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
@@ -21,6 +23,7 @@ import {updateUser} from "../../../store/actions/user/userAccount.actions.ts";
 type Screen = "start" | "loading" | "exam" | "result" | "error";
 
 export default function MainExamPage() {
+    const { t } = useTranslation();
     const dispatch: Dispatch<any> = useDispatch();
     const account: IUserAccount = useSelector(
         (state: IStateType) => state.userAccount
@@ -163,10 +166,10 @@ export default function MainExamPage() {
     };
 
     if (screen === "loading") {
-        return <LoadingScreen message="Mehrere Prüfungsteile werden gleichzeitig erstellt und geprüft. Ihre vorbereiteten Hörtexte werden parallel geladen." />;
+        return <LoadingScreen message={t("examPreparation.loadingMessage")} />;
     }
     if (screen === "exam" && session) {
-        return <ExamRunnerPage session={session} onSubmit={submit} />;
+        return <ExamLanguageLock><ExamRunnerPage session={session} onSubmit={submit} /></ExamLanguageLock>;
     }
     if (screen === "result" && session && result) {
         return <ResultPage session={session} result={result} onRestart={reset} />;

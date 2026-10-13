@@ -9,20 +9,44 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import {initReactI18next} from "react-i18next";
 import translationEn from "./locales/en/translation.json";
 import translationFr from "./locales/fr/translation.json";
+import translationDe from "./locales/de/translation.json";
+import translationAr from "./locales/ar/translation.json";
+import translationUk from "./locales/uk/translation.json";
 import {ThemeProvider} from "./hooks/useColorMode";
 
-let storedLng =localStorage.getItem('current_language');
+const supportedLanguages = ["en", "de", "fr", "ar", "uk"];
+const incomingLng = new URLSearchParams(window.location.search).get("lang")?.toLowerCase().split("-")[0];
+const storedLng = localStorage.getItem("current_language")?.split("-")[0];
+const browserLng = navigator.language.split("-")[0];
+const initialLng = supportedLanguages.includes(incomingLng || "")
+    ? incomingLng!
+    : supportedLanguages.includes(storedLng || "")
+    ? storedLng!
+    : supportedLanguages.includes(browserLng) ? browserLng : "en";
 
-i18n.use(initReactI18next)
-    .init({
-        resources: {
-            en: {translation: translationEn},
-            fr: {translation: translationFr}
-        },
-        lng: (storedLng === null || storedLng.length === 0) ?  navigator.language : storedLng,
-        fallbackLng: "en",
-        interpolation: {escapeValue: false}
-    }).then()
+i18n.use(initReactI18next).init({
+    resources: {
+        en: { translation: translationEn },
+        de: { translation: translationDe },
+        fr: { translation: translationFr },
+        ar: { translation: translationAr },
+        uk: { translation: translationUk },
+    },
+    lng: initialLng,
+    supportedLngs: supportedLanguages,
+    fallbackLng: "en",
+    interpolation: { escapeValue: false },
+    react: { useSuspense: false },
+});
+// A website language handoff should survive navigation and future visits.
+if (incomingLng && supportedLanguages.includes(incomingLng)) localStorage.setItem("current_language", incomingLng);
+document.documentElement.lang = initialLng;
+document.documentElement.dir = initialLng === "ar" ? "rtl" : "ltr";
+i18n.on("languageChanged", (language) => {
+    document.documentElement.lang = language;
+    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+    localStorage.setItem("current_language", language);
+});
 
 ReactDOM.render(
     <GoogleOAuthProvider clientId='69673562447-tf8a21hn4bv7is7er137d1lsj3kvlniq.apps.googleusercontent.com'>

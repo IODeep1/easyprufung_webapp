@@ -16,6 +16,7 @@ import CodeRedemption from "../Pricing/CodeRedemption";
 import PricingContact from "../Pricing/PricingContact";
 import {StartPage} from "../Exam/StartPage.tsx";
 import MainExamPage from "../Exam/MainExamPage.tsx";
+import ExamLanguageLock from "../Exam/ExamLanguageLock";
 import {PassedExamsPage} from "../Exam/PassedExamsPage.tsx";
 import {PassedExamReviewRoute} from "../Exam/PassedExamReviewRoute.tsx";
 
@@ -77,7 +78,7 @@ const Root: React.FC = () => {
                                         <Route path="/*"  element={<MainExamPage />}></Route>
                                         <Route path="/new"  element={<MainExamPage />}></Route>
                                         <Route path="/exams"  element={<PassedExamsPage />}></Route>
-                                        <Route path="/exams/:sessionId/review" element={<PassedExamReviewRoute />}/>
+                                        <Route path="/exams/:sessionId/review" element={<ExamLanguageLock><PassedExamReviewRoute /></ExamLanguageLock>}/>
                                         <Route path="/login"  element={<Login />}></Route>
                                         <Route path="/settings"  element={<Settings />}></Route>
                                         <Route path="/register"  element={<Registration />}></Route>

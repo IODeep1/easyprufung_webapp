@@ -60,5 +60,31 @@
   "not_found_button": "Back to Dashboard",
   "footer_slogan": "Practice in a familiar environment. Build confidence. Be ready for the real exam.",
   "footer_followus": "Follow us",
-  "copy_right": "EasyPrüfung. All rights reserved."
+  "copy_right": "EasyPrüfung. All rights reserved.",
+  "settings_language_title": "App language",
+  "settings_language_hint": "Choose the language used across the app. Exams always stay in German.",
+  "examPreparation": {
+    "personal": "Your personal exam",
+    "title": "We are preparing your exam.",
+    "remaining": "Remaining",
+    "almostDone": "Almost done",
+    "finalCheck": "Final exam check",
+    "prepared": "Prepared",
+    "creating": "Being created",
+    "waiting": "Waiting",
+    "keepOpen": "Please keep this window open. We are assembling the tasks, checking the answer options and setting up your personal exam session.",
+    "loadingMessage": "Several exam sections are being created and checked simultaneously. Your prepared listening texts are loading in parallel.",
+    "step1": "Reading comprehension — Part 1",
+    "step2": "Reading comprehension — Part 2",
+    "step3": "Reading comprehension — Part 3",
+    "step4": "Language elements — Part 1",
+    "step5": "Language elements — Part 2",
+    "step6": "Listening comprehension — Part 1",
+    "step7": "Listening comprehension — Part 2",
+    "step8": "Listening comprehension — Part 3",
+    "step9": "Written expression"
+  },
+  "dropdown_user_account_menu": "Account menu",
+  "dropdown_user_settings": "Settings",
+  "dropdown_user_logout": "Log Out"
 }

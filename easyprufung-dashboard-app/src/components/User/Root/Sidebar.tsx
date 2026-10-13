@@ -15,6 +15,7 @@ import type { IStateType } from "../../../store/models/root.interface";
 import { getPassedUserExams } from "../../../api/exam/api-helper";
 
 import SidebarLinkGroup from "../../Shared/SidebarLinkGroup";
+import { useTranslation } from "react-i18next";
 import DarkModeSwitcher from "../../Shared/DarkModeSwitcher";
 import DropdownUser from "./DropdownUser";
 import {requestGetUser} from "../../../api/user/api-helper.ts";
@@ -37,6 +38,8 @@ const Sidebar = ({
                      setTheme
                  }: SidebarProps) => {
     const { pathname } = useLocation();
+    const { i18n } = useTranslation();
+    const isRtl = (i18n.resolvedLanguage || i18n.language).startsWith("ar");
     const sidebar = useRef<HTMLElement | null>(null);
     const dispatch: Dispatch<any> = useDispatch();
 
@@ -108,9 +111,16 @@ const Sidebar = ({
                 return;
             }
 
+            // DropdownUser renders its menu in a portal under document.body.
+            // Treat that menu as part of the sidebar so its buttons receive
+            // their click events before the sidebar is closed/unmounted.
             if (
                 target instanceof Node &&
-                sidebar.current.contains(target)
+                (sidebar.current.contains(target) ||
+                    (target instanceof Element &&
+                        target.closest('[data-sidebar-user-dropdown="true"]')) ||
+                    (target.parentElement &&
+                        target.parentElement.closest('[data-sidebar-user-dropdown="true"]')))
             ) {
                 return;
             }
@@ -228,16 +238,17 @@ const Sidebar = ({
     return (
         <aside
             ref={sidebar}
-            className={`absolute left-0 top-0 z-50 flex h-screen w-60 flex-col overflow-y-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-xl shadow-gray-900/5 transition-transform duration-300 ease-in-out dark:bg-gray-900 dark:bg-opacity-80 dark:text-gray-200 dark:shadow-gray-600/50 dark:backdrop-blur-lg ${
+            dir={isRtl ? "rtl" : "ltr"}
+            className={`absolute ${isRtl ? "right-0" : "left-0"} top-0 z-50 flex h-screen w-60 flex-col overflow-y-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-xl shadow-gray-900/5 transition-transform duration-300 ease-in-out dark:bg-gray-900 dark:bg-opacity-80 dark:text-gray-200 dark:shadow-gray-600/50 dark:backdrop-blur-lg ${
                 sidebarOpen
                     ? "translate-x-0"
-                    : "-translate-x-full"
+                    : isRtl ? "translate-x-full" : "-translate-x-full"
             }`}
         >
             <div className="no-scrollbar flex h-full flex-col overflow-y-auto duration-300 ease-linear">
                 <nav className="flex h-full flex-col px-4 pb-5 pt-20 lg:mt-2">
                     <div>
-                        <h3 className="mb-4 ml-4 text-left text-base font-bold text-gray-900 dark:text-gray-200">
+                        <h3 className={`mb-4 ${isRtl ? "mr-4 text-right" : "ml-4 text-left"} text-base font-bold text-gray-900 dark:text-gray-200`}>
                             Practice
                         </h3>
 
@@ -601,7 +612,7 @@ const Sidebar = ({
                         <div>
                             <DarkModeSwitcher setTheme={setTheme} />
                         </div>
-                        <DropdownUser />
+                        <DropdownUser sidebarOpen={sidebarOpen} />
                     </div>
                 </nav>
             </div>

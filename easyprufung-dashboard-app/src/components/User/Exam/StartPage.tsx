@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useState, type FormEvent } from "react";
 import type {
     CefrLevel,
@@ -43,6 +44,7 @@ export function StartPage({
                           }: {
     onStart: (request: StartExamRequest) => void;
 }) {
+    const { i18n } = useTranslation();
     const account: IUserAccount = useSelector(
         (state: IStateType) => state.userAccount
     );
@@ -178,7 +180,7 @@ export function StartPage({
                                     {(isB1 || isUnlimited) && !isExpired && hasValidEndDate && (
                                         <p className="mt-2 text-xs text-black/50">
                                             Zugang gültig bis{" "}
-                                            {endDate!.toLocaleDateString("de-DE")}
+                                            {endDate!.toLocaleDateString(i18n.resolvedLanguage || i18n.language)}
                                         </p>
                                     )}
                                 </div>

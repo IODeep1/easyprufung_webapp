@@ -1,0 +1,1178 @@
+{
+  "Settings": {
+    "de": "Einstellungen",
+    "fr": "Paramètres",
+    "ar": "الإعدادات",
+    "uk": "Налаштування"
+  },
+  "Manage your profile, exam access, remaining exams, and password.": {
+    "de": "Verwalte dein Profil, deinen Prüfungszugang, verbleibende Prüfungen und dein Passwort.",
+    "fr": "Gérez votre profil, votre accès aux examens, vos examens restants et votre mot de passe.",
+    "ar": "إدارة ملفك الشخصي والوصول إلى الامتحانات والامتحانات المتبقية وكلمة المرور.",
+    "uk": "Керуйте профілем, доступом до іспитів, залишком іспитів і паролем."
+  },
+  "Language": {
+    "de": "Sprache",
+    "fr": "Langue",
+    "ar": "اللغة",
+    "uk": "Мова"
+  },
+  "App language": {
+    "de": "App-Sprache",
+    "fr": "Langue de l’application",
+    "ar": "لغة التطبيق",
+    "uk": "Мова застосунку"
+  },
+  "Choose the language used across the app. Exams always stay in German.": {
+    "de": "Wähle die Sprache der App. Prüfungen bleiben immer auf Deutsch.",
+    "fr": "Choisissez la langue de l’application. Les examens restent toujours en allemand.",
+    "ar": "اختر لغة التطبيق. تبقى الامتحانات دائمًا بالألمانية.",
+    "uk": "Оберіть мову застосунку. Іспити завжди залишаються німецькою."
+  },
+  "English": {
+    "de": "Englisch",
+    "fr": "Anglais",
+    "ar": "Englisch",
+    "uk": "Англійська"
+  },
+  "German": {
+    "de": "Deutsch",
+    "fr": "Allemand",
+    "ar": "الألمانية",
+    "uk": "Німецька"
+  },
+  "French": {
+    "de": "Französisch",
+    "fr": "Français",
+    "ar": "الفرنسية",
+    "uk": "Французька"
+  },
+  "Exam access": {
+    "de": "Prüfungszugang",
+    "fr": "Accès aux examens",
+    "ar": "الوصول إلى الامتحانات",
+    "uk": "Доступ до іспитів"
+  },
+  "Your current EasyPrüfung plan and remaining exams.": {
+    "de": "Dein aktueller EasyPrüfung-Tarif und verbleibende Prüfungen.",
+    "fr": "Votre formule EasyPrüfung actuelle et vos examens restants.",
+    "ar": "خطتك الحالية في EasyPrüfung والامتحانات المتبقية.",
+    "uk": "Ваш поточний план EasyPrüfung і залишок іспитів."
+  },
+  "Personal details": {
+    "de": "Persönliche Angaben",
+    "fr": "Informations personnelles",
+    "ar": "البيانات الشخصية",
+    "uk": "Особисті дані"
+  },
+  "Update your name and view your email address.": {
+    "de": "Aktualisiere deinen Namen und sieh deine E-Mail-Adresse ein.",
+    "fr": "Modifiez votre nom et consultez votre adresse e-mail.",
+    "ar": "حدّث اسمك واعرض بريدك الإلكتروني.",
+    "uk": "Змініть ім’я та перегляньте електронну адресу."
+  },
+  "Password": {
+    "de": "Passwort",
+    "fr": "Mot de passe",
+    "ar": "كلمة المرور",
+    "uk": "Пароль"
+  },
+  "Save changes": {
+    "de": "Änderungen speichern",
+    "fr": "Enregistrer les modifications",
+    "ar": "حفظ التغييرات",
+    "uk": "Зберегти зміни"
+  },
+  "Saving...": {
+    "de": "Wird gespeichert…",
+    "fr": "Enregistrement…",
+    "ar": "جارٍ الحفظ...",
+    "uk": "Збереження..."
+  },
+  "Email": {
+    "de": "E-Mail",
+    "fr": "E-mail",
+    "ar": "البريد الإلكتروني",
+    "uk": "Електронна пошта"
+  },
+  "First name": {
+    "de": "Vorname",
+    "fr": "Prénom",
+    "ar": "الاسم الأول",
+    "uk": "Ім’я"
+  },
+  "Last name": {
+    "de": "Nachname",
+    "fr": "Nom",
+    "ar": "اسم العائلة",
+    "uk": "Прізвище"
+  },
+  "Your first name": {
+    "de": "Dein Vorname",
+    "fr": "Votre prénom",
+    "ar": "اسمك الأول",
+    "uk": "Ваше ім’я"
+  },
+  "Your last name": {
+    "de": "Dein Nachname",
+    "fr": "Votre nom",
+    "ar": "اسم عائلتك",
+    "uk": "Ваше прізвище"
+  },
+  "Your email": {
+    "de": "Deine E-Mail-Adresse",
+    "fr": "Votre e-mail",
+    "ar": "بريدك الإلكتروني",
+    "uk": "Ваша електронна пошта"
+  },
+  "Contact": {
+    "de": "Kontakt",
+    "fr": "Contact",
+    "ar": "اتصل بنا",
+    "uk": "Контакти"
+  },
+  "Pricing": {
+    "de": "Preise",
+    "fr": "Tarifs",
+    "ar": "الأسعار",
+    "uk": "Ціни"
+  },
+  "New Exam": {
+    "de": "Neue Prüfung",
+    "fr": "Nouvel examen",
+    "ar": "امتحان جديد",
+    "uk": "Новий іспит"
+  },
+  "New exam": {
+    "de": "Neue Prüfung",
+    "fr": "Nouvel examen",
+    "ar": "امتحان جديد",
+    "uk": "Новий іспит"
+  },
+  "My exams": {
+    "de": "Meine Prüfungen",
+    "fr": "Mes examens",
+    "ar": "امتحاناتي",
+    "uk": "Мої іспити"
+  },
+  "Passed exams": {
+    "de": "Bestandene Prüfungen",
+    "fr": "Examens réussis",
+    "ar": "الامتحانات المكتملة",
+    "uk": "Складені іспити"
+  },
+  "Dashboard": {
+    "de": "Übersicht",
+    "fr": "Tableau de bord",
+    "ar": "لوحة التحكم",
+    "uk": "Панель керування"
+  },
+  "Home": {
+    "de": "Startseite",
+    "fr": "Accueil",
+    "ar": "الرئيسية",
+    "uk": "Головна"
+  },
+  "Profile": {
+    "de": "Profil",
+    "fr": "Profil",
+    "ar": "الملف الشخصي",
+    "uk": "Профіль"
+  },
+  "Log out": {
+    "de": "Abmelden",
+    "fr": "Se déconnecter",
+    "ar": "تسجيل الخروج",
+    "uk": "Вийти"
+  },
+  "Logout": {
+    "de": "Abmelden",
+    "fr": "Déconnexion",
+    "ar": "تسجيل الخروج",
+    "uk": "Вийти"
+  },
+  "Sign in": {
+    "de": "Anmelden",
+    "fr": "Se connecter",
+    "ar": "تسجيل الدخول",
+    "uk": "Увійти"
+  },
+  "Login": {
+    "de": "Anmelden",
+    "fr": "Connexion",
+    "ar": "تسجيل الدخول",
+    "uk": "Вхід"
+  },
+  "Register": {
+    "de": "Registrieren",
+    "fr": "S’inscrire",
+    "ar": "إنشاء حساب",
+    "uk": "Реєстрація"
+  },
+  "Free": {
+    "de": "Kostenlos",
+    "fr": "Gratuit",
+    "ar": "مجاني",
+    "uk": "Безкоштовно"
+  },
+  "Expired": {
+    "de": "Abgelaufen",
+    "fr": "Expiré",
+    "ar": "منتهي الصلاحية",
+    "uk": "Термін дії минув"
+  },
+  "Tester": {
+    "de": "Tester",
+    "fr": "Testeur",
+    "ar": "تجريبي",
+    "uk": "Тестувальник"
+  },
+  "Unlimited exams": {
+    "de": "Unbegrenzte Prüfungen",
+    "fr": "Examens illimités",
+    "ar": "امتحانات غير محدودة",
+    "uk": "Необмежені іспити"
+  },
+  "Ended": {
+    "de": "Beendet",
+    "fr": "Terminé",
+    "ar": "انتهى",
+    "uk": "Завершено"
+  },
+  "Until": {
+    "de": "Bis",
+    "fr": "Jusqu’au",
+    "ar": "حتى",
+    "uk": "До"
+  },
+  "Buy now": {
+    "de": "Jetzt kaufen",
+    "fr": "Acheter",
+    "ar": "اشترِ الآن",
+    "uk": "Купити зараз"
+  },
+  "Upgrade": {
+    "de": "Upgrade",
+    "fr": "Améliorer",
+    "ar": "ترقية",
+    "uk": "Покращити план"
+  },
+  "Continue": {
+    "de": "Weiter",
+    "fr": "Continuer",
+    "ar": "متابعة",
+    "uk": "Продовжити"
+  },
+  "Cancel": {
+    "de": "Abbrechen",
+    "fr": "Annuler",
+    "ar": "إلغاء",
+    "uk": "Скасувати"
+  },
+  "Close": {
+    "de": "Schließen",
+    "fr": "Fermer",
+    "ar": "إغلاق",
+    "uk": "Закрити"
+  },
+  "Back": {
+    "de": "Zurück",
+    "fr": "Retour",
+    "ar": "رجوع",
+    "uk": "Назад"
+  },
+  "Submit": {
+    "de": "Absenden",
+    "fr": "Envoyer",
+    "ar": "إرسال",
+    "uk": "Надіслати"
+  },
+  "Send message": {
+    "de": "Nachricht senden",
+    "fr": "Envoyer le message",
+    "ar": "إرسال الرسالة",
+    "uk": "Надіслати повідомлення"
+  },
+  "Contact us": {
+    "de": "Kontaktiere uns",
+    "fr": "Contactez-nous",
+    "ar": "تواصل معنا",
+    "uk": "Зв’яжіться з нами"
+  },
+  "Message": {
+    "de": "Nachricht",
+    "fr": "Message",
+    "ar": "الرسالة",
+    "uk": "Повідомлення"
+  },
+  "Subject": {
+    "de": "Betreff",
+    "fr": "Objet",
+    "ar": "الموضوع",
+    "uk": "Тема"
+  },
+  "Forgot password?": {
+    "de": "Passwort vergessen?",
+    "fr": "Mot de passe oublié ?",
+    "ar": "هل نسيت كلمة المرور؟",
+    "uk": "Забули пароль?"
+  },
+  "Reset password": {
+    "de": "Passwort zurücksetzen",
+    "fr": "Réinitialiser le mot de passe",
+    "ar": "إعادة تعيين كلمة المرور",
+    "uk": "Скинути пароль"
+  },
+  "Confirm password": {
+    "de": "Passwort bestätigen",
+    "fr": "Confirmer le mot de passe",
+    "ar": "تأكيد كلمة المرور",
+    "uk": "Підтвердити пароль"
+  },
+  "Exam Tips": {
+    "de": "Prüfungstipps",
+    "fr": "Conseils pour l’examen",
+    "ar": "نصائح الامتحان",
+    "uk": "Поради до іспиту"
+  },
+  "Start Practicing": {
+    "de": "Jetzt üben",
+    "fr": "Commencer à pratiquer",
+    "ar": "ابدأ التدريب",
+    "uk": "Почати практику"
+  },
+  "Get started": {
+    "de": "Loslegen",
+    "fr": "Commencer",
+    "ar": "ابدأ الآن",
+    "uk": "Почати"
+  },
+  "Frequently Asked Questions": {
+    "de": "Häufig gestellte Fragen",
+    "fr": "Questions fréquentes",
+    "ar": "الأسئلة الشائعة",
+    "uk": "Поширені запитання"
+  },
+  "Choose Your Practice Plan": {
+    "de": "Wähle deinen Übungstarif",
+    "fr": "Choisissez votre formule d’entraînement",
+    "ar": "اختر خطة التدريب",
+    "uk": "Оберіть план підготовки"
+  },
+  "Learn more": {
+    "de": "Mehr erfahren",
+    "fr": "En savoir plus",
+    "ar": "اعرف المزيد",
+    "uk": "Докладніше"
+  },
+  "Loading...": {
+    "de": "Wird geladen…",
+    "fr": "Chargement…",
+    "ar": "جارٍ التحميل...",
+    "uk": "Завантаження..."
+  },
+  "Error": {
+    "de": "Fehler",
+    "fr": "Erreur",
+    "ar": "خطأ",
+    "uk": "Помилка"
+  },
+  "Success": {
+    "de": "Erfolg",
+    "fr": "Succès",
+    "ar": "نجاح",
+    "uk": "Успішно"
+  },
+  "Try again": {
+    "de": "Erneut versuchen",
+    "fr": "Réessayer",
+    "ar": "حاول مجددًا",
+    "uk": "Спробувати ще раз"
+  },
+  "No exams yet": {
+    "de": "Noch keine Prüfungen",
+    "fr": "Aucun examen pour le moment",
+    "ar": "لا توجد امتحانات بعد",
+    "uk": "Іспитів поки немає"
+  },
+  "Email changes are not supported from here.": {
+    "de": "Die E-Mail-Adresse kann hier nicht geändert werden.",
+    "fr": "Vous ne pouvez pas modifier votre adresse e-mail ici.",
+    "ar": "لا يمكن تغيير البريد الإلكتروني من هنا.",
+    "uk": "Тут не можна змінити електронну адресу."
+  },
+  "10 Exams": {
+    "de": "10 Prüfungen",
+    "fr": "10 examens",
+    "ar": "10 امتحانات",
+    "uk": "10 іспитів"
+  },
+  "10 exams": {
+    "de": "10 Prüfungen",
+    "fr": "10 examens",
+    "ar": "10 امتحانات",
+    "uk": "10 іспитів"
+  },
+  "60 days": {
+    "de": "60 Tage",
+    "fr": "60 jours",
+    "ar": "60 يومًا",
+    "uk": "60 днів"
+  },
+  "Exam": {
+    "de": "Prüfung",
+    "fr": "Examen",
+    "ar": "امتحان",
+    "uk": "Іспит"
+  },
+  "Exams": {
+    "de": "Prüfungen",
+    "fr": "Examens",
+    "ar": "امتحانات",
+    "uk": "Іспити"
+  },
+  "Results": {
+    "de": "Ergebnisse",
+    "fr": "Résultats",
+    "ar": "النتائج",
+    "uk": "Результати"
+  },
+  "Result": {
+    "de": "Ergebnis",
+    "fr": "Résultat",
+    "ar": "النتيجة",
+    "uk": "Результат"
+  },
+  "Your free account includes 1 exam. The free exam is granted once and does not renew.": {
+    "de": "Dein kostenloses Konto enthält eine Prüfung. Diese wird einmalig bereitgestellt und nicht erneuert.",
+    "fr": "Votre compte gratuit comprend un examen, accordé une seule fois et non renouvelable.",
+    "ar": "يتضمن حسابك المجاني امتحانًا واحدًا. يُمنح الامتحان المجاني مرة واحدة ولا يتجدد.",
+    "uk": "Ваш безкоштовний обліковий запис містить 1 іспит. Безкоштовний іспит надається лише один раз і не поновлюється."
+  },
+  "You have used your free exam. Choose 10 exams for €4.99 or unlimited exams for €19.99.": {
+    "de": "Du hast deine kostenlose Prüfung verwendet. Wähle 10 Prüfungen für 4,99 € oder unbegrenzte Prüfungen für 19,99 €.",
+    "fr": "Vous avez utilisé votre examen gratuit. Choisissez 10 examens à 4,99 € ou des examens illimités à 19,99 €.",
+    "ar": "لقد استخدمت امتحانك المجاني. اختر 10 امتحانات مقابل €4.99 أو امتحانات غير محدودة مقابل €19.99.",
+    "uk": "Ви використали безкоштовний іспит. Оберіть 10 іспитів за €4.99 або необмежені іспити за €19.99."
+  },
+  "Your tester access has expired.": {
+    "de": "Dein Tester-Zugang ist abgelaufen.",
+    "fr": "Votre accès testeur a expiré.",
+    "ar": "انتهت صلاحية وصولك التجريبي.",
+    "uk": "Термін вашого тестового доступу минув."
+  },
+  "Your tester access is active.": {
+    "de": "Dein Tester-Zugang ist aktiv.",
+    "fr": "Votre accès testeur est actif.",
+    "ar": "وصولك التجريبي نشط.",
+    "uk": "Ваш тестовий доступ активний."
+  },
+  "Your unlimited TELC B1 access has expired. Choose a new 60-day pass to continue practicing.": {
+    "de": "Dein unbegrenzter TELC-B1-Zugang ist abgelaufen. Wähle einen neuen 60-Tage-Pass.",
+    "fr": "Votre accès illimité TELC B1 a expiré. Choisissez un nouveau pass de 60 jours.",
+    "ar": "انتهت صلاحية وصولك غير المحدود إلى TELC B1. اختر اشتراكًا جديدًا لمدة 60 يومًا لمتابعة التدريب.",
+    "uk": "Термін необмеженого доступу до TELC B1 минув. Оберіть новий абонемент на 60 днів."
+  },
+  "Unlimited TELC B1 exams are active.": {
+    "de": "Unbegrenzte TELC-B1-Prüfungen sind aktiv.",
+    "fr": "Les examens TELC B1 illimités sont actifs.",
+    "ar": "امتحانات TELC B1 غير المحدودة نشطة.",
+    "uk": "Необмежені іспити TELC B1 активні."
+  },
+  "Your 10-exam TELC B1 access has expired. Choose a new 60-day pass to continue.": {
+    "de": "Dein TELC-B1-Zugang für 10 Prüfungen ist abgelaufen. Wähle einen neuen 60-Tage-Pass.",
+    "fr": "Votre accès à 10 examens TELC B1 a expiré. Choisissez un nouveau pass de 60 jours.",
+    "ar": "انتهت صلاحية باقة 10 امتحانات TELC B1. اختر باقة جديدة لمدة 60 يومًا للمتابعة.",
+    "uk": "Термін пакета 10 іспитів TELC B1 минув. Оберіть новий пакет на 60 днів."
+  },
+  "You have used all 10 exams. Buy another 10-exam pack or switch to unlimited access.": {
+    "de": "Du hast alle 10 Prüfungen verwendet. Kaufe ein weiteres Paket oder wechsle zu unbegrenztem Zugang.",
+    "fr": "Vous avez utilisé les 10 examens. Achetez un autre pack ou passez à un accès illimité.",
+    "ar": "استخدمت الامتحانات العشرة كلها. اشترِ باقة جديدة أو انتقل إلى الوصول غير المحدود.",
+    "uk": "Ви використали всі 10 іспитів. Купіть новий пакет або перейдіть на необмежений доступ."
+  },
+  "Arabic": {
+    "de": "Arabisch",
+    "fr": "Arabe",
+    "ar": "العربية",
+    "uk": "Арабська"
+  },
+  "Ukrainian": {
+    "de": "Ukrainisch",
+    "fr": "Ukrainien",
+    "ar": "الأوكرانية",
+    "uk": "Українська"
+  },
+  "Prepare for TELC Deutsch B1": {
+    "de": "Bereite dich auf TELC Deutsch B1 vor",
+    "fr": "Préparez-vous au TELC Deutsch B1",
+    "ar": "استعد لامتحان TELC Deutsch B1",
+    "uk": "Підготуйтеся до TELC Deutsch B1"
+  },
+  "Start with one free exam, choose 10 exams for €4.99, or unlock unlimited exams for €19.99.": {
+    "de": "Beginne mit einer kostenlosen Prüfung, wähle 10 Prüfungen für 4,99 € oder unbegrenzte Prüfungen für 19,99 €.",
+    "fr": "Commencez par un examen gratuit, choisissez 10 examens pour 4,99 € ou des examens illimités pour 19,99 €.",
+    "ar": "ابدأ باختبار مجاني، أو اختر 10 اختبارات مقابل 4.99 يورو، أو اختبارات غير محدودة مقابل 19.99 يورو.",
+    "uk": "Почніть з одного безкоштовного іспиту, оберіть 10 іспитів за 4,99 € або необмежені іспити за 19,99 €."
+  },
+  "Try the complete TELC Deutsch B1 exam experience before paying.": {
+    "de": "Probiere die vollständige TELC-Deutsch-B1-Prüfung aus, bevor du zahlst.",
+    "fr": "Essayez l’expérience complète du TELC Deutsch B1 avant de payer.",
+    "ar": "جرّب تجربة امتحان TELC Deutsch B1 الكاملة قبل الدفع.",
+    "uk": "Спробуйте повний формат іспиту TELC Deutsch B1 перед оплатою."
+  },
+  "No card required": {
+    "de": "Keine Karte erforderlich",
+    "fr": "Aucune carte requise",
+    "ar": "لا حاجة إلى بطاقة",
+    "uk": "Картка не потрібна"
+  },
+  "1 exam included": {
+    "de": "1 Prüfung enthalten",
+    "fr": "1 examen inclus",
+    "ar": "يشمل اختبارًا واحدًا",
+    "uk": "Включено 1 іспит"
+  },
+  "Realistic TELC Deutsch B1 exam experience": {
+    "de": "Realistische TELC-Deutsch-B1-Prüfung",
+    "fr": "Simulation réaliste du TELC Deutsch B1",
+    "ar": "تجربة واقعية لامتحان TELC Deutsch B1",
+    "uk": "Реалістичний іспит TELC Deutsch B1"
+  },
+  "Reading, language elements, listening and writing": {
+    "de": "Lesen, Sprachbausteine, Hören und Schreiben",
+    "fr": "Lecture, éléments de langue, écoute et écriture",
+    "ar": "القراءة وعناصر اللغة والاستماع والكتابة",
+    "uk": "Читання, мовні елементи, аудіювання та письмо"
+  },
+  "Automatic scoring and basic result": {
+    "de": "Automatische Bewertung und einfaches Ergebnis",
+    "fr": "Notation automatique et résultat de base",
+    "ar": "تصحيح تلقائي ونتيجة أساسية",
+    "uk": "Автоматичне оцінювання та базовий результат"
+  },
+  "Start free": {
+    "de": "Kostenlos starten",
+    "fr": "Commencer gratuitement",
+    "ar": "ابدأ مجانًا",
+    "uk": "Почати безкоштовно"
+  },
+  "A low-cost pack for focused TELC B1 practice.": {
+    "de": "Günstiges Paket für gezielte TELC-B1-Übungen.",
+    "fr": "Un pack abordable pour s'entraîner au TELC B1.",
+    "ar": "باقة اقتصادية للتدرب المكثف على TELC B1.",
+    "uk": "Доступний пакет для цілеспрямованої підготовки до TELC B1."
+  },
+  "one-time": {
+    "de": "einmalig",
+    "fr": "paiement unique",
+    "ar": "دفعة واحدة",
+    "uk": "одноразово"
+  },
+  "10 exams · 60 days access": {
+    "de": "10 Prüfungen · 60 Tage Zugang",
+    "fr": "10 examens · accès pendant 60 jours",
+    "ar": "10 اختبارات · وصول لمدة 60 يومًا",
+    "uk": "10 іспитів · доступ на 60 днів"
+  },
+  "10 complete mock exams": {
+    "de": "10 vollständige Probeprüfungen",
+    "fr": "10 examens blancs complets",
+    "ar": "10 اختبارات تجريبية كاملة",
+    "uk": "10 повних пробних іспитів"
+  },
+  "60 days of TELC B1 access": {
+    "de": "60 Tage Zugang zu TELC B1",
+    "fr": "60 jours d'accès au TELC B1",
+    "ar": "60 يومًا من الوصول إلى TELC B1",
+    "uk": "60 днів доступу до TELC B1"
+  },
+  "Detailed results and explanations": {
+    "de": "Detaillierte Ergebnisse und Erklärungen",
+    "fr": "Résultats détaillés et explications",
+    "ar": "نتائج وشروحات مفصلة",
+    "uk": "Детальні результати та пояснення"
+  },
+  "AI evaluation for written answers": {
+    "de": "KI-Bewertung schriftlicher Antworten",
+    "fr": "Évaluation des réponses écrites par IA",
+    "ar": "تقييم الإجابات الكتابية بالذكاء الاصطناعي",
+    "uk": "Оцінювання письмових відповідей за допомогою ШІ"
+  },
+  "No subscription or automatic renewal": {
+    "de": "Kein Abo und keine automatische Verlängerung",
+    "fr": "Sans abonnement ni renouvellement automatique",
+    "ar": "دون اشتراك أو تجديد تلقائي",
+    "uk": "Без підписки чи автоматичного поновлення"
+  },
+  "Get 10 exams — €4.99": {
+    "de": "10 Prüfungen für 4,99 € kaufen",
+    "fr": "Obtenir 10 examens — 4,99 €",
+    "ar": "احصل على 10 اختبارات — 4.99 يورو",
+    "uk": "Отримати 10 іспитів — 4,99 €"
+  },
+  "Best value": {
+    "de": "Bestes Angebot",
+    "fr": "Meilleur rapport qualité-prix",
+    "ar": "أفضل قيمة",
+    "uk": "Найвигідніша пропозиція"
+  },
+  "Unlimited": {
+    "de": "Unbegrenzt",
+    "fr": "Illimité",
+    "ar": "غير محدود",
+    "uk": "Без обмежень"
+  },
+  "Practice as often as you want during your preparation period.": {
+    "de": "Übe während deiner Vorbereitungszeit so oft du möchtest.",
+    "fr": "Entraînez-vous autant que vous le souhaitez pendant votre préparation.",
+    "ar": "تدرّب كما تشاء خلال فترة التحضير.",
+    "uk": "Практикуйтеся скільки завгодно протягом періоду підготовки."
+  },
+  "Unlimited exams · 60 days access": {
+    "de": "Unbegrenzte Prüfungen · 60 Tage Zugang",
+    "fr": "Examens illimités · accès pendant 60 jours",
+    "ar": "اختبارات غير محدودة · وصول لمدة 60 يومًا",
+    "uk": "Необмежені іспити · доступ на 60 днів"
+  },
+  "Unlimited mock exams": {
+    "de": "Unbegrenzte Probeprüfungen",
+    "fr": "Examens blancs illimités",
+    "ar": "اختبارات تجريبية غير محدودة",
+    "uk": "Необмежені пробні іспити"
+  },
+  "Review previous exams and mistakes": {
+    "de": "Frühere Prüfungen und Fehler überprüfen",
+    "fr": "Revoir les anciens examens et les erreurs",
+    "ar": "راجع الاختبارات السابقة والأخطاء",
+    "uk": "Переглядайте попередні іспити та помилки"
+  },
+  "Get unlimited — €19.99": {
+    "de": "Unbegrenzt für 19,99 € kaufen",
+    "fr": "Obtenir l'accès illimité — 19,99 €",
+    "ar": "احصل على وصول غير محدود — 19.99 يورو",
+    "uk": "Отримати необмежений доступ — 19,99 €"
+  },
+  "Both paid plans are one-time payments valid for 60 days. No recurring subscription.": {
+    "de": "Beide kostenpflichtigen Pakete sind Einmalzahlungen und 60 Tage gültig. Kein wiederkehrendes Abo.",
+    "fr": "Les deux offres payantes sont des paiements uniques valables 60 jours. Aucun abonnement récurrent.",
+    "ar": "كلتا الباقتين المدفوعتين بدفعة واحدة وصالحتان لمدة 60 يومًا. لا يوجد اشتراك متكرر.",
+    "uk": "Обидва платні плани оплачуються один раз і діють 60 днів. Без регулярної підписки."
+  },
+  "EasyPrüfung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.": {
+    "de": "EasyPrüfung ist eine unabhängige Vorbereitungsplattform und weder mit telc gGmbH noch mit dem Goethe-Institut verbunden oder von ihnen unterstützt.",
+    "fr": "EasyPrüfung est une plateforme de préparation indépendante, sans affiliation ni approbation de telc gGmbH ou du Goethe-Institut.",
+    "ar": "EasyPrüfung منصة تحضير مستقلة لا تتبع شركة telc gGmbH أو معهد غوته ولا تحظى بتأييدهما.",
+    "uk": "EasyPrüfung — незалежна платформа підготовки, не пов’язана з telc gGmbH чи Goethe-Institut і не схвалена ними."
+  },
+  "Please do not close or refresh this page while it is loading.": {
+    "de": "Bitte schließe oder aktualisiere diese Seite während des Ladens nicht.",
+    "fr": "Veuillez ne pas fermer ni actualiser cette page pendant le chargement.",
+    "ar": "يرجى عدم إغلاق هذه الصفحة أو تحديثها أثناء التحميل.",
+    "uk": "Не закривайте й не оновлюйте сторінку під час завантаження."
+  },
+  "Light Mode": {
+    "de": "Heller Modus",
+    "fr": "Mode clair",
+    "ar": "الوضع الفاتح",
+    "uk": "Світла тема"
+  },
+  "Dark Mode": {
+    "de": "Dunkler Modus",
+    "fr": "Mode sombre",
+    "ar": "الوضع الداكن",
+    "uk": "Темна тема"
+  },
+  "Need help with TELC B1 practice, your account, billing, or upcoming exam levels? Send us a message below.": {
+    "de": "Brauchst du Hilfe beim TELC-B1-Training, deinem Konto, Zahlungen oder kommenden Prüfungsstufen? Schreibe uns unten.",
+    "fr": "Besoin d'aide pour le TELC B1, votre compte, les paiements ou les prochains niveaux ? Écrivez-nous ci-dessous.",
+    "ar": "هل تحتاج مساعدة بشأن تدريب TELC B1 أو حسابك أو الفواتير أو المستويات القادمة؟ راسلنا أدناه.",
+    "uk": "Потрібна допомога з TELC B1, обліковим записом, оплатою чи майбутніми рівнями? Напишіть нам нижче."
+  },
+  "By submitting, you agree to be contacted about your request.": {
+    "de": "Mit dem Absenden stimmst du einer Kontaktaufnahme zu deiner Anfrage zu.",
+    "fr": "En envoyant ce formulaire, vous acceptez d'être contacté au sujet de votre demande.",
+    "ar": "بإرسال النموذج، توافق على التواصل معك بشأن طلبك.",
+    "uk": "Надсилаючи форму, ви погоджуєтесь на зв’язок щодо вашого запиту."
+  },
+  "Thank you!": {
+    "de": "Vielen Dank!",
+    "fr": "Merci !",
+    "ar": "شكرًا لك!",
+    "uk": "Дякуємо!"
+  },
+  "Enter the email associated with your account, and we’ll send you a link to reset your password.": {
+    "de": "Gib die E-Mail-Adresse deines Kontos ein. Wir senden dir einen Link zum Zurücksetzen des Passworts.",
+    "fr": "Indiquez l'adresse e-mail de votre compte et nous vous enverrons un lien pour réinitialiser le mot de passe.",
+    "ar": "أدخل البريد الإلكتروني المرتبط بحسابك وسنرسل لك رابط إعادة تعيين كلمة المرور.",
+    "uk": "Введіть електронну адресу вашого облікового запису, і ми надішлемо посилання для скидання пароля."
+  },
+  "Back to log in": {
+    "de": "Zurück zur Anmeldung",
+    "fr": "Retour à la connexion",
+    "ar": "العودة لتسجيل الدخول",
+    "uk": "Назад до входу"
+  },
+  "Choose a strong password and keep it safe. You’ll use it to access your account.": {
+    "de": "Wähle ein sicheres Passwort und bewahre es gut auf. Damit meldest du dich an.",
+    "fr": "Choisissez un mot de passe fort et conservez-le en sécurité pour accéder à votre compte.",
+    "ar": "اختر كلمة مرور قوية واحتفظ بها بأمان للوصول إلى حسابك.",
+    "uk": "Оберіть надійний пароль і зберігайте його в безпеці для входу в обліковий запис."
+  },
+  "New password": {
+    "de": "Neues Passwort",
+    "fr": "Nouveau mot de passe",
+    "ar": "كلمة مرور جديدة",
+    "uk": "Новий пароль"
+  },
+  "Confirm new password": {
+    "de": "Neues Passwort bestätigen",
+    "fr": "Confirmer le nouveau mot de passe",
+    "ar": "تأكيد كلمة المرور الجديدة",
+    "uk": "Підтвердьте новий пароль"
+  },
+  "Use at least 8 characters with uppercase, lowercase, numbers and symbols.": {
+    "de": "Verwende mindestens 8 Zeichen mit Groß- und Kleinbuchstaben, Zahlen und Symbolen.",
+    "fr": "Utilisez au moins 8 caractères avec des majuscules, minuscules, chiffres et symboles.",
+    "ar": "استخدم 8 أحرف على الأقل تشمل أحرفًا كبيرة وصغيرة وأرقامًا ورموزًا.",
+    "uk": "Використовуйте щонайменше 8 символів: великі й малі літери, цифри та знаки."
+  },
+  "Your password": {
+    "de": "Dein Passwort",
+    "fr": "Votre mot de passe",
+    "ar": "كلمة المرور الخاصة بك",
+    "uk": "Ваш пароль"
+  },
+  "Confirm your password": {
+    "de": "Bestätige dein Passwort",
+    "fr": "Confirmez votre mot de passe",
+    "ar": "أكّد كلمة المرور",
+    "uk": "Підтвердьте пароль"
+  },
+  "Personalize Your Exam Practice": {
+    "de": "Personalisiere dein Prüfungstraining",
+    "fr": "Personnalisez votre préparation aux examens",
+    "ar": "خصّص تدريبك على الامتحانات",
+    "uk": "Налаштуйте підготовку до іспитів"
+  },
+  "Tell us your current German level and exam goal so we can tailor your EasyPrüfung experience.": {
+    "de": "Teile uns dein Deutschniveau und Prüfungsziel mit, damit wir EasyPrüfung anpassen können.",
+    "fr": "Indiquez votre niveau d'allemand et votre objectif pour personnaliser EasyPrüfung.",
+    "ar": "أخبرنا بمستواك الحالي في الألمانية وهدفك لنخصص تجربتك.",
+    "uk": "Розкажіть про свій рівень німецької та мету, щоб ми налаштували EasyPrüfung."
+  },
+  "Next": {
+    "de": "Weiter",
+    "fr": "Suivant",
+    "ar": "التالي",
+    "uk": "Далі"
+  },
+  "Prepare with realistic TELC-style practice and build confidence before exam day.": {
+    "de": "Bereite dich mit realistischen TELC-Übungen vor und gehe selbstbewusst in die Prüfung.",
+    "fr": "Préparez-vous avec des exercices TELC réalistes et gagnez en confiance.",
+    "ar": "تدرّب على نماذج واقعية بأسلوب TELC واكتسب الثقة قبل يوم الامتحان.",
+    "uk": "Готуйтеся на реалістичних завданнях TELC і будьте впевнені перед іспитом."
+  },
+  "Continue with google": {
+    "de": "Mit Google fortfahren",
+    "fr": "Continuer avec Google",
+    "ar": "المتابعة باستخدام Google",
+    "uk": "Продовжити через Google"
+  },
+  "Welcome back": {
+    "de": "Willkommen zurück",
+    "fr": "Bon retour",
+    "ar": "مرحبًا بعودتك",
+    "uk": "З поверненням"
+  },
+  "Continue your German exam preparation with realistic timed mock exams, AI scoring, and personalized feedback.": {
+    "de": "Setze deine Deutschprüfungsvorbereitung mit realistischen, zeitlich begrenzten Probeprüfungen, KI-Bewertung und individuellem Feedback fort.",
+    "fr": "Poursuivez votre préparation aux examens d'allemand avec des examens blancs chronométrés, une notation IA et des retours personnalisés.",
+    "ar": "واصل التحضير لامتحان الألمانية باختبارات تجريبية محددة الوقت وتقييم بالذكاء الاصطناعي وملاحظات مخصصة.",
+    "uk": "Продовжуйте підготовку до іспиту з німецької з реалістичними тестами на час, оцінюванням ШІ та персональними відгуками."
+  },
+  "Realistic TELC exam practice": {
+    "de": "Realistische TELC-Prüfungsvorbereitung",
+    "fr": "Entraînement TELC réaliste",
+    "ar": "تدريب واقعي على امتحان TELC",
+    "uk": "Реалістична підготовка до TELC"
+  },
+  "AI scoring & written feedback": {
+    "de": "KI-Bewertung und schriftliches Feedback",
+    "fr": "Notation IA et retours écrits",
+    "ar": "تقييم بالذكاء الاصطناعي وملاحظات كتابية",
+    "uk": "Оцінювання ШІ та письмові відгуки"
+  },
+  "Review mistakes and past results": {
+    "de": "Fehler und frühere Ergebnisse überprüfen",
+    "fr": "Revoir les erreurs et les résultats passés",
+    "ar": "راجع الأخطاء والنتائج السابقة",
+    "uk": "Переглядайте помилки й попередні результати"
+  },
+  "Don’t have an account?": {
+    "de": "Noch kein Konto?",
+    "fr": "Vous n'avez pas de compte ?",
+    "ar": "ليس لديك حساب؟",
+    "uk": "Ще немає облікового запису?"
+  },
+  "Register here": {
+    "de": "Hier registrieren",
+    "fr": "Inscrivez-vous ici",
+    "ar": "سجّل هنا",
+    "uk": "Зареєструватися тут"
+  },
+  "Use your email and password to access your account.": {
+    "de": "Melde dich mit deiner E-Mail-Adresse und deinem Passwort an.",
+    "fr": "Utilisez votre e-mail et votre mot de passe pour vous connecter.",
+    "ar": "استخدم بريدك الإلكتروني وكلمة المرور للوصول إلى حسابك.",
+    "uk": "Увійдіть за допомогою електронної пошти та пароля."
+  },
+  "Or continue with": {
+    "de": "Oder fortfahren mit",
+    "fr": "Ou continuer avec",
+    "ar": "أو تابع باستخدام",
+    "uk": "Або продовжити через"
+  },
+  "Contact support": {
+    "de": "Support kontaktieren",
+    "fr": "Contacter l'assistance",
+    "ar": "تواصل مع الدعم",
+    "uk": "Зв'язатися з підтримкою"
+  },
+  "Create your account": {
+    "de": "Erstelle dein Konto",
+    "fr": "Créez votre compte",
+    "ar": "أنشئ حسابك",
+    "uk": "Створіть обліковий запис"
+  },
+  "Join EasyPrüfung to prepare for German TELC and Goethe exams with realistic mock exams and AI-powered feedback.": {
+    "de": "Bereite dich mit EasyPrüfung durch realistische Probeprüfungen und KI-Feedback auf TELC- und Goethe-Prüfungen vor.",
+    "fr": "Rejoignez EasyPrüfung pour préparer les examens TELC et Goethe avec des examens blancs et des retours IA.",
+    "ar": "انضم إلى EasyPrüfung للتحضير لامتحانات TELC وغوته باختبارات تجريبية واقعية وملاحظات مدعومة بالذكاء الاصطناعي.",
+    "uk": "Приєднуйтеся до EasyPrüfung для підготовки до TELC і Goethe з реалістичними тестами та відгуками ШІ."
+  },
+  "TELC Deutsch B1 available now": {
+    "de": "TELC Deutsch B1 jetzt verfügbar",
+    "fr": "TELC Deutsch B1 disponible maintenant",
+    "ar": "امتحان TELC Deutsch B1 متاح الآن",
+    "uk": "TELC Deutsch B1 вже доступний"
+  },
+  "AI scoring & personalized feedback": {
+    "de": "KI-Bewertung und persönliches Feedback",
+    "fr": "Notation IA et retours personnalisés",
+    "ar": "تقييم بالذكاء الاصطناعي وملاحظات مخصصة",
+    "uk": "Оцінювання ШІ та персональні відгуки"
+  },
+  "A1–C2 exam roadmap": {
+    "de": "Prüfungsplanung für A1–C2",
+    "fr": "Programme d'examens A1–C2",
+    "ar": "خطة امتحانات A1–C2",
+    "uk": "План іспитів A1–C2"
+  },
+  "Already have an account?": {
+    "de": "Du hast bereits ein Konto?",
+    "fr": "Vous avez déjà un compte ?",
+    "ar": "هل لديك حساب بالفعل؟",
+    "uk": "Вже маєте обліковий запис?"
+  },
+  "Log in": {
+    "de": "Anmelden",
+    "fr": "Se connecter",
+    "ar": "تسجيل الدخول",
+    "uk": "Увійти"
+  },
+  "Sign up": {
+    "de": "Registrieren",
+    "fr": "S'inscrire",
+    "ar": "إنشاء حساب",
+    "uk": "Зареєструватися"
+  },
+  "Use Google or your email to get started.": {
+    "de": "Starte mit Google oder deiner E-Mail-Adresse.",
+    "fr": "Commencez avec Google ou votre e-mail.",
+    "ar": "ابدأ باستخدام Google أو بريدك الإلكتروني.",
+    "uk": "Почніть через Google або електронну пошту."
+  },
+  "Or sign up with email": {
+    "de": "Oder mit E-Mail registrieren",
+    "fr": "Ou s'inscrire par e-mail",
+    "ar": "أو سجّل بالبريد الإلكتروني",
+    "uk": "Або зареєструйтеся через пошту"
+  },
+  "Use at least 8 characters with a mix of uppercase, lowercase, numbers and symbols.": {
+    "de": "Verwende mindestens 8 Zeichen mit Groß- und Kleinbuchstaben, Zahlen und Symbolen.",
+    "fr": "Utilisez au moins 8 caractères avec majuscules, minuscules, chiffres et symboles.",
+    "ar": "استخدم 8 أحرف على الأقل مع مزيج من الأحرف الكبيرة والصغيرة والأرقام والرموز.",
+    "uk": "Використовуйте принаймні 8 символів із великими й малими літерами, цифрами та знаками."
+  },
+  "Terms": {
+    "de": "Nutzungsbedingungen",
+    "fr": "Conditions d'utilisation",
+    "ar": "الشروط",
+    "uk": "Умови"
+  },
+  "Privacy Policy": {
+    "de": "Datenschutzerklärung",
+    "fr": "Politique de confidentialité",
+    "ar": "سياسة الخصوصية",
+    "uk": "Політика конфіденційності"
+  },
+  "Practice": {
+    "de": "Üben",
+    "fr": "S'entraîner",
+    "ar": "تدريب",
+    "uk": "Практика"
+  },
+  "Exam history": {
+    "de": "Prüfungsverlauf",
+    "fr": "Historique des examens",
+    "ar": "سجل الاختبارات",
+    "uk": "Історія іспитів"
+  },
+  "All exams": {
+    "de": "Alle Prüfungen",
+    "fr": "Tous les examens",
+    "ar": "كل الاختبارات",
+    "uk": "Усі іспити"
+  },
+  "View exam history": {
+    "de": "Prüfungsverlauf anzeigen",
+    "fr": "Voir l'historique des examens",
+    "ar": "عرض سجل الاختبارات",
+    "uk": "Переглянути історію іспитів"
+  },
+  "Plans": {
+    "de": "Tarife",
+    "fr": "Offres",
+    "ar": "الباقات",
+    "uk": "Плани"
+  },
+  "Plans & pricing": {
+    "de": "Tarife und Preise",
+    "fr": "Offres et tarifs",
+    "ar": "الباقات والأسعار",
+    "uk": "Плани та ціни"
+  },
+  "Redeem your code": {
+    "de": "Code einlösen",
+    "fr": "Utiliser votre code",
+    "ar": "استرداد الرمز",
+    "uk": "Активувати код"
+  },
+  "Help": {
+    "de": "Hilfe",
+    "fr": "Aide",
+    "ar": "مساعدة",
+    "uk": "Допомога"
+  },
+  "Log Out": {
+    "de": "Abmelden",
+    "fr": "Se déconnecter",
+    "ar": "تسجيل الخروج",
+    "uk": "Вийти"
+  },
+  "Current exam access": {
+    "de": "Aktueller Prüfungszugang",
+    "fr": "Accès actuel aux examens",
+    "ar": "الوصول الحالي للاختبارات",
+    "uk": "Поточний доступ до іспитів"
+  },
+  "Available exams": {
+    "de": "Verfügbare Prüfungen",
+    "fr": "Examens disponibles",
+    "ar": "الاختبارات المتاحة",
+    "uk": "Доступні іспити"
+  },
+  "View TELC B1 plans": {
+    "de": "TELC-B1-Tarife ansehen",
+    "fr": "Voir les offres TELC B1",
+    "ar": "عرض باقات TELC B1",
+    "uk": "Переглянути плани TELC B1"
+  },
+  "Unlimited Exams": {
+    "de": "Unbegrenzte Prüfungen",
+    "fr": "Examens illimités",
+    "ar": "اختبارات غير محدودة",
+    "uk": "Необмежені іспити"
+  },
+  "Change password": {
+    "de": "Passwort ändern",
+    "fr": "Changer le mot de passe",
+    "ar": "تغيير كلمة المرور",
+    "uk": "Змінити пароль"
+  },
+  "Use a strong password you don’t reuse elsewhere.": {
+    "de": "Verwende ein sicheres Passwort, das du sonst nirgends nutzt.",
+    "fr": "Utilisez un mot de passe fort et unique.",
+    "ar": "استخدم كلمة مرور قوية لا تعيد استخدامها في مكان آخر.",
+    "uk": "Використовуйте надійний унікальний пароль."
+  },
+  "At least 8 characters with uppercase, lowercase, numbers and symbols.": {
+    "de": "Mindestens 8 Zeichen mit Groß- und Kleinbuchstaben, Zahlen und Symbolen.",
+    "fr": "Au moins 8 caractères avec majuscules, minuscules, chiffres et symboles.",
+    "ar": "8 أحرف على الأقل تشمل أحرفًا كبيرة وصغيرة وأرقامًا ورموزًا.",
+    "uk": "Щонайменше 8 символів із великими й малими літерами, цифрами та знаками."
+  },
+  "Your new password": {
+    "de": "Dein neues Passwort",
+    "fr": "Votre nouveau mot de passe",
+    "ar": "كلمة مرورك الجديدة",
+    "uk": "Ваш новий пароль"
+  },
+  "Redeem Your Code": {
+    "de": "Code einlösen",
+    "fr": "Utiliser votre code",
+    "ar": "استرداد رمزك",
+    "uk": "Активувати код"
+  },
+  "Enter your code to unlock EasyPrüfung exam-practice access or practice credits. Use them for realistic mock exams, AI evaluation, feedback, and explanations.": {
+    "de": "Gib deinen Code ein, um Zugang oder Übungsguthaben freizuschalten. Nutze es für realistische Probeprüfungen, KI-Bewertungen, Feedback und Erklärungen.",
+    "fr": "Saisissez votre code pour débloquer l'accès ou des crédits. Utilisez-les pour les examens blancs, l'évaluation IA, les retours et les explications.",
+    "ar": "أدخل رمزك لفتح الوصول إلى التدريب أو رصيد التدريب. استخدمه للاختبارات التجريبية والتقييم بالذكاء الاصطناعي والملاحظات والشروحات.",
+    "uk": "Введіть код, щоб отримати доступ або навчальні кредити для пробних іспитів, оцінювання ШІ, відгуків і пояснень."
+  },
+  "Code": {
+    "de": "Code",
+    "fr": "Code",
+    "ar": "الرمز",
+    "uk": "Код"
+  },
+  "Redeeming...": {
+    "de": "Wird eingelöst ...",
+    "fr": "Activation en cours…",
+    "ar": "جارٍ استرداد الرمز...",
+    "uk": "Активація..."
+  },
+  "Redeem Now": {
+    "de": "Jetzt einlösen",
+    "fr": "Utiliser maintenant",
+    "ar": "استرد الآن",
+    "uk": "Активувати зараз"
+  },
+  "Your code": {
+    "de": "Dein Code",
+    "fr": "Votre code",
+    "ar": "رمزك",
+    "uk": "Ваш код"
+  },
+  "Need a custom exam-preparation plan?": {
+    "de": "Benötigst du einen individuellen Prüfungsvorbereitungsplan?",
+    "fr": "Besoin d'un programme de préparation sur mesure ?",
+    "ar": "هل تحتاج إلى خطة تحضير مخصصة للامتحانات؟",
+    "uk": "Потрібен індивідуальний план підготовки до іспитів?"
+  },
+  "Tell us about your language school, course, organization, or learner group and the German exams you want to prepare for.": {
+    "de": "Erzähle uns von deiner Sprachschule, deinem Kurs, deiner Organisation oder Lerngruppe und den gewünschten Deutschprüfungen.",
+    "fr": "Parlez-nous de votre école, formation, organisation ou groupe d'apprenants et des examens d'allemand souhaités.",
+    "ar": "أخبرنا عن مدرستك أو دورتك أو مؤسستك أو مجموعة المتعلمين وامتحانات الألمانية المستهدفة.",
+    "uk": "Розкажіть про мовну школу, курс, організацію чи групу та бажані іспити з німецької."
+  },
+  "Tell us about your exam-preparation needs.": {
+    "de": "Erzähle uns von deinem Vorbereitungsbedarf.",
+    "fr": "Parlez-nous de vos besoins de préparation.",
+    "ar": "أخبرنا عن احتياجاتك للتحضير للامتحانات.",
+    "uk": "Розкажіть про ваші потреби в підготовці."
+  },
+  "What is your estimated budget?": {
+    "de": "Wie hoch ist dein geschätztes Budget?",
+    "fr": "Quel est votre budget estimé ?",
+    "ar": "ما ميزانيتك التقديرية؟",
+    "uk": "Який ваш орієнтовний бюджет?"
+  },
+  "Over $10K": {
+    "de": "Über 10.000 $",
+    "fr": "Plus de 10 000 $",
+    "ar": "أكثر من 10 آلاف دولار",
+    "uk": "Понад 10 тис. доларів"
+  },
+  "How can we reach you?": {
+    "de": "Wie können wir dich erreichen?",
+    "fr": "Comment pouvons-nous vous joindre ?",
+    "ar": "كيف يمكننا التواصل معك؟",
+    "uk": "Як із вами зв'язатися?"
+  },
+  "Work email": {
+    "de": "Geschäftliche E-Mail",
+    "fr": "E-mail professionnel",
+    "ar": "البريد الإلكتروني للعمل",
+    "uk": "Робоча електронна пошта"
+  },
+  "Close modal": {
+    "de": "Dialog schließen",
+    "fr": "Fermer la fenêtre",
+    "ar": "إغلاق النافذة",
+    "uk": "Закрити вікно"
+  },
+  "Tell us which TELC or Goethe levels you need, how many learners you support, and any specific requirements.": {
+    "de": "Sag uns, welche TELC- oder Goethe-Niveaus du brauchst, wie viele Lernende du betreust und welche Anforderungen du hast.",
+    "fr": "Précisez les niveaux TELC ou Goethe souhaités, le nombre d'apprenants et vos besoins particuliers.",
+    "ar": "أخبرنا بمستويات TELC أو غوته المطلوبة وعدد المتعلمين وأي متطلبات خاصة.",
+    "uk": "Укажіть потрібні рівні TELC або Goethe, кількість учнів і особливі вимоги."
+  },
+  "25% Off Limited Offer!": {
+    "de": "Befristetes Angebot: 25 % Rabatt!",
+    "fr": "Offre limitée : -25 % !",
+    "ar": "عرض محدود: خصم 25٪!",
+    "uk": "Обмежена пропозиція: знижка 25%!"
+  },
+  "Use this code at checkout to get": {
+    "de": "Verwende diesen Code an der Kasse für",
+    "fr": "Utilisez ce code au paiement pour obtenir",
+    "ar": "استخدم هذا الرمز عند الدفع للحصول على",
+    "uk": "Скористайтеся цим кодом під час оплати й отримайте"
+  },
+  "25% off": {
+    "de": "25 % Rabatt",
+    "fr": "25 % de réduction",
+    "ar": "خصم 25٪",
+    "uk": "Знижку 25%"
+  },
+  "Expires soon. One use per customer.": {
+    "de": "Läuft bald ab. Einmal pro Kunde.",
+    "fr": "Expire bientôt. Une utilisation par client.",
+    "ar": "تنتهي صلاحيته قريبًا. استخدام واحد لكل عميل.",
+    "uk": "Незабаром закінчиться. Одне використання на клієнта."
+  },
+  "Payment Successful!": {
+    "de": "Zahlung erfolgreich!",
+    "fr": "Paiement réussi !",
+    "ar": "تم الدفع بنجاح!",
+    "uk": "Оплату успішно здійснено!"
+  },
+  "Start practicing": {
+    "de": "Übung starten",
+    "fr": "Commencer à s'entraîner",
+    "ar": "ابدأ التدريب",
+    "uk": "Почати практику"
+  },
+  "If your access does not update immediately, payment confirmation may still be processing. Refresh this page after a moment.": {
+    "de": "Falls dein Zugang nicht sofort aktualisiert wird, wird die Zahlung möglicherweise noch bestätigt. Aktualisiere die Seite gleich noch einmal.",
+    "fr": "Si votre accès ne se met pas à jour immédiatement, la confirmation du paiement est peut-être en cours. Actualisez la page après un instant.",
+    "ar": "إذا لم يتحدث وصولك فورًا، فقد تكون عملية تأكيد الدفع ما زالت جارية. حدّث الصفحة بعد قليل.",
+    "uk": "Якщо доступ не оновився одразу, підтвердження платежу ще може оброблятися. Оновіть сторінку трохи згодом."
+  },
+  "Buy 10 exams — €4.99": {
+    "de": "10 Prüfungen für 4,99 € kaufen",
+    "fr": "Acheter 10 examens — 4,99 €",
+    "ar": "اشترِ 10 اختبارات — 4.99 يورو",
+    "uk": "Придбати 10 іспитів — 4,99 €"
+  },
+  "Your current 10-exam pass remains active. You can use the remaining exams or switch to unlimited access for a fresh 60-day period.": {
+    "de": "Dein aktuelles 10-Prüfungs-Paket bleibt aktiv. Du kannst die übrigen Prüfungen nutzen oder für einen neuen Zeitraum von 60 Tagen zu unbegrenztem Zugang wechseln.",
+    "fr": "Votre forfait actuel de 10 examens reste actif. Utilisez les examens restants ou passez à un accès illimité pour une nouvelle période de 60 jours.",
+    "ar": "تظل باقتك الحالية المكونة من 10 اختبارات فعالة. يمكنك استخدام الاختبارات المتبقية أو الترقية إلى وصول غير محدود لمدة 60 يومًا جديدة.",
+    "uk": "Ваш пакет із 10 іспитів залишається активним. Використайте решту або перейдіть на необмежений доступ на нові 60 днів."
+  },
+  "Noch keine bestandenen Prüfungen": {
+    "de": "Noch keine bestandenen Prüfungen",
+    "fr": "Aucun examen réussi pour le moment",
+    "ar": "لا توجد اختبارات ناجحة بعد",
+    "uk": "Поки немає складених іспитів"
+  },
+  "Prüfungen werden geladen …": {
+    "de": "Prüfungen werden geladen …",
+    "fr": "Chargement des examens…",
+    "ar": "جارٍ تحميل الاختبارات…",
+    "uk": "Завантаження іспитів…"
+  }
+}

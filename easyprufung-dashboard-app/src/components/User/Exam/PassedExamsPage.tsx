@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import ExamLanguageLock from "./ExamLanguageLock";
 import {
     AlertCircle,
     ArrowLeft,
@@ -23,8 +25,8 @@ function formatScore(value: number): string {
     });
 }
 
-function formatDate(value: string): string {
-    return new Date(value).toLocaleDateString("de-DE", {
+function formatDate(value: string, language: string = "de"): string {
+    return new Date(value).toLocaleDateString(language, {
         day: "2-digit",
         month: "long",
         year: "numeric",
@@ -46,6 +48,7 @@ function ExamResultDetails({
     hasPremiumAccess: boolean;
     onUpgrade: (plan: "b1" | "b1_unlimited") => void;
 }) {
+    const { i18n } = useTranslation();
     const { session, result } = entry;
 
     return (
@@ -82,7 +85,7 @@ function ExamResultDetails({
                                 </span>
 
                                 <span className="rounded-full border border-black px-4 py-2">
-                                    {formatDate(result.evaluatedAt)}
+                                    {formatDate(result.evaluatedAt, i18n.resolvedLanguage || i18n.language)}
                                 </span>
                             </div>
                         </div>
@@ -413,11 +416,11 @@ export function PassedExamsPage() {
 
     if (reviewExam && hasPremiumAccess) {
         return (
-            <ExamReviewPage
+            <ExamLanguageLock><ExamReviewPage
                 session={reviewExam.session}
                 result={reviewExam.result}
                 onBack={() => setReviewExam(null)}
-            />
+            /></ExamLanguageLock>
         );
     }
 
