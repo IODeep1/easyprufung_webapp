@@ -449,11 +449,11 @@
     "ar": "يتضمن حسابك المجاني امتحانًا واحدًا. يُمنح الامتحان المجاني مرة واحدة ولا يتجدد.",
     "uk": "Ваш безкоштовний обліковий запис містить 1 іспит. Безкоштовний іспит надається лише один раз і не поновлюється."
   },
-  "You have used your free exam. Choose 10 exams for €4.99 or unlimited exams for €19.99.": {
-    "de": "Du hast deine kostenlose Prüfung verwendet. Wähle 10 Prüfungen für 4,99 € oder unbegrenzte Prüfungen für 19,99 €.",
-    "fr": "Vous avez utilisé votre examen gratuit. Choisissez 10 examens à 4,99 € ou des examens illimités à 19,99 €.",
-    "ar": "لقد استخدمت امتحانك المجاني. اختر 10 امتحانات مقابل €4.99 أو امتحانات غير محدودة مقابل €19.99.",
-    "uk": "Ви використали безкоштовний іспит. Оберіть 10 іспитів за €4.99 або необмежені іспити за €19.99."
+  "You have used your free exam. Choose 10 exams for €9.99 or unlimited exams for €29.99.": {
+    "de": "Du hast deine kostenlose Prüfung verwendet. Wähle 10 Prüfungen für 9,99 € oder unbegrenzte Prüfungen für 29,99 €.",
+    "fr": "Vous avez utilisé votre examen gratuit. Choisissez 10 examens à 9,99 € ou des examens illimités à 29,99 €.",
+    "ar": "لقد استخدمت امتحانك المجاني. اختر 10 امتحانات مقابل €9.99 أو امتحانات غير محدودة مقابل €29.99.",
+    "uk": "Ви використали безкоштовний іспит. Оберіть 10 іспитів за €9.99 або необмежені іспити за €29.99."
   },
   "Your tester access has expired.": {
     "de": "Dein Tester-Zugang ist abgelaufen.",
@@ -509,11 +509,11 @@
     "ar": "استعد لامتحان TELC Deutsch B1",
     "uk": "Підготуйтеся до TELC Deutsch B1"
   },
-  "Start with one free exam, choose 10 exams for €4.99, or unlock unlimited exams for €19.99.": {
-    "de": "Beginne mit einer kostenlosen Prüfung, wähle 10 Prüfungen für 4,99 € oder unbegrenzte Prüfungen für 19,99 €.",
-    "fr": "Commencez par un examen gratuit, choisissez 10 examens pour 4,99 € ou des examens illimités pour 19,99 €.",
-    "ar": "ابدأ باختبار مجاني، أو اختر 10 اختبارات مقابل 4.99 يورو، أو اختبارات غير محدودة مقابل 19.99 يورو.",
-    "uk": "Почніть з одного безкоштовного іспиту, оберіть 10 іспитів за 4,99 € або необмежені іспити за 19,99 €."
+  "Start with one free exam, choose 10 exams for €9.99, or unlock unlimited exams for €29.99.": {
+    "de": "Beginne mit einer kostenlosen Prüfung, wähle 10 Prüfungen für 9,99 € oder unbegrenzte Prüfungen für 29,99 €.",
+    "fr": "Commencez par un examen gratuit, choisissez 10 examens pour 9,99 € ou des examens illimités pour 29,99 €.",
+    "ar": "ابدأ باختبار مجاني، أو اختر 10 اختبارات مقابل 9.99 يورو، أو اختبارات غير محدودة مقابل 29.99 يورو.",
+    "uk": "Почніть з одного безкоштовного іспиту, оберіть 10 іспитів за 9,99 € або необмежені іспити за 29,99 €."
   },
   "Try the complete TELC Deutsch B1 exam experience before paying.": {
     "de": "Probiere die vollständige TELC-Deutsch-B1-Prüfung aus, bevor du zahlst.",
@@ -605,11 +605,11 @@
     "ar": "دون اشتراك أو تجديد تلقائي",
     "uk": "Без підписки чи автоматичного поновлення"
   },
-  "Get 10 exams — €4.99": {
-    "de": "10 Prüfungen für 4,99 € kaufen",
-    "fr": "Obtenir 10 examens — 4,99 €",
-    "ar": "احصل على 10 اختبارات — 4.99 يورو",
-    "uk": "Отримати 10 іспитів — 4,99 €"
+  "Get 10 exams": {
+    "de": "10 Prüfungen erhalten",
+    "fr": "Obtenir 10 examens",
+    "ar": "احصل على 10 اختبارات",
+    "uk": "Отримати 10 іспитів"
   },
   "Best value": {
     "de": "Bestes Angebot",
@@ -647,11 +647,11 @@
     "ar": "راجع الاختبارات السابقة والأخطاء",
     "uk": "Переглядайте попередні іспити та помилки"
   },
-  "Get unlimited — €19.99": {
-    "de": "Unbegrenzt für 19,99 € kaufen",
-    "fr": "Obtenir l'accès illimité — 19,99 €",
-    "ar": "احصل على وصول غير محدود — 19.99 يورو",
-    "uk": "Отримати необмежений доступ — 19,99 €"
+  "Get unlimited": {
+    "de": "Unbegrenzten Zugang erhalten",
+    "fr": "Obtenir l'accès illimité",
+    "ar": "احصل على وصول غير محدود",
+    "uk": "Отримати необмежений доступ"
   },
   "Both paid plans are one-time payments valid for 60 days. No recurring subscription.": {
     "de": "Beide kostenpflichtigen Pakete sind Einmalzahlungen und 60 Tage gültig. Kein wiederkehrendes Abo.",
@@ -1150,12 +1150,6 @@
     "fr": "Si votre accès ne se met pas à jour immédiatement, la confirmation du paiement est peut-être en cours. Actualisez la page après un instant.",
     "ar": "إذا لم يتحدث وصولك فورًا، فقد تكون عملية تأكيد الدفع ما زالت جارية. حدّث الصفحة بعد قليل.",
     "uk": "Якщо доступ не оновився одразу, підтвердження платежу ще може оброблятися. Оновіть сторінку трохи згодом."
-  },
-  "Buy 10 exams — €4.99": {
-    "de": "10 Prüfungen für 4,99 € kaufen",
-    "fr": "Acheter 10 examens — 4,99 €",
-    "ar": "اشترِ 10 اختبارات — 4.99 يورو",
-    "uk": "Придбати 10 іспитів — 4,99 €"
   },
   "Your current 10-exam pass remains active. You can use the remaining exams or switch to unlimited access for a fresh 60-day period.": {
     "de": "Dein aktuelles 10-Prüfungs-Paket bleibt aktiv. Du kannst die übrigen Prüfungen nutzen oder für einen neuen Zeitraum von 60 Tagen zu unbegrenztem Zugang wechseln.",

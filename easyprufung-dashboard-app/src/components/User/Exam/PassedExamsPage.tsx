@@ -283,7 +283,7 @@ function ExamResultDetails({
                                         onClick={() => onUpgrade("b1")}
                                         className="inline-flex items-center justify-center rounded-2xl border border-black bg-white px-5 py-4 text-sm font-black text-black transition hover:bg-black/5"
                                     >
-                                        10 Prüfungen — €4.99
+                                        10 Prüfungen — €9.99 (statt €14.99 · 33% sparen)
                                     </button>
                                     <button
                                         type="button"
@@ -291,7 +291,7 @@ function ExamResultDetails({
                                         className="inline-flex items-center justify-center gap-2 rounded-2xl bg-black px-5 py-4 text-sm font-black text-white transition hover:bg-black/90"
                                     >
                                         <Sparkles size={17} />
-                                        Unbegrenzt — €19.99
+                                        Unbegrenzt — €29.99 (statt €49.99 · 40% sparen)
                                     </button>
                                 </div>
                             </div>
@@ -530,7 +530,7 @@ export function PassedExamsPage() {
                                             onClick={() => openCheckout("b1")}
                                             className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-black text-black"
                                         >
-                                            10 Prüfungen · €4.99
+                                            10 Prüfungen · €9.99 (statt €14.99 · 33% sparen)
                                             <ArrowRight size={17} />
                                         </button>
                                         <button
@@ -538,7 +538,7 @@ export function PassedExamsPage() {
                                             onClick={() => openCheckout("b1_unlimited")}
                                             className="inline-flex items-center justify-center gap-2 rounded-full border border-white px-6 py-3 text-sm font-black text-white"
                                         >
-                                            Unbegrenzt · €19.99
+                                            Unbegrenzt · €29.99 (statt €49.99 · 40% sparen)
                                             <ArrowRight size={17} />
                                         </button>
                                     </div>

@@ -119,7 +119,7 @@ const Settings = () => {
             return "Your free account includes 1 exam. The free exam is granted once and does not renew.";
         }
 
-        return "You have used your free exam. Choose 10 exams for €4.99 or unlimited exams for €19.99.";
+        return "You have used your free exam. Choose 10 exams for €9.99 or unlimited exams for €29.99.";
     })();
 
     const showLimitedPurchase =
@@ -366,13 +366,13 @@ const Settings = () => {
                                             10 Exams
                                         </p>
                                         <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                                            €4.99 one-time · 10 exams · 60 days
+                                            <span className="mr-2 line-through opacity-60">€14.99</span> €9.99 one-time · 10 exams · 60 days <span className="ml-2 rounded-full bg-green-100 px-2 py-1 font-semibold text-green-800 dark:bg-green-900/40 dark:text-green-300">Save 33%</span>
                                         </p>
                                         <a
                                             href={limitedPaymentUrl}
                                             className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-black bg-white px-4 py-2.5 text-sm font-semibold text-black transition hover:bg-black/5 dark:border-white dark:bg-black dark:text-white dark:hover:bg-white/10"
                                         >
-                                            Buy 10 exams — €4.99
+                                            Get 10 exams
                                             <ArrowRight />
                                         </a>
                                     </div>
@@ -384,13 +384,13 @@ const Settings = () => {
                                             Unlimited Exams
                                         </p>
                                         <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                                            €19.99 one-time · unlimited exams · 60 days
+                                            <span className="mr-2 line-through opacity-60">€49.99</span> €29.99 one-time · unlimited exams · 60 days <span className="ml-2 rounded-full bg-green-100 px-2 py-1 font-semibold text-green-800 dark:bg-green-900/40 dark:text-green-300">Save 40%</span>
                                         </p>
                                         <a
                                             href={unlimitedPaymentUrl}
                                             className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-black bg-black px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-black/90 dark:border-white dark:bg-white dark:text-black dark:hover:bg-white/90"
                                         >
-                                            {isB1 && !isExpired ? "Upgrade to unlimited — €19.99" : "Get unlimited — €19.99"}
+                                            {isB1 && !isExpired ? "Upgrade to unlimited" : "Get unlimited"}
                                             <ArrowRight />
                                         </a>
                                     </div>

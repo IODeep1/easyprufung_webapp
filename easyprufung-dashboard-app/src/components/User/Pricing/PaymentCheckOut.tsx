@@ -58,7 +58,7 @@ const PaymentCheckOut = () => {
         : null;
 
     const planName = isUnlimited ? "Unlimited Exams" : "10 Exams";
-    const planPrice = isUnlimited ? "€19.99" : "€4.99";
+    const planPrice = isUnlimited ? "€29.99" : "€9.99";
     const accessText = isUnlimited
         ? "Unlimited exams are active for your 60-day access period."
         : "Your 10-exam pack is active for your 60-day access period.";

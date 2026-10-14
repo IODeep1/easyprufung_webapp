@@ -212,7 +212,7 @@ export function StartPage({
                                             className="flex items-center justify-between rounded-xl border border-black bg-white px-4 py-3 text-left text-sm font-black text-black transition hover:bg-black/5"
                                         >
                                             <span>10 Prüfungen</span>
-                                            <span>€4.99</span>
+                                            <span className="flex flex-col items-end"><span className="text-xs line-through opacity-60">€14.99</span><span>€9.99</span><span className="text-xs text-green-600">Save 33%</span></span>
                                         </button>
 
                                         <button
@@ -221,7 +221,7 @@ export function StartPage({
                                             className="flex items-center justify-between rounded-xl bg-black px-4 py-3 text-left text-sm font-black text-white transition hover:bg-black/90"
                                         >
                                             <span>Unbegrenzt</span>
-                                            <span>€19.99</span>
+                                            <span className="flex flex-col items-end"><span className="text-xs line-through opacity-60">€49.99</span><span>€29.99</span><span className="text-xs text-green-300">Save 40%</span></span>
                                         </button>
                                     </div>
                                     <p className="mt-2 text-xs text-black/45">
