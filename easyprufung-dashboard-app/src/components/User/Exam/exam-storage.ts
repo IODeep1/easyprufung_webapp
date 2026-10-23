@@ -4,8 +4,8 @@ import type {
     ExamSessionView
 } from "./models/exam.ts";
 
-const ACTIVE_EXAM_PREFIX = "easyprufung:active-exam:v1:";
-const EXAM_PROGRESS_PREFIX = "easyprufung:exam-progress:v1:";
+const ACTIVE_EXAM_PREFIX = "smartpruefung:active-exam:v1:";
+const EXAM_PROGRESS_PREFIX = "smartpruefung:exam-progress:v1:";
 
 interface StoredActiveExam {
     version: 1;

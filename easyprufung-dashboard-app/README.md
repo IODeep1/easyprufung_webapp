@@ -1,1 +1,1 @@
-#EasyPrüfung website
+#SmartPrüfung website

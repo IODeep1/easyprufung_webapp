@@ -165,7 +165,7 @@ const Header: React.FC<HeaderProps> = ({
                     </div>
 
                     <span className="text-black dark:text-white">
-                        EasyPrüfung
+                        SmartPrüfung
                     </span>
                 </div>
             </div>

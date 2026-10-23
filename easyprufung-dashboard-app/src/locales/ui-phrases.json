@@ -53,11 +53,11 @@
     "ar": "الوصول إلى الامتحانات",
     "uk": "Доступ до іспитів"
   },
-  "Your current EasyPrüfung plan and remaining exams.": {
-    "de": "Dein aktueller EasyPrüfung-Tarif und verbleibende Prüfungen.",
-    "fr": "Votre formule EasyPrüfung actuelle et vos examens restants.",
-    "ar": "خطتك الحالية في EasyPrüfung والامتحانات المتبقية.",
-    "uk": "Ваш поточний план EasyPrüfung і залишок іспитів."
+  "Your current SmartPrüfung plan and remaining exams.": {
+    "de": "Dein aktueller SmartPrüfung-Tarif und verbleibende Prüfungen.",
+    "fr": "Votre formule SmartPrüfung actuelle et vos examens restants.",
+    "ar": "خطتك الحالية في SmartPrüfung والامتحانات المتبقية.",
+    "uk": "Ваш поточний план SmartPrüfung і залишок іспитів."
   },
   "Personal details": {
     "de": "Persönliche Angaben",
@@ -659,11 +659,11 @@
     "ar": "كلتا الباقتين المدفوعتين بدفعة واحدة وصالحتان لمدة 60 يومًا. لا يوجد اشتراك متكرر.",
     "uk": "Обидва платні плани оплачуються один раз і діють 60 днів. Без регулярної підписки."
   },
-  "EasyPrüfung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.": {
-    "de": "EasyPrüfung ist eine unabhängige Vorbereitungsplattform und weder mit telc gGmbH noch mit dem Goethe-Institut verbunden oder von ihnen unterstützt.",
-    "fr": "EasyPrüfung est une plateforme de préparation indépendante, sans affiliation ni approbation de telc gGmbH ou du Goethe-Institut.",
-    "ar": "EasyPrüfung منصة تحضير مستقلة لا تتبع شركة telc gGmbH أو معهد غوته ولا تحظى بتأييدهما.",
-    "uk": "EasyPrüfung — незалежна платформа підготовки, не пов’язана з telc gGmbH чи Goethe-Institut і не схвалена ними."
+  "SmartPrüfung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.": {
+    "de": "SmartPrüfung ist eine unabhängige Vorbereitungsplattform und weder mit telc gGmbH noch mit dem Goethe-Institut verbunden oder von ihnen unterstützt.",
+    "fr": "SmartPrüfung est une plateforme de préparation indépendante, sans affiliation ni approbation de telc gGmbH ou du Goethe-Institut.",
+    "ar": "SmartPrüfung منصة تحضير مستقلة لا تتبع شركة telc gGmbH أو معهد غوته ولا تحظى بتأييدهما.",
+    "uk": "SmartPrüfung — незалежна платформа підготовки, не пов’язана з telc gGmbH чи Goethe-Institut і не схвалена ними."
   },
   "Please do not close or refresh this page while it is loading.": {
     "de": "Bitte schließe oder aktualisiere diese Seite während des Ladens nicht.",
@@ -755,11 +755,11 @@
     "ar": "خصّص تدريبك على الامتحانات",
     "uk": "Налаштуйте підготовку до іспитів"
   },
-  "Tell us your current German level and exam goal so we can tailor your EasyPrüfung experience.": {
-    "de": "Teile uns dein Deutschniveau und Prüfungsziel mit, damit wir EasyPrüfung anpassen können.",
-    "fr": "Indiquez votre niveau d'allemand et votre objectif pour personnaliser EasyPrüfung.",
+  "Tell us your current German level and exam goal so we can tailor your SmartPrüfung experience.": {
+    "de": "Teile uns dein Deutschniveau und Prüfungsziel mit, damit wir SmartPrüfung anpassen können.",
+    "fr": "Indiquez votre niveau d'allemand et votre objectif pour personnaliser SmartPrüfung.",
     "ar": "أخبرنا بمستواك الحالي في الألمانية وهدفك لنخصص تجربتك.",
-    "uk": "Розкажіть про свій рівень німецької та мету, щоб ми налаштували EasyPrüfung."
+    "uk": "Розкажіть про свій рівень німецької та мету, щоб ми налаштували SmartPrüfung."
   },
   "Next": {
     "de": "Weiter",
@@ -845,11 +845,11 @@
     "ar": "أنشئ حسابك",
     "uk": "Створіть обліковий запис"
   },
-  "Join EasyPrüfung to prepare for German TELC and Goethe exams with realistic mock exams and AI-powered feedback.": {
-    "de": "Bereite dich mit EasyPrüfung durch realistische Probeprüfungen und KI-Feedback auf TELC- und Goethe-Prüfungen vor.",
-    "fr": "Rejoignez EasyPrüfung pour préparer les examens TELC et Goethe avec des examens blancs et des retours IA.",
-    "ar": "انضم إلى EasyPrüfung للتحضير لامتحانات TELC وغوته باختبارات تجريبية واقعية وملاحظات مدعومة بالذكاء الاصطناعي.",
-    "uk": "Приєднуйтеся до EasyPrüfung для підготовки до TELC і Goethe з реалістичними тестами та відгуками ШІ."
+  "Join SmartPrüfung to prepare for German TELC and Goethe exams with realistic mock exams and AI-powered feedback.": {
+    "de": "Bereite dich mit SmartPrüfung durch realistische Probeprüfungen und KI-Feedback auf TELC- und Goethe-Prüfungen vor.",
+    "fr": "Rejoignez SmartPrüfung pour préparer les examens TELC et Goethe avec des examens blancs et des retours IA.",
+    "ar": "انضم إلى SmartPrüfung للتحضير لامتحانات TELC وغوته باختبارات تجريبية واقعية وملاحظات مدعومة بالذكاء الاصطناعي.",
+    "uk": "Приєднуйтеся до SmartPrüfung для підготовки до TELC і Goethe з реалістичними тестами та відгуками ШІ."
   },
   "TELC Deutsch B1 available now": {
     "de": "TELC Deutsch B1 jetzt verfügbar",
@@ -1025,7 +1025,7 @@
     "ar": "استرداد رمزك",
     "uk": "Активувати код"
   },
-  "Enter your code to unlock EasyPrüfung exam-practice access or practice credits. Use them for realistic mock exams, AI evaluation, feedback, and explanations.": {
+  "Enter your code to unlock SmartPrüfung exam-practice access or practice credits. Use them for realistic mock exams, AI evaluation, feedback, and explanations.": {
     "de": "Gib deinen Code ein, um Zugang oder Übungsguthaben freizuschalten. Nutze es für realistische Probeprüfungen, KI-Bewertungen, Feedback und Erklärungen.",
     "fr": "Saisissez votre code pour débloquer l'accès ou des crédits. Utilisez-les pour les examens blancs, l'évaluation IA, les retours et les explications.",
     "ar": "أدخل رمزك لفتح الوصول إلى التدريب أو رصيد التدريب. استخدمه للاختبارات التجريبية والتقييم بالذكاء الاصطناعي والملاحظات والشروحات.",

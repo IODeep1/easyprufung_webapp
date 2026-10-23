@@ -49,7 +49,7 @@ i18n.on("languageChanged", (language) => {
 });
 
 ReactDOM.render(
-    <GoogleOAuthProvider clientId='69673562447-tf8a21hn4bv7is7er137d1lsj3kvlniq.apps.googleusercontent.com'>
+    <GoogleOAuthProvider clientId='1043535428900-78a6e5fcg3gvcj6rvlu52pfrebhmff41.apps.googleusercontent.com'>
         <Provider store={store}>
             <ThemeProvider>
                 <App />

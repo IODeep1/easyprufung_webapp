@@ -81,14 +81,14 @@ const Login = () => {
                 {/* Logo & Brand */}
                 <div className="flex items-center justify-center gap-3 pb-12">
                     <img
-                        alt="EasyPrüfung logo"
+                        alt="SmartPrüfung logo"
                         width="64"
                         height="64"
                         src={Logo}
                         className="h-12 w-12 rounded-md"
                     />
                     <span className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
-        EasyPrüfung
+        SmartPrüfung
       </span>
                 </div>
 
@@ -236,13 +236,13 @@ const Login = () => {
                 <div className="mt-10 text-center text-xs text-gray-600 dark:text-gray-400">
                     Practice in a familiar environment. Build confidence. Be ready for the real exam. Need help?{" "}
                     <a
-                        href="http://easyprufung.com/contact"
+                        href="http://smartpruefung.com/contact"
                         className="font-semibold text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
                     >
                         Contact support
                     </a>
                     .
-                    <div className="mt-2">EasyPrüfung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.</div>
+                    <div className="mt-2">SmartPrüfung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.</div>
                 </div>
             </div>
         </section>

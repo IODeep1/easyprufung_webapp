@@ -140,7 +140,7 @@ const Registration = () => {
                         className="inline-flex items-center text-2xl font-semibold text-gray-900 dark:text-white"
                     >
                         <img alt="logo" width="44" height="44" src={Logo} className="mr-2 rounded-md" />
-                        <span>EasyPrüfung</span>
+                        <span>SmartPrüfung</span>
                     </Link>
                 </div>
 
@@ -151,7 +151,7 @@ const Registration = () => {
                             Create your account
                         </h1>
                         <p className="mt-4 text-sm text-gray-700 dark:text-gray-300">
-                            Join EasyPrüfung to prepare for German TELC and Goethe exams with realistic mock exams and AI-powered feedback.
+                            Join SmartPrüfung to prepare for German TELC and Goethe exams with realistic mock exams and AI-powered feedback.
                         </p>
 
                         <div className="mt-8 space-y-3">
@@ -284,7 +284,7 @@ const Registration = () => {
                                     {/* reCAPTCHA */}
                                     <div className="flex justify-end">
                                         <ReCAPTCHA
-                                            sitekey="6LcEq9UtAAAAAIMS8OZ8SLinOvMm1ePEO-k9GAAQ"
+                                            sitekey="6LfcwvwtAAAAAANH8aw5JEhmFfOdBJdSxHqkgCN4"
                                             onChange={onCaptchaChange}
                                         />
                                     </div>
@@ -331,7 +331,7 @@ const Registration = () => {
             </div>
 
             <div className="relative z-10 px-6 pb-6 text-center text-xs text-gray-500 dark:text-gray-400">
-                EasyPrüfung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.
+                SmartPrüfung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.
             </div>
             {loading && <Loading text={loadingMessage} />}
         </section>

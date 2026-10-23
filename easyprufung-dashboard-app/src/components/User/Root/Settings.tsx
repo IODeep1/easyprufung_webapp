@@ -321,7 +321,7 @@ const Settings = () => {
                             <div>
                                 <h2 className="text-xl font-bold">Exam access</h2>
                                 <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                                    Your current EasyPrüfung plan and remaining exams.
+                                    Your current SmartPrüfung plan and remaining exams.
                                 </p>
                             </div>
 
@@ -580,7 +580,7 @@ const Settings = () => {
                         <div className="w-full max-w-lg rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-black shadow-2xl overflow-hidden">
                             <div className="h-1 w-full bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600" />
                             <div className="flex items-center justify-between px-6 py-4 border-b border-black/10 dark:border-white/10">
-                                <h3 className="text-lg font-semibold">EasyPrüfung</h3>
+                                <h3 className="text-lg font-semibold">SmartPrüfung</h3>
                                 <button
                                     type="button"
                                     onClick={() => setPopup(false)}

@@ -205,7 +205,7 @@ const Pricing = () => {
                             Both paid plans are one-time payments valid for 60 days. No recurring subscription.
                         </p>
                         <p className="mt-3 text-center text-xs text-neutral-500 dark:text-neutral-500">
-                            EasyPrüfung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.
+                            SmartPrüfung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.
                         </p>
                     </div>
                 </Container>
