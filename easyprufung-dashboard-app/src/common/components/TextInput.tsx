@@ -16,7 +16,7 @@ function TextInput(props: TextInputTypes): JSX.Element {
 
         if (!error) {
             [error, validClass] = (props.maxLength && elementValue && elementValue.length > (props.maxLength)) ?
-                [`Value can't have more than ${props.maxLength} characters`, "is-invalid"] : ["", "is-valid"];
+                [t("max_length_error", { count: props.maxLength, defaultValue: `Value can't have more than ${props.maxLength} characters` }), "is-invalid"] : ["", "is-valid"];
         }
 
         props.onChange({ value: elementValue, error: error, touched: touched, field: props.field });

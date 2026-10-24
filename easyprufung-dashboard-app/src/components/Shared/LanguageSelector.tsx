@@ -20,6 +20,7 @@ export default function LanguageSelector() {
         <option value="fr">Français</option>
         <option value="ar">العربية</option>
         <option value="uk">Українська</option>
+        <option value="tr">Türkçe</option>
       </select>
     </div>
   );

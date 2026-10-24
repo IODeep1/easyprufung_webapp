@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import React, { Dispatch, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { requestGetUser } from "../../../api/user/api-helper.ts";
@@ -7,6 +8,7 @@ import { IStateType } from "../../../store/models/root.interface";
 import { IUserAccount } from "../../../store/models/user/userAccount.interface";
 
 const PaymentCheckOut = () => {
+    const { t, i18n } = useTranslation();
     const navigate = useNavigate();
     const dispatch: Dispatch<any> = useDispatch();
 
@@ -50,7 +52,7 @@ const PaymentCheckOut = () => {
     }, [dispatch]);
 
     const formattedEndDate = accessEndDate
-        ? new Intl.DateTimeFormat(undefined, {
+        ? new Intl.DateTimeFormat(i18n.resolvedLanguage || i18n.language, {
               year: "numeric",
               month: "short",
               day: "numeric",
@@ -87,7 +89,7 @@ const PaymentCheckOut = () => {
                     <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
                         <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:ring-blue-800">
                             {isKnownPaidPlan
-                                ? `TELC B1 · ${planName} · ${planPrice}`
+                                ? t("purchase_label", { plan: i18n.language === "tr" ? (isUnlimited ? "Sınırsız sınav" : "10 sınav") : planName, price: planPrice, defaultValue: "TELC B1 · {{plan}} · {{price}}" })
                                 : "TELC B1 · Activating purchase"}
                         </span>
                         <span className="inline-flex items-center rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700 ring-1 ring-inset ring-green-200 dark:bg-green-900/30 dark:text-green-300 dark:ring-green-800">
@@ -99,7 +101,7 @@ const PaymentCheckOut = () => {
                         </span>
                         <span className="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-700 ring-1 ring-inset ring-neutral-200 dark:bg-neutral-900 dark:text-neutral-300 dark:ring-neutral-800">
                             {formattedEndDate
-                                ? `Access until ${formattedEndDate}`
+                                ? t("access_until", { date: formattedEndDate, defaultValue: "Access until {{date}}" })
                                 : "60 days of access"}
                         </span>
                     </div>

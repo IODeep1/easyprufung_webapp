@@ -12,12 +12,13 @@ import translationFr from "./locales/fr/translation.json";
 import translationDe from "./locales/de/translation.json";
 import translationAr from "./locales/ar/translation.json";
 import translationUk from "./locales/uk/translation.json";
+import translationTr from "./locales/tr/translation.json";
 import {ThemeProvider} from "./hooks/useColorMode";
 
-const supportedLanguages = ["en", "de", "fr", "ar", "uk"];
+const supportedLanguages = ["en", "de", "fr", "ar", "uk", "tr"];
 const incomingLng = new URLSearchParams(window.location.search).get("lang")?.toLowerCase().split("-")[0];
-const storedLng = localStorage.getItem("current_language")?.split("-")[0];
-const browserLng = navigator.language.split("-")[0];
+const storedLng = localStorage.getItem("current_language")?.toLowerCase().split("-")[0];
+const browserLng = navigator.language.toLowerCase().split("-")[0];
 const initialLng = supportedLanguages.includes(incomingLng || "")
     ? incomingLng!
     : supportedLanguages.includes(storedLng || "")
@@ -31,6 +32,7 @@ i18n.use(initReactI18next).init({
         fr: { translation: translationFr },
         ar: { translation: translationAr },
         uk: { translation: translationUk },
+        tr: { translation: translationTr },
     },
     lng: initialLng,
     supportedLngs: supportedLanguages,

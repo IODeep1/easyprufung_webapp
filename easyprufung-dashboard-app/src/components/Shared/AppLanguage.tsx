@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import phrases from "../../locales/ui-phrases.json";
 import examPhrases from "../../locales/exam-ui.json";
 
-type Language = "en" | "de" | "fr" | "ar" | "uk";
+type Language = "en" | "de" | "fr" | "ar" | "uk" | "tr";
 const dictionary = phrases as Record<string, Partial<Record<Language, string>>>;
 type TextRecord = { source: string; displayed: string };
 const texts = new WeakMap<Text, TextRecord>();
@@ -14,6 +14,12 @@ function translate(source: string, lang: Language): string {
   const trimmed = source.trim();
   const normalized = trimmed.replace(/\s+/g, " ");
   const examDictionary = examPhrases as Record<string, Partial<Record<Language, string>>>;
+  if (lang === "tr") {
+    const remaining = normalized.match(/^(\d+) exams? remaining$/);
+    if (remaining) return source.replace(trimmed, `${remaining[1]} sınav kaldı`);
+    const exams = normalized.match(/^(\d+) exams?$/);
+    if (exams) return source.replace(trimmed, `${exams[1]} sınav`);
+  }
   const mapped = examDictionary[normalized]?.[lang] || (lang === "en" ? undefined : (dictionary[trimmed]?.[lang] || dictionary[normalized]?.[lang]));
   return mapped ? source.replace(trimmed, mapped) : source;
 }

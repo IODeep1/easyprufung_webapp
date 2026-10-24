@@ -30,7 +30,7 @@ const ArrowRight = ({ className = "h-4 w-4" }) => (
 
 const Settings = () => {
     const dispatch: Dispatch<any> = useDispatch();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const currentUser: IUser | undefined = useSelector(
         (state: IStateType) => state.userAccount.user
@@ -67,7 +67,7 @@ const Settings = () => {
         isPastEndDate;
 
     const formattedEndDate = hasValidEndDate && endDate
-        ? new Intl.DateTimeFormat(undefined, {
+        ? new Intl.DateTimeFormat(i18n.resolvedLanguage || i18n.language, {
             year: "numeric",
             month: "short",
             day: "numeric",
@@ -90,7 +90,7 @@ const Settings = () => {
                 return "Your tester access has expired.";
             }
             return formattedEndDate
-                ? `Tester access is active until ${formattedEndDate}.`
+                ? t("access_tester_until", { date: formattedEndDate, defaultValue: "Tester access is active until {{date}}." })
                 : "Tester access is active.";
         }
 
@@ -99,7 +99,7 @@ const Settings = () => {
                 return "Your unlimited TELC B1 access has expired. Choose a new 60-day pass to continue practicing.";
             }
             return formattedEndDate
-                ? `Unlimited TELC B1 exams are active until ${formattedEndDate}.`
+                ? t("access_unlimited_until", { date: formattedEndDate, defaultValue: "Unlimited TELC B1 exams are active until {{date}}." })
                 : "Unlimited TELC B1 exams are active.";
         }
 
@@ -111,8 +111,8 @@ const Settings = () => {
                 return "You have used all 10 exams. Buy another 10-exam pack or switch to unlimited access.";
             }
             return formattedEndDate
-                ? `Your 10-exam pass is active until ${formattedEndDate}. ${availableQuota} exams remain.`
-                : `Your 10-exam pass is active. ${availableQuota} exams remain.`;
+                ? t("access_limited_until", { date: formattedEndDate, count: availableQuota, defaultValue: "Your 10-exam pass is active until {{date}}. {{count}} exams remain." })
+                : t("access_limited_remaining", { count: availableQuota, defaultValue: "Your 10-exam pass is active. {{count}} exams remain." });
         }
 
         if (availableQuota > 0) {
