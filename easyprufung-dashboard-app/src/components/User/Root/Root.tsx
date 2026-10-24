@@ -1,3 +1,6 @@
+import { useSelector } from "react-redux";
+import { IStateType } from "../../../store/models/root.interface";
+import AcquisitionOnboarding from "../Onboarding/AcquisitionOnboarding";
 import React, {Fragment, useState} from "react";
 import { Routes, Route } from "react-router";
 import NotFound from "../../Shared/NotFound";
@@ -51,6 +54,10 @@ const Root: React.FC = () => {
         ExecuteIntercom()
             .catch(console.error);
     }, [account.user]);*/
+
+    const user = useSelector((state: IStateType) => state.userAccount.user);
+    // Only explicitly incomplete accounts are gated; older accounts remain unaffected.
+    if (user?.acquisitionOnboardingCompleted === false) return <AcquisitionOnboarding />;
 
     return (
         <Fragment>

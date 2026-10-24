@@ -62,7 +62,7 @@
   "footer_followus": "Follow us",
   "copy_right": "SmartPrüfung. All rights reserved.",
   "settings_language_title": "App-Sprache",
-  "settings_language_hint": "Wähle die Sprache der App. Prüfungen bleiben immer auf Deutsch.",
+  "settings_language_hint": "Wähle deine bevorzugte Sprache. Änderungen werden in deinem Konto gespeichert. Prüfungen bleiben immer auf Deutsch.",
   "examPreparation": {
     "personal": "Ihre persönliche Prüfung",
     "title": "Wir bereiten Ihre Prüfung vor.",
@@ -86,5 +86,29 @@
   },
   "dropdown_user_account_menu": "Kontomenü",
   "dropdown_user_settings": "Einstellungen",
-  "dropdown_user_logout": "Abmelden"
+  "dropdown_user_logout": "Abmelden",
+  "registration_language_hint": "Wähle deine bevorzugte Sprache. Wir speichern sie bei der Registrierung in deinem Konto.",
+  "preferences_saving": "Sprache wird gespeichert…",
+  "preferences_saved": "Sprache gespeichert.",
+  "preferences_error": "Deine Sprache konnte nicht gespeichert werden. Bitte versuche es erneut.",
+  "acquisition_welcome": "Willkommen bei SmartPrüfung",
+  "acquisition_question": "Wie hast du von uns erfahren?",
+  "acquisition_hint": "Wähle eine Option, damit wir verstehen, wie du SmartPrüfung gefunden hast.",
+  "acquisition_continue": "Weiter",
+  "acquisition_saving": "Wird gespeichert…",
+  "acquisition_error": "Deine Antwort konnte nicht gespeichert werden. Bitte versuche es erneut.",
+  "acquisition_sources": {
+    "google": "Google",
+    "youtube": "YouTube",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "reddit": "Reddit",
+    "x": "X (Twitter)",
+    "linkedin": "LinkedIn",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "discord": "Discord",
+    "other": "Sonstiges"
+  }
 }

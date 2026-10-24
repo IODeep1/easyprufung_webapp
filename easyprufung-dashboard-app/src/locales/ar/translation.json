@@ -62,7 +62,7 @@
   "footer_followus": "تابعنا",
   "copy_right": "SmartPrüfung. جميع الحقوق محفوظة.",
   "settings_language_title": "لغة التطبيق",
-  "settings_language_hint": "اختر اللغة المستخدمة في التطبيق. تبقى الامتحانات باللغة الألمانية دائمًا.",
+  "settings_language_hint": "اختر لغتك المفضلة. تُحفظ التغييرات في حسابك. تبقى الامتحانات دائماً باللغة الألمانية.",
   "examPreparation": {
     "personal": "امتحانك الشخصي",
     "title": "نُحضّر امتحانك.",
@@ -86,5 +86,29 @@
   },
   "dropdown_user_account_menu": "قائمة الحساب",
   "dropdown_user_settings": "الإعدادات",
-  "dropdown_user_logout": "تسجيل الخروج"
+  "dropdown_user_logout": "تسجيل الخروج",
+  "registration_language_hint": "اختر لغتك المفضلة. سنحفظها في حسابك عند التسجيل.",
+  "preferences_saving": "جارٍ حفظ اللغة…",
+  "preferences_saved": "تم حفظ اللغة.",
+  "preferences_error": "تعذّر حفظ لغتك. يُرجى المحاولة مرة أخرى.",
+  "acquisition_welcome": "مرحباً بك في SmartPrüfung",
+  "acquisition_question": "كيف سمعت عنا؟",
+  "acquisition_hint": "اختر خياراً واحداً لمساعدتنا في معرفة كيف اكتشفت SmartPrüfung.",
+  "acquisition_continue": "متابعة",
+  "acquisition_saving": "جارٍ الحفظ…",
+  "acquisition_error": "تعذّر حفظ إجابتك. يُرجى المحاولة مرة أخرى.",
+  "acquisition_sources": {
+    "google": "Google",
+    "youtube": "YouTube",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "reddit": "Reddit",
+    "x": "X (Twitter)",
+    "linkedin": "LinkedIn",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "discord": "Discord",
+    "other": "أخرى"
+  }
 }

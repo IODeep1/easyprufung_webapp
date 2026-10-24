@@ -13,17 +13,19 @@ import translationDe from "./locales/de/translation.json";
 import translationAr from "./locales/ar/translation.json";
 import translationUk from "./locales/uk/translation.json";
 import translationTr from "./locales/tr/translation.json";
+import { supportedLanguages, normalizeLanguage } from "./localization/languages";
 import {ThemeProvider} from "./hooks/useColorMode";
 
-const supportedLanguages = ["en", "de", "fr", "ar", "uk", "tr"];
-const incomingLng = new URLSearchParams(window.location.search).get("lang")?.toLowerCase().split("-")[0];
-const storedLng = localStorage.getItem("current_language")?.toLowerCase().split("-")[0];
-const browserLng = navigator.language.toLowerCase().split("-")[0];
-const initialLng = supportedLanguages.includes(incomingLng || "")
-    ? incomingLng!
-    : supportedLanguages.includes(storedLng || "")
-    ? storedLng!
-    : supportedLanguages.includes(browserLng) ? browserLng : "en";
+// Account preferences take priority for a restored authenticated session.
+let accountLanguage: ReturnType<typeof normalizeLanguage>;
+try {
+    const cachedUser = JSON.parse(localStorage.getItem("user-data") || "null");
+    if (localStorage.getItem("access-token")) accountLanguage = normalizeLanguage(cachedUser?.preferredLanguage);
+} catch { /* Anonymous visitors use URL, local preference or browser language. */ }
+const incomingLng = normalizeLanguage(new URLSearchParams(window.location.search).get("lang"));
+const storedLng = normalizeLanguage(localStorage.getItem("current_language"));
+const browserLng = normalizeLanguage(navigator.language);
+const initialLng = accountLanguage || incomingLng || storedLng || browserLng || "en";
 
 i18n.use(initReactI18next).init({
     resources: {
@@ -35,13 +37,13 @@ i18n.use(initReactI18next).init({
         tr: { translation: translationTr },
     },
     lng: initialLng,
-    supportedLngs: supportedLanguages,
+    supportedLngs: [...supportedLanguages],
     fallbackLng: "en",
     interpolation: { escapeValue: false },
     react: { useSuspense: false },
 });
 // A website language handoff should survive navigation and future visits.
-if (incomingLng && supportedLanguages.includes(incomingLng)) localStorage.setItem("current_language", incomingLng);
+if (incomingLng && !accountLanguage) localStorage.setItem("current_language", incomingLng);
 document.documentElement.lang = initialLng;
 document.documentElement.dir = initialLng === "ar" ? "rtl" : "ltr";
 i18n.on("languageChanged", (language) => {

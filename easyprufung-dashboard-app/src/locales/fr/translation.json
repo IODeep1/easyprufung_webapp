@@ -62,7 +62,7 @@
   "footer_followus": "Follow us",
   "copy_right": "SmartPrüfung. All rights reserved.",
   "settings_language_title": "Langue de l’application",
-  "settings_language_hint": "Choisissez la langue de l’application. Les examens restent toujours en allemand.",
+  "settings_language_hint": "Choisissez votre langue préférée. Les modifications sont enregistrées dans votre compte. Les examens restent toujours en allemand.",
   "examPreparation": {
     "personal": "Votre examen personnel",
     "title": "Nous préparons votre examen.",
@@ -86,5 +86,29 @@
   },
   "dropdown_user_account_menu": "Menu du compte",
   "dropdown_user_settings": "Paramètres",
-  "dropdown_user_logout": "Se déconnecter"
+  "dropdown_user_logout": "Se déconnecter",
+  "registration_language_hint": "Choisissez votre langue préférée. Elle sera enregistrée dans votre compte lors de votre inscription.",
+  "preferences_saving": "Enregistrement de la langue…",
+  "preferences_saved": "Langue enregistrée.",
+  "preferences_error": "Impossible d’enregistrer votre langue. Veuillez réessayer.",
+  "acquisition_welcome": "Bienvenue sur SmartPrüfung",
+  "acquisition_question": "Comment avez-vous entendu parler de nous ?",
+  "acquisition_hint": "Choisissez une option pour nous aider à comprendre comment vous avez découvert SmartPrüfung.",
+  "acquisition_continue": "Continuer",
+  "acquisition_saving": "Enregistrement…",
+  "acquisition_error": "Impossible d’enregistrer votre réponse. Veuillez réessayer.",
+  "acquisition_sources": {
+    "google": "Google",
+    "youtube": "YouTube",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "reddit": "Reddit",
+    "x": "X (Twitter)",
+    "linkedin": "LinkedIn",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "discord": "Discord",
+    "other": "Autre"
+  }
 }

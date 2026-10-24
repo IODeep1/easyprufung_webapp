@@ -1,4 +1,5 @@
 import React from "react";
+import UserLanguagePreference from "./components/Shared/UserLanguagePreference";
 import AppLanguage from "./components/Shared/AppLanguage";
 import { BrowserRouter as Router, Routes } from "react-router-dom";
 import {Route} from "react-router";
@@ -13,6 +14,7 @@ const App: React.FC = () => {
   return (
       <div className="App dark:bg-gray-900" id="wrapper">
           <AppLanguage />
+          <UserLanguagePreference />
           <Router>
               <Routes>
                   <Route path="*"

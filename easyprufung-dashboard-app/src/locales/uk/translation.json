@@ -62,7 +62,7 @@
   "footer_followus": "Слідкуйте за нами",
   "copy_right": "SmartPrüfung. Усі права захищено.",
   "settings_language_title": "Мова застосунку",
-  "settings_language_hint": "Оберіть мову застосунку. Іспити завжди залишаються німецькою.",
+  "settings_language_hint": "Виберіть бажану мову. Зміни зберігаються у вашому обліковому записі. Іспити завжди залишаються німецькою.",
   "examPreparation": {
     "personal": "Ваш персональний іспит",
     "title": "Ми готуємо ваш іспит.",
@@ -86,5 +86,29 @@
   },
   "dropdown_user_account_menu": "Меню облікового запису",
   "dropdown_user_settings": "Налаштування",
-  "dropdown_user_logout": "Вийти з облікового запису"
+  "dropdown_user_logout": "Вийти з облікового запису",
+  "registration_language_hint": "Виберіть бажану мову. Ми збережемо її у вашому обліковому записі під час реєстрації.",
+  "preferences_saving": "Збереження мови…",
+  "preferences_saved": "Мову збережено.",
+  "preferences_error": "Не вдалося зберегти мову. Спробуйте ще раз.",
+  "acquisition_welcome": "Ласкаво просимо до SmartPrüfung",
+  "acquisition_question": "Звідки ви дізналися про нас?",
+  "acquisition_hint": "Виберіть один варіант, щоб допомогти нам зрозуміти, як ви знайшли SmartPrüfung.",
+  "acquisition_continue": "Продовжити",
+  "acquisition_saving": "Збереження…",
+  "acquisition_error": "Не вдалося зберегти відповідь. Спробуйте ще раз.",
+  "acquisition_sources": {
+    "google": "Google",
+    "youtube": "YouTube",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "reddit": "Reddit",
+    "x": "X (Twitter)",
+    "linkedin": "LinkedIn",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "discord": "Discord",
+    "other": "Інше"
+  }
 }

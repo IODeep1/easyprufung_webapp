@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import React, {useState, Dispatch} from "react";
 import { useGoogleLogin } from '@react-oauth/google';
 import {authenticateGoogleUser} from "../../../api/user/api-helper";
@@ -8,6 +9,7 @@ import {useNavigate} from "react-router-dom";
 
 
 const GoogleLoginButton = () => {
+    const { i18n } = useTranslation();
     const dispatch: Dispatch<any> = useDispatch();
     let navigate = useNavigate();
     const [loading, setLoading] = useState(false);
@@ -17,7 +19,7 @@ const GoogleLoginButton = () => {
         onSuccess: async tokenResponse => {
             setLoadingMessage("Connecting...");
             setLoading(true);
-            let user = await  authenticateGoogleUser(tokenResponse.access_token);
+            let user = await  authenticateGoogleUser(tokenResponse.access_token, i18n.resolvedLanguage || i18n.language);
             if(user !== null && user !== undefined){
                 dispatch(login(user));
                 navigate("/");

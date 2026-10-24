@@ -62,7 +62,7 @@
   "footer_followus": "Bizi takip edin",
   "copy_right": "SmartPrüfung. Tüm hakları saklıdır.",
   "settings_language_title": "Uygulama dili",
-  "settings_language_hint": "Uygulama genelinde kullanılan dili seçin. Sınavlar her zaman Almanca kalır.",
+  "settings_language_hint": "Tercih ettiğiniz dili seçin. Değişiklikler hesabınıza kaydedilir. Sınavlar her zaman Almanca kalır.",
   "examPreparation": {
     "personal": "Kişisel sınavınız",
     "title": "Sınavınızı hazırlıyoruz.",
@@ -95,5 +95,29 @@
   "access_limited_until": "10 sınavlık paketiniz {{date}} tarihine kadar etkin. {{count}} sınav kaldı.",
   "access_limited_remaining": "10 sınavlık paketiniz etkin. {{count}} sınav kaldı.",
   "access_until": "Erişim bitiş tarihi: {{date}}",
-  "purchase_label": "TELC B1 · {{plan}} · {{price}}"
+  "purchase_label": "TELC B1 · {{plan}} · {{price}}",
+  "registration_language_hint": "Tercih ettiğiniz dili seçin. Kayıt olduğunuzda bu dili hesabınıza kaydedeceğiz.",
+  "preferences_saving": "Dil kaydediliyor…",
+  "preferences_saved": "Dil kaydedildi.",
+  "preferences_error": "Diliniz kaydedilemedi. Lütfen tekrar deneyin.",
+  "acquisition_welcome": "SmartPrüfung’a hoş geldiniz",
+  "acquisition_question": "Bizi nereden duydunuz?",
+  "acquisition_hint": "SmartPrüfung’u nasıl keşfettiğinizi anlamamıza yardımcı olmak için bir seçenek seçin.",
+  "acquisition_continue": "Devam et",
+  "acquisition_saving": "Kaydediliyor…",
+  "acquisition_error": "Yanıtınız kaydedilemedi. Lütfen tekrar deneyin.",
+  "acquisition_sources": {
+    "google": "Google",
+    "youtube": "YouTube",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "reddit": "Reddit",
+    "x": "X (Twitter)",
+    "linkedin": "LinkedIn",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "discord": "Discord",
+    "other": "Diğer"
+  }
 }
