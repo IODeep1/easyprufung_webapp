@@ -1,7 +1,7 @@
 import ExamLanguageLock from "./ExamLanguageLock";
 import { useTranslation } from "react-i18next";
 import { AlertCircle, RotateCcw } from "lucide-react";
-import {Dispatch, useEffect, useState} from "react";
+import {Dispatch, useEffect, useRef, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import { startExamSession, submitExamSession } from "../../../api/exam/api-helper";
 import type { IStateType } from "../../../store/models/root.interface.ts";
@@ -21,6 +21,9 @@ import {requestGetUser} from "../../../api/user/api-helper.ts";
 import {updateUser} from "../../../store/actions/user/userAccount.actions.ts";
 
 type Screen = "start" | "loading" | "exam" | "result" | "error";
+
+const FAST_PREPARATION_DURATION_MS = 10 * 1000;
+const NORMAL_PREPARATION_DURATION_MS = 90 * 1000;
 
 export default function MainExamPage() {
     const { t } = useTranslation();
@@ -43,6 +46,8 @@ export default function MainExamPage() {
     const [result, setResult] = useState<ExamResultView | null>(
         initialActiveExam?.result ?? null
     );
+    const [preparationStartedAt, setPreparationStartedAt] = useState<number | undefined>();
+    const [preparationDurationMs, setPreparationDurationMs] = useState(NORMAL_PREPARATION_DURATION_MS);
     const [error, setError] = useState<string | null>(null);
     const [sessionUserId, setSessionUserId] = useState<string | null>(
         initialActiveExam?.userId ?? null
@@ -97,11 +102,61 @@ export default function MainExamPage() {
         currentUserId
     ]);
 
+    // Invalidate pending work when the account changes or this page unmounts.
+    const preparationRun = useRef(0);
+    const preparationDelay = useRef<{
+        timer: number;
+        resolve: () => void;
+    } | null>(null);
+
+    useEffect(() => {
+        return () => {
+            preparationRun.current += 1;
+            const pending = preparationDelay.current;
+            preparationDelay.current = null;
+            if (pending) {
+                window.clearTimeout(pending.timer);
+                pending.resolve();
+            }
+        };
+    }, [currentUserId]);
+
     const start = async (request: StartExamRequest) => {
+        const run = ++preparationRun.current;
+        const previousDelay = preparationDelay.current;
+        preparationDelay.current = null;
+        if (previousDelay) {
+            window.clearTimeout(previousDelay.timer);
+            previousDelay.resolve();
+        }
+        const startedAt = performance.now();
+        setPreparationStartedAt(startedAt);
+        setPreparationDurationMs(NORMAL_PREPARATION_DURATION_MS);
         setScreen("loading");
         setError(null);
         try {
             const created = await startExamSession(request);
+            if (run !== preparationRun.current) return;
+
+            const responseTime = performance.now() - startedAt;
+            // A quick response shortens the TOTAL preparation to 10 seconds.
+            // A later response keeps the TOTAL preparation at 90 seconds.
+            const duration = responseTime <= FAST_PREPARATION_DURATION_MS
+                ? FAST_PREPARATION_DURATION_MS
+                : NORMAL_PREPARATION_DURATION_MS;
+            setPreparationDurationMs(duration);
+            const remaining = Math.max(0, duration - (performance.now() - startedAt));
+            if (remaining > 0) {
+                await new Promise<void>((resolve) => {
+                    const timer = window.setTimeout(() => {
+                        preparationDelay.current = null;
+                        resolve();
+                    }, remaining);
+                    preparationDelay.current = { timer, resolve };
+                });
+            }
+            if (run !== preparationRun.current) return;
+
             setSessionUserId(request.userId);
             setSession(created);
             setResult(null);
@@ -115,6 +170,7 @@ export default function MainExamPage() {
 
             setScreen("exam");
         } catch (cause) {
+            if (run !== preparationRun.current) return;
             setError(cause instanceof Error ? cause.message : "Die Prüfung konnte nicht erstellt werden.");
             setScreen("error");
         }
@@ -166,7 +222,11 @@ export default function MainExamPage() {
     };
 
     if (screen === "loading") {
-        return <LoadingScreen message={t("examPreparation.loadingMessage")} />;
+        return <LoadingScreen
+            message={t("examPreparation.loadingMessage")}
+            durationMs={preparationDurationMs}
+            startedAt={preparationStartedAt}
+        />;
     }
     if (screen === "exam" && session) {
         return <ExamLanguageLock><ExamRunnerPage session={session} onSubmit={submit} /></ExamLanguageLock>;

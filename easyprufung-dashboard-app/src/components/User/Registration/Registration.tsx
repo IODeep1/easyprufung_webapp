@@ -12,7 +12,6 @@ import GoogleLoginButton from "../Login/GoogleLoginButton";
 import { IUserAccount } from "../../../store/models/user/userAccount.interface";
 import { IStateType } from "../../../store/models/root.interface";
 import { login } from "../../../store/actions/user/userAccount.actions";
-import LanguageSelector from "../../Shared/LanguageSelector";
 import Loading from "../../Shared/Loading";
 
 const Registration = () => {
@@ -190,7 +189,6 @@ const Registration = () => {
                         <div className="w-full max-w-lg md:ml-auto rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-black/60 backdrop-blur-xl shadow-xl overflow-hidden">
                             <div className="h-1 w-full bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600" />
                             <div className="p-6 sm:p-8">
-                                <LanguageSelector registration />
                                 <h2 className="text-2xl font-bold">Sign up</h2>
                                 <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                                     Use Google or your email to get started.

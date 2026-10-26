@@ -1,4 +1,3 @@
-
 import {
     AlertCircle,
     ArrowLeft,
@@ -7,7 +6,7 @@ import {
     LoaderCircle,
     X
 } from "lucide-react";
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import type { ExerciseView } from "../models/exam.ts";
@@ -223,7 +222,7 @@ export function BottomNavigation(props: BottomNavigationProps) {
     );
 }
 
-const EXAM_PREPARATION_DURATION_MS = 90 * 1000;
+const DEFAULT_PREPARATION_DURATION_MS = 90 * 1000;
 
 const preparationSteps = [
     "Leseverstehen Teil 1",
@@ -252,26 +251,32 @@ function formatRemainingTime(milliseconds: number): string {
 }
 
 export function LoadingScreen({
-                                  message
+                                  message,
+                                  durationMs = DEFAULT_PREPARATION_DURATION_MS,
+                                  startedAt
                               }: {
     message: string;
+    durationMs?: number;
+    startedAt?: number;
 }) {
     const { t, i18n } = useTranslation();
     const isArabic = i18n.language.startsWith("ar");
     const [elapsedTime, setElapsedTime] = useState(0);
 
     useEffect(() => {
-        const startedAt = Date.now();
-
-        const interval = window.setInterval(() => {
-            setElapsedTime(Date.now() - startedAt);
-        }, 250);
-
+        // The parent and animation share one clock. Shortening the duration
+        // after a quick response must not restart the preparation timer.
+        const startTime = startedAt ?? performance.now();
+        const updateElapsedTime = () => {
+            setElapsedTime(Math.max(0, performance.now() - startTime));
+        };
+        updateElapsedTime();
+        const interval = window.setInterval(updateElapsedTime, 100);
         return () => window.clearInterval(interval);
-    }, []);
+    }, [startedAt]);
 
     const realProgress =
-        (elapsedTime / EXAM_PREPARATION_DURATION_MS) * 100;
+        (elapsedTime / durationMs) * 100;
 
     /*
      * Keep the progress below 100% until the backend request
@@ -288,11 +293,11 @@ export function LoadingScreen({
 
     const remainingTime = Math.max(
         0,
-        EXAM_PREPARATION_DURATION_MS - elapsedTime
+        durationMs - elapsedTime
     );
 
     const almostFinished =
-        elapsedTime >= EXAM_PREPARATION_DURATION_MS;
+        elapsedTime >= durationMs;
 
     return (
         <main lang={i18n.language} dir={isArabic ? "rtl" : "ltr"} className="min-h-screen bg-white px-5 py-10 text-black sm:px-8">
@@ -358,8 +363,7 @@ export function LoadingScreen({
                         {preparationSteps.map((step, index) => {
                             const completed = index < currentStepIndex;
                             const active =
-                                index === currentStepIndex &&
-                                !almostFinished;
+                                index === currentStepIndex;
 
                             return (
                                 <div
