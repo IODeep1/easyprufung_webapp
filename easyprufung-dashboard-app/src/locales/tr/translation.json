@@ -156,5 +156,20 @@
         "HOERVERSTEHEN": "Dinlediğini anlama",
         "SCHRIFTLICHER_AUSDRUCK": "Yazılı anlatım"
     }
+},
+  "certificateShare": {
+    "open": "Deneme sınavı belgesini aç",
+    "title": "Deneme sınavı belgesi",
+    "close": "Kapat",
+    "notice": "Herkese açık bir bağlantı oluşturmak için bir sosyal ağ seçin. Bağlantıya sahip herkes adınızı ve burada gösterilen sonuçları görebilir.",
+    "shareOn": "{{platform}} üzerinden paylaş",
+    "openTab": "Paylaşımı yeni sekmede aç",
+    "revoke": "Herkese açık bağlantıyı devre dışı bırak",
+    "publishError": "Herkese açık bağlantı oluşturulamadı. Lütfen tekrar deneyin.",
+    "revoked": "Herkese açık bağlantı devre dışı bırakıldı.",
+    "revokeError": "Herkese açık bağlantı devre dışı bırakılamadı.",
+    "loading": "Deneme sınavı belgesi yükleniyor…",
+    "unavailable": "Bu deneme sınavı belgesine erişilemiyor.",
+    "loadError": "Deneme sınavı belgesi yüklenemedi. Lütfen tekrar deneyin."
 }
 }

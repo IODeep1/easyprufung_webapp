@@ -1,3 +1,4 @@
+import { ExamCertificatePage } from "./components/User/Exam/ExamCertificatePage";
 import React from "react";
 import UserLanguagePreference from "./components/Shared/UserLanguagePreference";
 import AppLanguage from "./components/Shared/AppLanguage";
@@ -17,6 +18,7 @@ const App: React.FC = () => {
           <UserLanguagePreference />
           <Router>
               <Routes>
+                  <Route path="/zertifikat/:token" element={<ExamCertificatePage />} />
                   <Route path="*"
                          element={
                              <PrivateRoute >

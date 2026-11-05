@@ -1,3 +1,4 @@
+import { ExamCertificateButton } from "./ExamCertificateButton";
 import ExamLanguageLock from "./ExamLanguageLock";
 import { Eye, Lock, RotateCcw, Sparkles } from "lucide-react";
 import {useEffect, useState} from "react";
@@ -102,6 +103,8 @@ export function ResultPage(props: {
                             <p className="mt-5 text-black/50">
                                 {session.title}
                             </p>
+
+                            {result.passed && <ExamCertificateButton session={session} result={result} />}
                         </div>
 
                         {/* Overall result stays visible for free users */}

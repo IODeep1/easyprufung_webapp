@@ -147,5 +147,20 @@
         "HOERVERSTEHEN": "Compréhension orale",
         "SCHRIFTLICHER_AUSDRUCK": "Expression écrite"
     }
+},
+  "certificateShare": {
+    "open": "Ouvrir l’attestation d’entraînement",
+    "title": "Attestation d’entraînement",
+    "close": "Fermer",
+    "notice": "Choisissez un réseau social pour créer un lien public. Toute personne qui possède ce lien peut voir votre nom et les résultats affichés ici.",
+    "shareOn": "Partager sur {{platform}}",
+    "openTab": "Ouvrir le partage dans un nouvel onglet",
+    "revoke": "Désactiver le lien public",
+    "publishError": "Impossible de créer le lien public. Veuillez réessayer.",
+    "revoked": "Le lien public a été désactivé.",
+    "revokeError": "Impossible de désactiver le lien public.",
+    "loading": "Chargement de l’attestation d’entraînement…",
+    "unavailable": "Cette attestation d’entraînement est indisponible.",
+    "loadError": "Impossible de charger l’attestation d’entraînement. Veuillez réessayer."
 }
 }

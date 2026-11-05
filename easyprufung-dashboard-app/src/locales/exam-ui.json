@@ -516,5 +516,12 @@
     "ar": "قريبًا",
     "uk": "Незабаром",
     "tr": "Yakında"
-  }
+  },
+  "Übungsnachweis öffnen": {
+  "en": "Open practice certificate",
+  "fr": "Ouvrir l’attestation d’entraînement",
+  "ar": "فتح إثبات الاختبار التدريبي",
+  "uk": "Відкрити підтвердження пробного іспиту",
+  "tr": "Deneme sınavı belgesini aç"
+}
 }

@@ -147,5 +147,20 @@
         "HOERVERSTEHEN": "Hörverstehen",
         "SCHRIFTLICHER_AUSDRUCK": "Schriftlicher Ausdruck"
     }
+},
+  "certificateShare": {
+    "open": "Übungsnachweis öffnen",
+    "title": "Übungsnachweis",
+    "close": "Schließen",
+    "notice": "Wenn Sie ein Netzwerk auswählen, erstellen Sie einen öffentlichen Link. Alle Personen mit dem Link können Ihren Namen und die angezeigten Ergebnisse sehen.",
+    "shareOn": "Auf {{platform}} teilen",
+    "openTab": "Teilen im neuen Tab öffnen",
+    "revoke": "Öffentlichen Link deaktivieren",
+    "publishError": "Der öffentliche Link konnte nicht erstellt werden. Bitte versuchen Sie es erneut.",
+    "revoked": "Der öffentliche Link wurde deaktiviert.",
+    "revokeError": "Der öffentliche Link konnte nicht deaktiviert werden.",
+    "loading": "Übungsnachweis wird geladen …",
+    "unavailable": "Dieser Übungsnachweis ist nicht verfügbar.",
+    "loadError": "Der Übungsnachweis konnte nicht geladen werden. Bitte versuchen Sie es erneut."
 }
 }

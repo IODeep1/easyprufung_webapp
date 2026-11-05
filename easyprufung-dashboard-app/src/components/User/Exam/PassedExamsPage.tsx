@@ -1,3 +1,4 @@
+import { ExamCertificateButton } from "./ExamCertificateButton";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { ExamOutcome } from "./components/ExamOutcome";
 import { useTranslation } from "react-i18next";
@@ -74,6 +75,8 @@ function ExamResultDetails({
                             <p className="mt-4 text-lg font-medium text-black/65 sm:text-xl">
                                 {session.title}
                             </p>
+
+                            {result.passed && <ExamCertificateButton session={session} result={result} />}
 
                             <div className="mt-5 flex flex-wrap gap-3 text-sm font-black">
                                 <span className="rounded-full border border-black px-4 py-2">

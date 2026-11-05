@@ -147,5 +147,20 @@
         "HOERVERSTEHEN": "Listening comprehension",
         "SCHRIFTLICHER_AUSDRUCK": "Written expression"
     }
+},
+  "certificateShare": {
+    "open": "Open practice certificate",
+    "title": "Practice certificate",
+    "close": "Close",
+    "notice": "Choose a social network to create a public link. Anyone with the link can see your name and the results shown here.",
+    "shareOn": "Share on {{platform}}",
+    "openTab": "Open sharing in a new tab",
+    "revoke": "Disable public link",
+    "publishError": "Could not create the public link. Please try again.",
+    "revoked": "The public link has been disabled.",
+    "revokeError": "Could not disable the public link.",
+    "loading": "Loading practice certificate…",
+    "unavailable": "This practice certificate is unavailable.",
+    "loadError": "Could not load the practice certificate. Please try again."
 }
 }

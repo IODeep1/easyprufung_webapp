@@ -188,3 +188,11 @@ export function putExamProgress(id: string, progress: ExamProgress): Promise<Exa
         method: "PUT", body: JSON.stringify(progress), keepalive: true
     });
 }
+
+export function publishExamCertificate(sessionId: string): Promise<{ token: string }> {
+    return request(`/api/exams/sessions/${encodeURIComponent(sessionId)}/certificate`, { method: "POST" });
+}
+
+export function revokeExamCertificate(sessionId: string): Promise<void> {
+    return request(`/api/exams/sessions/${encodeURIComponent(sessionId)}/certificate`, { method: "DELETE" });
+}
