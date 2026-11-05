@@ -20,7 +20,7 @@ export class ExamApiError extends Error {
     }
 }
 
-async function request<T>(path: string, init?: RequestInit): Promise<T> {
+async function request<T>(path: string, init?: RequestInit, allowEmpty = false): Promise<T> {
     const accessToken = localStorage.getItem("access-token");
     const response = await fetch(`${path}`, {
         ...init,
@@ -48,6 +48,11 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
         );
     }
 
+    if (allowEmpty) {
+        // Older servers return an empty 200 when there is no active session.
+        const body = await response.text();
+        return (body.trim() ? JSON.parse(body) : null) as T;
+    }
     if (response.status === 204) {
         return undefined as T;
     }
@@ -166,4 +171,20 @@ export async function getPassedUserExams(
                 new Date(second.result.evaluatedAt).getTime() -
                 new Date(first.result.evaluatedAt).getTime()
         );
+}
+export interface ExamProgress {
+    revision: number;
+    index: number;
+    answers: import("../../components/User/Exam/models/exam.ts").AnswerMap;
+}
+export function getActiveExam(): Promise<ExamSessionView | null> {
+    return request("/api/exams/sessions/active", undefined, true);
+}
+export function getExamProgress(id: string): Promise<ExamProgress> {
+    return request(`/api/exams/sessions/${encodeURIComponent(id)}/progress`);
+}
+export function putExamProgress(id: string, progress: ExamProgress): Promise<ExamProgress> {
+    return request(`/api/exams/sessions/${encodeURIComponent(id)}/progress`, {
+        method: "PUT", body: JSON.stringify(progress), keepalive: true
+    });
 }

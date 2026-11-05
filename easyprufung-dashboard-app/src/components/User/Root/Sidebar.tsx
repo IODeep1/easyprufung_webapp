@@ -107,6 +107,7 @@ const Sidebar = ({
         const clickHandler = ({
                                   target
                               }: MouseEvent) => {
+            if (target instanceof Element && target.closest('[data-sidebar-toggle="true"]')) return;
             if (!sidebarOpen || !sidebar.current) {
                 return;
             }

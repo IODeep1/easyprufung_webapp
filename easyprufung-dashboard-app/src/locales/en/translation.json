@@ -110,5 +110,21 @@
     "telegram": "Telegram",
     "discord": "Discord",
     "other": "Other"
-  }
+  },
+  "examResumeNotice": {
+    "title": "Continuing your previous exam",
+    "message": "We found an unfinished exam and restored your saved answers and position. You are continuing that exam.",
+    "dismiss": "Got it"
+},
+  "examSubmission": {
+    "close": "Close",
+    "label": "Final submission",
+    "title": "Submit your exam now?",
+    "message": "Answers cannot be changed after submission. Please review your answers before submitting your exam.",
+    "back": "Back",
+    "submitting": "Evaluating …",
+    "submit": "Submit exam",
+    "expiredTitle": "The exam time has expired.",
+    "expiredMessage": "The allotted time has ended. You can still submit your exam. Your saved answers have been retained."
+}
 }

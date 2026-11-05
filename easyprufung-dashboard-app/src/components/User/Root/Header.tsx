@@ -120,6 +120,7 @@ const Header: React.FC<HeaderProps> = ({
         <header className="sticky top-0 z-50 flex w-full border-b border-black/10 bg-white dark:border-white/10 dark:bg-gray-900">
             {/* Left: Sidebar toggle + Brand */}
             <div
+                data-sidebar-toggle="true"
                 className="cursor-pointer flex items-center"
                 onClick={(e) => {
                     e.stopPropagation();

@@ -1,16 +1,16 @@
+import { ResumeNotice } from "./components/ResumeNotice";
 import ExamLanguageLock from "./ExamLanguageLock";
 import { useTranslation } from "react-i18next";
 import { AlertCircle, RotateCcw } from "lucide-react";
 import {Dispatch, useEffect, useRef, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import { startExamSession, submitExamSession } from "../../../api/exam/api-helper";
+import { getActiveExam, getExamProgress, ExamProgress, startExamSession, submitExamSession } from "../../../api/exam/api-helper";
 import type { IStateType } from "../../../store/models/root.interface.ts";
 import type { IUserAccount } from "../../../store/models/user/userAccount.interface.ts";
 import { LoadingScreen } from "./components/ExamChrome";
 import {
     clearActiveExam,
     clearExamProgress,
-    loadActiveExam,
     saveActiveExam
 } from "./exam-storage.ts";
 import { ExamRunnerPage } from "./ExamRunnerPage";
@@ -33,53 +33,45 @@ export default function MainExamPage() {
     );
     const currentUserId = account.user?.uuid?.trim() ?? "";
 
-    const [initialActiveExam] = useState(() =>
-        currentUserId ? loadActiveExam(currentUserId) : null
-    );
-
-    const [screen, setScreen] = useState<Screen>(
-        initialActiveExam?.screen ?? "start"
-    );
-    const [session, setSession] = useState<ExamSessionView | null>(
-        initialActiveExam?.session ?? null
-    );
-    const [result, setResult] = useState<ExamResultView | null>(
-        initialActiveExam?.result ?? null
-    );
+    const [screen, setScreen] = useState<Screen>("start");
+    const [session, setSession] = useState<ExamSessionView | null>(null);
+    const [result, setResult] = useState<ExamResultView | null>(null);
+    const [resumeNoticeOpen, setResumeNoticeOpen] = useState(false);
+    const [progress, setProgress] = useState<ExamProgress | null>(null);
     const [preparationStartedAt, setPreparationStartedAt] = useState<number | undefined>();
     const [preparationDurationMs, setPreparationDurationMs] = useState(NORMAL_PREPARATION_DURATION_MS);
     const [error, setError] = useState<string | null>(null);
-    const [sessionUserId, setSessionUserId] = useState<string | null>(
-        initialActiveExam?.userId ?? null
-    );
-    const [restoredUserId, setRestoredUserId] = useState(
-        currentUserId
-    );
+    const [sessionUserId, setSessionUserId] = useState<string | null>(null);
 
     useEffect(() => {
-        if (currentUserId === restoredUserId) {
-            return;
-        }
-
-        if (!currentUserId) {
-            setScreen("start");
-            setSession(null);
-            setResult(null);
-            setError(null);
-            setSessionUserId(null);
-            setRestoredUserId("");
-            return;
-        }
-
-        const stored = loadActiveExam(currentUserId);
-
-        setScreen(stored?.screen ?? "start");
-        setSession(stored?.session ?? null);
-        setResult(stored?.result ?? null);
+        let cancelled = false;
+        const run = preparationRun.current;
+        setScreen("start");
         setError(null);
-        setSessionUserId(stored?.userId ?? null);
-        setRestoredUserId(currentUserId);
-    }, [currentUserId, restoredUserId]);
+        setSession(null);
+        setProgress(null);
+        setResumeNoticeOpen(false);
+        if (!currentUserId) { setScreen("start"); return; }
+        const restore = async () => {
+            try {
+                const active = await getActiveExam();
+                if (cancelled || run !== preparationRun.current) return;
+                const draft = active ? await getExamProgress(active.sessionId) : null;
+                if (cancelled || run !== preparationRun.current) return;
+                setSession(active);
+                setProgress(draft);
+                setSessionUserId(currentUserId);
+                setResumeNoticeOpen(Boolean(active));
+                setScreen(active ? "exam" : "start");
+            } catch (cause) {
+                if (cancelled || run !== preparationRun.current) return;
+                setError(cause instanceof Error ? cause.message : "Die Prüfung konnte nicht geladen werden.");
+                setScreen("error");
+            }
+        };
+        void restore();
+        return () => { cancelled = true; };
+    }, [currentUserId]);
 
     useEffect(() => {
         if (screen !== "result") {
@@ -138,6 +130,9 @@ export default function MainExamPage() {
             const created = await startExamSession(request);
             if (run !== preparationRun.current) return;
 
+            const draft = await getExamProgress(created.sessionId);
+            if (run !== preparationRun.current) return;
+            setProgress(draft);
             const responseTime = performance.now() - startedAt;
             // A quick response shortens the TOTAL preparation to 10 seconds.
             // A later response keeps the TOTAL preparation at 90 seconds.
@@ -229,7 +224,10 @@ export default function MainExamPage() {
         />;
     }
     if (screen === "exam" && session) {
-        return <ExamLanguageLock><ExamRunnerPage session={session} onSubmit={submit} /></ExamLanguageLock>;
+        return <>
+            <ExamLanguageLock><ExamRunnerPage key={session.sessionId} session={session} initialProgress={progress!} onSubmit={submit} /></ExamLanguageLock>
+            {resumeNoticeOpen && <ResumeNotice onDismiss={() => setResumeNoticeOpen(false)} />}
+        </>;
     }
     if (screen === "result" && session && result) {
         return <ResultPage session={session} result={result} onRestart={reset} />;

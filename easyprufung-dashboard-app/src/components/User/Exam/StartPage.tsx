@@ -50,7 +50,7 @@ export function StartPage({
     );
 
     const userId = account.user?.uuid || "";
-    const subscription = account.user.subscription;
+    const subscription = account.user?.subscription;
 
     const currentPlan = subscription?.plan?.toLowerCase?.() || "free";
     const availableQuota = Number(subscription?.quota ?? 0);

@@ -110,5 +110,21 @@
     "telegram": "Telegram",
     "discord": "Discord",
     "other": "Sonstiges"
-  }
+  },
+  "examResumeNotice": {
+    "title": "Ihre bisherige Prüfung wird fortgesetzt",
+    "message": "Wir haben eine begonnene Prüfung gefunden und Ihre gespeicherten Antworten sowie Ihre letzte Position wiederhergestellt. Sie setzen diese Prüfung fort.",
+    "dismiss": "Verstanden"
+},
+  "examSubmission": {
+    "close": "Schließen",
+    "label": "Endgültige Abgabe",
+    "title": "Prüfung jetzt abgeben?",
+    "message": "Nach der Abgabe können Antworten nicht mehr geändert werden. Bitte überprüfen Sie Ihre Antworten, bevor Sie die Prüfung endgültig abgeben.",
+    "back": "Zurück",
+    "submitting": "Wird ausgewertet …",
+    "submit": "Prüfung abgeben",
+    "expiredTitle": "Die Prüfungszeit ist abgelaufen.",
+    "expiredMessage": "Die vorgesehene Bearbeitungszeit ist beendet. Sie können Ihre Prüfung trotzdem weiterhin einreichen. Ihre bisherigen Antworten bleiben erhalten."
+}
 }

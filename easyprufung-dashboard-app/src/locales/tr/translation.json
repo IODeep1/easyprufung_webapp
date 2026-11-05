@@ -119,5 +119,21 @@
     "telegram": "Telegram",
     "discord": "Discord",
     "other": "Diğer"
-  }
+  },
+  "examResumeNotice": {
+    "title": "Önceki sınavınıza devam ediyorsunuz",
+    "message": "Tamamlanmamış bir sınav bulduk ve kaydedilen yanıtlarınızla kaldığınız yeri geri yükledik. Bu sınava devam ediyorsunuz.",
+    "dismiss": "Anladım"
+},
+  "examSubmission": {
+    "close": "Kapat",
+    "label": "Son teslim",
+    "title": "Sınavınızı şimdi teslim etmek istiyor musunuz?",
+    "message": "Teslim ettikten sonra yanıtlar değiştirilemez. Lütfen sınavınızı teslim etmeden önce yanıtlarınızı kontrol edin.",
+    "back": "Geri",
+    "submitting": "Değerlendiriliyor…",
+    "submit": "Sınavı teslim et",
+    "expiredTitle": "Sınav süresi doldu.",
+    "expiredMessage": "Ayrılan süre sona erdi. Sınavınızı yine de teslim edebilirsiniz. Kaydedilen yanıtlarınız korundu."
+}
 }

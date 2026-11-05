@@ -1,13 +1,10 @@
 import {
-    AlertCircle,
     ArrowLeft,
     ArrowRight,
     Clock3,
-    LoaderCircle,
-    X
+    LoaderCircle
 } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
-import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import type { ExerciseView } from "../models/exam.ts";
 
@@ -26,11 +23,9 @@ export function CountdownTimer({ expiresAt }: { expiresAt: string | null }) {
             : 0;
 
     const [seconds, setSeconds] = useState(calculate);
-    const [dismissed, setDismissed] = useState(false);
 
     useEffect(() => {
         setSeconds(calculate());
-        setDismissed(false);
 
         if (!expiresAt) return;
 
@@ -69,53 +64,7 @@ export function CountdownTimer({ expiresAt }: { expiresAt: string | null }) {
                 {expiresAt ? formatTime(seconds) : "--:--:--"}
             </div>
 
-            {isExpired &&
-                !dismissed &&
-                createPortal(
-                    <div lang="de" dir="ltr" style={{ direction: "ltr", textAlign: "left" }} className="pointer-events-none fixed inset-x-0 top-20 z-[9999] flex justify-center px-4 sm:top-24">
-                        <div
-                            role="alert"
-                            className="pointer-events-auto relative w-full max-w-lg rounded-2xl border border-black bg-white p-5 text-black shadow-2xl sm:p-6"
-                        >
-                            <button
-                                type="button"
-                                onClick={() => setDismissed(true)}
-                                aria-label="Benachrichtigung schließen"
-                                className="absolute right-4 top-4 text-black/40 transition hover:text-black"
-                            >
-                                <X size={18} />
-                            </button>
 
-                            <div className="flex items-start gap-4 pr-6">
-                                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-black text-white">
-                                    <AlertCircle size={22} />
-                                </div>
-
-                                <div>
-                                    <h2 className="text-lg font-black">
-                                        Die Prüfungszeit ist abgelaufen.
-                                    </h2>
-
-                                    <p className="mt-3 text-sm leading-6 text-black/65">
-                                        Die vorgesehene Bearbeitungszeit ist
-                                        beendet. Sie können Ihre Prüfung
-                                        trotzdem weiterhin einreichen.
-                                        Ihre bisherigen Antworten bleiben erhalten.
-                                    </p>
-
-                                    <button
-                                        type="button"
-                                        onClick={() => setDismissed(true)}
-                                        className="mt-5 rounded-full bg-black px-5 py-2.5 text-xs font-black text-white transition hover:bg-black/85"
-                                    >
-                                        Verstanden
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>,
-                    document.body
-                )}
         </>
     );
 }

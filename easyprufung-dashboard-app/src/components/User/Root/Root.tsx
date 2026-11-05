@@ -24,7 +24,7 @@ import {PassedExamsPage} from "../Exam/PassedExamsPage.tsx";
 import {PassedExamReviewRoute} from "../Exam/PassedExamReviewRoute.tsx";
 
 const Root: React.FC = () => {
-    const [sidebarOpen, setSidebarOpen] = useState(true);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     //Theme
     const [theme, setTheme] = useState(localStorage.getItem("color-theme")?.replaceAll('"',''));

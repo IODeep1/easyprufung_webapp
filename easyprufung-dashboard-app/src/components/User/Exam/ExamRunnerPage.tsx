@@ -1,5 +1,6 @@
+import { ExamApiError, ExamProgress, putExamProgress } from "../../../api/exam/api-helper";
 import { AlertCircle } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef, useCallback } from "react";
 import {
     BottomNavigation,
     ExamHeader,
@@ -10,7 +11,6 @@ import { PartRenderer } from "./components/PartRenderer";
 import { AudioPlayer } from "./components/AudioPlayer.tsx";
 import {
     clearExamProgress,
-    loadExamProgress,
     saveExamProgress
 } from "./exam-storage.ts";
 import type {
@@ -35,6 +35,7 @@ function scrollExamToTop(): void {
 
 export function ExamRunnerPage(props: {
     session: ExamSessionView;
+    initialProgress: ExamProgress;
     onSubmit: (
         request: SubmitExamRequest
     ) => Promise<void>;
@@ -42,7 +43,7 @@ export function ExamRunnerPage(props: {
     const { session, onSubmit } = props;
 
     const [restoredProgress] = useState(() =>
-        loadExamProgress(session.sessionId)
+        props.initialProgress
     );
 
     const [index, setIndex] = useState(() =>
@@ -91,6 +92,52 @@ export function ExamRunnerPage(props: {
         index,
         session.sessionId
     ]);
+
+    const revision = useRef(props.initialProgress.revision);
+    const pending = useRef({ index, answers });
+    const saved = useRef(pending.current);
+    const saving = useRef<Promise<void> | null>(null);
+    const conflict = useRef(false);
+    const [syncError, setSyncError] = useState<string | null>(null);
+    pending.current = { index, answers };
+    const flush = useCallback(async (): Promise<void> => {
+        if (conflict.current) throw new Error("Bitte neu laden, um auf diesem Gerät fortzufahren.");
+        if (saving.current) { await saving.current; return flush(); }
+        if (saved.current.index === pending.current.index && saved.current.answers === pending.current.answers) return;
+        const snapshot = pending.current;
+        const task = (async () => {
+            try {
+                const updated = await putExamProgress(session.sessionId, { ...snapshot, revision: revision.current });
+                revision.current = updated.revision;
+                saved.current = snapshot;
+                setSyncError(null);
+            } catch (error) {
+                if (error instanceof ExamApiError && error.status === 409) conflict.current = true;
+                setSyncError(conflict.current
+                    ? "Die Prüfung wurde auf einem anderen Gerät geändert. Bitte neu laden."
+                    : "Fortschritt noch nicht synchronisiert. Verbindung wird erneut versucht.");
+                throw error;
+            }
+        })();
+        saving.current = task;
+        try { await task; } finally { if (saving.current === task) saving.current = null; }
+    }, [session.sessionId]);
+    useEffect(() => {
+        const timer = window.setTimeout(() => { void flush().catch(() => {}); }, 350);
+        return () => window.clearTimeout(timer);
+    }, [index, answers, flush]);
+    useEffect(() => {
+        const sync = () => { void flush().catch(() => {}); };
+        const timer = window.setInterval(sync, 3000);
+        window.addEventListener("online", sync);
+        window.addEventListener("pagehide", sync);
+        return () => {
+            window.clearInterval(timer);
+            window.removeEventListener("online", sync);
+            window.removeEventListener("pagehide", sync);
+            sync();
+        };
+    }, [flush]);
 
     const payload = useMemo<SubmitExamRequest>(
         () => ({
@@ -295,6 +342,7 @@ export function ExamRunnerPage(props: {
         setSubmitError(null);
 
         try {
+            await flush();
             await onSubmit(payload);
 
             clearExamProgress(
@@ -345,6 +393,7 @@ export function ExamRunnerPage(props: {
                     extra={audio}
                 />
 
+                {syncError && <p role="alert" className="mt-5 p-4 border rounded-2xl">{syncError}</p>}
                 {submitError && (
                     <div
                         className="mt-5 flex items-start gap-3 rounded-2xl border border-black bg-white p-4 text-sm font-semibold"
@@ -465,6 +514,7 @@ export function ExamRunnerPage(props: {
             )}
 
             <SubmitConfirmation
+                expiresAt={session.expiresAt}
                 open={confirmOpen}
                 submitting={submitting}
                 onClose={() => {

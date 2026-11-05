@@ -110,5 +110,21 @@
     "telegram": "Telegram",
     "discord": "Discord",
     "other": "Autre"
-  }
+  },
+  "examResumeNotice": {
+    "title": "Reprise de votre examen précédent",
+    "message": "Nous avons trouvé un examen inachevé et restauré vos réponses enregistrées ainsi que votre position. Vous reprenez cet examen.",
+    "dismiss": "Compris"
+},
+  "examSubmission": {
+    "close": "Fermer",
+    "label": "Envoi définitif",
+    "title": "Envoyer votre examen maintenant ?",
+    "message": "Vous ne pourrez plus modifier vos réponses après l’envoi. Veuillez les vérifier avant d’envoyer votre examen.",
+    "back": "Retour",
+    "submitting": "Évaluation en cours…",
+    "submit": "Envoyer l’examen",
+    "expiredTitle": "Le temps de l’examen est écoulé.",
+    "expiredMessage": "Le temps imparti est terminé. Vous pouvez toujours envoyer votre examen. Vos réponses enregistrées ont été conservées."
+}
 }
