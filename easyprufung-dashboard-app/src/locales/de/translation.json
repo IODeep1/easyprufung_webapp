@@ -126,5 +126,26 @@
     "submit": "Prüfung abgeben",
     "expiredTitle": "Die Prüfungszeit ist abgelaufen.",
     "expiredMessage": "Die vorgesehene Bearbeitungszeit ist beendet. Sie können Ihre Prüfung trotzdem weiterhin einreichen. Ihre bisherigen Antworten bleiben erhalten."
+},
+  "examOutcome": {
+    "label": "Prüfungsergebnis",
+    "passed": "Bestanden",
+    "failed": "Nicht bestanden",
+    "historyTitle": "Abgeschlossene Prüfungen",
+    "emptyTitle": "Noch keine abgeschlossenen Prüfungen",
+    "emptyMessage": "Ihre abgeschlossenen Prüfungen werden hier angezeigt."
+},
+  "examIncomplete": {
+    "title": "Prüfung nicht vollständig",
+    "message": "Beantworte alle Fragen, bevor du die Prüfung abgibst. Wähle einen offenen Teil aus, um dorthin zurückzukehren.",
+    "parts": "Offene Teile",
+    "goToPart": "Zu Teil {{number}}",
+    "dismiss": "Verstanden",
+    "sections": {
+        "LESEVERSTEHEN": "Leseverstehen",
+        "SPRACHBAUSTEINE": "Sprachbausteine",
+        "HOERVERSTEHEN": "Hörverstehen",
+        "SCHRIFTLICHER_AUSDRUCK": "Schriftlicher Ausdruck"
+    }
 }
 }

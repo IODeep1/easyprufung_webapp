@@ -126,5 +126,26 @@
     "submit": "Envoyer l’examen",
     "expiredTitle": "Le temps de l’examen est écoulé.",
     "expiredMessage": "Le temps imparti est terminé. Vous pouvez toujours envoyer votre examen. Vos réponses enregistrées ont été conservées."
+},
+  "examOutcome": {
+    "label": "Résultat de l’examen",
+    "passed": "Réussi",
+    "failed": "Non réussi",
+    "historyTitle": "Examens terminés",
+    "emptyTitle": "Aucun examen terminé pour le moment",
+    "emptyMessage": "Vos examens terminés apparaîtront ici."
+},
+  "examIncomplete": {
+    "title": "Examen incomplet",
+    "message": "Répondez à toutes les questions avant de remettre votre examen. Sélectionnez une partie incomplète pour y revenir.",
+    "parts": "Parties incomplètes",
+    "goToPart": "Aller à la partie {{number}}",
+    "dismiss": "Compris",
+    "sections": {
+        "LESEVERSTEHEN": "Compréhension écrite",
+        "SPRACHBAUSTEINE": "Éléments de langue",
+        "HOERVERSTEHEN": "Compréhension orale",
+        "SCHRIFTLICHER_AUSDRUCK": "Expression écrite"
+    }
 }
 }

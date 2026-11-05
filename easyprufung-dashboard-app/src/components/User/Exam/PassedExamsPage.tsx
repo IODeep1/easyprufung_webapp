@@ -1,3 +1,5 @@
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { ExamOutcome } from "./components/ExamOutcome";
 import { useTranslation } from "react-i18next";
 import ExamLanguageLock from "./ExamLanguageLock";
 import {
@@ -65,15 +67,13 @@ function ExamResultDetails({
 
                 {/* Basic result stays visible */}
                 <section className="mt-8 rounded-[2rem] border border-black bg-white p-6 sm:p-10">
-                    <div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
+                    <div className="grid items-end gap-8 lg:grid-cols-[minmax(0,1fr)_auto]">
                         <div>
-                            <p className="text-xs font-black uppercase tracking-[0.22em] text-black/50">
-                                Bestandene Prüfung
-                            </p>
+                            <ExamOutcome passed={result.passed} />
 
-                            <h1 className="mt-3 font-display text-4xl leading-none tracking-[-0.04em] sm:text-6xl">
+                            <p className="mt-4 text-lg font-medium text-black/65 sm:text-xl">
                                 {session.title}
-                            </h1>
+                            </p>
 
                             <div className="mt-5 flex flex-wrap gap-3 text-sm font-black">
                                 <span className="rounded-full border border-black px-4 py-2">
@@ -90,7 +90,7 @@ function ExamResultDetails({
                             </div>
                         </div>
 
-                        <div className="flex flex-wrap items-end gap-8">
+                        <div className="flex flex-wrap items-end gap-8 border-t border-black/10 pt-6 lg:border-t-0 lg:border-s lg:ps-8 lg:pt-0">
                             <div>
                                 <p className="text-xs font-black uppercase tracking-widest text-black/50">
                                     Punkte
@@ -324,6 +324,7 @@ function ExamResultDetails({
 }
 
 export function PassedExamsPage() {
+    const { t } = useTranslation();
     const account: IUserAccount = useSelector(
         (state: IStateType) => state.userAccount
     );
@@ -358,10 +359,20 @@ export function PassedExamsPage() {
             subscription?.status?.toLowerCase?.() !== "expired");
 
     const [exams, setExams] = useState<PassedExamEntry[]>([]);
-    const [selectedExam, setSelectedExam] =
-        useState<PassedExamEntry | null>(null);
-    const [reviewExam, setReviewExam] =
-        useState<PassedExamEntry | null>(null);
+    const [searchParams] = useSearchParams();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const entry = exams.find(item => item.session.sessionId === searchParams.get("exam")) ?? null;
+    const reviewExam = searchParams.get("view") === "review" ? entry : null;
+    const selectedExam = reviewExam ? null : entry;
+    const openExam = (exam: PassedExamEntry, view: "result" | "review") => {
+        const query = new URLSearchParams({ exam: exam.session.sessionId, view });
+        navigate(`/exams?${query}`, { state: { fromExamHistory: true } });
+    };
+    const backToHistory = () => {
+        if (location.state?.fromExamHistory) navigate(-1);
+        else navigate("/exams", { replace: true });
+    };
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -419,7 +430,7 @@ export function PassedExamsPage() {
             <ExamLanguageLock><ExamReviewPage
                 session={reviewExam.session}
                 result={reviewExam.result}
-                onBack={() => setReviewExam(null)}
+                onBack={backToHistory}
             /></ExamLanguageLock>
         );
     }
@@ -428,10 +439,10 @@ export function PassedExamsPage() {
         return (
             <ExamResultDetails
                 entry={selectedExam}
-                onBack={() => setSelectedExam(null)}
+                onBack={backToHistory}
                 onShowDetails={() => {
                     if (hasPremiumAccess) {
-                        setReviewExam(selectedExam);
+                        openExam(selectedExam, "review");
                     } else {
                         window.location.href = "/pricing";
                     }
@@ -452,7 +463,7 @@ export function PassedExamsPage() {
 
                     <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                         <h1 className="font-display text-4xl leading-none tracking-[-0.04em] sm:text-6xl">
-                            Bestandene Prüfungen
+                            {t("examOutcome.historyTitle")}
                         </h1>
 
                         {!hasPremiumAccess && (
@@ -491,12 +502,11 @@ export function PassedExamsPage() {
                 {!loading && !error && exams.length === 0 && (
                     <div className="mt-8 rounded-2xl border border-black bg-white p-8 text-center">
                         <h2 className="text-2xl font-black">
-                            Noch keine bestandenen Prüfungen
+                            {t("examOutcome.emptyTitle")}
                         </h2>
 
                         <p className="mt-3 text-black/55">
-                            Sobald Sie eine Prüfung bestanden haben,
-                            wird sie hier angezeigt.
+                            {t("examOutcome.emptyMessage")}
                         </p>
                     </div>
                 )}
@@ -563,9 +573,10 @@ export function PassedExamsPage() {
                                             </span>
                                         </div>
 
-                                        <h2 className="mt-4 text-xl font-black">
-                                            {entry.session.title}
-                                        </h2>
+                                        <div className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                                            <h2 className="text-xl font-black">{entry.session.title}</h2>
+                                            <ExamOutcome passed={entry.result.passed} compact />
+                                        </div>
 
                                         <p className="mt-2 text-sm text-black/50">
                                             {formatDate(
@@ -604,7 +615,7 @@ export function PassedExamsPage() {
                                                 <button
                                                     type="button"
                                                     onClick={() =>
-                                                        setReviewExam(entry)
+                                                        openExam(entry, "review")
                                                     }
                                                     className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-black text-white"
                                                 >
@@ -615,7 +626,7 @@ export function PassedExamsPage() {
                                                 <button
                                                     type="button"
                                                     onClick={() =>
-                                                        setSelectedExam(entry)
+                                                        openExam(entry, "result")
                                                     }
                                                     className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-black text-white"
                                                 >
@@ -637,7 +648,7 @@ export function PassedExamsPage() {
                                                 <button
                                                     type="button"
                                                     onClick={() =>
-                                                        setSelectedExam(entry)
+                                                        openExam(entry, "result")
                                                     }
                                                     className="inline-flex items-center justify-center gap-2 rounded-full border border-black bg-white px-6 py-3 text-sm font-black text-black"
                                                 >

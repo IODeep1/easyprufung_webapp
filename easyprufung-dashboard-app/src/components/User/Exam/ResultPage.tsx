@@ -89,14 +89,14 @@ export function ResultPage(props: {
         <main className="min-h-screen bg-white text-black">
             <section className="border-b border-black bg-white px-5 py-12 text-black sm:px-10 sm:py-16">
                 <div className="mx-auto max-w-6xl">
-                    <div className="mt-14 grid items-end gap-10 lg:grid-cols-[1fr_auto]">
-                        <div>
+                    <div className="mt-14 grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_auto]">
+                        <div className="min-w-0">
                             <p className="text-xs font-black uppercase tracking-[0.25em] text-black/50">
                                 Prüfung abgeschlossen
                             </p>
 
                             <h1 className="mt-4 max-w-3xl font-display text-5xl leading-none tracking-[-0.055em] sm:text-7xl">
-                                {result.passed ? "Bestanden." : "Weiter üben."}
+                                {result.passed ? "Bestanden." : "Nicht bestanden."}
                             </h1>
 
                             <p className="mt-5 text-black/50">

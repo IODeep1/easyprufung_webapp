@@ -342,7 +342,7 @@ export function StartPage({
                                 ? "Zugang abgelaufen"
                                 : !hasQuota
                                     ? "Keine Prüfung verfügbar"
-                                    : "Sitzung erstellen"}
+                                    : "Prüfung starten"}
 
                             <span aria-hidden="true">→</span>
                         </button>

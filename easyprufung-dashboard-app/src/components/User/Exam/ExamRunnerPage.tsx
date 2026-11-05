@@ -1,3 +1,5 @@
+import appI18n from "i18next";
+import { useTranslation } from "react-i18next";
 import { ExamApiError, ExamProgress, putExamProgress } from "../../../api/exam/api-helper";
 import { AlertCircle } from "lucide-react";
 import { useEffect, useMemo, useState, useRef, useCallback } from "react";
@@ -41,6 +43,7 @@ export function ExamRunnerPage(props: {
     ) => Promise<void>;
 }) {
     const { session, onSubmit } = props;
+    const { t, i18n } = useTranslation(undefined, { i18n: appI18n });
 
     const [restoredProgress] = useState(() =>
         props.initialProgress
@@ -67,7 +70,7 @@ export function ExamRunnerPage(props: {
     const [
         incompleteParts,
         setIncompleteParts
-    ] = useState<string[]>([]);
+    ] = useState<number[]>([]);
 
     const [submitting, setSubmitting] =
         useState(false);
@@ -76,6 +79,17 @@ export function ExamRunnerPage(props: {
         useState<string | null>(null);
 
     const exercise = session.exercises[index];
+
+    const incompleteSections = new Map<string, { title: string; indices: number[] }>();
+    for (const partIndex of incompleteParts) {
+        const part = session.exercises[partIndex];
+        const section = incompleteSections.get(part.sectionKey);
+        if (section) {
+            section.indices.push(partIndex);
+        } else {
+            incompleteSections.set(part.sectionKey, { title: part.sectionTitle, indices: [partIndex] });
+        }
+    }
 
     useEffect(() => {
         scrollExamToTop();
@@ -293,34 +307,11 @@ export function ExamRunnerPage(props: {
             return;
         }
 
-        const missingParts =
-            session.exercises
-                .map((part, partIndex) => {
-                    const hasMissingAnswers =
-                        part.questions.some(
-                            (question) =>
-                                !isQuestionAnswered(
-                                    question.number,
-                                    question.type
-                                )
-                        );
-
-                    if (!hasMissingAnswers) {
-                        return null;
-                    }
-
-                    return (
-                        part.partTitle ||
-                        part.sectionTitle ||
-                        `Teil ${partIndex + 1}`
-                    );
-                })
-                .filter(
-                    (
-                        part
-                    ): part is string =>
-                        Boolean(part)
-                );
+        const missingParts = session.exercises.flatMap((part, partIndex) =>
+            part.questions.some(question => !isQuestionAnswered(question.number, question.type))
+                ? [partIndex]
+                : []
+        );
 
         if (missingParts.length > 0) {
             setConfirmOpen(false);
@@ -456,7 +447,11 @@ export function ExamRunnerPage(props: {
                         role="dialog"
                         aria-modal="true"
                         aria-labelledby="incomplete-title"
-                        className="w-full max-w-md rounded-2xl border border-black bg-white p-6 shadow-xl"
+                        aria-describedby="incomplete-message"
+                        lang={i18n.resolvedLanguage}
+                        dir={i18n.dir()}
+                        data-no-translate
+                        className="max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto rounded-2xl border border-black bg-white p-6 shadow-xl"
                     >
                         <div className="text-center">
                             <AlertCircle
@@ -468,36 +463,45 @@ export function ExamRunnerPage(props: {
                                 id="incomplete-title"
                                 className="mt-4 text-xl font-black text-black"
                             >
-                                Prüfung nicht vollständig
+                                {t("examIncomplete.title")}
                             </h2>
 
-                            <p className="mt-3 text-sm font-semibold leading-6 text-black/60">
-                                Bitte beantworte alle Fragen,
-                                bevor du die Prüfung abgibst.
+                            <p id="incomplete-message" className="mt-3 text-sm font-semibold leading-6 text-black/60">
+                                {t("examIncomplete.message")}
                             </p>
                         </div>
 
                         <div className="mt-5 border-t border-black pt-4">
                             <p className="text-xs font-black uppercase tracking-[0.14em] text-black/45">
-                                Offene Teile
+                                {t("examIncomplete.parts")}
                             </p>
 
-                            <ul className="mt-3 space-y-2">
-                                {incompleteParts.map(
-                                    (part) => (
-                                        <li
-                                            key={part}
-                                            className="flex items-center gap-3 text-sm font-bold text-black"
-                                        >
-                                            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-black" />
-
-                                            <span>
-                                                {part}
-                                            </span>
-                                        </li>
-                                    )
-                                )}
-                            </ul>
+                            <div className="mt-4 space-y-4">
+                                {Array.from(incompleteSections, ([sectionKey, section]) => (
+                                    <section key={sectionKey}>
+                                        <h3 className="text-sm font-black text-black">
+                                            {t(`examIncomplete.sections.${sectionKey}`, { defaultValue: section.title })}
+                                        </h3>
+                                        <ul className="mt-3 space-y-2">
+                                            {section.indices.map(partIndex => (
+                                                <li key={partIndex}>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => {
+                                                            setIncompleteParts([]);
+                                                            setIndex(partIndex);
+                                                            if (partIndex === index) scrollExamToTop();
+                                                        }}
+                                                        className="w-full rounded-xl border border-black/20 px-4 py-3 text-start text-sm font-bold text-black transition hover:bg-black/5 focus-visible:outline focus-visible:outline-2"
+                                                    >
+                                                        {t("examIncomplete.goToPart", { number: partIndex + 1 })}
+                                                    </button>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </section>
+                                ))}
+                            </div>
                         </div>
 
                         <button
@@ -507,7 +511,7 @@ export function ExamRunnerPage(props: {
                             }
                             className="mt-6 w-full rounded-xl border-2 border-black bg-white px-5 py-3 text-sm font-black text-black transition hover:bg-black hover:text-white"
                         >
-                            Verstanden
+                            {t("examIncomplete.dismiss")}
                         </button>
                     </div>
                 </div>

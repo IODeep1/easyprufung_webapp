@@ -135,5 +135,26 @@
     "submit": "Sınavı teslim et",
     "expiredTitle": "Sınav süresi doldu.",
     "expiredMessage": "Ayrılan süre sona erdi. Sınavınızı yine de teslim edebilirsiniz. Kaydedilen yanıtlarınız korundu."
+},
+  "examOutcome": {
+    "label": "Sınav sonucu",
+    "passed": "Başarılı",
+    "failed": "Başarısız",
+    "historyTitle": "Tamamlanan sınavlar",
+    "emptyTitle": "Henüz tamamlanan sınav yok",
+    "emptyMessage": "Tamamladığınız sınavlar burada görünecek."
+},
+  "examIncomplete": {
+    "title": "Sınav tamamlanmadı",
+    "message": "Sınavı teslim etmeden önce tüm soruları yanıtlayın. Geri dönmek için tamamlanmamış bir bölüm seçin.",
+    "parts": "Tamamlanmamış bölümler",
+    "goToPart": "{{number}}. bölüme git",
+    "dismiss": "Anladım",
+    "sections": {
+        "LESEVERSTEHEN": "Okuduğunu anlama",
+        "SPRACHBAUSTEINE": "Dil öğeleri",
+        "HOERVERSTEHEN": "Dinlediğini anlama",
+        "SCHRIFTLICHER_AUSDRUCK": "Yazılı anlatım"
+    }
 }
 }

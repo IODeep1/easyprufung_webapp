@@ -34,8 +34,7 @@ export function PassedExamReviewRoute() {
             : null;
 
     const stateResult =
-        routeState?.result?.sessionId === sessionId &&
-        routeState.result.passed
+        routeState?.result?.sessionId === sessionId
             ? routeState.result
             : null;
 
@@ -107,7 +106,7 @@ export function PassedExamReviewRoute() {
     }, [sessionId, session, result]);
 
     const handleBack = () => {
-        navigate("/exams");
+        navigate("/exams", { replace: true });
     };
 
     if (loading) {

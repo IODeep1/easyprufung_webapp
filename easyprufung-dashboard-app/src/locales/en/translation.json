@@ -126,5 +126,26 @@
     "submit": "Submit exam",
     "expiredTitle": "The exam time has expired.",
     "expiredMessage": "The allotted time has ended. You can still submit your exam. Your saved answers have been retained."
+},
+  "examOutcome": {
+    "label": "Exam result",
+    "passed": "Passed",
+    "failed": "Not passed",
+    "historyTitle": "Completed exams",
+    "emptyTitle": "No completed exams yet",
+    "emptyMessage": "Your completed exams will appear here."
+},
+  "examIncomplete": {
+    "title": "Exam incomplete",
+    "message": "Answer every question before submitting. Select an incomplete part to return to it.",
+    "parts": "Incomplete parts",
+    "goToPart": "Go to part {{number}}",
+    "dismiss": "Got it",
+    "sections": {
+        "LESEVERSTEHEN": "Reading comprehension",
+        "SPRACHBAUSTEINE": "Language elements",
+        "HOERVERSTEHEN": "Listening comprehension",
+        "SCHRIFTLICHER_AUSDRUCK": "Written expression"
+    }
 }
 }

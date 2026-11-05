@@ -1,3 +1,4 @@
+import { ExamOutcome } from "./components/ExamOutcome";
 import { ArrowLeft, ArrowRight, Check, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { AudioPlayer } from "./components/AudioPlayer.tsx";
@@ -221,6 +222,9 @@ export function ExamReviewPage({
             </header>
 
             <main className="mx-auto max-w-[1500px] px-4 py-6 sm:px-7 sm:py-8 lg:px-10">
+                <div className="mb-5 flex items-center border-b border-black/10 pb-4">
+                    <ExamOutcome passed={result.passed} compact />
+                </div>
                 <PartInformation
                     exercise={exercise}
                     index={index}

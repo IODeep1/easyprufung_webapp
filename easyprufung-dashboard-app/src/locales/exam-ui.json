@@ -104,6 +104,13 @@
     "uk": "Складено.",
     "tr": "Geçtiniz."
   },
+  "Nicht bestanden.": {
+    "en": "Not passed.",
+    "fr": "Non réussi.",
+    "ar": "غير ناجح.",
+    "uk": "Не складено.",
+    "tr": "Başarısız."
+},
   "Weiter üben.": {
     "en": "Keep practicing.",
     "fr": "Continuez à vous entraîner.",
@@ -455,11 +462,11 @@
     "tr": "Kullanılabilir sınav yok"
   },
   "Sitzung erstellen": {
-    "en": "Create session",
-    "fr": "Créer une session",
-    "ar": "إنشاء جلسة",
-    "uk": "Створити сесію",
-    "tr": "Oturum oluştur"
+    "en": "Start exam",
+    "fr": "Commencer l’examen",
+    "ar": "بدء الامتحان",
+    "uk": "Почати іспит",
+    "tr": "Sınavı başlat"
   },
   "Benutzerkonto konnte nicht geladen werden.": {
     "en": "Could not load user account.",
