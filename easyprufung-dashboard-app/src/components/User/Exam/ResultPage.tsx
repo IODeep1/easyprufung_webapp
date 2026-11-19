@@ -1,3 +1,4 @@
+import { trackPaymentClick } from "../../../api/activity/activity";
 import { ExamCertificateButton } from "./ExamCertificateButton";
 import ExamLanguageLock from "./ExamLanguageLock";
 import { Eye, Lock, RotateCcw, Sparkles } from "lucide-react";
@@ -51,6 +52,7 @@ export function ResultPage(props: {
             subscription?.status?.toLowerCase?.() !== "expired");
 
     const openCheckout = (plan: "b1" | "b1_unlimited") => {
+        trackPaymentClick(plan, "exam_result");
         window.location.href = buildPaymentUrl(
             plan,
             account.user?.email,

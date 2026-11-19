@@ -1,3 +1,4 @@
+import { trackPaymentClick } from "../../../api/activity/activity";
 import { useTranslation } from "react-i18next";
 import { useState, type FormEvent } from "react";
 import type {
@@ -104,6 +105,7 @@ export function StartPage({
     };
 
     const openCheckout = (plan: "b1" | "b1_unlimited") => {
+        trackPaymentClick(plan, "exam_start");
         window.location.href = buildPaymentUrl(
             plan,
             account.user?.email,

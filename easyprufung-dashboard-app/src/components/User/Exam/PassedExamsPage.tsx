@@ -1,3 +1,4 @@
+import { trackPaymentClick } from "../../../api/activity/activity";
 import { ExamCertificateButton } from "./ExamCertificateButton";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { ExamOutcome } from "./components/ExamOutcome";
@@ -380,6 +381,7 @@ export function PassedExamsPage() {
     const [error, setError] = useState<string | null>(null);
 
     const openCheckout = (plan: "b1" | "b1_unlimited") => {
+        trackPaymentClick(plan, "exam_history");
         window.location.href = buildPaymentUrl(
             plan,
             account.user?.email,

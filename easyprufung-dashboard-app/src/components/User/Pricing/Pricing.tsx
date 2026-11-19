@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { trackActivity, trackPaymentClick } from "../../../api/activity/activity";
 import Container from "../../Shared/Container";
 import { useSelector } from "react-redux";
 import { IStateType } from "../../../store/models/root.interface";
@@ -41,6 +42,15 @@ const Pricing = () => {
     const account: IUserAccount = useSelector(
         (state: IStateType) => state.userAccount
     );
+
+    const trackedAccount = useRef<string | null>(null);
+    const userUuid = account?.user?.uuid;
+    useEffect(() => {
+        if (userUuid && trackedAccount.current !== userUuid) {
+            trackedAccount.current = userUuid;
+            trackActivity("PRICING_VIEWED", "pricing");
+        }
+    }, [userUuid]);
 
     const limitedPaymentUrl = buildPaymentUrl(
         "b1",
@@ -145,6 +155,8 @@ const Pricing = () => {
                                 <div className="mt-auto pt-2">
                                     <a
                                         href={limitedPaymentUrl}
+                                        onClick={() => trackPaymentClick("b1", "pricing")}
+                                        onAuxClick={e => { if (e.button === 1) trackPaymentClick("b1", "pricing"); }}
                                         className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-black bg-black px-6 py-3 text-lg font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-black/90 dark:border-white dark:bg-white dark:text-black"
                                     >
                                         Get 10 exams
@@ -191,6 +203,8 @@ const Pricing = () => {
                                     <div className="mt-auto pt-2">
                                         <a
                                             href={unlimitedPaymentUrl}
+                                        onClick={() => trackPaymentClick("b1_unlimited", "pricing")}
+                                        onAuxClick={e => { if (e.button === 1) trackPaymentClick("b1_unlimited", "pricing"); }}
                                             className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-lg font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
                                         >
                                             Get unlimited
