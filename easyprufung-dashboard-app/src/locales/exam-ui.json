@@ -110,7 +110,7 @@
     "ar": "غير ناجح.",
     "uk": "Не складено.",
     "tr": "Başarısız."
-},
+  },
   "Weiter üben.": {
     "en": "Keep practicing.",
     "fr": "Continuez à vous entraîner.",
@@ -518,10 +518,42 @@
     "tr": "Yakında"
   },
   "Übungsnachweis öffnen": {
-  "en": "Open practice certificate",
-  "fr": "Ouvrir l’attestation d’entraînement",
-  "ar": "فتح إثبات الاختبار التدريبي",
-  "uk": "Відкрити підтвердження пробного іспиту",
-  "tr": "Deneme sınavı belgesini aç"
-}
+    "en": "Open practice certificate",
+    "fr": "Ouvrir l’attestation d’entraînement",
+    "ar": "فتح إثبات الاختبار التدريبي",
+    "uk": "Відкрити підтвердження пробного іспиту",
+    "tr": "Deneme sınavı belgesini aç"
+  },
+  "10 Prüfungen — €9.99 (statt €14.99 · 33% sparen)": {
+    "en": "10 exams — €9.99 (was €14.99 · save 33%)",
+    "de": "10 Prüfungen — €9.99 (statt €14.99 · 33% sparen)",
+    "fr": "10 examens — 9,99 € (au lieu de 14,99 € · économisez 33 %)",
+    "ar": "10 امتحانات — 9.99 € (بدلاً من 14.99 € · وفّر 33%)",
+    "uk": "10 іспитів — 9,99 € (замість 14,99 € · економія 33%)",
+    "tr": "10 sınav — 9,99 € (14,99 € yerine · %33 tasarruf)"
+  },
+  "Unbegrenzt — €29.99 (statt €49.99 · 40% sparen)": {
+    "en": "Unlimited — €29.99 (was €49.99 · save 40%)",
+    "de": "Unbegrenzt — €29.99 (statt €49.99 · 40% sparen)",
+    "fr": "Illimité — 29,99 € (au lieu de 49,99 € · économisez 40 %)",
+    "ar": "غير محدود — 29.99 € (بدلاً من 49.99 € · وفّر 40%)",
+    "uk": "Безліміт — 29,99 € (замість 49,99 € · економія 40%)",
+    "tr": "Sınırsız — 29,99 € (49,99 € yerine · %40 tasarruf)"
+  },
+  "10 Prüfungen · €9.99 (statt €14.99 · 33% sparen)": {
+    "en": "10 exams · €9.99 (was €14.99 · save 33%)",
+    "de": "10 Prüfungen · €9.99 (statt €14.99 · 33% sparen)",
+    "fr": "10 examens · 9,99 € (au lieu de 14,99 € · économisez 33 %)",
+    "ar": "10 امتحانات · 9.99 € (بدلاً من 14.99 € · وفّر 33%)",
+    "uk": "10 іспитів · 9,99 € (замість 14,99 € · економія 33%)",
+    "tr": "10 sınav · 9,99 € (14,99 € yerine · %33 tasarruf)"
+  },
+  "Unbegrenzt · €29.99 (statt €49.99 · 40% sparen)": {
+    "en": "Unlimited · €29.99 (was €49.99 · save 40%)",
+    "de": "Unbegrenzt · €29.99 (statt €49.99 · 40% sparen)",
+    "fr": "Illimité · 29,99 € (au lieu de 49,99 € · économisez 40 %)",
+    "ar": "غير محدود · 29.99 € (بدلاً من 49.99 € · وفّر 40%)",
+    "uk": "Безліміт · 29,99 € (замість 49,99 € · економія 40%)",
+    "tr": "Sınırsız · 29,99 € (49,99 € yerine · %40 tasarruf)"
+  }
 }
