@@ -1,4 +1,4 @@
-import { trackPaymentClick } from "../../../api/activity/activity";
+import ExamUpgradeOffer from "../Pricing/ExamUpgradeOffer";
 import { useTranslation } from "react-i18next";
 import { useState, type FormEvent } from "react";
 import type {
@@ -9,7 +9,6 @@ import type {
 import type { IUserAccount } from "../../../store/models/user/userAccount.interface.ts";
 import { useSelector } from "react-redux";
 import type { IStateType } from "../../../store/models/root.interface.ts";
-import { buildPaymentUrl } from "../Pricing/payment-links.ts";
 
 const providers: Array<{
     value: ExamProvider;
@@ -104,14 +103,6 @@ export function StartPage({
         });
     };
 
-    const openCheckout = (plan: "b1" | "b1_unlimited") => {
-        trackPaymentClick(plan, "exam_start");
-        window.location.href = buildPaymentUrl(
-            plan,
-            account.user?.email,
-            account.user?.uuid
-        );
-    };
 
     const quotaLabel = isTester
         ? "Tester-Zugang"
@@ -202,34 +193,7 @@ export function StartPage({
                             </div>
 
                             {!isTester && (isExpired || !hasQuota) && (
-                                <div className="mt-4 border-t border-black/10 pt-4">
-                                    <p className="text-sm font-semibold text-black/70">
-                                        Wählen Sie den passenden TELC-B1-Zugang.
-                                    </p>
-
-                                    <div className="mt-3 grid gap-2 sm:grid-cols-2">
-                                        <button
-                                            type="button"
-                                            onClick={() => openCheckout("b1")}
-                                            className="flex items-center justify-between rounded-xl border border-black bg-white px-4 py-3 text-left text-sm font-black text-black transition hover:bg-black/5"
-                                        >
-                                            <span>10 Prüfungen</span>
-                                            <span className="flex flex-col items-end"><span className="text-xs line-through opacity-60">€14.99</span><span>€9.99</span><span className="text-xs text-green-600">Save 33%</span></span>
-                                        </button>
-
-                                        <button
-                                            type="button"
-                                            onClick={() => openCheckout("b1_unlimited")}
-                                            className="flex items-center justify-between rounded-xl bg-black px-4 py-3 text-left text-sm font-black text-white transition hover:bg-black/90"
-                                        >
-                                            <span>Unbegrenzt</span>
-                                            <span className="flex flex-col items-end"><span className="text-xs line-through opacity-60">€49.99</span><span>€29.99</span><span className="text-xs text-green-300">Save 40%</span></span>
-                                        </button>
-                                    </div>
-                                    <p className="mt-2 text-xs text-black/45">
-                                        Beide Optionen sind 60 Tage gültig und verlängern sich nicht automatisch.
-                                    </p>
-                                </div>
+                                <div className="mt-4"><ExamUpgradeOffer source="exam_start" compact /></div>
                             )}
                         </div>
                     </div>

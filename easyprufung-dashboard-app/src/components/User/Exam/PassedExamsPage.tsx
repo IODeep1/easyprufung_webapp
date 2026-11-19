@@ -1,4 +1,4 @@
-import { trackPaymentClick } from "../../../api/activity/activity";
+import ExamUpgradeOffer from "../Pricing/ExamUpgradeOffer";
 import { ExamCertificateButton } from "./ExamCertificateButton";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { ExamOutcome } from "./components/ExamOutcome";
@@ -11,8 +11,7 @@ import {
     Check,
     Eye,
     LoaderCircle,
-    Lock,
-    Sparkles
+    Lock
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { PassedExamEntry } from "./models/exam.ts";
@@ -21,7 +20,6 @@ import { ExamReviewPage } from "./ExamReviewPage.tsx";
 import type { IUserAccount } from "../../../store/models/user/userAccount.interface.ts";
 import { useSelector } from "react-redux";
 import type { IStateType } from "../../../store/models/root.interface.ts";
-import { buildPaymentUrl } from "../Pricing/payment-links.ts";
 
 function formatScore(value: number): string {
     return Number(value).toLocaleString("de-DE", {
@@ -43,14 +41,12 @@ function ExamResultDetails({
                                entry,
                                onBack,
                                onShowDetails,
-                               hasPremiumAccess,
-                               onUpgrade
+                               hasPremiumAccess
                            }: {
     entry: PassedExamEntry;
     onBack: () => void;
     onShowDetails: () => void;
     hasPremiumAccess: boolean;
-    onUpgrade: (plan: "b1" | "b1_unlimited") => void;
 }) {
     const { i18n } = useTranslation();
     const { session, result } = entry;
@@ -126,8 +122,8 @@ function ExamResultDetails({
                 </section>
 
                 {/* Premium detail area */}
-                <div className="relative mt-6">
-                    <div
+                <div className="mt-6">
+                    {hasPremiumAccess && <div
                         className={
                             !hasPremiumAccess
                                 ? "pointer-events-none select-none blur-[5px]"
@@ -249,58 +245,9 @@ function ExamResultDetails({
                                 ))}
                             </div>
                         </section>
-                    </div>
+                    </div>}
 
-                    {!hasPremiumAccess && (
-                        <div className="absolute inset-0 flex items-start justify-center pt-8 sm:pt-14">
-                            <div className="mx-4 w-full max-w-xl rounded-[2rem] border border-black bg-white p-6 text-center shadow-2xl sm:p-8">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-black text-white">
-                                    <Lock size={20} />
-                                </div>
-
-                                <p className="mt-5 text-xs font-black uppercase tracking-[0.2em] text-black/45">
-                                    Premium-Auswertung
-                                </p>
-
-                                <h2 className="mt-2 text-2xl font-black tracking-[-0.04em] sm:text-3xl">
-                                    Alle Details dieser Prüfung freischalten
-                                </h2>
-
-                                <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-black/60">
-                                    Sehen Sie Ergebnisse pro Prüfungsteil,
-                                    Gesamtfeedback, Ihre Antworten und
-                                    Erklärungen zu den einzelnen Aufgaben.
-                                </p>
-
-                                <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-bold">
-                                    <span className="rounded-full bg-black/5 px-3 py-2">
-                                        60 Tage Zugang
-                                    </span>
-                                    <span className="rounded-full bg-black/5 px-3 py-2">
-                                        Keine automatische Verlängerung
-                                    </span>
-                                </div>
-
-                                <div className="mt-6 grid gap-2 sm:grid-cols-2">
-                                    <button
-                                        type="button"
-                                        onClick={() => onUpgrade("b1")}
-                                        className="inline-flex items-center justify-center rounded-2xl border border-black bg-white px-5 py-4 text-sm font-black text-black transition hover:bg-black/5"
-                                    >
-                                        10 Prüfungen — €9.99 (statt €14.99 · 33% sparen)
-                                    </button>
-                                    <button
-                                        type="button"
-                                        onClick={() => onUpgrade("b1_unlimited")}
-                                        className="inline-flex items-center justify-center gap-2 rounded-2xl bg-black px-5 py-4 text-sm font-black text-white transition hover:bg-black/90"
-                                    >
-                                        <Sparkles size={17} />
-                                        Unbegrenzt — €29.99 (statt €49.99 · 40% sparen)
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    )}
+                    {!hasPremiumAccess && <ExamUpgradeOffer source="exam_history_result" />}
                 </div>
 
                 {hasPremiumAccess ? (
@@ -380,14 +327,6 @@ export function PassedExamsPage() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    const openCheckout = (plan: "b1" | "b1_unlimited") => {
-        trackPaymentClick(plan, "exam_history");
-        window.location.href = buildPaymentUrl(
-            plan,
-            account.user?.email,
-            account.user?.uuid
-        );
-    };
 
     useEffect(() => {
         let active = true;
@@ -453,7 +392,6 @@ export function PassedExamsPage() {
                     }
                 }}
                 hasPremiumAccess={hasPremiumAccess}
-                onUpgrade={openCheckout}
             />
         );
     }
@@ -518,49 +456,6 @@ export function PassedExamsPage() {
 
                 {!loading && !error && exams.length > 0 && (
                     <>
-                        {!hasPremiumAccess && (
-                            <section className="mt-8 rounded-[2rem] border border-black bg-black p-6 text-white sm:p-8">
-                                <div className="grid gap-5 sm:grid-cols-[1fr_auto] sm:items-center">
-                                    <div>
-                                        <p className="text-xs font-black uppercase tracking-[0.2em] text-white/50">
-                                            TELC B1 Exam Pass
-                                        </p>
-
-                                        <h2 className="mt-2 text-2xl font-black tracking-tight">
-                                            Alte Prüfungen vollständig auswerten
-                                        </h2>
-
-                                        <p className="mt-2 max-w-2xl text-sm leading-6 text-white/65">
-                                            Ihre Ergebnisse bleiben sichtbar.
-                                            Mit dem Exam Pass erhalten Sie
-                                            zusätzlich die Detailansicht,
-                                            Erklärungen und den vollständigen
-                                            schreibgeschützten Prüfungsmodus.
-                                        </p>
-                                    </div>
-
-                                    <div className="flex flex-col gap-2 sm:min-w-52">
-                                        <button
-                                            type="button"
-                                            onClick={() => openCheckout("b1")}
-                                            className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-black text-black"
-                                        >
-                                            10 Prüfungen · €9.99 (statt €14.99 · 33% sparen)
-                                            <ArrowRight size={17} />
-                                        </button>
-                                        <button
-                                            type="button"
-                                            onClick={() => openCheckout("b1_unlimited")}
-                                            className="inline-flex items-center justify-center gap-2 rounded-full border border-white px-6 py-3 text-sm font-black text-white"
-                                        >
-                                            Unbegrenzt · €29.99 (statt €49.99 · 40% sparen)
-                                            <ArrowRight size={17} />
-                                        </button>
-                                    </div>
-                                </div>
-                            </section>
-                        )}
-
                         <div className="mt-8 space-y-4">
                             {exams.map((entry) => (
                                 <article
@@ -666,6 +561,9 @@ export function PassedExamsPage() {
                                 </article>
                             ))}
                         </div>
+                        {!hasPremiumAccess && (
+                            <div className="mt-8"><ExamUpgradeOffer source="exam_history" /></div>
+                        )}
                     </>
                 )}
             </div>

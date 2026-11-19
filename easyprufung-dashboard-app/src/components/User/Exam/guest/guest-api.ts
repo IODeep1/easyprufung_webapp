@@ -6,7 +6,7 @@ export function readGuest(): GuestState | null {
     try { const value = JSON.parse(localStorage.getItem(key) || "null"); return value && typeof value.token === "string" ? value : null; } catch { return null; }
 }
 export function saveGuest(value: GuestState) { localStorage.setItem(key, JSON.stringify(value)); }
-export function authDestination() { return readGuest()?.pending ? "/guest-exam" : "/"; }
+export function authDestination() { const guest = readGuest(); return guest && (guest.pending || guest.sessionId) ? "/guest-exam" : "/"; }
 export async function guestRequest<T>(token: string | null, suffix: string, init: RequestInit = {}): Promise<T> {
     const response = await fetch(`/public/exams/guest${suffix}`, { ...init, headers: { ...(token ? { "X-Guest-Token": token } : {}), ...(init.body ? { "Content-Type": "application/json" } : {}) } });
     if (!response.ok) { let message = `Request failed (${response.status})`; try { message = (await response.json()).message || message; } catch {} throw new ExamApiError(response.status, message); }

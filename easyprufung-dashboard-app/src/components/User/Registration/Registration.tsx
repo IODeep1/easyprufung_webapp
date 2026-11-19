@@ -6,7 +6,7 @@ import { OnChangeModel } from "../../../common/types/Form.types";
 import { requestCreateUser } from "../../../api/user/api-helper";
 import TextInput from "../../../common/components/TextInput";
 import { IUser } from "../../../store/models/user/user.interface";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import Logo from "../../../images/logo.png";
 import ReCAPTCHA from "react-google-recaptcha";
 import GoogleLoginButton from "../Login/GoogleLoginButton";
@@ -20,6 +20,8 @@ const Registration = () => {
     let user: IUser;
     const account: IUserAccount = useSelector((state: IStateType) => state.userAccount);
     const navigate = useNavigate();
+    const location = useLocation();
+    const guestError = Boolean((location.state as {guestError?: boolean} | null)?.guestError);
     const { t, i18n } = useTranslation();
     const dispatch: Dispatch<any> = useDispatch();
 
@@ -110,10 +112,10 @@ const Registration = () => {
     }
 
     useEffect(() => {
-        if (account && account.user?.email) {
+        if (account && account.user?.email && !guestError) {
             navigate(authDestination());
         }
-    }, [account, navigate]);
+    }, [account, navigate, guestError]);
 
     const inputClass =
         "w-full bg-white/80 dark:bg-white/5 border border-black/10 dark:border-white/10 " +

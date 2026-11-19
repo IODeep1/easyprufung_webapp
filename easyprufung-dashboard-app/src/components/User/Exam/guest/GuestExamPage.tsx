@@ -59,7 +59,7 @@ export default function GuestExamPage() {
      const current = await requestGetUser(dispatch).catch(() => undefined);
      if (alive && current?.uuid === userId) dispatch(updateUser(current));
     } catch (cause) {
-     if (alive) { setError((cause as Error).message); setScreen("ready"); }
+     if (alive) navigate("/register", {replace: true, state: {guestError: true}});
     } finally { if (alive) setBusy(false); }
     return;
    }
@@ -83,6 +83,9 @@ export default function GuestExamPage() {
    const state = restored.session ? restored : await guestRequest<GuestView>(guest.token, "");
    if (!alive) return;
    saveGuest({...guest, sessionId: active.sessionId, pending: state.finished});
+   // A finish response can be lost before the local marker is updated. If the user
+   // has since signed in, recover the finished server draft without another auth popup.
+   if (state.finished && userId) { setRefresh(value => value + 1); return; }
    const draft = state.progress || { revision: 0, index: 0, answers: {} };
    const local = loadExamProgress(active.sessionId);
    // Keep the most recent local answers if the browser closed before autosave reached the server.
@@ -92,7 +95,7 @@ export default function GuestExamPage() {
    setProgress(synced);
    setSession(active); setScreen(state.finished ? "register" : "exam");
   };
-  void restore().catch(e => {if (alive) {setError(e.message); setScreen("error");}});
+  void restore().catch(() => {if (alive) navigate("/register", {replace: true, state: {guestError: true}});});
   return () => {
    alive = false;
    if (preparationTimer !== undefined) window.clearTimeout(preparationTimer);
@@ -101,10 +104,12 @@ export default function GuestExamPage() {
  }, [userId, refresh, navigate, dispatch]);
 
  const finish = async (_: SubmitExamRequest) => {
-  const guest = readGuest(); if (!guest) throw new Error("The saved guest exam is unavailable.");
-  await guestRequest(guest.token, "/finish", {method: "POST"});
-  saveGuest({...guest, pending: true});
-  setRefresh(v => v + 1);
+  try {
+   const guest = readGuest(); if (!guest) throw new Error("The saved guest exam is unavailable.");
+   await guestRequest(guest.token, "/finish", {method: "POST"});
+   saveGuest({...guest, pending: true});
+   setRefresh(v => v + 1);
+  } catch { navigate("/register", {replace: true, state: {guestError: true}}); }
  };
  // Failed attempts can be retried through the same claim/restore path. Already evaluated
  // sessions load their stored result, so reloads never intentionally resubmit them.
@@ -114,7 +119,7 @@ export default function GuestExamPage() {
  if (screen === "exam" && session && progress) return <>
   <p className="bg-blue-50 px-6 py-3 text-center text-sm text-gray-900">{copy.noRegistration}</p>
   <ExamLanguageLock><ExamRunnerPage key={session.sessionId} session={session} initialProgress={progress} onSubmit={finish}
-   saveProgress={(id, draft) => { const guest = readGuest(); if (!guest) return Promise.reject(new Error("Guest token unavailable")); return saveGuestProgress(guest.token, draft); }} preserveProgressOnSubmit /></ExamLanguageLock>
+   saveProgress={(id, draft) => { const guest = readGuest(); if (!guest) { navigate("/register", {replace: true, state: {guestError: true}}); return Promise.reject(new Error("Guest token unavailable")); } return saveGuestProgress(guest.token, draft).catch(error => { navigate("/register", {replace: true, state: {guestError: true}}); throw error; }); }} preserveProgressOnSubmit /></ExamLanguageLock>
  </>;
  if (screen === "register") return <GuestAuthChoice examTitle={session?.title} />;
  if (screen === "result" && session && result) return <ResultPage session={session} result={result} onRestart={() => navigate("/new")} />;

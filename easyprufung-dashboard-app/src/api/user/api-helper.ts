@@ -102,28 +102,31 @@ export async function requestUpdateUser(updatedUser : IUser, dispatch) {
 
 
 export async function requestGetUser(dispatch) {
-    let user: any;
-
-    const requestOptions = {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json',  'Authorization' : 'Bearer '+localStorage.getItem('access-token')},
-    };
-    await fetch('/api/user/get', requestOptions)
-        .then((response) => {
-            if(!response.ok) {
-                dispatch(logout());
-            }
-            else return response.json();
-        })
-        .then((result) => {
-            user = result as IUser;
-            rememberUser(user);
-        })
-        .catch((e) => {
+    const token = localStorage.getItem("access-token");
+    try {
+        const response = await fetch('/api/user/get', {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        });
+        // An older request must not clear or replace a newly signed-in account.
+        if (localStorage.getItem("access-token") !== token) return undefined;
+        if (response.status === 401 || response.status === 403) {
             dispatch(logout());
-        })
-    return user;
+            return undefined;
+        }
+        if (!response.ok) return undefined;
+        const result = await response.json();
+        if (localStorage.getItem("access-token") !== token || !result?.email) return undefined;
+        const user = { ...result, token: result.token || token } as IUser;
+        rememberUser(user);
+        return user;
+    } catch {
+        // Navigation to checkout can abort a profile refresh. Keep the valid session;
+        // only an explicit authentication rejection should sign the user out.
+        return undefined;
+    }
 }
+
 
 export async function requestGetUserWithProjects(dispatch) {
     let user: any;

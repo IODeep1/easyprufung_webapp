@@ -79,7 +79,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test:activity": "node scripts/test-activity.cjs",
-    "test:guest": "node scripts/test-guest.cjs"
+    "test:guest": "node scripts/test-guest.cjs",
+    "test:profile": "node scripts/test-profile.cjs"
   },
   "eslintConfig": {
     "extends": [
