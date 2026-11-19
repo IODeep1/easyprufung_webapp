@@ -1,3 +1,4 @@
+import { authDestination } from "../Exam/guest/guest-api";
 import React, { Dispatch, FormEvent, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -98,7 +99,7 @@ const Registration = () => {
                 return;
             }
             dispatch(login(createdUser));
-            navigate("/");
+            navigate(authDestination());
         } catch (err) {
             setError("Something went wrong. Please try again.");
         } finally {
@@ -110,7 +111,7 @@ const Registration = () => {
 
     useEffect(() => {
         if (account && account.user?.email) {
-            navigate("/");
+            navigate(authDestination());
         }
     }, [account, navigate]);
 

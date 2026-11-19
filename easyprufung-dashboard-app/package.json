@@ -78,7 +78,8 @@
     "build": "GENERATE_SOURCEMAP=false react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:activity": "node scripts/test-activity.cjs"
+    "test:activity": "node scripts/test-activity.cjs",
+    "test:guest": "node scripts/test-guest.cjs"
   },
   "eslintConfig": {
     "extends": [

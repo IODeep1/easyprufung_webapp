@@ -57,7 +57,7 @@ ReactDOM.render(
         <Provider store={store}>
             <ThemeProvider>
                 <App />
-            </ThemeProvider>,
+            </ThemeProvider>
         </Provider>
     </GoogleOAuthProvider>
     , document.getElementById('root'));

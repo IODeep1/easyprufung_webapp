@@ -106,7 +106,7 @@ export function ResultPage(props: {
                                 {session.title}
                             </p>
 
-                            {result.passed && <ExamCertificateButton session={session} result={result} />}
+                            {result.passed && hasPremiumAccess && <ExamCertificateButton session={session} result={result} />}
                         </div>
 
                         {/* Overall result stays visible for free users */}
@@ -163,7 +163,7 @@ export function ResultPage(props: {
                         }`}
                         aria-hidden={!hasPremiumAccess}
                     >
-                        {result.sections.map((section) => {
+                        {(hasPremiumAccess ? result.sections : Array.from(new Map(session.exercises.map(part => [part.sectionKey, { sectionKey: part.sectionKey, title: part.sectionTitle, score: 0, maximumScore: 0 }])).values())).map((section) => {
                             const percentage = section.maximumScore
                                 ? (section.score / section.maximumScore) * 100
                                 : 0;
@@ -178,11 +178,11 @@ export function ResultPage(props: {
                                     </p>
 
                                     <p className="mt-5 text-3xl font-black">
-                                        {section.score}
+                                        {hasPremiumAccess ? section.score : "—"}
 
                                         <span className="text-base text-black/35">
                                             {" "}
-                                            / {section.maximumScore}
+                                            / {hasPremiumAccess ? section.maximumScore : "—"}
                                         </span>
                                     </p>
 

@@ -1,3 +1,5 @@
+import { readGuest } from "../Exam/guest/guest-api";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { IStateType } from "../../../store/models/root.interface";
 import AcquisitionOnboarding from "../Onboarding/AcquisitionOnboarding";
@@ -57,7 +59,7 @@ const Root: React.FC = () => {
 
     const user = useSelector((state: IStateType) => state.userAccount.user);
     // Only explicitly incomplete accounts are gated; older accounts remain unaffected.
-    if (user?.acquisitionOnboardingCompleted === false) return <AcquisitionOnboarding />;
+    if (user?.acquisitionOnboardingCompleted === false && !readGuest()?.pending) return <AcquisitionOnboarding />;
 
     return (
         <Fragment>
@@ -74,6 +76,7 @@ const Root: React.FC = () => {
                         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setTheme={setTheme} />
                         {/* <!-- ===== Header End ===== --> */}
 
+                        {readGuest()?.pending && <Link className="bg-blue-50 px-6 py-3 text-center text-blue-800" to="/guest-exam">Return to your saved exam</Link>}
                         {/* <!-- ===== Main Content Start ===== --> */}
                         <main>
                             <div className="mx-auto"  onClick={(e) => {
