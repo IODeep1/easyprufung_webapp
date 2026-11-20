@@ -1,6 +1,7 @@
+import ExamUpgradeOffer from "../Pricing/ExamUpgradeOffer";
 import { ExamCertificateButton } from "./ExamCertificateButton";
 import ExamLanguageLock from "./ExamLanguageLock";
-import { Eye, Lock, RotateCcw, Sparkles } from "lucide-react";
+import { Eye, Lock, RotateCcw } from "lucide-react";
 import {useEffect, useState} from "react";
 import { useSelector } from "react-redux";
 import { ExamReviewPage } from "./ExamReviewPage.tsx";
@@ -10,7 +11,6 @@ import type {
 } from "./models/exam.ts";
 import type { IUserAccount } from "../../../store/models/user/userAccount.interface.ts";
 import type { IStateType } from "../../../store/models/root.interface.ts";
-import { buildPaymentUrl } from "../Pricing/payment-links.ts";
 
 export function ResultPage(props: {
     session: ExamSessionView;
@@ -50,13 +50,6 @@ export function ResultPage(props: {
             subscription?.isActive !== false &&
             subscription?.status?.toLowerCase?.() !== "expired");
 
-    const openCheckout = (plan: "b1" | "b1_unlimited") => {
-        window.location.href = buildPaymentUrl(
-            plan,
-            account.user?.email,
-            account.user?.uuid
-        );
-    };
 
     function scrollExamToTop(): void {
         const scrollContainer =
@@ -104,7 +97,7 @@ export function ResultPage(props: {
                                 {session.title}
                             </p>
 
-                            {result.passed && <ExamCertificateButton session={session} result={result} />}
+                            {result.passed && hasPremiumAccess && <ExamCertificateButton session={session} result={result} />}
                         </div>
 
                         {/* Overall result stays visible for free users */}
@@ -152,8 +145,8 @@ export function ResultPage(props: {
 
             <div className="mx-auto max-w-6xl px-4 py-8 sm:px-7 sm:py-12">
                 {/* Section breakdown */}
-                <div className="relative">
-                    <section
+                <div>
+                    {hasPremiumAccess && <section
                         className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-4 ${
                             !hasPremiumAccess
                                 ? "pointer-events-none select-none blur-[5px]"
@@ -161,7 +154,7 @@ export function ResultPage(props: {
                         }`}
                         aria-hidden={!hasPremiumAccess}
                     >
-                        {result.sections.map((section) => {
+                        {(hasPremiumAccess ? result.sections : Array.from(new Map(session.exercises.map(part => [part.sectionKey, { sectionKey: part.sectionKey, title: part.sectionTitle, score: 0, maximumScore: 0 }])).values())).map((section) => {
                             const percentage = section.maximumScore
                                 ? (section.score / section.maximumScore) * 100
                                 : 0;
@@ -176,11 +169,11 @@ export function ResultPage(props: {
                                     </p>
 
                                     <p className="mt-5 text-3xl font-black">
-                                        {section.score}
+                                        {hasPremiumAccess ? section.score : "—"}
 
                                         <span className="text-base text-black/35">
                                             {" "}
-                                            / {section.maximumScore}
+                                            / {hasPremiumAccess ? section.maximumScore : "—"}
                                         </span>
                                     </p>
 
@@ -198,59 +191,9 @@ export function ResultPage(props: {
                                 </article>
                             );
                         })}
-                    </section>
+                    </section>}
 
-                    {!hasPremiumAccess && (
-                        <div className="absolute inset-0 flex items-center justify-center p-4">
-                            <div className="w-full max-w-xl rounded-[2rem] border border-black bg-white p-6 text-center shadow-2xl sm:p-8">
-                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-black text-white">
-                                    <Lock size={20} />
-                                </div>
-
-                                <p className="mt-5 text-xs font-black uppercase tracking-[0.2em] text-black/45">
-                                    Detaillierte Auswertung
-                                </p>
-
-                                <h2 className="mt-2 text-2xl font-black tracking-[-0.04em] sm:text-3xl">
-                                    Sehen Sie, wo Sie Punkte verlieren.
-                                </h2>
-
-                                <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-black/60">
-                                    Schalten Sie die Ergebnisse der einzelnen
-                                    Prüfungsteile, falsche Antworten und
-                                    ausführliche Erklärungen frei.
-                                </p>
-
-                                <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-bold">
-                                    <span className="rounded-full bg-black/5 px-3 py-2">
-                                        60 Tage Zugang
-                                    </span>
-                                    <span className="rounded-full bg-black/5 px-3 py-2">
-                                        Keine automatische Verlängerung
-                                    </span>
-                                </div>
-
-                                <div className="mt-6 grid gap-2 sm:grid-cols-2">
-                                    <button
-                                        type="button"
-                                        onClick={() => openCheckout("b1")}
-                                        className="inline-flex items-center justify-center gap-2 rounded-2xl border border-black bg-white px-5 py-4 text-sm font-black text-black transition hover:-translate-y-0.5 hover:bg-black/5"
-                                    >
-                                        10 Prüfungen — €9.99 (statt €14.99 · 33% sparen)
-                                    </button>
-
-                                    <button
-                                        type="button"
-                                        onClick={() => openCheckout("b1_unlimited")}
-                                        className="inline-flex items-center justify-center gap-2 rounded-2xl bg-black px-5 py-4 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-black/90"
-                                    >
-                                        <Sparkles size={17} />
-                                        Unbegrenzt — €29.99 (statt €49.99 · 40% sparen)
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    )}
+                    {!hasPremiumAccess && <ExamUpgradeOffer source="exam_result" />}
                 </div>
 
                 <section className="mt-6 grid gap-4 md:grid-cols-2">

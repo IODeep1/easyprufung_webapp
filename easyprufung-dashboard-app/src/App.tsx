@@ -1,3 +1,4 @@
+import GuestExamRoute from "./components/User/Exam/guest/GuestExamRoute";
 import { ExamCertificatePage } from "./components/User/Exam/ExamCertificatePage";
 import React from "react";
 import UserLanguagePreference from "./components/Shared/UserLanguagePreference";
@@ -18,6 +19,7 @@ const App: React.FC = () => {
           <UserLanguagePreference />
           <Router>
               <Routes>
+                  <Route path="/guest-exam" element={<GuestExamRoute />} />
                   <Route path="/zertifikat/:token" element={<ExamCertificatePage />} />
                   <Route path="*"
                          element={

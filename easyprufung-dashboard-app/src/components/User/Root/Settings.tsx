@@ -1,3 +1,4 @@
+import { trackPaymentClick } from "../../../api/activity/activity";
 import React, { Dispatch, FormEvent, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -370,7 +371,9 @@ const Settings = () => {
                                         </p>
                                         <a
                                             href={limitedPaymentUrl}
-                                            className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-black bg-white px-4 py-2.5 text-sm font-semibold text-black transition hover:bg-black/5 dark:border-white dark:bg-black dark:text-white dark:hover:bg-white/10"
+                                        onClick={() => trackPaymentClick("b1", "settings")}
+                                        onAuxClick={e => { if (e.button === 1) trackPaymentClick("b1", "settings"); }}
+                                            className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-black bg-black px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-gray-800"
                                         >
                                             Get 10 exams
                                             <ArrowRight />
@@ -388,7 +391,9 @@ const Settings = () => {
                                         </p>
                                         <a
                                             href={unlimitedPaymentUrl}
-                                            className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-black bg-black px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-black/90 dark:border-white dark:bg-white dark:text-black dark:hover:bg-white/90"
+                                        onClick={() => trackPaymentClick("b1_unlimited", "settings")}
+                                        onAuxClick={e => { if (e.button === 1) trackPaymentClick("b1_unlimited", "settings"); }}
+                                            className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:from-blue-700 hover:to-indigo-700"
                                         >
                                             {isB1 && !isExpired ? "Upgrade to unlimited" : "Get unlimited"}
                                             <ArrowRight />

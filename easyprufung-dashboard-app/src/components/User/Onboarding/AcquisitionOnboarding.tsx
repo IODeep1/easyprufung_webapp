@@ -12,7 +12,7 @@ import Logo from "../../../images/logo.png";
 const icons = { google: Search, youtube: Youtube, facebook: Facebook, instagram: Instagram, tiktok: Music2, reddit: Bot, x: Twitter, linkedin: Linkedin, whatsapp: MessageCircle, telegram: Send, discord: Gamepad2, other: Ellipsis };
 const colors = { google: "text-blue-600", youtube: "text-red-600", facebook: "text-blue-600", instagram: "text-pink-600", tiktok: "text-violet-600", reddit: "text-orange-600", x: "text-gray-800 dark:text-white", linkedin: "text-blue-700", whatsapp: "text-green-600", telegram: "text-sky-500", discord: "text-indigo-500", other: "text-gray-500" };
 
-export default function AcquisitionOnboarding() {
+export default function AcquisitionOnboarding({ returnTo = "/" }: { returnTo?: string }) {
     const { t, i18n } = useTranslation();
     const user = useSelector((state: IStateType) => state.userAccount.user);
     const dispatch = useDispatch();
@@ -29,7 +29,7 @@ export default function AcquisitionOnboarding() {
         try {
             const updated = await requestUpdateUserPreferences({ email: user.email, acquisitionSource: selected });
             dispatch(updateUser(updated));
-            navigate("/", { replace: true });
+            navigate(returnTo, { replace: true });
         } catch {
             setError(true);
             setSaving(false);

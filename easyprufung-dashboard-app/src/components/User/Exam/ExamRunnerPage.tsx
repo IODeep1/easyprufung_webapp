@@ -38,6 +38,8 @@ function scrollExamToTop(): void {
 export function ExamRunnerPage(props: {
     session: ExamSessionView;
     initialProgress: ExamProgress;
+    saveProgress?: (id: string, progress: ExamProgress) => Promise<ExamProgress>;
+    preserveProgressOnSubmit?: boolean;
     onSubmit: (
         request: SubmitExamRequest
     ) => Promise<void>;
@@ -109,7 +111,7 @@ export function ExamRunnerPage(props: {
 
     const revision = useRef(props.initialProgress.revision);
     const pending = useRef({ index, answers });
-    const saved = useRef(pending.current);
+    const saved = useRef({ index: props.initialProgress.index, answers: props.initialProgress.answers });
     const saving = useRef<Promise<void> | null>(null);
     const conflict = useRef(false);
     const [syncError, setSyncError] = useState<string | null>(null);
@@ -121,7 +123,7 @@ export function ExamRunnerPage(props: {
         const snapshot = pending.current;
         const task = (async () => {
             try {
-                const updated = await putExamProgress(session.sessionId, { ...snapshot, revision: revision.current });
+                const updated = await (props.saveProgress || putExamProgress)(session.sessionId, { ...snapshot, revision: revision.current });
                 revision.current = updated.revision;
                 saved.current = snapshot;
                 setSyncError(null);
@@ -135,7 +137,7 @@ export function ExamRunnerPage(props: {
         })();
         saving.current = task;
         try { await task; } finally { if (saving.current === task) saving.current = null; }
-    }, [session.sessionId]);
+    }, [session.sessionId, props.saveProgress]);
     useEffect(() => {
         const timer = window.setTimeout(() => { void flush().catch(() => {}); }, 350);
         return () => window.clearTimeout(timer);
@@ -336,9 +338,7 @@ export function ExamRunnerPage(props: {
             await flush();
             await onSubmit(payload);
 
-            clearExamProgress(
-                session.sessionId
-            );
+            if (!props.preserveProgressOnSubmit) clearExamProgress(session.sessionId);
         } catch (error) {
             setSubmitError(
                 error instanceof Error

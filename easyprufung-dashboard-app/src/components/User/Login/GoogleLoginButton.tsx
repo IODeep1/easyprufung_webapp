@@ -1,3 +1,4 @@
+import { authDestination } from "../Exam/guest/guest-api";
 import { useTranslation } from "react-i18next";
 import React, {useState, Dispatch} from "react";
 import { useGoogleLogin } from '@react-oauth/google';
@@ -22,7 +23,7 @@ const GoogleLoginButton = () => {
             let user = await  authenticateGoogleUser(tokenResponse.access_token, i18n.resolvedLanguage || i18n.language);
             if(user !== null && user !== undefined){
                 dispatch(login(user));
-                navigate("/");
+                navigate(authDestination());
             }
             setLoadingMessage('');
             setLoading(false);

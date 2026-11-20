@@ -1,3 +1,4 @@
+import { authDestination } from "../Exam/guest/guest-api";
 import React, { useState, FormEvent, Dispatch, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { OnChangeModel } from "../../../common/types/Form.types";
@@ -6,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { login } from "../../../store/actions/user/userAccount.actions";
 import TextInput from "../../../common/components/TextInput";
 import GoogleLoginButton from "./GoogleLoginButton";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../../images/logo.png";
 import JoinMakers from "./JoinMakers";
 
@@ -14,6 +15,7 @@ const Login = () => {
 // init
     const dispatch: Dispatch<any> = useDispatch();
     const location = useLocation();
+    const navigate = useNavigate();
     const { t } = useTranslation();
 
     const [formState, setFormState] = useState({
@@ -55,6 +57,7 @@ const Login = () => {
             );
             if (user) {
                 dispatch(login(user));
+                if (authDestination() === "/guest-exam") navigate("/guest-exam");
             } else {
                 setError("Your email or password is incorrect.");
             }
