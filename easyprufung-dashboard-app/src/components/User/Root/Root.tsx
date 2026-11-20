@@ -59,7 +59,7 @@ const Root: React.FC = () => {
 
     const user = useSelector((state: IStateType) => state.userAccount.user);
     // Only explicitly incomplete accounts are gated; older accounts remain unaffected.
-    if (user?.acquisitionOnboardingCompleted === false && !readGuest()?.pending) return <AcquisitionOnboarding />;
+    if (user?.acquisitionOnboardingCompleted === false) return <AcquisitionOnboarding returnTo={readGuest()?.pending ? "/guest-exam" : "/"} />;
 
     return (
         <Fragment>
