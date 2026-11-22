@@ -18,7 +18,7 @@
     {
       "title": "Guest exams, answers and results",
       "paragraphs": [
-        "You can start and finish an exam without an account. A random guest token and saved answers in browser storage let you restore the same exam. The backend also stores the exam session, answers, progress, completion state and token hash. Registration or login is required before submission; the saved attempt is linked to your account and submitted automatically after required onboarding. We retain scores, writing responses and feedback for your exam history. This is necessary to provide the requested practice service (Article 6(1)(b)).",
+        "You can start an exam without an account. Registration or login is required when you reach Sprachbausteine Teil 1. A random guest token and saved answers in browser storage let you restore the same exam. The backend also stores the exam session, answers, progress, completion state and token hash. After signing in and any required onboarding, you continue the remaining sections with your saved answers. When you finish, the saved attempt is linked to your account and submitted automatically. We retain scores, writing responses and feedback for your exam history. This is necessary to provide the requested practice service (Article 6(1)(b)).",
         "Unclaimed guest access expires after 30 days. Expiry prevents using the guest capability; it does not itself delete every stored server record. Clearing browser storage or changing browser/device may prevent recovery. Publicly sharing an optional certificate link makes its displayed practice result available to people who have that link."
       ]
     },
@@ -88,7 +88,7 @@
     {
       "title": "Guest exam and registration",
       "paragraphs": [
-        "A visitor may complete the offered guest exam before registration. To submit saved answers and view the summary, register or log in and complete required onboarding. We preserve the attempt during that handoff and submit it automatically afterwards. Recovery depends on the saved browser token and remaining guest-access period; clearing storage or changing devices can prevent recovery.",
+        "A visitor may start the offered guest exam without registration. At Sprachbausteine Teil 1, register or log in and complete any required onboarding to continue. We preserve answers and position during that handoff. Finish the remaining sections to submit the attempt automatically and view the summary. Recovery depends on the saved browser token and remaining guest-access period; clearing storage or changing devices can prevent recovery.",
         "Free access is limited to the trial allowance shown in the service, generally one exam per account. Detailed review and further exams require an eligible paid pass or other access granted by us. Do not create additional accounts to evade trial or access limits. Provide accurate account information, protect your login and contact us if access is compromised."
       ]
     },

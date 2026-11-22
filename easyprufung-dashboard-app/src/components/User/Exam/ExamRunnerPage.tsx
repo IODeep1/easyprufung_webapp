@@ -40,6 +40,8 @@ export function ExamRunnerPage(props: {
     initialProgress: ExamProgress;
     saveProgress?: (id: string, progress: ExamProgress) => Promise<ExamProgress>;
     preserveProgressOnSubmit?: boolean;
+    registrationRequiredFrom?: number;
+    onRegistrationRequired?: (progress:ExamProgress) => Promise<void>;
     onSubmit: (
         request: SubmitExamRequest
     ) => Promise<void>;
@@ -154,6 +156,17 @@ export function ExamRunnerPage(props: {
             sync();
         };
     }, [flush]);
+
+    const registrationBlocked=props.registrationRequiredFrom!==undefined && index>=props.registrationRequiredFrom;
+    const registrationStarted=useRef(false);
+    useEffect(()=>{
+        if(!registrationBlocked || !props.onRegistrationRequired || registrationStarted.current)return;
+        registrationStarted.current=true;
+        void (async()=>{
+            await flush();
+            await props.onRegistrationRequired!({...pending.current,revision:revision.current});
+        })().catch(()=>{registrationStarted.current=false;});
+    },[registrationBlocked,flush,props.onRegistrationRequired]);
 
     const payload = useMemo<SubmitExamRequest>(
         () => ({
@@ -354,6 +367,9 @@ export function ExamRunnerPage(props: {
             });
         }
     };
+
+    // Never render the gated exercise (including audio) before registration.
+    if(registrationBlocked)return <main role="status" className="grid min-h-screen place-items-center p-8">{t("examPreparation.loadingMessage")}</main>;
 
     const audio = exercise.audioUrl ? (
         <AudioPlayer

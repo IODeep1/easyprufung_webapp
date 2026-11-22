@@ -18,7 +18,7 @@
     {
       "title": "Gastprüfungen, Antworten und Ergebnisse",
       "paragraphs": [
-        "Sie können die angebotene Gastprüfung ohne Konto beginnen und bearbeiten. Ein zufälliges Gast-Token und lokal gespeicherte Antworten ermöglichen die Wiederaufnahme. Auch der Server speichert Sitzung, Antworten, Fortschritt, Abschlussstatus und einen Token-Hash. Vor Abgabe sind Registrierung oder Anmeldung und gegebenenfalls die Herkunftsfrage erforderlich. Danach wird der gespeicherte Versuch dem Konto zugeordnet und automatisch abgegeben. Ergebnisse, Schreibantworten und Feedback werden für Ihren Verlauf gespeichert. Grundlage ist die Bereitstellung der gewünschten Leistung (Art. 6 Abs. 1 lit. b DSGVO).",
+        "Sie können die Gastprüfung ohne Konto beginnen. Ab Sprachbausteine Teil 1 ist eine Registrierung oder Anmeldung erforderlich. Ein zufälliges Gast-Token und lokal gespeicherte Antworten ermöglichen die Wiederaufnahme. Auch der Server speichert Sitzung, Antworten, Fortschritt, Abschlussstatus und einen Token-Hash. Nach der Anmeldung und gegebenenfalls der Herkunftsfrage setzen Sie die restlichen Teile mit Ihren gespeicherten Antworten fort. Wenn Sie die Prüfung beenden, wird der gespeicherte Versuch dem Konto zugeordnet und automatisch abgegeben. Ergebnisse, Schreibantworten und Feedback werden für Ihren Verlauf gespeichert. Grundlage ist die Bereitstellung der gewünschten Leistung (Art. 6 Abs. 1 lit. b DSGVO).",
         "Der unbeanspruchte Gastzugang läuft nach 30 Tagen ab. Dieser Ablauf löscht nicht automatisch sämtliche Serverdatensätze. Gelöschter Browserspeicher oder ein Gerätewechsel können die Wiederherstellung verhindern. Wenn Sie einen optionalen Zertifikatslink veröffentlichen, können Personen mit diesem Link die dort dargestellten Übungsergebnisse sehen."
       ]
     },
@@ -88,7 +88,7 @@
     {
       "title": "Gastprüfung und Registrierung",
       "paragraphs": [
-        "Besucher können die angebotene Gastprüfung vor Registrierung bearbeiten. Für Abgabe und Zusammenfassung müssen Sie sich registrieren oder anmelden und erforderliche Onboarding-Fragen beantworten. Der gespeicherte Versuch bleibt erhalten und wird anschließend automatisch abgegeben. Wiederherstellung hängt vom Browser-Token und verbleibenden Gastzugang ab; Speicherlöschung oder Gerätewechsel können sie verhindern.",
+        "Besucher können die angebotene Gastprüfung ohne Registrierung beginnen. Ab Sprachbausteine Teil 1 müssen Sie sich registrieren oder anmelden und erforderliche Onboarding-Fragen beantworten, um fortzufahren. Antworten und Position bleiben währenddessen erhalten. Nach Abschluss der restlichen Teile wird der Versuch automatisch abgegeben und die Zusammenfassung angezeigt. Wiederherstellung hängt vom Browser-Token und verbleibenden Gastzugang ab; Speicherlöschung oder Gerätewechsel können sie verhindern.",
         "Kostenloser Zugang ist auf das angezeigte Probekontingent, grundsätzlich eine Prüfung pro Konto, beschränkt. Detailauswertung und weitere Prüfungen erfordern einen geeigneten Pass oder anderweitig gewährten Zugang. Mehrfachkonten zur Umgehung sind unzulässig. Machen Sie korrekte Kontoangaben, schützen Sie Ihre Zugangsdaten und melden Sie Missbrauch."
       ]
     },

@@ -17,5 +17,7 @@ vm.runInNewContext(code,context);
  assert.equal(JSON.parse(request.options.body).revision,4);
  context.fetch=async()=>({ok:false,status:402,json:async()=>({message:'Purchase required'})});
  await assert.rejects(()=>api.claimGuest(a.token),e=>e.status===402);assert.equal(api.readGuest().sessionId,'session');assert.equal(api.authDestination(),'/guest-exam');
+ api.completeGuest('another-token');assert.equal(api.readGuest().sessionId,'session');
+ api.completeGuest(a.token);assert.equal(api.readGuest().completed,true);assert.equal(api.readGuest().pending,false);assert.equal(api.authDestination(),'/guest-exam');
  console.log('Guest client checks passed: concurrent creation, persistent token, registration destination, server draft, keepalive, token isolation, recovery after rejected claim.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

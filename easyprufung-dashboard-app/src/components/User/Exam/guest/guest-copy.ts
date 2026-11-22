@@ -1,10 +1,10 @@
 const copies = {
- en: { unavailable: "Unable to open the exam", loading: "Preparing your guest exam…", saved: "Your exam is saved", register: "Create an account to submit your answers and see your results. Your completed exam will stay saved while you register.", signIn: "Already have an account? Sign in", signUp: "Create an account", submit: "Submit and view results", ready: "Your answers are ready to submit. Detailed review and further exams require a purchase.", retry: "Try again", back: "Back to saved exam", purchase: "View plans", noRegistration: "No registration is needed to take this exam. Create an account when you finish to submit your answers and see your results." },
- de: { unavailable: "Prüfung nicht verfügbar", loading: "Deine Gastprüfung wird vorbereitet…", saved: "Deine Prüfung ist gespeichert", register: "Erstelle ein Konto, um deine Antworten abzugeben und dein Ergebnis zu sehen. Deine fertige Prüfung bleibt während der Registrierung gespeichert.", signIn: "Schon ein Konto? Anmelden", signUp: "Konto erstellen", submit: "Abgeben und Ergebnis ansehen", ready: "Deine Antworten sind bereit zur Abgabe. Für die Detailauswertung und weitere Prüfungen ist ein Kauf erforderlich.", retry: "Erneut versuchen", back: "Zur gespeicherten Prüfung", purchase: "Tarife ansehen", noRegistration: "Du kannst diese Prüfung ohne Registrierung bearbeiten. Erstelle am Ende ein Konto, um deine Antworten abzugeben und dein Ergebnis zu sehen." },
- fr: { unavailable: "Impossible d’ouvrir l’examen", loading: "Préparation de ton examen invité…", saved: "Ton examen est sauvegardé", register: "Crée un compte pour envoyer tes réponses et voir ton résultat. Ton examen terminé reste sauvegardé pendant l’inscription.", signIn: "Déjà un compte ? Se connecter", signUp: "Créer un compte", submit: "Envoyer et voir le résultat", ready: "Tes réponses sont prêtes. L’analyse détaillée et les examens suivants nécessitent un achat.", retry: "Réessayer", back: "Revenir à l’examen sauvegardé", purchase: "Voir les offres", noRegistration: "Tu peux passer cet examen sans inscription. Crée un compte à la fin pour envoyer tes réponses et voir ton résultat." },
- ar: { unavailable: "تعذّر فتح الامتحان", loading: "جارٍ تحضير الامتحان التجريبي…", saved: "تم حفظ امتحانك", register: "أنشئ حسابًا لإرسال إجاباتك والاطلاع على النتيجة. سيبقى امتحانك وإجاباتك محفوظين أثناء التسجيل.", signIn: "لديك حساب؟ تسجيل الدخول", signUp: "إنشاء حساب", submit: "إرسال الإجابات وعرض النتيجة", ready: "إجاباتك جاهزة للإرسال. تحتاج إلى الشراء لعرض التفاصيل الكاملة وبدء امتحانات أخرى.", retry: "حاول مجددًا", back: "العودة إلى الامتحان المحفوظ", purchase: "عرض الخطط", noRegistration: "يمكنك أداء هذا الامتحان دون تسجيل. أنشئ حسابًا عند الانتهاء لإرسال إجاباتك وعرض النتيجة." },
- uk: { unavailable: "Не вдалося відкрити іспит", loading: "Готуємо гостьовий іспит…", saved: "Твій іспит збережено", register: "Створи обліковий запис, щоб надіслати відповіді й побачити результат. Іспит залишиться збереженим під час реєстрації.", signIn: "Уже є обліковий запис? Увійти", signUp: "Створити обліковий запис", submit: "Надіслати й переглянути результат", ready: "Відповіді готові до надсилання. Детальний розбір і нові іспити потребують оплати.", retry: "Спробувати ще раз", back: "До збереженого іспиту", purchase: "Переглянути тарифи", noRegistration: "Цей іспит можна пройти без реєстрації. Створи обліковий запис наприкінці, щоб надіслати відповіді й побачити результат." },
- tr: { unavailable: "Sınav açılamadı", loading: "Misafir sınavın hazırlanıyor…", saved: "Sınavın kaydedildi", register: "Yanıtlarını göndermek ve sonucunu görmek için hesap oluştur. Kayıt olurken tamamladığın sınav ve yanıtların korunacak.", signIn: "Zaten hesabın var mı? Giriş yap", signUp: "Hesap oluştur", submit: "Gönder ve sonucu gör", ready: "Yanıtların gönderilmeye hazır. Ayrıntılı inceleme ve yeni sınavlar için satın alma gerekir.", retry: "Tekrar dene", back: "Kayıtlı sınava dön", purchase: "Planları gör", noRegistration: "Bu sınava kayıt olmadan girebilirsin. Yanıtlarını göndermek ve sonucu görmek için sınav sonunda hesap oluştur." }
+ en: { unavailable: "Unable to open the exam", loading: "Preparing your guest exam…", saved: "Your exam is saved", register: "Create an account to submit your answers and see your results. Your completed exam will stay saved while you register.", signIn: "Already have an account? Sign in", signUp: "Create an account", submit: "Submit and view results", ready: "Your answers are ready to submit. Detailed review and further exams require a purchase.", retry: "Try again", back: "Back to saved exam", purchase: "View plans", noRegistration: "Start without an account. Register or sign in at Sprachbausteine Teil 1 to continue. Your progress stays saved." },
+ de: { unavailable: "Prüfung nicht verfügbar", loading: "Deine Gastprüfung wird vorbereitet…", saved: "Deine Prüfung ist gespeichert", register: "Erstelle ein Konto, um deine Antworten abzugeben und dein Ergebnis zu sehen. Deine fertige Prüfung bleibt während der Registrierung gespeichert.", signIn: "Schon ein Konto? Anmelden", signUp: "Konto erstellen", submit: "Abgeben und Ergebnis ansehen", ready: "Deine Antworten sind bereit zur Abgabe. Für die Detailauswertung und weitere Prüfungen ist ein Kauf erforderlich.", retry: "Erneut versuchen", back: "Zur gespeicherten Prüfung", purchase: "Tarife ansehen", noRegistration: "Starte ohne Konto. Ab Sprachbausteine Teil 1 ist eine Registrierung oder Anmeldung nötig. Dein Fortschritt bleibt gespeichert." },
+ fr: { unavailable: "Impossible d’ouvrir l’examen", loading: "Préparation de ton examen invité…", saved: "Ton examen est sauvegardé", register: "Crée un compte pour envoyer tes réponses et voir ton résultat. Ton examen terminé reste sauvegardé pendant l’inscription.", signIn: "Déjà un compte ? Se connecter", signUp: "Créer un compte", submit: "Envoyer et voir le résultat", ready: "Tes réponses sont prêtes. L’analyse détaillée et les examens suivants nécessitent un achat.", retry: "Réessayer", back: "Revenir à l’examen sauvegardé", purchase: "Voir les offres", noRegistration: "Commence sans compte. Inscris-toi ou connecte-toi à Sprachbausteine Teil 1 pour continuer. Ta progression est sauvegardée." },
+ ar: { unavailable: "تعذّر فتح الامتحان", loading: "جارٍ تحضير الامتحان التجريبي…", saved: "تم حفظ امتحانك", register: "أنشئ حسابًا لإرسال إجاباتك والاطلاع على النتيجة. سيبقى امتحانك وإجاباتك محفوظين أثناء التسجيل.", signIn: "لديك حساب؟ تسجيل الدخول", signUp: "إنشاء حساب", submit: "إرسال الإجابات وعرض النتيجة", ready: "إجاباتك جاهزة للإرسال. تحتاج إلى الشراء لعرض التفاصيل الكاملة وبدء امتحانات أخرى.", retry: "حاول مجددًا", back: "العودة إلى الامتحان المحفوظ", purchase: "عرض الخطط", noRegistration: "ابدأ بدون حساب. أنشئ حسابًا أو سجّل الدخول عند Sprachbausteine Teil 1 للمتابعة. تقدمك محفوظ." },
+ uk: { unavailable: "Не вдалося відкрити іспит", loading: "Готуємо гостьовий іспит…", saved: "Твій іспит збережено", register: "Створи обліковий запис, щоб надіслати відповіді й побачити результат. Іспит залишиться збереженим під час реєстрації.", signIn: "Уже є обліковий запис? Увійти", signUp: "Створити обліковий запис", submit: "Надіслати й переглянути результат", ready: "Відповіді готові до надсилання. Детальний розбір і нові іспити потребують оплати.", retry: "Спробувати ще раз", back: "До збереженого іспиту", purchase: "Переглянути тарифи", noRegistration: "Почни без облікового запису. На Sprachbausteine Teil 1 зареєструйся або увійди, щоб продовжити. Прогрес збережено." },
+ tr: { unavailable: "Sınav açılamadı", loading: "Misafir sınavın hazırlanıyor…", saved: "Sınavın kaydedildi", register: "Yanıtlarını göndermek ve sonucunu görmek için hesap oluştur. Kayıt olurken tamamladığın sınav ve yanıtların korunacak.", signIn: "Zaten hesabın var mı? Giriş yap", signUp: "Hesap oluştur", submit: "Gönder ve sonucu gör", ready: "Yanıtların gönderilmeye hazır. Ayrıntılı inceleme ve yeni sınavlar için satın alma gerekir.", retry: "Tekrar dene", back: "Kayıtlı sınava dön", purchase: "Planları gör", noRegistration: "Hesapsız başla. Sprachbausteine Teil 1 bölümünde devam etmek için kayıt ol veya giriş yap. İlerlemen kaydedilir." }
 };
 export function guestCopy(language: string) { return copies[language?.split(/[-_]/)[0] as keyof typeof copies] || copies.en; }
 
@@ -37,3 +37,73 @@ const submissionCopies = {
  tr: { submittingHeading: "Sınavın gönderiliyor", submittingIntro: "Hesabın bağlandı. Kaydedilen yanıtlarını gönderiyor ve sonucunu hazırlıyoruz. Başka bir şey yapmana gerek yok.", heading: "Sonucunu görmeye hazır mısın?", intro: "Hesabın hazır ve sınavın kaydedildi. Nasıl yaptığını görmek için yanıtlarını gönder.", accountReady: "Hesap bağlandı", accountInfo: "Tamamladığın sınav hesabına bağlandı." }
 };
 export function guestSubmissionCopy(language: string) { return submissionCopies[language?.split(/[-_]/)[0] as keyof typeof submissionCopies] || submissionCopies.en; }
+
+const checkpointCopies = {
+  "en": {
+    "title": "Continue your exam",
+    "message": "Create a free account or sign in to continue with Sprachbausteine Teil 1. Your answers are saved.",
+    "completed": "Progress saved",
+    "heading": "Keep going with your B1 practice",
+    "intro": "You have reached Sprachbausteine Teil 1. Register or sign in to continue from this point.",
+    "savedInfo": "Your reading answers are saved. Continue from the same point after signing in.",
+    "resultStep": "Continue your exam",
+    "resultInfo": "Complete the remaining sections, then see your result.",
+    "continue": "Continue exam"
+  },
+  "de": {
+    "title": "Prüfung fortsetzen",
+    "message": "Erstelle ein kostenloses Konto oder melde dich an, um mit Sprachbausteine Teil 1 fortzufahren. Deine Antworten sind gespeichert.",
+    "completed": "Fortschritt gespeichert",
+    "heading": "Mach mit deiner B1-Vorbereitung weiter",
+    "intro": "Du hast Sprachbausteine Teil 1 erreicht. Registriere dich oder melde dich an, um hier weiterzumachen.",
+    "savedInfo": "Deine Antworten im Leseverstehen sind gespeichert. Nach der Anmeldung geht es hier weiter.",
+    "resultStep": "Prüfung fortsetzen",
+    "resultInfo": "Bearbeite die restlichen Teile und sieh dir danach dein Ergebnis an.",
+    "continue": "Prüfung fortsetzen"
+  },
+  "fr": {
+    "title": "Continue ton examen",
+    "message": "Crée un compte gratuit ou connecte-toi pour continuer avec Sprachbausteine Teil 1. Tes réponses sont sauvegardées.",
+    "completed": "Progression sauvegardée",
+    "heading": "Continue ta préparation au B1",
+    "intro": "Tu as atteint Sprachbausteine Teil 1. Inscris-toi ou connecte-toi pour reprendre ici.",
+    "savedInfo": "Tes réponses de compréhension écrite sont sauvegardées. Reprends au même endroit après la connexion.",
+    "resultStep": "Continuer l’examen",
+    "resultInfo": "Termine les parties restantes, puis consulte ton résultat.",
+    "continue": "Continuer l’examen"
+  },
+  "ar": {
+    "title": "تابع امتحانك",
+    "message": "أنشئ حسابًا مجانيًا أو سجّل الدخول للمتابعة مع Sprachbausteine Teil 1. إجاباتك محفوظة.",
+    "completed": "تم حفظ تقدمك",
+    "heading": "واصل استعدادك لامتحان B1",
+    "intro": "وصلت إلى Sprachbausteine Teil 1. أنشئ حسابًا أو سجّل الدخول للمتابعة من هنا.",
+    "savedInfo": "إجابات القراءة محفوظة. تابع من نفس المكان بعد تسجيل الدخول.",
+    "resultStep": "متابعة الامتحان",
+    "resultInfo": "أكمل الأقسام المتبقية ثم اطّلع على نتيجتك.",
+    "continue": "متابعة الامتحان"
+  },
+  "uk": {
+    "title": "Продовж свій іспит",
+    "message": "Створи безкоштовний обліковий запис або увійди, щоб продовжити зі Sprachbausteine Teil 1. Твої відповіді збережено.",
+    "completed": "Прогрес збережено",
+    "heading": "Продовжуй підготовку до B1",
+    "intro": "Ти дійшов до Sprachbausteine Teil 1. Зареєструйся або увійди, щоб продовжити звідси.",
+    "savedInfo": "Відповіді з читання збережено. Після входу продовжуй із цього ж місця.",
+    "resultStep": "Продовжити іспит",
+    "resultInfo": "Заверши решту частин, а потім переглянь результат.",
+    "continue": "Продовжити іспит"
+  },
+  "tr": {
+    "title": "Sınavına devam et",
+    "message": "Sprachbausteine Teil 1 ile devam etmek için ücretsiz hesap oluştur veya giriş yap. Yanıtların kaydedildi.",
+    "completed": "İlerleme kaydedildi",
+    "heading": "B1 hazırlığına devam et",
+    "intro": "Sprachbausteine Teil 1 bölümüne ulaştın. Buradan devam etmek için kayıt ol veya giriş yap.",
+    "savedInfo": "Okuma yanıtların kaydedildi. Giriş yaptıktan sonra aynı yerden devam et.",
+    "resultStep": "Sınava devam et",
+    "resultInfo": "Kalan bölümleri tamamla, ardından sonucunu gör.",
+    "continue": "Sınava devam et"
+  }
+};
+export function guestCheckpointCopy(language:string) { return checkpointCopies[language?.split(/[-_]/)[0] as keyof typeof checkpointCopies] || checkpointCopies.en; }

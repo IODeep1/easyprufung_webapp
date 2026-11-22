@@ -14,7 +14,7 @@ import { ResultPage } from "../ResultPage";
 import { LoadingScreen } from "../components/ExamChrome";
 import GuestAuthChoice from "./GuestAuthChoice";
 import GuestSubmissionPage from "./GuestSubmissionPage";
-import { claimGuest, ensureGuest, guestRequest, readGuest, saveGuest, saveGuestProgress, GuestView } from "./guest-api";
+import { completeGuest, claimGuest, ensureGuest, guestRequest, readGuest, saveGuest, saveGuestProgress, GuestView } from "./guest-api";
 import { guestCopy } from "./guest-copy";
 
 function submitSavedExam(session: ExamSessionView, progress: ExamProgress) {
@@ -48,17 +48,18 @@ export default function GuestExamPage() {
    const saved = readGuest();
    if (userId && !saved) { navigate("/", {replace: true}); return; }
    const guest = await ensureGuest();
-   if (userId && guest.pending) {
+   if (userId && (guest.pending || guest.completed)) {
     const claimed = await claimGuest(guest.token);
     const draft = await getExamProgress(claimed.sessionId);
     const evaluated = claimed.status === "EVALUATED" ? await getExamResult(claimed.sessionId) : null;
     if (!alive) return;
     setSession(claimed); setProgress(draft); setResult(evaluated);
-    if (evaluated) { setScreen("result"); return; }
+    if (evaluated) { completeGuest(guest.token); setScreen("result"); return; }
     setScreen("ready"); setBusy(true);
     try {
      const completed = await submitSavedExam(claimed, draft);
      if (!alive) return;
+     completeGuest(guest.token);
      setResult(completed); setScreen("result");
      const current = await requestGetUser(dispatch).catch(() => undefined);
      if (alive && current?.uuid === userId) dispatch(updateUser(current));
@@ -107,6 +108,14 @@ export default function GuestExamPage() {
   };
  }, [userId, refresh, navigate, dispatch]);
 
+ const requireRegistration = async (draft:ExamProgress) => {
+  try {
+   const guest=readGuest();if(!guest || !session)throw new Error("Guest exam unavailable");
+   saveGuest({...guest,sessionId:session.sessionId,pending:false});
+   setProgress(draft);setScreen("register");
+  }catch(cause){showFailure(cause);}
+ };
+ const checkpoint=session?.exercises.findIndex(part=>part.sectionKey?.toUpperCase()==="SPRACHBAUSTEINE") ?? -1;
  const finish = async (_: SubmitExamRequest) => {
   try {
    const guest = readGuest(); if (!guest) throw new Error("The saved guest exam is unavailable.");
@@ -121,11 +130,11 @@ export default function GuestExamPage() {
  if (screen === "loading" && preparation) return <LoadingScreen message={t("examPreparation.loadingMessage")} durationMs={preparation.durationMs} startedAt={preparation.startedAt} />;
  if (screen === "loading") return <main className="grid min-h-screen place-items-center p-8" role="status">{copy.loading}</main>;
  if (screen === "exam" && session && progress) return <>
-  <p className="bg-blue-50 px-6 py-3 text-center text-sm text-gray-900">{copy.noRegistration}</p>
   <ExamLanguageLock><ExamRunnerPage key={session.sessionId} session={session} initialProgress={progress} onSubmit={finish}
+   registrationRequiredFrom={!userId && checkpoint>=0 ? checkpoint : undefined} onRegistrationRequired={requireRegistration}
    saveProgress={(id, draft) => { const guest = readGuest(); if (!guest) { const error=new Error("Guest token unavailable");showFailure(error);return Promise.reject(error); } return saveGuestProgress(guest.token, draft).catch(error => { showFailure(error); throw error; }); }} preserveProgressOnSubmit /></ExamLanguageLock>
  </>;
- if (screen === "register") return <GuestAuthChoice examTitle={session?.title} />;
+ if (screen === "register") return <GuestAuthChoice continueExam={!readGuest()?.pending} examTitle={session?.title} />;
  if (screen === "result" && session && result) return <ResultPage showBrand session={session} result={result} onRestart={() => navigate("/new")} />;
  return <GuestSubmissionPage examTitle={session?.title} ready={screen === "ready"} busy={busy} error={error}
   onSubmit={() => void submit()} onRetry={() => setRefresh(v => v + 1)}

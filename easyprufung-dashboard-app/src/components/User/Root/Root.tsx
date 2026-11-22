@@ -1,5 +1,5 @@
 import { readGuest } from "../Exam/guest/guest-api";
-import { Link } from "react-router-dom";
+import SavedGuestExamNotice from "../Exam/guest/SavedGuestExamNotice";
 import { useSelector } from "react-redux";
 import { IStateType } from "../../../store/models/root.interface";
 import AcquisitionOnboarding from "../Onboarding/AcquisitionOnboarding";
@@ -76,7 +76,7 @@ const Root: React.FC = () => {
                         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setTheme={setTheme} />
                         {/* <!-- ===== Header End ===== --> */}
 
-                        {readGuest()?.pending && <Link className="bg-blue-50 px-6 py-3 text-center text-blue-800" to="/guest-exam">Return to your saved exam</Link>}
+                        <SavedGuestExamNotice userId={user?.uuid} plan={user?.subscription?.plan} />
                         {/* <!-- ===== Main Content Start ===== --> */}
                         <main>
                             <div className="mx-auto"  onClick={(e) => {

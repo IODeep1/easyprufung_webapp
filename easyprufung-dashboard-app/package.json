@@ -83,7 +83,8 @@
     "test:profile": "node scripts/test-profile.cjs",
     "prebuild": "node scripts/sync-legal.cjs",
     "test:google": "node scripts/test-google-redirect.cjs",
-    "test:guest-recovery": "NODE_ENV=test node scripts/test-guest-recovery.cjs"
+    "test:guest-recovery": "NODE_ENV=test node scripts/test-guest-recovery.cjs",
+    "test:guest-checkpoint": "NODE_ENV=test node scripts/test-guest-checkpoint.cjs"
   },
   "eslintConfig": {
     "extends": [

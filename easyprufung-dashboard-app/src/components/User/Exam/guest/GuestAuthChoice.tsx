@@ -4,14 +4,15 @@ import { ArrowRight, Check, CheckCircle2, FileCheck2, ShieldCheck, UserRound, X 
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Logo from "../../../../images/logo.png";
-import { guestAuthCopy, guestAuthPresentationCopy } from "./guest-copy";
+import { guestAuthCopy, guestAuthPresentationCopy, guestCheckpointCopy } from "./guest-copy";
 
-export default function GuestAuthChoice({ examTitle }: { examTitle?: string }) {
+export default function GuestAuthChoice({ examTitle, continueExam=false }: { examTitle?: string;continueExam?:boolean }) {
  const [open, setOpen] = useState(true);
  const navigate = useNavigate();
  const { i18n } = useTranslation();
  const language = i18n.resolvedLanguage || i18n.language;
- const copy = guestAuthCopy(language), detail = guestAuthPresentationCopy(language);
+ const checkpoint=continueExam?guestCheckpointCopy(language):{};
+ const copy = {...guestAuthCopy(language),...checkpoint}, detail = {...guestAuthPresentationCopy(language),...checkpoint};
  const primary = "inline-flex items-center justify-center gap-2 rounded-xl border border-black bg-black px-4 py-3 text-sm font-semibold text-white transition hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:border-white dark:bg-white dark:text-black dark:hover:bg-gray-100";
  const brand = <div className="inline-flex items-center gap-3"><img src={Logo} alt="SmartPrüfung logo" width={44} height={44} className="h-11 w-11 rounded-lg" /><span className="text-2xl font-semibold tracking-tight">SmartPrüfung</span></div>;
  return <>
