@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import { tr } from "../../../localization/feature-i18n";
 import React, { useEffect, useRef } from "react";
 import { trackActivity, trackPaymentClick } from "../../../api/activity/activity";
 import Container from "../../Shared/Container";
@@ -39,6 +41,8 @@ const ArrowRight = ({ className = "h-4 w-4" }) => (
 );
 
 const Pricing = () => {
+    const {i18n} = useTranslation();
+    const euros = (amount: number) => new Intl.NumberFormat(i18n.resolvedLanguage || i18n.language, {style:"currency",currency:"EUR"}).format(amount);
     const account: IUserAccount = useSelector(
         (state: IStateType) => state.userAccount
     );
@@ -90,8 +94,7 @@ const Pricing = () => {
                     <div className="relative mx-auto max-w-7xl px-4 lg:px-6">
                         <div className="mx-auto mb-10 max-w-2xl text-center lg:mb-12">
                             <p className="text-base text-neutral-600 sm:text-lg dark:text-neutral-400">
-                                Start with one free exam, choose 10 exams for €19.99,
-                                or unlock unlimited exams for €39.99.
+                                {tr("Start with one free exam, choose 10 exams for {{limited}}, or unlock unlimited exams for {{unlimited}}.", {limited:euros(19.99),unlimited:euros(39.99)})}
                             </p>
                         </div>
 
@@ -132,8 +135,9 @@ const Pricing = () => {
                                 </p>
 
                                 <div className="my-8 flex flex-col items-center justify-center gap-2">
-                                    <div className="flex items-baseline justify-center"><span className={price}>€19.99</span>
-                                    <span className={priceSub}>one-time</span></div>
+                                    <div className="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1" data-no-translate><del className="text-xl font-medium text-neutral-500 line-through decoration-2 dark:text-neutral-400" aria-label={tr("Previous price {{price}}", {price:euros(29.99)})}>{euros(29.99)}</del><span className={price} aria-label={tr("Current price {{price}}", {price:euros(19.99)})}>{euros(19.99)}</span>
+                                    <span className={priceSub}>{tr("One-time payment")}</span></div>
+                                    <span data-no-translate className="rounded-full bg-green-100 px-2.5 py-1 text-xs font-semibold text-green-800 dark:bg-green-900/40 dark:text-green-300">{tr("Save {{percent}}%", {percent:33})}</span>
                                 </div>
 
                                 <div className="mb-6 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-center dark:border-blue-900/40 dark:bg-blue-950/30">
@@ -177,8 +181,9 @@ const Pricing = () => {
                                     </p>
 
                                     <div className="my-8 flex flex-col items-center justify-center gap-2">
-                                        <div className="flex items-baseline justify-center"><span className={price}>€39.99</span>
-                                        <span className={priceSub}>one-time</span></div>
+                                        <div className="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1" data-no-translate><del className="text-xl font-medium text-neutral-500 line-through decoration-2 dark:text-neutral-400" aria-label={tr("Previous price {{price}}", {price:euros(69.99)})}>{euros(69.99)}</del><span className={price} aria-label={tr("Current price {{price}}", {price:euros(39.99)})}>{euros(39.99)}</span>
+                                        <span className={priceSub}>{tr("One-time payment")}</span></div>
+                                    <span data-no-translate className="rounded-full bg-green-100 px-2.5 py-1 text-xs font-semibold text-green-800 dark:bg-green-900/40 dark:text-green-300">{tr("Save {{percent}}%", {percent:43})}</span>
                                     </div>
 
                                     <div className="mb-6 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-center dark:border-blue-900/40 dark:bg-blue-950/30">

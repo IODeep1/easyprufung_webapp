@@ -1,3 +1,4 @@
+import { tr } from "../../../localization/feature-i18n";
 import { ArrowRight, Check, ShieldCheck, Sparkles } from "lucide-react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
@@ -19,9 +20,10 @@ export default function ExamUpgradeOffer({ source, compact = false }: { source: 
  const { i18n } = useTranslation();
  const language = (i18n.resolvedLanguage || i18n.language).split(/[-_]/)[0];
  const copy = copies[language as keyof typeof copies] || copies.en;
+ const euros = (amount: number) => new Intl.NumberFormat(language, {style:"currency",currency:"EUR"}).format(amount);
  const plans: {plan: PaidExamPlan; label: string; price: string; original: string; saving: string}[] = [
-  {plan:"b1",label:copy.limited,price:"€19.99",original:"",saving:""},
-  {plan:"b1_unlimited",label:copy.unlimited,price:"€39.99",original:"",saving:""}
+  {plan:"b1",label:copy.limited,price:euros(19.99),original:euros(29.99),saving:"33%"},
+  {plan:"b1_unlimited",label:copy.unlimited,price:euros(39.99),original:euros(69.99),saving:"43%"}
  ];
  return <section data-upgrade-offer className={`relative isolate w-full overflow-hidden rounded-2xl border border-blue-100 bg-white text-gray-900 shadow-lg dark:border-blue-900/50 dark:bg-gray-950 dark:text-white ${compact ? "p-5" : "p-6 sm:p-8"}`} lang={language} dir={i18n.dir(language)}>
   <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500 to-indigo-600" aria-hidden="true" />
@@ -39,7 +41,7 @@ export default function ExamUpgradeOffer({ source, compact = false }: { source: 
     onAuxClick={event => {if(event.button===1) trackPaymentClick(plan.plan,source);}}
     className={`group relative flex min-w-0 items-center justify-between gap-3 rounded-xl px-4 py-4 text-white shadow-sm transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ${plan.plan === "b1" ? "bg-black hover:bg-gray-800" : "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"}`}>
     <span className="min-w-0"><span className="block text-base font-bold">{plan.label}</span><span className="mt-1 block text-xs text-white/80">{copy.once}</span></span>
-    <span className="shrink-0 text-end"><span className="inline-flex items-center gap-1.5 text-xl font-bold">{plan.price}<ArrowRight size={16} aria-hidden="true" /></span></span>
+    <span data-no-translate className="shrink-0 text-end"><del className="block text-sm font-medium text-white/60 line-through decoration-2" aria-label={tr("Previous price {{price}}", {price:plan.original})}>{plan.original}</del><span className="inline-flex items-center gap-1.5 text-xl font-bold">{plan.price}<ArrowRight size={16} aria-hidden="true" className="rtl:rotate-180" /></span><span className="mt-1 block text-xs font-semibold text-white/90">{tr("Save {{percent}}%", {percent:parseInt(plan.saving,10)})}</span></span>
    </a>)}
   </div>
   <p className="mt-4 flex items-center justify-center gap-2 text-xs text-gray-500 dark:text-gray-400"><ShieldCheck size={14} aria-hidden="true" />{copy.access} · {copy.benefits[4]}</p>

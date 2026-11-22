@@ -1,3 +1,4 @@
+import { tr } from "../../../localization/feature-i18n";
 import { trackPaymentClick } from "../../../api/activity/activity";
 import React, { Dispatch, FormEvent, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -32,6 +33,7 @@ const ArrowRight = ({ className = "h-4 w-4" }) => (
 const Settings = () => {
     const dispatch: Dispatch<any> = useDispatch();
     const { t, i18n } = useTranslation();
+    const euros = (amount: number) => new Intl.NumberFormat(i18n.resolvedLanguage || i18n.language, {style:"currency",currency:"EUR"}).format(amount);
 
     const currentUser: IUser | undefined = useSelector(
         (state: IStateType) => state.userAccount.user
@@ -120,7 +122,7 @@ const Settings = () => {
             return "Your free account includes 1 exam. The free exam is granted once and does not renew.";
         }
 
-        return "You have used your free exam. Choose 10 exams for €9.99 or unlimited exams for €29.99.";
+        return tr("You have used your free exam. Choose 10 exams for {{limited}} or unlimited exams for {{unlimited}}.", {limited:euros(19.99),unlimited:euros(39.99)});
     })();
 
     const showLimitedPurchase =
@@ -367,7 +369,7 @@ const Settings = () => {
                                             10 Exams
                                         </p>
                                         <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                                            <span className="mr-2 line-through opacity-60">€14.99</span> €9.99 one-time · 10 exams · 60 days <span className="ml-2 rounded-full bg-green-100 px-2 py-1 font-semibold text-green-800 dark:bg-green-900/40 dark:text-green-300">Save 33%</span>
+                                            <span data-no-translate><del className="me-2 font-medium line-through opacity-60 decoration-2" aria-label={tr("Previous price {{price}}", {price:euros(29.99)})}>{euros(29.99)}</del><strong aria-label={tr("Current price {{price}}", {price:euros(19.99)})}>{euros(19.99)}</strong> · {tr("One-time payment")} · {tr("10 mock exams · 60 days")}<span className="ms-2 rounded-full bg-green-100 px-2 py-1 font-semibold text-green-800 dark:bg-green-900/40 dark:text-green-300">{tr("Save {{percent}}%", {percent:33})}</span></span>
                                         </p>
                                         <a
                                             href={limitedPaymentUrl}
@@ -387,7 +389,7 @@ const Settings = () => {
                                             Unlimited Exams
                                         </p>
                                         <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                                            <span className="mr-2 line-through opacity-60">€49.99</span> €29.99 one-time · unlimited exams · 60 days <span className="ml-2 rounded-full bg-green-100 px-2 py-1 font-semibold text-green-800 dark:bg-green-900/40 dark:text-green-300">Save 40%</span>
+                                            <span data-no-translate><del className="me-2 font-medium line-through opacity-60 decoration-2" aria-label={tr("Previous price {{price}}", {price:euros(69.99)})}>{euros(69.99)}</del><strong aria-label={tr("Current price {{price}}", {price:euros(39.99)})}>{euros(39.99)}</strong> · {tr("One-time payment")} · {tr("Unlimited exam access")} · {tr("60 days of access")}<span className="ms-2 rounded-full bg-green-100 px-2 py-1 font-semibold text-green-800 dark:bg-green-900/40 dark:text-green-300">{tr("Save {{percent}}%", {percent:43})}</span></span>
                                         </p>
                                         <a
                                             href={unlimitedPaymentUrl}

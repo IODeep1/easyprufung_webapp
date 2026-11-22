@@ -4044,5 +4044,40 @@
     "ar": "مراجعة العروض",
     "uk": "Переглянути пропозиції",
     "tr": "Teklifleri incele"
+  },
+  "Previous price {{price}}": {
+    "de": "Vorheriger Preis {{price}}",
+    "fr": "Ancien prix : {{price}}",
+    "ar": "السعر السابق: {{price}}",
+    "uk": "Попередня ціна: {{price}}",
+    "tr": "Önceki fiyat: {{price}}"
+  },
+  "Current price {{price}}": {
+    "de": "Aktueller Preis {{price}}",
+    "fr": "Prix actuel : {{price}}",
+    "ar": "السعر الحالي: {{price}}",
+    "uk": "Поточна ціна: {{price}}",
+    "tr": "Güncel fiyat: {{price}}"
+  },
+  "Start with one free exam, choose 10 exams for {{limited}}, or unlock unlimited exams for {{unlimited}}.": {
+    "de": "Starte mit einer kostenlosen Prüfung, wähle 10 Prüfungen für {{limited}} oder unbegrenzte Prüfungen für {{unlimited}}.",
+    "fr": "Commencez par un examen gratuit, puis choisissez 10 examens pour {{limited}} ou les examens illimités pour {{unlimited}}.",
+    "ar": "ابدأ بامتحان مجاني، ثم اختر 10 امتحانات مقابل {{limited}} أو امتحانات غير محدودة مقابل {{unlimited}}.",
+    "uk": "Почніть із безкоштовного іспиту, потім оберіть 10 іспитів за {{limited}} або необмежені іспити за {{unlimited}}.",
+    "tr": "Bir ücretsiz sınavla başlayın, sonra {{limited}} karşılığında 10 sınav veya {{unlimited}} karşılığında sınırsız sınav seçin."
+  },
+  "You have used your free exam. Choose 10 exams for {{limited}} or unlimited exams for {{unlimited}}.": {
+    "de": "Du hast deine kostenlose Prüfung genutzt. Wähle 10 Prüfungen für {{limited}} oder unbegrenzte Prüfungen für {{unlimited}}.",
+    "fr": "Vous avez utilisé votre examen gratuit. Choisissez 10 examens pour {{limited}} ou les examens illimités pour {{unlimited}}.",
+    "ar": "استخدمت امتحانك المجاني. اختر 10 امتحانات مقابل {{limited}} أو امتحانات غير محدودة مقابل {{unlimited}}.",
+    "uk": "Ви використали безкоштовний іспит. Оберіть 10 іспитів за {{limited}} або необмежені іспити за {{unlimited}}.",
+    "tr": "Ücretsiz sınavınızı kullandınız. {{limited}} karşılığında 10 sınav veya {{unlimited}} karşılığında sınırsız sınav seçin."
+  },
+  "60 days of access": {
+    "de": "60 Tage Zugang",
+    "fr": "60 jours d’accès",
+    "ar": "60 يومًا من الوصول",
+    "uk": "60 днів доступу",
+    "tr": "60 gün erişim"
   }
 }
