@@ -1,0 +1,132 @@
+{
+  "updated": "22. November 2026",
+  "privacyTitle": "Datenschutzerklärung",
+  "termsTitle": "Nutzungsbedingungen",
+  "privacy": [
+    {
+      "title": "Geltungsbereich und Verantwortlicher",
+      "paragraphs": [
+        "Diese Hinweise gelten für smartpruefung.com, www.smartpruefung.com und app.smartpruefung.com einschließlich Gastprüfungen. Datenschutzanfragen oder Fragen zum verantwortlichen Betreiber richten Sie an contact@smartpruefung.com."
+      ]
+    },
+    {
+      "title": "Konto, Anmeldung und Einstellungen",
+      "paragraphs": [
+        "Wir verarbeiten Name, E-Mail-Adresse, Zugangsdaten für E-Mail-Konten, Kontokennung, Sprache und die Antwort auf „Wie haben Sie von uns erfahren?“. Bei Google-Anmeldung erhalten wir Profil- und Anmeldeinformationen, nicht Ihr Google-Passwort. Dies dient Ihrem Konto und den angeforderten Leistungen (Art. 6 Abs. 1 lit. b DSGVO). Erforderliche Kontofelder müssen zur Registrierung angegeben werden. Die Einwilligung in optionale Analyse ist keine Voraussetzung für Registrierung oder Kauf."
+      ]
+    },
+    {
+      "title": "Gastprüfungen, Antworten und Ergebnisse",
+      "paragraphs": [
+        "Sie können die angebotene Gastprüfung ohne Konto beginnen und bearbeiten. Ein zufälliges Gast-Token und lokal gespeicherte Antworten ermöglichen die Wiederaufnahme. Auch der Server speichert Sitzung, Antworten, Fortschritt, Abschlussstatus und einen Token-Hash. Vor Abgabe sind Registrierung oder Anmeldung und gegebenenfalls die Herkunftsfrage erforderlich. Danach wird der gespeicherte Versuch dem Konto zugeordnet und automatisch abgegeben. Ergebnisse, Schreibantworten und Feedback werden für Ihren Verlauf gespeichert. Grundlage ist die Bereitstellung der gewünschten Leistung (Art. 6 Abs. 1 lit. b DSGVO).",
+        "Der unbeanspruchte Gastzugang läuft nach 30 Tagen ab. Dieser Ablauf löscht nicht automatisch sämtliche Serverdatensätze. Gelöschter Browserspeicher oder ein Gerätewechsel können die Wiederherstellung verhindern. Wenn Sie einen optionalen Zertifikatslink veröffentlichen, können Personen mit diesem Link die dort dargestellten Übungsergebnisse sehen."
+      ]
+    },
+    {
+      "title": "KI-gestützte Schreibbewertung",
+      "paragraphs": [
+        "Schreibantworten und die zugehörige Aufgabenstellung werden an die konfigurierte OpenAI-API zur Bewertung übermittelt. Bitte geben Sie in Übungstexten keine sensiblen personenbezogenen Daten oder Daten Dritter ohne Rechtsgrundlage an. Die Verarbeitung dient der angeforderten Bewertung (Art. 6 Abs. 1 lit. b DSGVO). KI-Feedback kann Fehler enthalten und stellt weder eine offizielle Qualifikation noch eine Entscheidung mit rechtlicher oder ähnlich erheblicher Wirkung dar."
+      ]
+    },
+    {
+      "title": "Zahlung und Zugang",
+      "paragraphs": [
+        "Stripe verarbeitet Checkout- und Zahlungsdaten nach seinen eigenen Datenschutzhinweisen. Wir erhalten Transaktionsreferenzen, Zahlungsstatus und Angaben zur Freischaltung oder Prüfung Ihres Prüfungspasses. Die Anwendung speichert keine vollständigen Zahlungskartendaten. Grundlage sind Vertragsabwicklung (Art. 6 Abs. 1 lit. b DSGVO) und gegebenenfalls gesetzliche Aufbewahrungspflichten (lit. c). Die aktuellen Pässe sind Einmalkäufe für den angegebenen Zeitraum ohne automatische Verlängerung."
+      ]
+    },
+    {
+      "title": "Notwendiger Speicher, Protokolle und Land",
+      "paragraphs": [
+        "Anmelde- und Gast-Token, Prüfungsfortschritt, Sprach-/Darstellungseinstellungen und Ihre Datenschutzentscheidung nutzen erforderliche Cookies oder Browserspeicher für die gewünschte Funktion. Notwendige Endgerätespeicherung erfolgt nach § 25 Abs. 2 TDDDG; personenbezogene Verarbeitung beruht auf Vertragserfüllung oder berechtigten Interessen an einem zuverlässigen und sicheren Betrieb (Art. 6 Abs. 1 lit. b bzw. f DSGVO).",
+        "Server- und Sicherheitsprotokolle können IP-Adressen, Zeitpunkt, Pfad und technische Angaben enthalten, um Missbrauch und Fehler zu untersuchen. Prüfungsstart und Abgabe dienen auch der Kontingentverwaltung und verlässlichen Leistung. Das Land kann aus einem vertrauenswürdigen Proxy-Header übernommen werden; ohne diese Angabe bleibt es unbekannt. Das Backend führt keine Länderermittlung anhand von Besucher-IP-Adressen durch. Die Aktivitätstabelle speichert die rohe IP nicht; Hosting-/Sicherheitsprotokolle können sie weiterhin enthalten. VPN oder Proxy können die Länderschätzung beeinflussen."
+      ]
+    },
+    {
+      "title": "Optionale Analyse und Ihre Entscheidung",
+      "paragraphs": [
+        "Mit Ihrer Analyse-Einwilligung erfassen wir auf der Website eine zufällige Browserkennung, Zeitpunkt, Seitenpfad, Bezeichnung angeklickter Elemente, Ziel ohne Query-Parameter/Fragmente, Sprache und geschätztes Land. Aufrufe der Kontopreisseite und Stripe-Link-Klicks können Ihrer Kontokennung zugeordnet werden. Website-Kennungen werden nicht automatisch domainübergreifend mit Ihrem Konto zusammengeführt. Formularwerte, Passwörter und Kartendaten werden durch diese Klickereignisse nicht erfasst.",
+        "Optionales Google Analytics auf der Website kann Kennungen, Geräte-/Browserinformationen und Nutzungsereignisse verarbeiten. Grundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG). Wählen Sie „Nur notwendige“ oder „Alle akzeptieren“. Unter „Datenschutzeinstellungen“ auf der jeweiligen Website/Webapp können Sie die Auswahl ändern. Vor einer Entscheidung und nach Ablehnung bleibt optionale Analyse aus. Notwendige Konto- und Prüfungsverarbeitung läuft weiter. Die Auswahl wird je Browser bis zu 180 Tage gespeichert und über ein Einstellungs-Cookie zwischen Website und Webapp geteilt. Eine Änderung beendet zukünftige optionale Erhebung, löscht aber nicht automatisch bereits erfasste Daten."
+      ]
+    },
+    {
+      "title": "Google-Dienste und E-Mail",
+      "paragraphs": [
+        "Google-Anmeldung und reCAPTCHA auf Registrierungs-/Einlöseformularen können Verbindungs-, Geräte- und Interaktionsdaten für Anmeldung und Missbrauchsschutz verarbeiten. Sie sind von optionaler Analyse getrennt. Google stellt eigene Datenschutzhinweise bereit. Als DSGVO-Grundlagen kommen die erforderliche Anmeldung und berechtigte Interessen an Betrugsvermeidung in Betracht; zusätzlich sind die Anforderungen an Endgerätezugriff und Anbieter-Einstellungen zu beachten.",
+        "Die YouTube-Demo wird erst auf Ihre Auswahl hin geladen. Dabei verbindet sich Ihr Browser mit Google/YouTube; dort können IP-, Geräte- und Nutzungsdaten sowie Cookies nach den eigenen Datenschutzhinweisen verarbeitet werden. Die getrennte Videoanforderung aktiviert unsere optionale Analyse nicht.",
+        "Wir senden Konto- und Supportnachrichten einschließlich einer Willkommensmail. Die konfigurierte Funktion kann außerdem etwa zwei Tage nach Registrierung eine einmalige persönliche Nachfrage zur Vorbereitung senden. Optionalen Nachfragen können Sie per Antwort oder Kontakt widersprechen. Erforderliche Vertragsnachrichten beruhen auf Art. 6 Abs. 1 lit. b; Support-/Verbesserungsinteressen können auf lit. f beruhen, vorbehaltlich Ihres Widerspruchs. Werbliche E-Mails benötigen Einwilligung oder eine wirksame gesetzliche Ausnahme. Registrierung ist keine pauschale Werbeeinwilligung."
+      ]
+    },
+    {
+      "title": "Empfänger und internationale Verarbeitung",
+      "paragraphs": [
+        "Empfänger sind insbesondere Stripe für Zahlungen, Google für Anmeldung/Missbrauchsschutz und optionale Analyse, OpenAI für KI-Bewertung sowie Hosting- und E-Mail-Dienstleister für den Betrieb. Berechtigte Mitarbeitende greifen für Verwaltung und Support auf erforderliche Angaben zu. Wir verkaufen keine personenbezogenen Daten. Gesetzlich erforderliche Offenlegung und die Geltendmachung oder Verteidigung von Rechtsansprüchen bleiben möglich.",
+        "Anbieter können außerhalb des EWR verarbeiten. Soweit erforderlich, müssen Übermittlungen auf einem gültigen Angemessenheitsbeschluss oder geeigneten Garantien wie Standardvertragsklauseln beruhen. Auskünfte zu Anbietern, Orten und konkreten Vereinbarungen erhalten Sie auf Anfrage."
+      ]
+    },
+    {
+      "title": "Speicherdauer und Löschung",
+      "paragraphs": [
+        "Kontodaten und Prüfungsverlauf werden aufbewahrt, solange sie für das Konto sowie vertragliche oder Supportfragen erforderlich sind. Für Aktivitätsdaten ist derzeit keine automatische Löschfrist eingerichtet; sie bleiben bis zur Löschung oder Anonymisierung gespeichert. Der Ablauf eines Gastzugangs löscht nicht automatisch die Datensätze. Maßgeblich sind Leistungsbedarf, Sicherheit, Rechtsansprüche und gesetzliche Pflichten. Fragen Sie die konkreten Fristen an oder beantragen Sie Löschung. Zahlungs-/Buchhaltungsunterlagen können gesetzlichen Aufbewahrungspflichten unterliegen. Eine sofortige Löschung sämtlicher Sicherungen oder gesetzlich notwendiger Unterlagen wird nicht zugesagt."
+      ]
+    },
+    {
+      "title": "Ihre Rechte und Kontakt",
+      "paragraphs": [
+        "Unter den gesetzlichen Voraussetzungen bestehen Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung und Datenübertragbarkeit (Art. 15–20 DSGVO). Sie können berechtigten Interessen widersprechen (Art. 21) und Einwilligungen jederzeit für die Zukunft widerrufen. Außerdem können Sie sich bei einer Aufsichtsbehörde beschweren, insbesondere an Ihrem Wohn- oder Arbeitsort. Für unseren Standort in Deutschland ist unter anderem die LDI NRW erreichbar: https://www.ldi.nrw.de/.",
+        "Schreiben Sie an contact@smartpruefung.com. Zur Zuordnung zum Konto können angemessene Nachweise erforderlich sein. Wesentliche Änderungen werden durch das Aktualisierungsdatum und gegebenenfalls im Dienst mitgeteilt. Eine Textänderung ersetzt keine erforderliche Einwilligung für neue Zwecke."
+      ]
+    }
+  ],
+  "terms": [
+    {
+      "title": "Anbieter, Leistung und Teilnahme",
+      "paragraphs": [
+        "Diese Bedingungen gelten für Website, Webapp und die im Angebot beschriebenen Übungsleistungen von SmartPrüfung. Registrierung und Kauf setzen ein Alter von mindestens 18 Jahren voraus. Kontakt: contact@smartpruefung.com.",
+        "SmartPrüfung ist eine unabhängige Vorbereitungsplattform mit Schwerpunkt auf digitalen Deutschprüfungen, darunter TELC Deutsch B1. Es besteht keine Verbindung oder Empfehlung durch telc gGmbH oder das Goethe-Institut. Übungspunkte, Erklärungen, KI-Feedback und Übungszertifikate sind keine offiziellen Prüfungsergebnisse oder anerkannten Abschlüsse und garantieren kein Bestehen."
+      ]
+    },
+    {
+      "title": "Gastprüfung und Registrierung",
+      "paragraphs": [
+        "Besucher können die angebotene Gastprüfung vor Registrierung bearbeiten. Für Abgabe und Zusammenfassung müssen Sie sich registrieren oder anmelden und erforderliche Onboarding-Fragen beantworten. Der gespeicherte Versuch bleibt erhalten und wird anschließend automatisch abgegeben. Wiederherstellung hängt vom Browser-Token und verbleibenden Gastzugang ab; Speicherlöschung oder Gerätewechsel können sie verhindern.",
+        "Kostenloser Zugang ist auf das angezeigte Probekontingent, grundsätzlich eine Prüfung pro Konto, beschränkt. Detailauswertung und weitere Prüfungen erfordern einen geeigneten Pass oder anderweitig gewährten Zugang. Mehrfachkonten zur Umgehung sind unzulässig. Machen Sie korrekte Kontoangaben, schützen Sie Ihre Zugangsdaten und melden Sie Missbrauch."
+      ]
+    },
+    {
+      "title": "Prüfungspässe, Preis und Laufzeit",
+      "paragraphs": [
+        "Aktuell werden ein Pass für 10 Prüfungen und ein unbegrenzter Pass für die vor Kauf angegebene Laufzeit angeboten, derzeit 60 Tage. Es sind Einmalkäufe ohne automatische Verlängerung. „Unbegrenzt“ betrifft die Anzahl verfügbarer Prüfungen während der Laufzeit zur normalen persönlichen Nutzung, nicht automatisierte Massenabrufe, Weiterverkauf oder gemeinsame Kontonutzung.",
+        "Endpreis in EUR, gegebenenfalls anfallende Steuern, Kontingent, Laufzeit und ausgewiesene Rabatte im Angebot/Checkout sind Teil des Kaufs. Stripe wickelt die Zahlung ab. Nach erfolgreicher Zahlungsbestätigung wird Zugang aktiviert; kurze Bestätigungsverzögerungen sind möglich. Bewahren Sie die Zahlungsbestätigung auf und melden Sie fehlende Freischaltung. Nach Verbrauch des Kontingents oder Fristablauf enden die hiervon erfassten Funktionen. Ein weiterer Kauf ist eine gesonderte Entscheidung."
+      ]
+    },
+    {
+      "title": "Widerruf und Erstattung für Verbraucher",
+      "paragraphs": [
+        "Soweit für den Online-Verbrauchervertrag ein gesetzliches Widerrufsrecht besteht, können Sie grundsätzlich binnen 14 Tagen ab Vertragsschluss ohne Begründung widerrufen; die gesetzlichen Regeln zu Fristbeginn und Erlöschen bleiben maßgeblich. Senden Sie eine eindeutige Erklärung an contact@smartpruefung.com. Rechtzeitiges Absenden genügt zur Fristwahrung.",
+        "Bei wirksamem Widerruf erstatten wir geschuldete Beträge unverzüglich, grundsätzlich binnen 14 Tagen nach Eingang, über das ursprüngliche Zahlungsmittel, soweit nicht kostenfrei anders vereinbart. Zulässiger anteiliger Wertersatz für ausdrücklich verlangten vorzeitigen Leistungsbeginn setzt die gesetzlichen Voraussetzungen voraus. Das Starten einer Übung oder Öffnen von Ergebnissen allein ist kein pauschaler Rechtsverzicht. Ein vorzeitiges Erlöschen für digitale Inhalte/Dienstleistungen setzt die gesetzlich erforderlichen ausdrücklichen Zustimmungen, Bestätigungen und Informationen voraus; diese Bedingungen ersetzen sie nicht.",
+        "Optionales Muster: „An [SmartPrüfung, contact@smartpruefung.com]: Hiermit widerrufe ich den Vertrag über [Prüfungspass/Bestellreferenz], geschlossen am [Datum]. Name: [Name]. Anschrift: [Anschrift]. Datum: [Datum].“ Eine Unterschrift ist nur bei Papiermitteilung erforderlich. Gesetzliche Mängelrechte und ausdrücklich günstigere Erstattungszusagen im Checkout bleiben unberührt."
+      ]
+    },
+    {
+      "title": "Ihre Inhalte, KI und zulässige Nutzung",
+      "paragraphs": [
+        "Ihre Rechte an eingereichten Schreibtexten verbleiben bei Ihnen. Sie räumen uns die für Speicherung, Verarbeitung und Weitergabe an den konfigurierten KI-Dienst erforderliche Erlaubnis zur angeforderten Bewertung ein. Reichen Sie keine rechtswidrigen Inhalte oder Daten Dritter ohne Rechtsgrundlage ein. Plattform, Aufgaben und Software sind zur persönlichen Vorbereitung bestimmt; kommerzielle Vervielfältigung oder Verbreitung erfordert Erlaubnis oder eine sonstige gesetzliche Berechtigung.",
+        "KI-Feedback kann fehlerhaft sein. Prüfen Sie es kritisch und melden Sie unklare Ergebnisse. Angriffe, Umgehung von Zahlungs-/Sicherheitsregeln, automatisiertes massenhaftes Abrufen oder Erzeugen von Prüfungen, missbräuchliche öffentliche Links und Störung anderer sind untersagt. Gegen Missbrauch können wir verhältnismäßige Maßnahmen ergreifen und gegebenenfalls Gründe sowie Kontaktmöglichkeiten nennen. Zwingende Verbraucherrechte bleiben bestehen."
+      ]
+    },
+    {
+      "title": "Verfügbarkeit, Änderungen und gesetzliche Rechte",
+      "paragraphs": [
+        "Sie benötigen Internet und einen unterstützten aktuellen Browser. Wartung und Ausfälle sind möglich. Geschuldete Funktionen und gesetzlich erforderliche Aktualisierungen werden bereitgestellt. Unterbrechungsfreiheit oder ein bestimmtes offizielles Prüfungsergebnis werden nicht versprochen. Melden Sie Fehler bezahlter Funktionen zur Prüfung; gesetzliche Rechte zu Mängeln, Vertragsmäßigkeit, Erstattung und Beendigung bleiben bestehen.",
+        "Textänderungen ändern einen bestehenden bezahlten Vertrag nicht automatisch. Wesentliche Änderungen bestehender Rechte bedürfen einer rechtlichen Grundlage und angemessener Mitteilung; erforderliche Zustimmungen werden eingeholt. Sie können ein kostenloses Konto nicht weiter nutzen oder Löschung beantragen, vorbehaltlich notwendiger Aufbewahrung."
+      ]
+    },
+    {
+      "title": "Haftung, anwendbares Recht und Beschwerden",
+      "paragraphs": [
+        "Zwingende gesetzliche Haftung bleibt bestehen, insbesondere bei Vorsatz, grober Fahrlässigkeit, Verletzung von Leben, Körper oder Gesundheit sowie anderer nicht ausschließbarer Haftung. Bei einfacher Fahrlässigkeit hinsichtlich wesentlicher Vertragspflichten kommt nur im gesetzlich zulässigen Umfang eine Begrenzung auf vertragstypische vorhersehbare Schäden in Betracht. Zwingende Verbraucherrechte werden nicht ausgeschlossen.",
+        "Es gilt deutsches Recht, ohne Verbrauchern zwingenden Schutz ihres gewöhnlichen Aufenthaltsstaats zu entziehen. Ein gesetzlich unzulässiger ausschließlicher Verbrauchergerichtsstand wird nicht vereinbart. Beschwerden richten Sie an contact@smartpruefung.com."
+      ]
+    }
+  ]
+}

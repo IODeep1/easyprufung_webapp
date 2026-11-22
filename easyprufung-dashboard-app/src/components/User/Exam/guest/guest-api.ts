@@ -27,3 +27,4 @@ export async function claimGuest(token: string): Promise<ExamSessionView> {
     if (!response.ok) { let message = `Unable to restore exam (${response.status})`; try { message = (await response.json()).message || message; } catch {} throw new ExamApiError(response.status, message); }
     return response.json();
 }
+

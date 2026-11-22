@@ -35,11 +35,15 @@ export default function GuestExamPage() {
  const [refresh, setRefresh] = useState(0), [busy, setBusy] = useState(false);
  const [preparation, setPreparation] = useState<{ startedAt: number; durationMs: number } | null>(null);
  const userId = user?.uuid;
+ function showFailure(_cause:unknown) {
+  navigate("/", {replace:true});
+ }
  useEffect(() => {
   let alive = true;
   let preparationTimer: number | undefined;
   let completeDelay: (() => void) | undefined;
   setError(""); setScreen("loading"); setPreparation(null); setBusy(false);
+  const fail = (cause:unknown) => {if (alive) showFailure(cause);};
   const restore = async () => {
    const saved = readGuest();
    if (userId && !saved) { navigate("/", {replace: true}); return; }
@@ -59,7 +63,7 @@ export default function GuestExamPage() {
      const current = await requestGetUser(dispatch).catch(() => undefined);
      if (alive && current?.uuid === userId) dispatch(updateUser(current));
     } catch (cause) {
-     if (alive) navigate("/register", {replace: true, state: {guestError: true}});
+     fail(cause);
     } finally { if (alive) setBusy(false); }
     return;
    }
@@ -95,7 +99,7 @@ export default function GuestExamPage() {
    setProgress(synced);
    setSession(active); setScreen(state.finished ? "register" : "exam");
   };
-  void restore().catch(() => {if (alive) navigate("/register", {replace: true, state: {guestError: true}});});
+  void restore().catch(fail);
   return () => {
    alive = false;
    if (preparationTimer !== undefined) window.clearTimeout(preparationTimer);
@@ -109,7 +113,7 @@ export default function GuestExamPage() {
    await guestRequest(guest.token, "/finish", {method: "POST"});
    saveGuest({...guest, pending: true});
    setRefresh(v => v + 1);
-  } catch { navigate("/register", {replace: true, state: {guestError: true}}); }
+  } catch (cause) { showFailure(cause); }
  };
  // Failed attempts can be retried through the same claim/restore path. Already evaluated
  // sessions load their stored result, so reloads never intentionally resubmit them.
@@ -119,10 +123,10 @@ export default function GuestExamPage() {
  if (screen === "exam" && session && progress) return <>
   <p className="bg-blue-50 px-6 py-3 text-center text-sm text-gray-900">{copy.noRegistration}</p>
   <ExamLanguageLock><ExamRunnerPage key={session.sessionId} session={session} initialProgress={progress} onSubmit={finish}
-   saveProgress={(id, draft) => { const guest = readGuest(); if (!guest) { navigate("/register", {replace: true, state: {guestError: true}}); return Promise.reject(new Error("Guest token unavailable")); } return saveGuestProgress(guest.token, draft).catch(error => { navigate("/register", {replace: true, state: {guestError: true}}); throw error; }); }} preserveProgressOnSubmit /></ExamLanguageLock>
+   saveProgress={(id, draft) => { const guest = readGuest(); if (!guest) { const error=new Error("Guest token unavailable");showFailure(error);return Promise.reject(error); } return saveGuestProgress(guest.token, draft).catch(error => { showFailure(error); throw error; }); }} preserveProgressOnSubmit /></ExamLanguageLock>
  </>;
  if (screen === "register") return <GuestAuthChoice examTitle={session?.title} />;
- if (screen === "result" && session && result) return <ResultPage session={session} result={result} onRestart={() => navigate("/new")} />;
+ if (screen === "result" && session && result) return <ResultPage showBrand session={session} result={result} onRestart={() => navigate("/new")} />;
  return <GuestSubmissionPage examTitle={session?.title} ready={screen === "ready"} busy={busy} error={error}
   onSubmit={() => void submit()} onRetry={() => setRefresh(v => v + 1)}
   onPlans={userId ? () => navigate("/pricing") : undefined} />;

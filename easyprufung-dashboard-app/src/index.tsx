@@ -5,7 +5,6 @@ import App from './App';
 import {Provider} from "react-redux";
 import store from "./store/store";
 import i18n from "i18next";
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import {initReactI18next} from "react-i18next";
 import translationEn from "./locales/en/translation.json";
 import translationFr from "./locales/fr/translation.json";
@@ -53,11 +52,9 @@ i18n.on("languageChanged", (language) => {
 });
 
 ReactDOM.render(
-    <GoogleOAuthProvider clientId='1043535428900-78a6e5fcg3gvcj6rvlu52pfrebhmff41.apps.googleusercontent.com'>
         <Provider store={store}>
             <ThemeProvider>
                 <App />
             </ThemeProvider>
         </Provider>
-    </GoogleOAuthProvider>
     , document.getElementById('root'));

@@ -1,41 +1,21 @@
-import { authDestination } from "../Exam/guest/guest-api";
 import { useTranslation } from "react-i18next";
-import React, {useState, Dispatch} from "react";
-import { useGoogleLogin } from '@react-oauth/google';
-import {authenticateGoogleUser} from "../../../api/user/api-helper";
-import {login} from "../../../store/actions/user/userAccount.actions";
-import {useDispatch} from "react-redux";
-import Loading from "../../Shared/Loading";
-import {useNavigate} from "react-router-dom";
-
+import React, {useState} from "react";
+import {startGoogleRedirect} from "./google-redirect";
 
 const GoogleLoginButton = () => {
     const { i18n } = useTranslation();
-    const dispatch: Dispatch<any> = useDispatch();
-    let navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
-    const [loadingMessage, setLoadingMessage] = useState("");
-
-    const googleLogin = useGoogleLogin({
-        onSuccess: async tokenResponse => {
-            setLoadingMessage("Connecting...");
-            setLoading(true);
-            let user = await  authenticateGoogleUser(tokenResponse.access_token, i18n.resolvedLanguage || i18n.language);
-            if(user !== null && user !== undefined){
-                dispatch(login(user));
-                navigate(authDestination());
-            }
-            setLoadingMessage('');
-            setLoading(false);
-
-        } ,
-    });
-
-
+    const [loading,setLoading] = useState(false);
+    const [error,setError] = useState("");
+    async function googleLogin() {
+        setError("");setLoading(true);
+        try { await startGoogleRedirect(i18n.resolvedLanguage || i18n.language); }
+        catch { setError("Google sign-in could not start. Please enable browser storage and try again.");setLoading(false); }
+    }
     return (
-        <div className="w-full flex items-center justify-center">
+        <div className="w-full flex flex-col items-center justify-center">
             <button type="button"
-                    onClick={() => googleLogin()}
+                    onClick={googleLogin}
+                    disabled={loading}
                     className="w-full flex items-center justify-center gap-4 py-2.5 px-4 text-sm tracking-wide text-gray-800 border border-gray-300 rounded-md bg-transparent hover:bg-gray-50 focus:outline-none dark:text-white dark:hover:bg-gray-800">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20px" className="inline"
                      viewBox="0 0 512 512">
@@ -58,10 +38,9 @@ const GoogleLoginButton = () => {
                           d="M256 120V0C187.62 0 123.333 26.629 74.98 74.98a259.849 259.849 0 0 0-22.158 25.235l86.308 86.308C162.883 146.72 206.376 120 256 120z"
                           data-original="#eb4132"/>
                 </svg>
-                Continue with google
+                {loading ? "Connecting..." : "Continue with google"}
             </button>
-            {loading && <Loading text={loadingMessage}/>
-            }
+            {error && <p role="alert" className="mt-3 text-sm text-red-600">{error}</p>}
         </div>
 
     );

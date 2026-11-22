@@ -1,3 +1,6 @@
+import GoogleCallback from "./components/User/Login/GoogleCallback";
+import LegalPage from "./components/Shared/LegalPage";
+import AppPrivacy from "./components/Shared/AppPrivacy";
 import GuestExamRoute from "./components/User/Exam/guest/GuestExamRoute";
 import { ExamCertificatePage } from "./components/User/Exam/ExamCertificatePage";
 import React from "react";
@@ -19,6 +22,11 @@ const App: React.FC = () => {
           <UserLanguagePreference />
           <Router>
               <Routes>
+                  <Route path="/google/callback" element={<GoogleCallback />} />
+                  <Route path="/privacy" element={<LegalPage kind="privacy" />} />
+                  <Route path="/privacy-policy" element={<LegalPage kind="privacy" />} />
+                  <Route path="/terms" element={<LegalPage kind="terms" />} />
+                  <Route path="/terms-of-use" element={<LegalPage kind="terms" />} />
                   <Route path="/guest-exam" element={<GuestExamRoute />} />
                   <Route path="/zertifikat/:token" element={<ExamCertificatePage />} />
                   <Route path="*"
@@ -40,6 +48,7 @@ const App: React.FC = () => {
                          element={<ResetPassword></ResetPassword>}>
                   </Route>
               </Routes>
+              <AppPrivacy />
           </Router>
       </div>
   );

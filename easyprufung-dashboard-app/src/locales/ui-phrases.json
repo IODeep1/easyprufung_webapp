@@ -1606,5 +1606,47 @@
   },
   "User 6": {
     "tr": "Kullanıcı 6"
+  },
+  "Google sign-in could not start. Please enable browser storage and try again.": {
+    "de": "Die Google-Anmeldung konnte nicht gestartet werden. Bitte erlauben Sie den Browserspeicher und versuchen Sie es erneut.",
+    "fr": "Impossible de démarrer la connexion Google. Autorisez le stockage du navigateur et réessayez.",
+    "ar": "تعذر بدء تسجيل الدخول عبر Google. يرجى السماح بتخزين المتصفح والمحاولة مجددًا.",
+    "tr": "Google ile giriş başlatılamadı. Tarayıcı depolamasına izin verip tekrar deneyin.",
+    "uk": "Не вдалося почати вхід через Google. Дозвольте сховище браузера та спробуйте ще раз."
+  },
+  "Google sign-in could not be completed. Please try again. Your saved exam is still available.": {
+    "de": "Die Google-Anmeldung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut. Ihre gespeicherte Prüfung bleibt erhalten.",
+    "fr": "La connexion Google a échoué. Réessayez. Votre examen enregistré reste disponible.",
+    "ar": "تعذر إكمال تسجيل الدخول عبر Google. حاول مجددًا. امتحانك المحفوظ لا يزال متاحًا.",
+    "tr": "Google ile giriş tamamlanamadı. Tekrar deneyin. Kaydedilen sınavınız duruyor.",
+    "uk": "Не вдалося завершити вхід через Google. Спробуйте ще раз. Збережений іспит залишається доступним."
+  },
+  "Back to sign in": {
+    "de": "Zurück zur Anmeldung",
+    "fr": "Retour à la connexion",
+    "ar": "العودة لتسجيل الدخول",
+    "tr": "Girişe dön",
+    "uk": "Повернутися до входу"
+  },
+  "Signing you in...": {
+    "de": "Anmeldung läuft...",
+    "fr": "Connexion en cours...",
+    "ar": "جارٍ تسجيل الدخول...",
+    "tr": "Giriş yapılıyor...",
+    "uk": "Вхід..."
+  },
+  "You are signed in, but we could not find your saved exam. Your browser data has been kept. Please retry or contact support.": {
+    "de": "Sie sind angemeldet, aber Ihre gespeicherte Prüfung wurde nicht gefunden. Ihre Browserdaten bleiben erhalten. Bitte versuchen Sie es erneut oder kontaktieren Sie den Support.",
+    "fr": "Vous êtes connecté, mais votre examen enregistré est introuvable. Vos données dans le navigateur sont conservées. Réessayez ou contactez le support.",
+    "ar": "تم تسجيل دخولك، لكن تعذر العثور على امتحانك المحفوظ. احتفظنا ببيانات المتصفح. أعد المحاولة أو تواصل مع الدعم.",
+    "tr": "Giriş yaptınız ancak kaydedilen sınavınız bulunamadı. Tarayıcı verileriniz korundu. Tekrar deneyin veya destekle iletişime geçin.",
+    "uk": "Ви увійшли, але збережений іспит не знайдено. Дані браузера збережено. Спробуйте ще раз або зверніться до підтримки."
+  },
+  "You are signed in, but we could not restore or submit your saved exam. Your browser data has been kept. Please try again.": {
+    "de": "Sie sind angemeldet, aber Ihre gespeicherte Prüfung konnte nicht wiederhergestellt oder abgegeben werden. Ihre Browserdaten bleiben erhalten. Bitte versuchen Sie es erneut.",
+    "fr": "Vous êtes connecté, mais votre examen enregistré n’a pas pu être restauré ou envoyé. Vos données dans le navigateur sont conservées. Réessayez.",
+    "ar": "تم تسجيل دخولك، لكن تعذرت استعادة امتحانك المحفوظ أو إرساله. احتفظنا ببيانات المتصفح. يرجى المحاولة مجددًا.",
+    "tr": "Giriş yaptınız ancak kaydedilen sınavınız geri yüklenemedi veya gönderilemedi. Tarayıcı verileriniz korundu. Tekrar deneyin.",
+    "uk": "Ви увійшли, але не вдалося відновити або надіслати збережений іспит. Дані браузера збережено. Спробуйте ще раз."
   }
 }

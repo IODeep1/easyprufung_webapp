@@ -9,7 +9,8 @@ class GuestExamBoundary extends Component<{children: ReactNode}, {failed: boolea
  state = {failed: false};
  static getDerivedStateFromError() { return {failed: true}; }
  render() {
-  return this.state.failed ? <Navigate to="/register" replace state={{guestError: true}} /> : this.props.children;
+  if (!this.state.failed) return this.props.children;
+  return <Navigate to="/" replace />;
  }
 }
 export default function GuestExamRoute() {

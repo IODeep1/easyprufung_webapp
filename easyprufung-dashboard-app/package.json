@@ -80,7 +80,10 @@
     "eject": "react-scripts eject",
     "test:activity": "node scripts/test-activity.cjs",
     "test:guest": "node scripts/test-guest.cjs",
-    "test:profile": "node scripts/test-profile.cjs"
+    "test:profile": "node scripts/test-profile.cjs",
+    "prebuild": "node scripts/sync-legal.cjs",
+    "test:google": "node scripts/test-google-redirect.cjs",
+    "test:guest-recovery": "NODE_ENV=test node scripts/test-guest-recovery.cjs"
   },
   "eslintConfig": {
     "extends": [

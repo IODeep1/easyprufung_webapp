@@ -119,7 +119,10 @@ const Header: React.FC<HeaderProps> = ({
     return (
         <header className="sticky top-0 z-50 flex w-full border-b border-black/10 bg-white dark:border-white/10 dark:bg-gray-900">
             {/* Left: Sidebar toggle + Brand */}
-            <div
+            <button
+                type="button"
+                aria-label="Toggle menu"
+                aria-expanded={sidebarOpen}
                 data-sidebar-toggle="true"
                 className="cursor-pointer flex items-center"
                 onClick={(e) => {
@@ -127,49 +130,18 @@ const Header: React.FC<HeaderProps> = ({
                     setSidebarOpen(!sidebarOpen);
                 }}
             >
-                <div className="m-4 flex items-center justify-center text-2xl font-semibold text-gray-900 dark:text-white">
-                    <div className="mr-2">
-                        {sidebarOpen ? (
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            >
-                                <rect width="18" height="18" x="3" y="3" rx="2" />
-                                <path d="M9 3v18" />
-                                <path d="M15 8h2" />
-                                <path d="M15 12h2" />
-                                <path d="M15 16h2" />
-                            </svg>
-                        ) : (
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            >
-                                <rect width="18" height="18" x="3" y="3" rx="2" />
-                                <path d="M9 3v18" />
-                            </svg>
-                        )}
-                    </div>
+                <span className="m-4 flex items-center justify-center text-2xl font-semibold text-gray-900 dark:text-white">
+                    <span className="mr-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                            <path d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </span>
 
                     <span className="text-black dark:text-white">
                         SmartPrüfung
                     </span>
-                </div>
-            </div>
+                </span>
+            </button>
 
             {/* Right: Access status + quota + payment CTA + settings */}
             <div className="ml-auto mr-4 flex items-center gap-3">

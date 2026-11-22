@@ -27,6 +27,19 @@ export async function authenticateUser(email: string, password:string) {
     return user;
 }
 
+export async function authenticateGoogleCode(code:string,codeVerifier:string,redirectUri:string,preferredLanguage:string) {
+    const response=await fetch('/public/user/google/login',{
+        method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({code,codeVerifier,redirectUri,preferredLanguage:normalizeLanguage(preferredLanguage)||"en"})
+    });
+    if(!response.ok)throw new Error('Google sign-in failed');
+    const user=await response.json() as IUser;
+    if(!user?.token)throw new Error('Missing account session');
+    localStorage.setItem('access-token',user.token);
+    rememberUser(user);
+    return user;
+}
+
 export async function authenticateGoogleUser(accessToken: string, preferredLanguage: string = i18n.resolvedLanguage || i18n.language) {
     let user: any;
     const requestOptions = {

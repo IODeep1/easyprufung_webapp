@@ -5,13 +5,22 @@ const vm = require('node:vm');
 const ts = require('typescript');
 const source = fs.readFileSync(path.join(__dirname, '../src/api/activity/activity.ts'), 'utf8');
 const code = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 } }).outputText;
-function runtime(fetch, storage = () => 'customer-token') {
-  const scope = { exports: {}, crypto: { randomUUID: () => '2dcbb5c3-019e-430b-aacd-e1db836834ad' }, localStorage: { getItem: storage }, fetch };
+function runtime(fetch, storage = () => 'customer-token', consent=true) {
+  const scope = { require:()=>({analyticsAllowed:()=>typeof consent === "function" ? consent() : consent}), exports: {}, crypto: { randomUUID: () => '2dcbb5c3-019e-430b-aacd-e1db836834ad' }, localStorage: { getItem: storage }, fetch };
   vm.runInNewContext(code, scope);
   return scope.exports;
 }
 const drain = async () => { for (let i=0;i<5;i++) await new Promise(setImmediate); };
 (async () => {
+  let deniedCalls=0;
+  runtime(async()=>{deniedCalls++;},()=> 'token',false).trackActivity('PRICING_VIEWED','pricing');
+  await drain();assert.equal(deniedCalls,0);
+  let permission=true,revokeCalls=0;
+  runtime(async()=>{revokeCalls++;permission=false;return{status:500};},()=> 'token',()=>permission).trackActivity('PRICING_VIEWED','pricing');
+  await drain();assert.equal(revokeCalls,1);
+  let reads=0,blockedCalls=0;
+  runtime(async()=>{blockedCalls++;return{status:204};},()=>{if(reads++===0)return 'token';throw new Error('storage blocked');}).trackActivity('PRICING_VIEWED','pricing');
+  await drain();assert.equal(blockedCalls,0);
   const calls = [];
   const tracker = runtime(async (url, options) => { calls.push({ url, options }); return { status: 204 }; });
   tracker.trackActivity('PRICING_VIEWED', 'pricing'); await drain();

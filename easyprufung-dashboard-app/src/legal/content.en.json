@@ -1,0 +1,132 @@
+{
+  "updated": "22 November 2026",
+  "privacyTitle": "Privacy Policy",
+  "termsTitle": "Terms of Use",
+  "privacy": [
+    {
+      "title": "Scope and controller",
+      "paragraphs": [
+        "This policy covers smartpruefung.com, www.smartpruefung.com and app.smartpruefung.com, including guest exams. For privacy questions or requests about the responsible operator, contact contact@smartpruefung.com."
+      ]
+    },
+    {
+      "title": "Accounts, sign-in and preferences",
+      "paragraphs": [
+        "We process your name, email address, password credentials for email accounts, account identifier, selected language and answer to “How did you hear about us?”. Google sign-in supplies profile and authentication information; we do not receive your Google password. This information supports your account and requested services (GDPR Article 6(1)(b)). Required account fields must be supplied to register; optional analytics consent is not a condition of registration or purchase."
+      ]
+    },
+    {
+      "title": "Guest exams, answers and results",
+      "paragraphs": [
+        "You can start and finish an exam without an account. A random guest token and saved answers in browser storage let you restore the same exam. The backend also stores the exam session, answers, progress, completion state and token hash. Registration or login is required before submission; the saved attempt is linked to your account and submitted automatically after required onboarding. We retain scores, writing responses and feedback for your exam history. This is necessary to provide the requested practice service (Article 6(1)(b)).",
+        "Unclaimed guest access expires after 30 days. Expiry prevents using the guest capability; it does not itself delete every stored server record. Clearing browser storage or changing browser/device may prevent recovery. Publicly sharing an optional certificate link makes its displayed practice result available to people who have that link."
+      ]
+    },
+    {
+      "title": "AI-assisted writing evaluation",
+      "paragraphs": [
+        "Writing answers and the relevant exercise instructions are sent to the configured OpenAI API to generate evaluation and feedback. Avoid putting sensitive personal data or third-party personal information in practice answers. We use the resulting feedback to provide your requested exam evaluation (Article 6(1)(b)). AI feedback can be inaccurate and is not an official qualification or a decision with legal or similarly significant effects."
+      ]
+    },
+    {
+      "title": "Payments and access",
+      "paragraphs": [
+        "Stripe processes checkout and payment details under its own privacy information. We receive payment/transaction references, payment status and information needed to grant or verify your exam pass; we do not store full payment-card details in our application. Contract administration uses Article 6(1)(b); legally required financial records use Article 6(1)(c). Current paid passes are one-time purchases for the stated period, without automatic renewal."
+      ]
+    },
+    {
+      "title": "Essential storage, logs and country",
+      "paragraphs": [
+        "Account/session tokens, guest recovery and exam progress, language/theme settings and your privacy choice use cookies or browser storage as needed for the requested functionality. Necessary device storage is used under section 25(2) TDDDG; the related personal-data processing is based on contract performance or our legitimate interests in reliable and secure operation (Article 6(1)(b) or (f)).",
+        "Server/security logs may contain IP addresses, request times, paths and technical information used to detect misuse and investigate failures. Exam-start and submission records also support quota enforcement and reliable service operation. Country may be supplied by a trusted proxy header; without it, country is unknown. The backend does not look up visitor IP addresses to determine country, and the activity table does not store the raw IP. Country is approximate and may reflect a VPN or proxy. Hosting/security logs can still contain IP addresses."
+      ]
+    },
+    {
+      "title": "Optional analytics and your choice",
+      "paragraphs": [
+        "With your analytics permission, website tracking records a random browser visitor ID, event time, page path, clicked control label, destination without query strings/fragments, language and estimated country. Account pricing views and Stripe-link clicks can be recorded against your account ID. Website visitor IDs are not automatically merged with your account across domains. Form values, passwords and payment-card information are not collected by these click events.",
+        "Optional Google Analytics on the website may process identifiers, device/browser information and usage events. Optional analytics uses consent (Article 6(1)(a) GDPR and section 25(1) TDDDG). Choose “Necessary only” or “Accept All”; you can change the choice through “Privacy settings” on either site. Analytics is off before a choice and when declined. Necessary account/exam processing continues. Choices are saved for up to 180 days per browser, shared between our website and webapp through a preference cookie; changing your choice stops future optional collection but does not automatically erase previously collected data."
+      ]
+    },
+    {
+      "title": "Google services and email",
+      "paragraphs": [
+        "Google sign-in and reCAPTCHA used on registration/redemption forms can process connection, device and interaction information for authentication and abuse prevention. These features are separate from optional analytics. Google provides its own privacy information. Our contractual need to authenticate and legitimate interests in preventing fraud are the relevant GDPR bases; provider device-access settings and safeguards must also be respected.",
+        "The YouTube demo is not loaded until you choose to load it. Doing so connects your browser to Google/YouTube, which may process your IP, device and usage data and use cookies under its own privacy information. This separate video request does not enable our optional analytics.",
+        "We send account/support messages, including a welcome email. The configured service may also send a one-time personal preparation follow-up about two days after registration. You can reply or contact us to object to optional follow-ups. Contract-required messages use Article 6(1)(b); support and service-improvement interests may use Article 6(1)(f), subject to your objection. Advertising emails require consent or a valid statutory exception; creating an account is not blanket marketing consent."
+      ]
+    },
+    {
+      "title": "Recipients and international processing",
+      "paragraphs": [
+        "Recipients include Stripe for payments; Google for sign-in, anti-abuse and optional analytics; OpenAI for AI evaluation; and our hosting and email delivery providers for operating the service. Authorized staff can access information needed for administration and support. We do not sell personal data. We may disclose data when required by law or necessary to establish, exercise or defend legal claims.",
+        "Providers may process information outside the EEA. Where a transfer requires safeguards, the applicable arrangement must rely on a valid adequacy decision or suitable safeguards such as standard contractual clauses. Contact us for information about the providers, locations and applicable arrangements."
+      ]
+    },
+    {
+      "title": "Retention and deletion",
+      "paragraphs": [
+        "Account details and exam history are kept while needed to provide your account and resolve support or contractual issues. Activity data currently has no automatic deletion schedule: it remains until deleted or anonymized. Guest expiry does not automatically erase stored records. We assess retention by service necessity, security, legal claims and statutory obligations; contact us to request deletion or the applicable retention details. Payment/accounting records may have to be retained where law requires it. We do not promise immediate deletion of every backup or legally required record."
+      ]
+    },
+    {
+      "title": "Your rights and contact",
+      "paragraphs": [
+        "Subject to applicable conditions, you can request access, correction, deletion, restriction, portability and information about processing (Articles 15–20 GDPR). You may object to processing based on legitimate interests (Article 21), and withdraw consent at any time without affecting the lawfulness of earlier consent-based processing. You may complain to a supervisory authority, including the authority where you live or work. For our German location, the NRW data-protection authority is one available contact: https://www.ldi.nrw.de/.",
+        "Send requests to contact@smartpruefung.com. We may need proportionate information to verify that a request relates to your account. Material policy changes will be reflected in the update date and, where appropriate, notified through the service. New purposes requiring consent will not be covered merely by changing this policy."
+      ]
+    }
+  ],
+  "terms": [
+    {
+      "title": "Provider, service and eligibility",
+      "paragraphs": [
+        "These terms cover SmartPrüfung’s website, webapp and the practice services described in the offer. You must be at least 18 years old to create an account or buy an exam pass. Contact: contact@smartpruefung.com.",
+        "SmartPrüfung is an independent preparation platform, currently focused on digital German exam practice including TELC Deutsch B1. It is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut. Mock scores, explanations, AI feedback and practice certificates are not official exam results, recognized qualifications or a guarantee of passing a real exam."
+      ]
+    },
+    {
+      "title": "Guest exam and registration",
+      "paragraphs": [
+        "A visitor may complete the offered guest exam before registration. To submit saved answers and view the summary, register or log in and complete required onboarding. We preserve the attempt during that handoff and submit it automatically afterwards. Recovery depends on the saved browser token and remaining guest-access period; clearing storage or changing devices can prevent recovery.",
+        "Free access is limited to the trial allowance shown in the service, generally one exam per account. Detailed review and further exams require an eligible paid pass or other access granted by us. Do not create additional accounts to evade trial or access limits. Provide accurate account information, protect your login and contact us if access is compromised."
+      ]
+    },
+    {
+      "title": "Paid passes, price and access period",
+      "paragraphs": [
+        "The current offers are a 10-exam pass and an unlimited-exam pass for the access period displayed before purchase, currently 60 days. They are one-time purchases and do not renew automatically. “Unlimited” describes the number of available exams during that period for normal personal use; it does not authorize automated bulk requests, resale or sharing an account.",
+        "The final price in EUR, applicable taxes, allowance, access period and any discount shown in the offer/checkout form part of your purchase. Stripe handles checkout. Paid access is activated after successful payment confirmation; a temporary confirmation delay may occur. Keep your payment receipt and contact support if paid access is missing. Exhausting a limited allowance or reaching the stated expiry ends access to features covered by that pass; a further purchase is a separate decision."
+      ]
+    },
+    {
+      "title": "Consumer withdrawal and refunds",
+      "paragraphs": [
+        "Where statutory withdrawal rights apply to an online consumer purchase, you generally have 14 days from conclusion of the contract to withdraw without giving a reason, subject to the legal rules on commencement and expiry. Send an unambiguous withdrawal declaration to contact@smartpruefung.com. Sending it before the deadline is sufficient.",
+        "If a withdrawal is valid, amounts due for reimbursement are refunded without undue delay and, as a rule, within 14 days after receipt, using the original payment method unless otherwise agreed without extra cost to you. Any lawful proportionate charge for requested early service performance depends on the statutory conditions. Starting practice or opening results alone is not a blanket waiver of withdrawal rights. Early expiry for digital content/services requires the legally required express consent, acknowledgement and confirmation; these terms alone do not supply those declarations.",
+        "You may use this optional model notice: “To [SmartPrüfung, contact@smartpruefung.com]: I withdraw from the contract for [exam pass/order reference], concluded on [date]. Consumer name: [name]. Address: [address]. Date: [date].” A signature is needed only for a paper notice. This does not affect defect remedies or any more favourable refund expressly offered at checkout."
+      ]
+    },
+    {
+      "title": "Your content, AI and permitted use",
+      "paragraphs": [
+        "You retain your rights in your submitted writing and grant us the permission necessary to store, process and send it to our configured AI provider to perform the requested evaluation. Do not submit unlawful content or personal information about others without a lawful basis. Our platform, exercise materials and software may be used for your personal preparation; do not copy or distribute them commercially without permission or another legal entitlement.",
+        "AI feedback may contain mistakes. Review it critically and contact support about unclear or incorrect results. You must not attack the service, bypass payment/security restrictions, scrape or generate exams in bulk, misuse public links or interfere with other users. We may take proportionate measures against misuse, giving reasons and a way to contact us where appropriate; mandatory consumer rights remain unaffected."
+      ]
+    },
+    {
+      "title": "Availability, changes and statutory remedies",
+      "paragraphs": [
+        "An internet connection and a supported current browser are required. Temporary maintenance or outages may occur. We provide the functionality and updates required by the contract and mandatory law. We do not promise uninterrupted access or a particular official exam outcome. If a paid feature fails, contact us so we can investigate; your statutory rights concerning defects, conformity, refunds and termination remain intact.",
+        "Changes to this text do not automatically rewrite an existing paid contract. Material changes affecting existing rights require an appropriate legal basis and notice; where consent is necessary, we will seek it. You may stop using a free account or request deletion, subject to applicable retention duties."
+      ]
+    },
+    {
+      "title": "Liability, applicable law and complaints",
+      "paragraphs": [
+        "We remain liable as required by mandatory law, including for intentional or grossly negligent conduct, injury to life, body or health, and other non-excludable liability. For ordinary negligence concerning an essential contractual duty, liability may be limited to foreseeable damage typical of the contract only to the extent legally permitted. These terms do not remove mandatory consumer remedies.",
+        "German law applies without depriving consumers of mandatory protections of their country of habitual residence. No exclusive court jurisdiction is imposed on consumers contrary to applicable law. For questions or complaints, contact contact@smartpruefung.com."
+      ]
+    }
+  ]
+}
