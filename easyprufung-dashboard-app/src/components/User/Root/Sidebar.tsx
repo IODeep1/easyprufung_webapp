@@ -1,3 +1,4 @@
+import { tr } from "../../../localization/feature-i18n";
 import {
   sidebarTitle,
   sidebarList,
@@ -41,6 +42,7 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
+
   const { pathname } = useLocation();
   const teacherRole = useTeacherRole();
   const { i18n } = useTranslation();
@@ -186,9 +188,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         setPassedExams([]);
 
         setExamsError(
-          cause instanceof Error
-            ? cause.message
-            : "Prüfungen konnten nicht geladen werden."
+          cause instanceof Error ? cause.message : tr("Could not load exams.")
         );
       })
       .finally(() => {
@@ -218,18 +218,18 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     >
       <div className="flex h-full min-h-0 flex-col">
         <nav
-          aria-label="Main navigation"
+          aria-label={tr("Main navigation")}
           className="no-scrollbar flex min-h-0 flex-1 flex-col overflow-y-auto px-4 pb-2 pt-20 lg:mt-2"
         >
           <TeacherNavigation onNavigate={() => setSidebarOpen(false)} />
           <section
             className="mb-6"
             aria-label={
-              teacherRole.isTeacher ? "Personal practice" : "Practice"
+              teacherRole.isTeacher ? tr("Personal practice") : tr("Practice")
             }
           >
             <h3 className={sidebarTitle}>
-              {teacherRole.isTeacher ? "Personal practice" : "Practice"}
+              {teacherRole.isTeacher ? tr("Personal practice") : tr("Practice")}
             </h3>
             <ul className={sidebarList}>
               <StudentClassesNavigation
@@ -244,7 +244,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   }
                 >
                   <FilePlus2 {...sidebarIcon} />
-                  New exam
+                  {tr("New exam")}
                 </NavLink>
               </li>
               <SidebarLinkGroup
@@ -267,7 +267,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                       )}
                     >
                       <BookOpen {...sidebarIcon} />
-                      <span className="min-w-0 flex-1">Exam history</span>
+                      <span className="min-w-0 flex-1">
+                        {tr("Exam history")}
+                      </span>
                       {passedExams.length > 0 && (
                         <span className="rounded-full bg-gray-200 px-2 py-0.5 text-xs font-semibold text-gray-700 dark:bg-gray-700 dark:text-gray-200">
                           {passedExams.length}
@@ -293,7 +295,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             className={({ isActive }) => sidebarLink(isActive)}
                           >
                             <List {...sidebarIcon} />
-                            All exams
+                            {tr("All exams")}
                           </NavLink>
                         </li>
                         {examsLoading && (
@@ -301,7 +303,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             role="status"
                             className="px-4 py-2 text-xs text-gray-500"
                           >
-                            Loading exams…
+                            {tr("Loading exams…")}
                           </li>
                         )}
                         {!examsLoading && examsError && (
@@ -316,7 +318,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           !examsError &&
                           !passedExams.length && (
                             <li className="px-4 py-2 text-xs text-gray-500 dark:text-gray-400">
-                              No passed exams yet.
+                              {tr("No passed exams yet.")}
                             </li>
                           )}
                       </ul>
@@ -327,8 +329,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             </ul>
           </section>
           {!isPaidSubscription && (
-            <section className="mb-6" aria-label="Plans">
-              <h3 className={sidebarTitle}>Plans</h3>
+            <section className="mb-6" aria-label={tr("Plans")}>
+              <h3 className={sidebarTitle}>{tr("Plans")}</h3>
               <ul className={sidebarList}>
                 <li>
                   <NavLink
@@ -337,7 +339,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     className={({ isActive }) => sidebarLink(isActive)}
                   >
                     <Coins {...sidebarIcon} />
-                    Plans &amp; pricing
+                    {tr("Plans & pricing")}
                   </NavLink>
                 </li>
                 {subscriptionPlan !== "tester" && (
@@ -348,15 +350,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                       className={({ isActive }) => sidebarLink(isActive)}
                     >
                       <TicketCheck {...sidebarIcon} />
-                      Redeem your code
+                      {tr("Redeem your code")}
                     </NavLink>
                   </li>
                 )}
               </ul>
             </section>
           )}
-          <section className="mb-6" aria-label="Help">
-            <h3 className={sidebarTitle}>Help</h3>
+          <section className="mb-6" aria-label={tr("Help")}>
+            <h3 className={sidebarTitle}>{tr("Help")}</h3>
             <ul className={sidebarList}>
               <li>
                 <NavLink
@@ -365,14 +367,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   className={({ isActive }) => sidebarLink(isActive)}
                 >
                   <MessageCircle {...sidebarIcon} />
-                  Contact us
+                  {tr("Contact us")}
                 </NavLink>
               </li>
             </ul>
           </section>
         </nav>
         <div
-          aria-label="Appearance and account"
+          aria-label={tr("Appearance and account")}
           className="mx-4 flex shrink-0 flex-col gap-1.5 border-t border-gray-100 py-4 dark:border-gray-800"
         >
           <DarkModeSwitcher />

@@ -1,3 +1,4 @@
+import { tr, featureLocale } from "../../localization/feature-i18n";
 export type TeacherClass = {
   id: string;
   name: string;
@@ -29,7 +30,7 @@ export type Offer = {
   canAccept?: boolean;
 };
 export type Wallet = {
-  purchased?:number;
+  purchased?: number;
   available: number;
   reserved: number;
   activated: number;
@@ -92,11 +93,12 @@ export async function teacherApi<T>(
   return response.status === 204 ? (undefined as T) : response.json();
 }
 export const money = (cents: number) =>
-  new Intl.NumberFormat("en-IE", { style: "currency", currency: "EUR" }).format(
-    cents / 100
-  );
+  new Intl.NumberFormat(featureLocale(), {
+    style: "currency",
+    currency: "EUR",
+  }).format(cents / 100);
 export const date = (value: string | null | undefined) =>
-  value ? new Date(value).toLocaleString("en-GB") : "No due date";
+  value ? new Date(value).toLocaleString(featureLocale()) : tr("No due date");
 export const button =
   "inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
 export const secondary =

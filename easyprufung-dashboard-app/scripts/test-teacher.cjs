@@ -26,6 +26,8 @@ const target = document.getElementById("test"),
   calls = [],
   navigations = [];
 let testSubscription;
+let featureLanguage = "en";
+const featurePhrases = JSON.parse(fs.readFileSync(path.join(__dirname,"../src/locales/feature-phrases.json"),"utf8"));
 let token = "t".repeat(43),
   signedIn = false,
   pathname = "/teacher/register",
@@ -66,6 +68,11 @@ function compile(file, resolve) {
   return exports;
 }
 function common(name) {
+  if (name.endsWith("feature-i18n")) {
+    const tr = (source, values = {}) => (featureLanguage === "en" ? String(source ?? "") : featurePhrases[String(source ?? "")]?.[featureLanguage] || String(source ?? "")).replace(/\{\{(\w+)\}\}/g, (m,k) => k in values ? String(values[k]) : m);
+    return { tr, featureLocale: () => featureLanguage, useFeatureLocale: () => ({locale:featureLanguage,dir:featureLanguage === "ar"?"rtl":"ltr",tr}) };
+  }
+
   if (name === "react") return React;
   if (name === "react/jsx-runtime" || name === "lucide-react")
     return require(name);
@@ -113,7 +120,7 @@ function common(name) {
 }
 const intent = compile("components/Teacher/AuthIntent.tsx", common).default;
 const guest = compile("components/User/Exam/guest/guest-api.ts", () => ({}));
-const api = compile("components/Teacher/api.ts", () => ({}));
+const api = compile("components/Teacher/api.ts", common);
 const sidebarStyles = compile("components/Shared/sidebar-style.ts", () => ({}));
 const ui = compile("components/Teacher/ui.tsx", (name) =>
   name === "./api" ? api : common(name)
@@ -825,6 +832,36 @@ const flush = () =>
   } finally {
     window.setTimeout = originalTimer;
   }
+  token = undefined; pathname = "/my-classes"; signedIn = true;
+  studentData = { classes:[{id:"c-locale",name:"Private class name",archived:false}],assignments:[],offers:[] };
+  for (const lang of ["en","de","fr","ar","uk","tr"]) {
+    featureLanguage = lang;
+    await act(async () => root.render(React.createElement(Student,{key:"language-"+lang})));
+    await flush();
+    const region = target.querySelector("section[lang]");
+    assert.equal(region.lang,lang);
+    assert.equal(region.dir,lang === "ar"?"rtl":"ltr");
+    assert.equal(target.querySelector("h1").textContent,lang === "en"?"My classes":featurePhrases["My classes"][lang]);
+    assert.ok(target.textContent.includes("Private class name"));
+    const assignmentsTab = [...target.querySelectorAll('nav button')].find((b)=>b.textContent.includes(lang === "en"?"Assignments":featurePhrases.Assignments[lang]));
+    assert.ok(assignmentsTab);
+    await act(async () => assignmentsTab.click());
+    assert.ok(target.textContent.includes(lang === "en"?"No assignments yet":featurePhrases["No assignments yet"][lang]));
+  }
+  roleStatus = "ACTIVE"; pathname = "/teacher/seats";
+  for (const lang of ["en","de","fr","ar","uk","tr"]) {
+    featureLanguage = lang;
+    await act(async () => root.render(React.createElement(Teacher,{key:"teacher-language-"+lang})));
+    await flush();
+    assert.equal(target.querySelector("h1").textContent,lang === "en"?"Exam seats":featurePhrases["Exam seats"][lang]);
+    assert.ok(target.textContent.includes(new Intl.NumberFormat(lang,{style:"currency",currency:"EUR"}).format(17.77)));
+  }
+  featureLanguage = "ar";
+  await act(async () => root.render(React.createElement(ClassDetail,{key:"arabic-keyboard",id:"class-test",availableSeats:1,busy:false,run:async(fn)=>{await fn();return true;},notify:()=>{}})));
+  await flush();
+  await act(async () => target.querySelector("#tab-students").dispatchEvent(new window.KeyboardEvent("keydown",{key:"ArrowLeft",bubbles:true})));
+  assert.equal(target.querySelector("#tab-assignments").getAttribute("aria-selected"),"true");
+  featureLanguage = "en";
   await act(async () => root.unmount());
   console.log(
     "Teacher checkout and account UI checks passed: server-fed pricing, webhook-confirmed return status, pending/failed payment handling, role isolation, shared sidebar styles, class and assignment tabs, completed reviews, failed-start recovery, offer acceptance, sharing withdrawal, safe invitation links and affirmative consent."

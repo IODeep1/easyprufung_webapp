@@ -1,3 +1,4 @@
+import { tr, useFeatureLocale } from "../../localization/feature-i18n";
 import React, { useCallback, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -51,6 +52,8 @@ type Preview = {
   consentVersion: string;
 };
 export default function StudentClasses() {
+  const { locale, dir } = useFeatureLocale();
+
   const { token } = useParams(),
     navigate = useNavigate(),
     dispatch = useDispatch();
@@ -158,16 +161,21 @@ export default function StudentClasses() {
     (!subscription.endDate ||
       new Date(subscription.endDate).getTime() > Date.now());
   const tabs = [
-    { key: "classes", label: "Classes", count: classes.length, icon: Users },
+    {
+      key: "classes",
+      label: tr("Classes"),
+      count: classes.length,
+      icon: Users,
+    },
     {
       key: "assignments",
-      label: "Assignments",
+      label: tr("Assignments"),
       count: todo.length,
       icon: BookOpen,
     },
     {
       key: "access",
-      label: "Exam access",
+      label: tr("Exam access"),
       count: pending.length,
       icon: Ticket,
     },
@@ -193,29 +201,31 @@ export default function StudentClasses() {
   }
   return (
     <section
-      lang="en"
-      dir="ltr"
+      lang={locale}
+      dir={dir}
       data-no-translate
       className="mx-auto max-w-7xl space-y-6 px-4 py-6 text-gray-900 dark:text-white sm:px-8 sm:py-8"
     >
       <header className="relative overflow-hidden rounded-2xl border border-black/10 bg-white px-6 py-7 dark:border-white/10 dark:bg-gray-900 sm:px-8">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-10 -top-28 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl"
+          className="pointer-events-none absolute -end-10 -top-28 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl"
         />
         <div className="relative flex flex-wrap items-center justify-between gap-5">
           <div>
             <p className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
               <GraduationCap size={16} />
-              Learning together
+              {tr("Learning together")}
             </p>
             <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
-              {token ? "Join a class" : "My classes"}
+              {token ? tr("Join a class") : tr("My classes")}
             </h1>
             <p className={`${muted} mt-2 max-w-xl`}>
               {token
-                ? "Join your teacher’s class and keep your practice in one place."
-                : "Your classes, assignments and next steps — together."}
+                ? tr(
+                    "Join your teacher’s class and keep your practice in one place."
+                  )
+                : tr("Your classes, assignments and next steps — together.")}
             </p>
           </div>
           {!token && (
@@ -227,7 +237,7 @@ export default function StudentClasses() {
               }}
             >
               <UserPlus size={17} />
-              Join a class
+              {tr("Join a class")}
             </button>
           )}
         </div>
@@ -237,13 +247,13 @@ export default function StudentClasses() {
           role="alert"
           className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700 dark:border-red-900 dark:bg-red-500/10 dark:text-red-300"
         >
-          <span>{error}</span>
+          <span>{tr(error)}</span>
           <button
             className="font-semibold underline"
             disabled={busy}
             onClick={() => run(load)}
           >
-            Retry
+            {tr("Retry")}
           </button>
         </div>
       )}
@@ -257,12 +267,14 @@ export default function StudentClasses() {
           ) : (
             <CheckCircle2 className="shrink-0" size={18} />
           )}
-          <span>{message}</span>
+          <span>{tr(message)}</span>
         </div>
       )}
       {loading ? (
         <Loading
-          text={token ? "Opening your invitation…" : "Loading your classes…"}
+          text={
+            token ? tr("Opening your invitation…") : tr("Loading your classes…")
+          }
         />
       ) : token ? (
         preview && (
@@ -273,23 +285,26 @@ export default function StudentClasses() {
                   <Users size={26} />
                 </span>
                 <div>
-                  <Badge tone="green">Free to join</Badge>
+                  <Badge tone="green">{tr("Free to join")}</Badge>
                   <h2 className="mt-2 text-2xl font-bold tracking-tight">
                     {preview.name}
                   </h2>
-                  <p className={`${muted} mt-1`}>Teacher: {preview.teacher}</p>
+                  <p className={`${muted} mt-1`}>
+                    {tr("Teacher:")} {preview.teacher}
+                  </p>
                 </div>
               </div>
               <p className={`${muted} my-6`}>
-                Joining is free. No exam access is purchased or activated
-                automatically.
+                {tr(
+                  "Joining is free. No exam access is purchased or activated automatically."
+                )}
               </p>
               <div className="rounded-xl bg-gray-50 p-5 dark:bg-gray-800">
                 <h3 className="flex items-center gap-2 text-sm font-semibold">
                   <ShieldCheck size={18} className="text-blue-600" />
-                  You control what you share
+                  {tr("You control what you share")}
                 </h3>
-                <p className={`${muted} mt-3`}>{preview.sharing}</p>
+                <p className={`${muted} mt-3`}>{tr(preview.sharing)}</p>
               </div>
               <label className="my-6 flex cursor-pointer items-start gap-3 rounded-xl border border-gray-200 p-4 text-sm leading-6 dark:border-gray-700">
                 <input
@@ -299,8 +314,9 @@ export default function StudentClasses() {
                   onChange={(e) => setConsent(e.target.checked)}
                 />
                 <span>
-                  I agree to share my class-linked exam performance with this
-                  teacher. I can withdraw permission by leaving the class.
+                  {tr(
+                    "I agree to share my class-linked exam performance with this teacher. I can withdraw permission by leaving the class."
+                  )}
                 </span>
               </label>
               <button
@@ -317,14 +333,14 @@ export default function StudentClasses() {
                   })
                 }
               >
-                {busy ? "Joining…" : "Agree and join class — free"}
-                <ArrowRight size={16} />
+                {busy ? tr("Joining…") : tr("Agree and join class — free")}
+                <ArrowRight size={16} className="rtl:rotate-180" />
               </button>
               <Link
                 to="/my-classes"
                 className="mt-4 block text-center text-sm font-semibold text-gray-500"
               >
-                Back to my classes
+                {tr("Back to my classes")}
               </Link>
             </div>
           </div>
@@ -333,17 +349,17 @@ export default function StudentClasses() {
         <>
           <div className="grid gap-4 sm:grid-cols-3">
             <Stat
-              label="Active classes"
+              label={tr("Active classes")}
               value={classes.filter((c) => !c.archived).length}
               icon={Users}
             />
             <Stat
-              label="Assignments to do"
+              label={tr("Assignments to do")}
               value={todo.length}
               icon={BookOpen}
             />
             <Stat
-              label="Completed"
+              label={tr("Completed")}
               value={completed.length}
               icon={CheckCircle2}
             />
@@ -355,23 +371,26 @@ export default function StudentClasses() {
                 <div>
                   <h2 className="font-semibold">
                     {pending.length === 1
-                      ? "Your teacher has offered you exam access"
-                      : `${pending.length} exam access offers need your reply`}
+                      ? tr("Your teacher has offered you exam access")
+                      : tr("{{count}} exam access offers need your reply", {
+                          count: pending.length,
+                        })}
                   </h2>
                   <p className={`${muted} mt-1`}>
-                    10 mock exams and 60 days of practice. Access starts when
-                    you accept.
+                    {tr(
+                      "10 mock exams and 60 days of practice. Access starts when you accept."
+                    )}
                   </p>
                 </div>
               </div>
               <button className={secondary} onClick={() => setTab("access")}>
-                Review {pending.length === 1 ? "offer" : "offers"}
-                <ArrowRight size={16} />
+                {tr(pending.length === 1 ? "Review offer" : "Review offers")}
+                <ArrowRight size={16} className="rtl:rotate-180" />
               </button>
             </div>
           )}
           <nav
-            aria-label="My classes sections"
+            aria-label={tr("My classes sections")}
             className="flex gap-1 overflow-x-auto border-b border-gray-200 dark:border-gray-800"
           >
             {tabs.map(({ key, label, count, icon: Icon }) => (
@@ -386,7 +405,7 @@ export default function StudentClasses() {
                 }`}
               >
                 <Icon size={16} />
-                {label}
+                {tr(label)}
                 <span
                   className={`rounded-md px-1.5 py-0.5 text-xs ${
                     tab === key
@@ -402,27 +421,32 @@ export default function StudentClasses() {
           {tab === "classes" && (
             <>
               <SectionHeading
-                title="Your classes"
-                description="Keep your class practice and sharing preferences together."
+                title={tr("Your classes")}
+                description={tr(
+                  "Keep your class practice and sharing preferences together."
+                )}
                 action={
                   todo.length > 0 ? (
                     <button
                       className="flex items-center gap-1 text-sm font-semibold text-blue-600"
                       onClick={() => setTab("assignments")}
                     >
-                      See your assignments
-                      <ArrowRight size={15} />
+                      {tr("See your assignments")}
+                      <ArrowRight size={15} className="rtl:rotate-180" />
                     </button>
                   ) : undefined
                 }
               />
               {!classes.length ? (
                 <Empty
-                  title="Learn together with your class"
-                  body="Ask your teacher for an invitation link, then join for free. Your assignments will appear here."
+                  title={tr("Learn together with your class")}
+                  body={tr(
+                    "Ask your teacher for an invitation link, then join for free. Your assignments will appear here."
+                  )}
                   action={
                     <button className={button} onClick={() => setJoining(true)}>
-                      <Link2 size={16} />I have an invitation link
+                      <Link2 size={16} />
+                      {tr("I have an invitation link")}
                     </button>
                   }
                 />
@@ -435,24 +459,26 @@ export default function StudentClasses() {
                           <Users size={22} />
                         </span>
                         <Badge tone={c.archived ? "neutral" : "green"}>
-                          {c.archived ? "Archived" : "Active"}
+                          {c.archived ? tr("Archived") : tr("Active")}
                         </Badge>
                       </div>
                       <h3 className="mt-5 text-lg font-semibold">{c.name}</h3>
                       <p className="mt-1 text-sm text-gray-500">
-                        TELC Deutsch B1
+                        {tr("TELC Deutsch B1")}
                       </p>
                       <div className="mt-5 flex items-center justify-between gap-2 border-t border-gray-100 pt-4 dark:border-gray-800">
                         <span className="flex items-center gap-1.5 text-xs text-gray-500">
                           <ShieldCheck size={14} />
-                          {c.archived ? "Sharing stopped" : "Sharing enabled"}
+                          {c.archived
+                            ? tr("Sharing stopped")
+                            : tr("Sharing enabled")}
                         </span>
                         <button
                           className="text-xs font-semibold text-gray-500 hover:text-blue-600"
                           disabled={busy}
                           onClick={() => setLeaving(c)}
                         >
-                          Sharing settings
+                          {tr("Sharing settings")}
                         </button>
                       </div>
                     </article>
@@ -466,12 +492,12 @@ export default function StudentClasses() {
                 />
                 <div>
                   <h2 className="text-sm font-semibold">
-                    Your personal practice stays private
+                    {tr("Your personal practice stays private")}
                   </h2>
                   <p className={`${muted} mt-1`}>
-                    Only class-linked results are shared with your teacher.
-                    Leaving a class stops sharing and keeps your exam history
-                    and activated paid access.
+                    {tr(
+                      "Only class-linked results are shared with your teacher. Leaving a class stops sharing and keeps your exam history and activated paid access."
+                    )}
                   </p>
                 </div>
               </div>
@@ -480,8 +506,10 @@ export default function StudentClasses() {
           {tab === "assignments" && (
             <div className={`${panel} p-5 sm:p-6`}>
               <SectionHeading
-                title="Assigned practice"
-                description="Continue an exam or start your next assignment."
+                title={tr("Assigned practice")}
+                description={tr(
+                  "Continue an exam or start your next assignment."
+                )}
                 action={
                   <button
                     className={secondary}
@@ -492,16 +520,16 @@ export default function StudentClasses() {
                       size={15}
                       className={busy ? "animate-spin" : ""}
                     />
-                    Refresh
+                    {tr("Refresh")}
                   </button>
                 }
               />
               <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
                 <div className="flex rounded-xl bg-gray-100 p-1 text-sm dark:bg-gray-800">
                   {[
-                    ["todo", "To do"],
-                    ["done", "Completed"],
-                    ["all", "All"],
+                    ["todo", tr("To do")],
+                    ["done", tr("Completed")],
+                    ["all", tr("All")],
                   ].map(([key, label]) => (
                     <button
                       key={key}
@@ -513,27 +541,27 @@ export default function StudentClasses() {
                       }`}
                       onClick={() => setFilter(key)}
                     >
-                      {label}
+                      {tr(label)}
                     </button>
                   ))}
                 </div>
                 <div className="relative w-full sm:w-auto">
                   <Search
                     size={16}
-                    className="pointer-events-none absolute left-3 top-3 text-gray-400"
+                    className="pointer-events-none absolute start-3 top-3 text-gray-400"
                   />
                   <label
                     className="sr-only"
                     htmlFor="student-assignment-search"
                   >
-                    Search assignments
+                    {tr("Search assignments")}
                   </label>
                   <input
                     id="student-assignment-search"
-                    className={`${input} w-full pl-9 sm:w-56`}
+                    className={`${input} w-full ps-9 sm:w-56`}
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Find a class or exam…"
+                    placeholder={tr("Find a class or exam…")}
                   />
                 </div>
               </div>
@@ -541,19 +569,21 @@ export default function StudentClasses() {
                 <Empty
                   title={
                     search
-                      ? "No matching assignments"
+                      ? tr("No matching assignments")
                       : filter === "done"
-                      ? "Your completed exams will appear here"
+                      ? tr("Your completed exams will appear here")
                       : assignments.length
-                      ? "You’re all caught up"
-                      : "No assignments yet"
+                      ? tr("You’re all caught up")
+                      : tr("No assignments yet")
                   }
                   body={
                     search
-                      ? "Try another class name or clear your search."
+                      ? tr("Try another class name or clear your search.")
                       : filter === "done"
-                      ? "Finish an assigned exam to see it here."
-                      : "Your teacher’s next assignment will appear here when it’s ready."
+                      ? tr("Finish an assigned exam to see it here.")
+                      : tr(
+                          "Your teacher’s next assignment will appear here when it’s ready."
+                        )
                   }
                 />
               ) : (
@@ -577,15 +607,19 @@ export default function StudentClasses() {
                           <Status value={a.status || "ASSIGNED"} />
                         </div>
                         <p className="mt-4 text-xs font-semibold text-blue-600 dark:text-blue-400">
-                          {a.className || "Your class"}
+                          {a.className || tr("Your class")}
                         </p>
                         <h3 className="mt-1 text-lg font-semibold">
-                          TELC Deutsch B1 mock exam
+                          {tr("TELC Deutsch B1 mock exam")}
                         </h3>
                         <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-500">
                           <Calendar size={14} />
-                          {a.dueAt ? `Due ${date(a.dueAt)}` : "No due date"}
-                          {overdue && <Badge tone="amber">Past due</Badge>}
+                          {a.dueAt
+                            ? tr("Due {{date}}", { date: date(a.dueAt) })
+                            : tr("No due date")}
+                          {overdue && (
+                            <Badge tone="amber">{tr("Past due")}</Badge>
+                          )}
                         </div>
                         <div className="mt-5 border-t border-gray-100 pt-4 dark:border-gray-800">
                           {a.attemptId ? (
@@ -600,11 +634,14 @@ export default function StudentClasses() {
                               }
                             >
                               {done
-                                ? "Review result"
+                                ? tr("Review result")
                                 : running
-                                ? "Continue exam"
-                                : "View exam history"}
-                              <ArrowRight size={16} />
+                                ? tr("Continue exam")
+                                : tr("View exam history")}
+                              <ArrowRight
+                                size={16}
+                                className="rtl:rotate-180"
+                              />
                             </Link>
                           ) : (
                             <button
@@ -626,12 +663,15 @@ export default function StudentClasses() {
                               {starting === a.id ? (
                                 <>
                                   <Loader2 size={16} className="animate-spin" />
-                                  Preparing exam…
+                                  {tr("Preparing exam…")}
                                 </>
                               ) : (
                                 <>
-                                  Start assigned exam
-                                  <ArrowRight size={16} />
+                                  {tr("Start assigned exam")}
+                                  <ArrowRight
+                                    size={16}
+                                    className="rtl:rotate-180"
+                                  />
                                 </>
                               )}
                             </button>
@@ -643,8 +683,9 @@ export default function StudentClasses() {
                 </div>
               )}
               <p className="mt-5 text-xs leading-5 text-gray-400">
-                Assignments use your normal exam access and attempt allowance.
-                No extra attempts are charged.
+                {tr(
+                  "Assignments use your normal exam access and attempt allowance. No extra attempts are charged."
+                )}
               </p>
             </div>
           )}
@@ -652,8 +693,10 @@ export default function StudentClasses() {
             <>
               <div className={`${panel} p-6`}>
                 <SectionHeading
-                  title="Your exam access"
-                  description="Use your own plan or accept an offer from your teacher."
+                  title={tr("Your exam access")}
+                  description={tr(
+                    "Use your own plan or accept an offer from your teacher."
+                  )}
                 />
                 {paid ? (
                   <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl bg-emerald-50 p-5 dark:bg-emerald-500/10">
@@ -665,50 +708,61 @@ export default function StudentClasses() {
                       <div>
                         <h3 className="font-semibold">
                           {subscription?.plan === "b1_unlimited"
-                            ? "Unlimited exam access"
-                            : `${subscription?.quota || 0} exams remaining`}
+                            ? tr("Unlimited exam access")
+                            : tr("{{count}} exams remaining", {
+                                count: subscription?.quota || 0,
+                              })}
                         </h3>
                         <p className="mt-1 text-sm text-gray-500">
                           {subscription?.type === "teacher_seat"
-                            ? "Funded by your teacher"
-                            : "Your personal access"}
+                            ? tr("Funded by your teacher")
+                            : tr("Your personal access")}
                           {subscription?.endDate
-                            ? ` · Until ${date(subscription.endDate)}`
+                            ? " · " +
+                              tr("Until {{date}}", {
+                                date: date(subscription.endDate),
+                              })
                             : ""}
                         </p>
                       </div>
                     </div>
                     <Link className={secondary} to="/new">
-                      Practise now
-                      <ArrowRight size={16} />
+                      {tr("Practise now")}
+                      <ArrowRight size={16} className="rtl:rotate-180" />
                     </Link>
                   </div>
                 ) : (
                   <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl bg-gray-50 p-5 dark:bg-gray-800">
                     <div>
                       <h3 className="font-semibold">
-                        Choose how to access more practice
+                        {tr("Choose how to access more practice")}
                       </h3>
                       <p className={`${muted} mt-1`}>
-                        Buy your own access, or accept a teacher’s offer below.
+                        {tr(
+                          "Buy your own access, or accept a teacher’s offer below."
+                        )}
                       </p>
                     </div>
                     <Link className={secondary} to="/pricing">
-                      View exam plans
-                      <ArrowRight size={16} />
+                      {tr("View exam plans")}
+                      <ArrowRight size={16} className="rtl:rotate-180" />
                     </Link>
                   </div>
                 )}
               </div>
               <div className={`${panel} p-5 sm:p-6`}>
                 <SectionHeading
-                  title="Offers from your teacher"
-                  description="No payment is needed to accept a teacher-funded offer."
+                  title={tr("Offers from your teacher")}
+                  description={tr(
+                    "No payment is needed to accept a teacher-funded offer."
+                  )}
                 />
                 {!pending.length ? (
                   <Empty
-                    title="No offers waiting for a reply"
-                    body="When your teacher offers exam access, you can review and accept it here."
+                    title={tr("No offers waiting for a reply")}
+                    body={tr(
+                      "When your teacher offers exam access, you can review and accept it here."
+                    )}
                   />
                 ) : (
                   <div className="grid gap-4 lg:grid-cols-2">
@@ -721,26 +775,30 @@ export default function StudentClasses() {
                           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-500/10">
                             <Ticket size={21} />
                           </span>
-                          <Badge tone="amber">Awaiting your reply</Badge>
+                          <Badge tone="amber">
+                            {tr("Awaiting your reply")}
+                          </Badge>
                         </div>
                         <p className="mt-4 text-xs font-semibold text-blue-600">
                           {o.className}
                         </p>
                         <h3 className="mt-1 text-xl font-bold">
-                          10 mock exams · 60 days
+                          {tr("10 mock exams · 60 days")}
                         </h3>
                         <p className={`${muted} mt-3`}>
-                          Access starts when you accept. You keep it if you
-                          leave the class.
+                          {tr(
+                            "Access starts when you accept. You keep it if you leave the class."
+                          )}
                         </p>
                         <p className="mt-3 flex items-center gap-1.5 text-xs text-gray-500">
                           <Clock size={14} />
-                          Reply by {date(o.expiresAt)}
+                          {tr("Reply by")} {date(o.expiresAt)}
                         </p>
                         {!o.canAccept && (
                           <p className="mt-4 rounded-lg bg-white p-3 text-xs leading-5 text-gray-500 dark:bg-gray-900">
-                            You already have paid access. You can decline this
-                            offer or wait until your access expires.
+                            {tr(
+                              "You already have paid access. You can decline this offer or wait until your access expires."
+                            )}
                           </p>
                         )}
                         <div className="mt-5 flex flex-wrap gap-2">
@@ -749,8 +807,8 @@ export default function StudentClasses() {
                             disabled={busy || !o.canAccept}
                             onClick={() => setAccepting(o)}
                           >
-                            Accept offer
-                            <ArrowRight size={16} />
+                            {tr("Accept offer")}
+                            <ArrowRight size={16} className="rtl:rotate-180" />
                           </button>
                           <button
                             className={secondary}
@@ -767,7 +825,7 @@ export default function StudentClasses() {
                               })
                             }
                           >
-                            Decline
+                            {tr("Decline")}
                           </button>
                         </div>
                       </article>
@@ -777,7 +835,9 @@ export default function StudentClasses() {
                 {history.length > 0 && (
                   <details className="mt-6 border-t border-gray-100 pt-5 dark:border-gray-800">
                     <summary className="cursor-pointer text-sm font-semibold text-gray-500">
-                      Previous offers ({history.length})
+                      {tr("Previous offers ({{count}})", {
+                        count: history.length,
+                      })}
                     </summary>
                     <div className="mt-3 divide-y divide-gray-100 dark:divide-gray-800">
                       {history.map((o) => (
@@ -790,7 +850,7 @@ export default function StudentClasses() {
                               {o.className}
                             </p>
                             <p className="mt-1 text-xs text-gray-400">
-                              10 mock exams · 60-day pass
+                              {tr("10 mock exams · 60-day pass")}
                             </p>
                           </div>
                           <Status value={o.state} />
@@ -806,8 +866,10 @@ export default function StudentClasses() {
       )}
       {joining && (
         <Dialog
-          title="Join a class"
-          description="Your teacher will send you a private invitation link. Paste it below to review the class before joining."
+          title={tr("Join a class")}
+          description={tr(
+            "Your teacher will send you a private invitation link. Paste it below to review the class before joining."
+          )}
           onClose={() => setJoining(false)}
         >
           <form onSubmit={joinFromLink}>
@@ -815,7 +877,7 @@ export default function StudentClasses() {
               htmlFor="student-invite-link"
               className="block text-sm font-semibold"
             >
-              Invitation link
+              {tr("Invitation link")}
             </label>
             <input
               id="student-invite-link"
@@ -824,15 +886,17 @@ export default function StudentClasses() {
               type="text"
               value={inviteLink}
               onChange={(e) => setInviteLink(e.target.value)}
-              placeholder="Paste your teacher’s invitation link"
+              placeholder={tr("Paste your teacher’s invitation link")}
             />
             {inviteError && (
               <p role="alert" className="mt-3 text-sm text-red-600">
-                {inviteError}
+                {tr(inviteError)}
               </p>
             )}
             <p className={`${muted} mt-4`}>
-              You’ll see which results are shared before you agree to join.
+              {tr(
+                "You’ll see which results are shared before you agree to join."
+              )}
             </p>
             <div className="mt-6 flex justify-end gap-3">
               <button
@@ -840,11 +904,11 @@ export default function StudentClasses() {
                 type="button"
                 onClick={() => setJoining(false)}
               >
-                Cancel
+                {tr("Cancel")}
               </button>
               <button className={button} type="submit">
-                Review invitation
-                <ArrowRight size={16} />
+                {tr("Review invitation")}
+                <ArrowRight size={16} className="rtl:rotate-180" />
               </button>
             </div>
           </form>
@@ -852,7 +916,7 @@ export default function StudentClasses() {
       )}
       {leaving && (
         <Dialog
-          title="Class sharing settings"
+          title={tr("Class sharing settings")}
           description={leaving.name}
           onClose={() => {
             if (!busy) setLeaving(null);
@@ -862,23 +926,30 @@ export default function StudentClasses() {
             <h3 className="flex items-center gap-2 text-sm font-semibold">
               <ShieldCheck size={17} className="text-blue-600" />
               {leaving.archived
-                ? "This class is archived"
-                : "Sharing is enabled for this class"}
+                ? tr("This class is archived")
+                : tr("Sharing is enabled for this class")}
             </h3>
             <p className={`${muted} mt-3`}>
               {leaving.archived
-                ? "This class no longer shares exam performance. You can leave to remove it from your class list."
-                : "Your teacher can see class-linked completion, scores and section results. Your personal practice, raw answers and writing stay private."}
+                ? tr(
+                    "This class no longer shares exam performance. You can leave to remove it from your class list."
+                  )
+                : tr(
+                    "Your teacher can see class-linked completion, scores and section results. Your personal practice, raw answers and writing stay private."
+                  )}
             </p>
           </div>
-          <h3 className="mt-5 text-sm font-semibold">Leave and stop sharing</h3>
+          <h3 className="mt-5 text-sm font-semibold">
+            {tr("Leave and stop sharing")}
+          </h3>
           <p className={`${muted} mt-2`}>
-            Leaving removes you from this class and stops sharing your results.
-            Your personal exam history and activated paid access stay with you.
+            {tr(
+              "Leaving removes you from this class and stops sharing your results. Your personal exam history and activated paid access stay with you."
+            )}
           </p>
           {error && (
             <p role="alert" className="mt-4 text-sm text-red-600">
-              {error}
+              {tr(error)}
             </p>
           )}
           <div className="mt-6 flex justify-end gap-3">
@@ -887,7 +958,7 @@ export default function StudentClasses() {
               disabled={busy}
               onClick={() => setLeaving(null)}
             >
-              Keep class
+              {tr("Keep class")}
             </button>
             <button
               className="inline-flex items-center gap-2 rounded-xl bg-red-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-red-700 disabled:opacity-50"
@@ -897,21 +968,24 @@ export default function StudentClasses() {
                 const ok = await run(async () => {
                   await teacherApi(`student/classes/${clazz.id}/leave`, "POST");
                   setMessage(
-                    `You left ${clazz.name}. Your exam history and activated access are kept.`
+                    tr(
+                      "You left {{name}}. Your exam history and activated access are kept.",
+                      { name: clazz.name }
+                    )
                   );
                 });
                 if (ok) setLeaving(null);
               }}
             >
               <LogOut size={16} />
-              {busy ? "Leaving…" : "Leave class"}
+              {busy ? tr("Leaving…") : tr("Leave class")}
             </button>
           </div>
         </Dialog>
       )}
       {accepting && (
         <Dialog
-          title="Accept your exam access"
+          title={tr("Accept your exam access")}
           description={accepting.className}
           onClose={() => {
             if (!busy) setAccepting(null);
@@ -920,19 +994,20 @@ export default function StudentClasses() {
           <div className="rounded-xl bg-blue-50 p-5 dark:bg-blue-500/10">
             <h3 className="flex items-center gap-2 font-semibold">
               <Ticket size={21} className="text-blue-600" />
-              10 mock exams
+              {tr("10 mock exams")}
             </h3>
             <p className="mt-2 text-sm text-gray-500">
-              Your 60 days of access begin when you confirm.
+              {tr("Your 60 days of access begin when you confirm.")}
             </p>
           </div>
           <p className={`${muted} mt-4`}>
-            Your teacher has already funded this access. You won’t be charged,
-            and you keep the access if you leave the class.
+            {tr(
+              "Your teacher has already funded this access. You won’t be charged, and you keep the access if you leave the class."
+            )}
           </p>
           {error && (
             <p role="alert" className="mt-4 text-sm text-red-600">
-              {error}
+              {tr(error)}
             </p>
           )}
           <div className="mt-6 flex justify-end gap-3">
@@ -941,7 +1016,7 @@ export default function StudentClasses() {
               disabled={busy}
               onClick={() => setAccepting(null)}
             >
-              Not now
+              {tr("Not now")}
             </button>
             <button
               className={button}
@@ -964,7 +1039,7 @@ export default function StudentClasses() {
                 if (ok) setAccepting(null);
               }}
             >
-              {busy ? "Activating…" : "Confirm and start access"}
+              {busy ? tr("Activating…") : tr("Confirm and start access")}
               <CheckCircle2 size={16} />
             </button>
           </div>

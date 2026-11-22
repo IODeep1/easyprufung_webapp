@@ -1,3 +1,4 @@
+import { tr, useFeatureLocale } from "../../localization/feature-i18n";
 import {
   sidebarTitle,
   sidebarList,
@@ -19,17 +20,19 @@ export default function TeacherNavigation({
 }: {
   onNavigate: () => void;
 }) {
+  const { locale, dir } = useFeatureLocale();
+
   const role = useTeacherRole();
   if (!role.isTeacher) return null;
   return (
     <section
       data-no-translate
-      lang="en"
-      dir="ltr"
+      lang={locale}
+      dir={dir}
       className="mb-6"
-      aria-label="Teacher workspace"
+      aria-label={tr("Teacher workspace")}
     >
-      <h3 className={sidebarTitle}>Teacher workspace</h3>
+      <h3 className={sidebarTitle}>{tr("Teacher workspace")}</h3>
       <ul className={sidebarList}>
         {teacherLinks.map(({ to, label, icon: Icon }) => (
           <li key={to}>
@@ -40,7 +43,7 @@ export default function TeacherNavigation({
               className={({ isActive }) => sidebarLink(isActive)}
             >
               <Icon {...sidebarIcon} />
-              {label}
+              {tr(label)}
             </NavLink>
           </li>
         ))}
@@ -54,17 +57,19 @@ export function StudentClassesNavigation({
 }: {
   onNavigate: () => void;
 }) {
+  const { locale, dir } = useFeatureLocale();
+
   const role = useTeacherRole();
   if (role.status !== "NOT_REGISTERED") return null;
   return (
-    <li data-no-translate lang="en" dir="ltr">
+    <li data-no-translate lang={locale} dir={dir}>
       <NavLink
         to="/my-classes"
         onClick={onNavigate}
         className={({ isActive }) => sidebarLink(isActive)}
       >
         <Users {...sidebarIcon} />
-        My classes
+        {tr("My classes")}
       </NavLink>
     </li>
   );

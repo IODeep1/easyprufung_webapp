@@ -1,3 +1,4 @@
+import { tr, useFeatureLocale } from "../../localization/feature-i18n";
 import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -55,6 +56,8 @@ export default function TeacherClassDetail({
   notify,
   availableSeats,
 }: Props) {
+  const {dir} = useFeatureLocale();
+
   const [clazz, setClazz] = useState<TeacherClass | null>(null),
     [students, setStudents] = useState<RosterStudent[]>([]),
     [assignments, setAssignments] = useState<Assignment[]>([]),
@@ -113,9 +116,23 @@ export default function TeacherClassDetail({
       setInvite("");
       setCopied(false);
       setInviteLoading(true);
-      teacherApi<{ active: boolean; token?: string }>(`teacher/classes/${id}/invites`)
-        .then((r) => setInvite(r.active && r.token ? `${window.location.origin}/class/join/${r.token}` : ""))
-        .catch((e) => setFormError(e instanceof Error ? e.message : "Could not load invitation. Please reopen this dialog to try again."))
+      teacherApi<{ active: boolean; token?: string }>(
+        `teacher/classes/${id}/invites`
+      )
+        .then((r) =>
+          setInvite(
+            r.active && r.token
+              ? `${window.location.origin}/class/join/${r.token}`
+              : ""
+          )
+        )
+        .catch((e) =>
+          setFormError(
+            e instanceof Error
+              ? e.message
+              : "Could not load invitation. Please reopen this dialog to try again."
+          )
+        )
         .finally(() => setInviteLoading(false));
     }
   };
@@ -134,11 +151,11 @@ export default function TeacherClassDetail({
       }
     });
   }
-  if (loading) return <Loading text="Loading your class…" />;
+  if (loading) return <Loading text={tr("Loading your class…")} />;
   if (error)
     return (
       <div role="alert" className={`${panel} p-6`}>
-        <p>{error}</p>
+        <p>{tr(error)}</p>
         <button
           className={`${secondary} mt-4`}
           onClick={() => {
@@ -146,7 +163,7 @@ export default function TeacherClassDetail({
             load().catch((e) => setError(e.message));
           }}
         >
-          Try again
+          {tr("Try again")}
         </button>
       </div>
     );
@@ -161,14 +178,24 @@ export default function TeacherClassDetail({
       new Date(clazz.inviteExpiresAt).getTime() > Date.now()
   );
   const tabs = [
-    { key: "students", label: "Students", count: students.length, icon: Users },
+    {
+      key: "students",
+      label: tr("Students"),
+      count: students.length,
+      icon: Users,
+    },
     {
       key: "assignments",
-      label: "Assignments",
+      label: tr("Assignments"),
       count: assignments.length,
       icon: BookOpen,
     },
-    { key: "progress", label: "Progress", count: completed, icon: BarChart3 },
+    {
+      key: "progress",
+      label: tr("Progress"),
+      count: completed,
+      icon: BarChart3,
+    },
   ];
   return (
     <>
@@ -176,8 +203,8 @@ export default function TeacherClassDetail({
         className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-blue-600"
         to="/teacher/classes"
       >
-        <ArrowLeft size={16} />
-        All classes
+        <ArrowLeft size={16} className="rtl:rotate-180" />
+        {tr("All classes")}
       </Link>
       <div className={`${panel} p-6`}>
         <div className="flex flex-wrap items-start justify-between gap-4">
@@ -191,20 +218,20 @@ export default function TeacherClassDetail({
                   {clazz.name}
                 </h2>
                 <Badge tone={clazz.archived ? "neutral" : "green"}>
-                  {clazz.archived ? "Archived" : "Active"}
+                  {clazz.archived ? tr("Archived") : tr("Active")}
                 </Badge>
               </div>
               <p className={`${muted} mt-2`}>
-                TELC Deutsch B1 · {students.length}{" "}
-                {students.length === 1 ? "student" : "students"} ·{" "}
-                {assignments.length} assignments
+                {tr("TELC Deutsch B1 ·")}{" "}
+                {tr("Students: {{count}}", { count: students.length })} ·{" "}
+                {tr("Assignments: {{count}}", { count: assignments.length })}
               </p>
             </div>
           </div>
           {!clazz.archived && (
             <button className={secondary} onClick={() => open("settings")}>
               <Settings size={16} />
-              Class settings
+              {tr("Class settings")}
             </button>
           )}
         </div>
@@ -216,7 +243,7 @@ export default function TeacherClassDetail({
               onClick={() => open("invite")}
             >
               <UserPlus size={17} />
-              Invite students
+              {tr("Invite students")}
             </button>
             <button
               className={secondary}
@@ -224,11 +251,11 @@ export default function TeacherClassDetail({
               onClick={() => open("assign")}
             >
               <Plus size={17} />
-              Assign exam
+              {tr("Assign exam")}
             </button>
             {!students.length && (
               <p className="text-xs text-gray-500">
-                Invite a student to unlock assignments.
+                {tr("Invite a student to unlock assignments.")}
               </p>
             )}
           </div>
@@ -237,7 +264,7 @@ export default function TeacherClassDetail({
       <div className={panel}>
         <div
           role="tablist"
-          aria-label="Class sections"
+          aria-label={tr("Class sections")}
           className="flex gap-2 overflow-x-auto border-b border-gray-100 px-5 dark:border-gray-800"
         >
           {tabs.map(({ key, label, count, icon: Icon }) => (
@@ -254,7 +281,7 @@ export default function TeacherClassDetail({
                   const next =
                     tabs[
                       (tabs.findIndex((t) => t.key === key) +
-                        (e.key === "ArrowRight" ? 1 : tabs.length - 1)) %
+                        ((e.key === "ArrowRight") !== (dir === "rtl") ? 1 : tabs.length - 1)) %
                         tabs.length
                     ].key;
                   setTab(next);
@@ -269,7 +296,7 @@ export default function TeacherClassDetail({
               }`}
             >
               <Icon size={16} />
-              {label}
+              {tr(label)}
               <span
                 className={`rounded-md px-1.5 py-0.5 text-xs ${
                   tab === key
@@ -291,20 +318,22 @@ export default function TeacherClassDetail({
           {tab === "students" && (
             <>
               <SectionHeading
-                title="Class roster"
-                description="See who has joined and whether they have exam access."
+                title={tr("Class roster")}
+                description={tr(
+                  "See who has joined and whether they have exam access."
+                )}
                 action={
                   students.length > 0 ? (
                     <>
                       <label className="sr-only" htmlFor="find-student">
-                        Find a student
+                        {tr("Find a student")}
                       </label>
                       <input
                         id="find-student"
                         className={`${input} w-full sm:w-auto`}
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
-                        placeholder="Find a student…"
+                        placeholder={tr("Find a student…")}
                       />
                     </>
                   ) : undefined
@@ -312,20 +341,22 @@ export default function TeacherClassDetail({
               />
               {!students.length ? (
                 <Empty
-                  title="Your students will appear here"
-                  body="Send them a private invitation link. Joining your class is free."
+                  title={tr("Your students will appear here")}
+                  body={tr(
+                    "Send them a private invitation link. Joining your class is free."
+                  )}
                   action={
                     !clazz.archived ? (
                       <button className={button} onClick={() => open("invite")}>
                         <UserPlus size={16} />
-                        Invite your first student
+                        {tr("Invite your first student")}
                       </button>
                     ) : undefined
                   }
                 />
               ) : !filtered.length ? (
                 <p className={`${muted} py-8 text-center`}>
-                  No students match your search.
+                  {tr("No students match your search.")}
                 </p>
               ) : (
                 <div className="divide-y divide-gray-100 dark:divide-gray-800">
@@ -359,10 +390,10 @@ export default function TeacherClassDetail({
                                     : "neutral"
                                 }
                               >
-                                {s.access}
+                                {tr(s.access)}
                               </Badge>
                               <span className="text-xs text-gray-400">
-                                Sharing enabled
+                                {tr("Sharing enabled")}
                               </span>
                             </div>
                           </div>
@@ -380,30 +411,35 @@ export default function TeacherClassDetail({
                                   }}
                                 >
                                   <Ticket size={15} />
-                                  Offer exam access
+                                  {tr("Offer exam access")}
                                 </button>
                               ) : (
                                 <Link className={secondary} to="/teacher/seats">
                                   <Ticket size={15} />
-                                  Get exam seats
+                                  {tr("Get exam seats")}
                                 </Link>
                               )
                             ) : (
                               <span className="px-2 text-xs text-gray-400">
                                 {s.access.includes("pending")
-                                  ? "Waiting for student"
-                                  : "Access ready"}
+                                  ? tr("Waiting for student")
+                                  : tr("Access ready")}
                               </span>
                             )}
                             <button
                               className="rounded-lg p-2 text-gray-400 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-500/10"
-                              aria-label={`Remove ${s.name}`}
-                              title={`Remove ${s.name}`}
+                              aria-label={tr("Remove {{name}}", {
+                                name: s.name,
+                              })}
+                              title={tr("Remove {{name}}", { name: s.name })}
                               disabled={busy}
                               onClick={() => {
                                 if (
                                   window.confirm(
-                                    `Remove ${s.name} from this class and stop sharing their results? Their paid access is kept.`
+                                    tr(
+                                      "Remove {{name}} from this class and stop sharing their results? Their paid access is kept.",
+                                      { name: s.name }
+                                    )
                                   )
                                 )
                                   action(() =>
@@ -428,24 +464,30 @@ export default function TeacherClassDetail({
           {tab === "assignments" && (
             <>
               <SectionHeading
-                title="Assigned practice"
-                description="Students use their existing exam access for each assignment."
+                title={tr("Assigned practice")}
+                description={tr(
+                  "Students use their existing exam access for each assignment."
+                )}
                 action={
                   !clazz.archived && students.length > 0 ? (
                     <button className={button} onClick={() => open("assign")}>
                       <Plus size={16} />
-                      Assign exam
+                      {tr("Assign exam")}
                     </button>
                   ) : undefined
                 }
               />
               {!assignments.length ? (
                 <Empty
-                  title="Give your class its first assignment"
+                  title={tr("Give your class its first assignment")}
                   body={
                     students.length
-                      ? "Choose a TELC B1 exam, select the students and add a due date if needed."
-                      : "Invite students first. Then you can assign a mock exam to your class."
+                      ? tr(
+                          "Choose a TELC B1 exam, select the students and add a due date if needed."
+                        )
+                      : tr(
+                          "Invite students first. Then you can assign a mock exam to your class."
+                        )
                   }
                   action={
                     !clazz.archived ? (
@@ -455,8 +497,10 @@ export default function TeacherClassDetail({
                           open(students.length ? "assign" : "invite")
                         }
                       >
-                        {students.length ? "Choose an exam" : "Invite students"}
-                        <ArrowRight size={16} />
+                        {students.length
+                          ? tr("Choose an exam")
+                          : tr("Invite students")}
+                        <ArrowRight size={16} className="rtl:rotate-180" />
                       </button>
                     ) : undefined
                   }
@@ -486,16 +530,21 @@ export default function TeacherClassDetail({
                                 : "blue"
                             }
                           >
-                            {done} / {rows.length} completed
+                            {tr("Completed: {{done}} / {{total}}", {
+                              done,
+                              total: rows.length,
+                            })}
                           </Badge>
                         </div>
                         <h3 className="mt-4 font-semibold">
                           {exams.find((e) => e.code === a.examCode)?.title ||
-                            "TELC Deutsch B1 mock exam"}
+                            tr("TELC Deutsch B1 mock exam")}
                         </h3>
                         <p className="mt-2 flex items-center gap-2 text-xs text-gray-500">
                           <Calendar size={14} />
-                          {a.dueAt ? `Due ${date(a.dueAt)}` : "No due date"}
+                          {a.dueAt
+                            ? tr("Due {{date}}", { date: date(a.dueAt) })
+                            : tr("No due date")}
                         </p>
                         <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-800">
                           <div
@@ -511,8 +560,8 @@ export default function TeacherClassDetail({
                           className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-blue-600"
                           onClick={() => setTab("progress")}
                         >
-                          View student progress
-                          <ArrowRight size={15} />
+                          {tr("View student progress")}
+                          <ArrowRight size={15} className="rtl:rotate-180" />
                         </button>
                       </article>
                     );
@@ -524,8 +573,10 @@ export default function TeacherClassDetail({
           {tab === "progress" && (
             <>
               <SectionHeading
-                title="Shared class progress"
-                description="Only results from class assignments appear here. Personal exams and answers stay private."
+                title={tr("Shared class progress")}
+                description={tr(
+                  "Only results from class assignments appear here. Personal exams and answers stay private."
+                )}
                 action={
                   <button
                     className={secondary}
@@ -536,27 +587,32 @@ export default function TeacherClassDetail({
                       size={15}
                       className={busy ? "animate-spin" : ""}
                     />
-                    Refresh
+                    {tr("Refresh")}
                   </button>
                 }
               />
               {!performance.length ? (
                 <Empty
-                  title="Results will appear as students practise"
-                  body="Assign an exam to start tracking completion and section scores."
+                  title={tr("Results will appear as students practise")}
+                  body={tr(
+                    "Assign an exam to start tracking completion and section scores."
+                  )}
                 />
               ) : (
                 <div className="overflow-x-auto">
-                  <table className="w-full min-w-[580px] text-left text-sm">
+                  <table className="w-full min-w-[580px] text-start text-sm">
                     <thead className="border-y border-gray-100 bg-gray-50 text-xs uppercase tracking-wider text-gray-500 dark:border-gray-800 dark:bg-gray-800">
                       <tr>
-                        {["Student", "Assignment", "Progress", "Result"].map(
-                          (h) => (
-                            <th className="px-3 py-3 font-semibold" key={h}>
-                              {h}
-                            </th>
-                          )
-                        )}
+                        {[
+                          tr("Student"),
+                          tr("Assignment"),
+                          tr("Progress"),
+                          tr("Result"),
+                        ].map((h) => (
+                          <th className="px-3 py-3 font-semibold" key={h}>
+                            {h}
+                          </th>
+                        ))}
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
@@ -564,11 +620,11 @@ export default function TeacherClassDetail({
                         <tr key={`${p.assignmentId}:${p.studentId}`}>
                           <td className="px-3 py-4 align-top font-semibold">
                             {students.find((s) => s.studentId === p.studentId)
-                              ?.name || "Student"}
+                              ?.name || tr("Student")}
                           </td>
                           <td className="max-w-[200px] px-3 py-4 align-top text-gray-500">
                             {exams.find((e) => e.code === p.examCode)?.title ||
-                              "TELC Deutsch B1"}
+                              tr("TELC Deutsch B1")}
                           </td>
                           <td className="px-3 py-4 align-top">
                             <Status value={p.status} />
@@ -581,13 +637,13 @@ export default function TeacherClassDetail({
                                     {p.score} / {p.maximumScore}
                                   </span>
                                   <Badge tone={p.passed ? "green" : "amber"}>
-                                    {p.passed ? "Passed" : "Not passed"}
+                                    {p.passed ? tr("Passed") : tr("Not passed")}
                                   </Badge>
                                 </div>
                                 {!!p.sections?.length && (
                                   <details className="mt-3">
                                     <summary className="cursor-pointer text-xs font-semibold text-blue-600">
-                                      Section scores
+                                      {tr("Section scores")}
                                     </summary>
                                     <ul className="mt-2 space-y-2">
                                       {p.sections.map((s) => (
@@ -609,7 +665,7 @@ export default function TeacherClassDetail({
                               </>
                             ) : (
                               <span className="text-gray-400">
-                                Not submitted yet
+                                {tr("Not submitted yet")}
                               </span>
                             )}
                           </td>
@@ -621,8 +677,9 @@ export default function TeacherClassDetail({
               )}
               <p className="mt-5 flex items-start gap-2 text-xs leading-5 text-gray-400">
                 <ShieldCheck size={15} className="mt-0.5 shrink-0" />
-                Students control sharing. Leaving the class removes their
-                results from this view.
+                {tr(
+                  "Students control sharing. Leaving the class removes their results from this view."
+                )}
               </p>
             </>
           )}
@@ -630,28 +687,32 @@ export default function TeacherClassDetail({
       </div>
       {dialog === "invite" && (
         <Dialog
-          title="Invite your students"
-          description="Students join for free and agree to share their class results with you."
+          title={tr("Invite your students")}
+          description={tr(
+            "Students join for free and agree to share their class results with you."
+          )}
           onClose={close}
         >
           <div className="mb-5 flex items-center gap-3 rounded-xl bg-blue-50 p-4 dark:bg-blue-500/10">
             <Link2 size={22} className="shrink-0 text-blue-600" />
             <div>
-              <p className="text-sm font-semibold">Private class invitation</p>
+              <p className="text-sm font-semibold">
+                {tr("Private class invitation")}
+              </p>
               <p className="mt-1 text-xs text-gray-500">
-                Valid for 30 days · Account required
+                {tr("Valid for 30 days · Account required")}
               </p>
             </div>
           </div>
           {inviteLoading ? (
-            <Loading text="Loading invitation link…" />
+            <Loading text={tr("Loading invitation link…")} />
           ) : invite ? (
             <>
               <label
                 className="block text-sm font-semibold"
                 htmlFor="class-invitation"
               >
-                Invitation link
+                {tr("Invitation link")}
               </label>
               <div className="mt-2 flex gap-2">
                 <input
@@ -674,24 +735,29 @@ export default function TeacherClassDetail({
                   }}
                 >
                   {copied ? <CheckCircle2 size={16} /> : <Copy size={16} />}{" "}
-                  {copied ? "Copied" : "Copy"}
+                  {copied ? tr("Copied") : tr("Copy")}
                 </button>
               </div>
               <p className={`${muted} mt-3`}>
-                Send this link to your students. They will appear in the class
-                after joining.
+                {tr(
+                  "Send this link to your students. They will appear in the class after joining."
+                )}
               </p>
             </>
           ) : (
             <p className={`${muted} mb-5`}>
               {hasInvite
-                ? "This invitation was created before links could be saved. Replace it once to get a link you can view and copy anytime. The previous link will stop working."
-                : "Create a link, then share it with your students by email or in your class chat."}
+                ? tr(
+                    "This invitation was created before links could be saved. Replace it once to get a link you can view and copy anytime. The previous link will stop working."
+                  )
+                : tr(
+                    "Create a link, then share it with your students by email or in your class chat."
+                  )}
             </p>
           )}
           {formError && (
             <p role="alert" className="mt-4 text-sm text-red-600">
-              {formError}
+              {tr(formError)}
             </p>
           )}
           <div className="mt-6 flex flex-wrap justify-between gap-3 border-t border-gray-100 pt-5 dark:border-gray-800">
@@ -702,7 +768,9 @@ export default function TeacherClassDetail({
                 onClick={async () => {
                   if (
                     !window.confirm(
-                      "Disable the invitation link? Students who have already joined will stay in your class."
+                      tr(
+                        "Disable the invitation link? Students who have already joined will stay in your class."
+                      )
                     )
                   )
                     return;
@@ -714,7 +782,7 @@ export default function TeacherClassDetail({
                   if (ok) setDialog(null);
                 }}
               >
-                Disable link
+                {tr("Disable link")}
               </button>
             )}
             <button
@@ -724,7 +792,9 @@ export default function TeacherClassDetail({
                 if (
                   (hasInvite || invite) &&
                   !window.confirm(
-                    "Replace the invitation link? The previous link will stop working."
+                    tr(
+                      "Replace the invitation link? The previous link will stop working."
+                    )
                   )
                 )
                   return;
@@ -739,15 +809,19 @@ export default function TeacherClassDetail({
               }}
             >
               <RefreshCw size={15} />
-              {invite || hasInvite ? "Replace link" : "Create invitation link"}
+              {invite || hasInvite
+                ? tr("Replace link")
+                : tr("Create invitation link")}
             </button>
           </div>
         </Dialog>
       )}
       {dialog === "assign" && (
         <Dialog
-          title="Assign a mock exam"
-          description="Choose the practice you want your students to complete."
+          title={tr("Assign a mock exam")}
+          description={tr(
+            "Choose the practice you want your students to complete."
+          )}
           onClose={close}
         >
           <form
@@ -779,7 +853,7 @@ export default function TeacherClassDetail({
               className="block text-sm font-semibold"
               htmlFor="assigned-exam"
             >
-              Mock exam
+              {tr("Mock exam")}
             </label>
             <select
               id="assigned-exam"
@@ -796,12 +870,12 @@ export default function TeacherClassDetail({
             </select>
             <fieldset className="mt-5">
               <legend className="mb-3 text-sm font-semibold">
-                Who is this for?
+                {tr("Who is this for?")}
               </legend>
               <div className="flex flex-wrap gap-4">
                 {[
-                  ["all", "Whole class"],
-                  ["selected", "Selected students"],
+                  ["all", tr("Whole class")],
+                  ["selected", tr("Selected students")],
                 ].map(([value, label]) => (
                   <label
                     key={value}
@@ -814,7 +888,7 @@ export default function TeacherClassDetail({
                       checked={audience === value}
                       onChange={() => setAudience(value)}
                     />
-                    {label}
+                    {tr(label)}
                   </label>
                 ))}
               </div>
@@ -846,8 +920,10 @@ export default function TeacherClassDetail({
               className="mt-5 block text-sm font-semibold"
               htmlFor="assignment-due"
             >
-              Due date{" "}
-              <span className="font-normal text-gray-400">(optional)</span>
+              {tr("Due date")}{" "}
+              <span className="font-normal text-gray-400">
+                {tr("(optional)")}
+              </span>
             </label>
             <input
               id="assignment-due"
@@ -857,20 +933,25 @@ export default function TeacherClassDetail({
               onChange={(e) => setDue(e.target.value)}
             />
             <p className="mt-4 rounded-xl bg-gray-50 p-3 text-xs leading-5 text-gray-500 dark:bg-gray-800">
-              Assignments use each student’s normal exam access. They do not add
-              extra attempts.
+              {tr(
+                "Assignments use each student’s normal exam access. They do not add extra attempts."
+              )}
             </p>
             {formError && (
               <p role="alert" className="mt-4 text-sm text-red-600">
-                {formError}
+                {tr(formError)}
               </p>
             )}
-            <DialogActions busy={busy} onClose={close} label="Assign exam" />
+            <DialogActions
+              busy={busy}
+              onClose={close}
+              label={tr("Assign exam")}
+            />
           </form>
         </Dialog>
       )}
       {dialog === "settings" && (
-        <Dialog title="Class settings" onClose={close}>
+        <Dialog title={tr("Class settings")} onClose={close}>
           <form
             onSubmit={async (e) => {
               e.preventDefault();
@@ -887,7 +968,7 @@ export default function TeacherClassDetail({
               className="block text-sm font-semibold"
               htmlFor="rename-class"
             >
-              Class name
+              {tr("Class name")}
             </label>
             <input
               id="rename-class"
@@ -899,16 +980,23 @@ export default function TeacherClassDetail({
             />
             {formError && (
               <p role="alert" className="mt-4 text-sm text-red-600">
-                {formError}
+                {tr(formError)}
               </p>
             )}
-            <DialogActions busy={busy} onClose={close} label="Save changes" />
+            <DialogActions
+              busy={busy}
+              onClose={close}
+              label={tr("Save changes")}
+            />
           </form>
           <div className="mt-6 rounded-xl border border-red-100 bg-red-50/40 p-4 dark:border-red-900 dark:bg-red-500/5">
-            <h3 className="text-sm font-semibold">Archive this class</h3>
+            <h3 className="text-sm font-semibold">
+              {tr("Archive this class")}
+            </h3>
             <p className={`${muted} mt-1`}>
-              Stop new invitations, assignments and progress sharing. Students
-              keep their paid access.
+              {tr(
+                "Stop new invitations, assignments and progress sharing. Students keep their paid access."
+              )}
             </p>
             <button
               className="mt-3 text-sm font-semibold text-red-600"
@@ -916,7 +1004,9 @@ export default function TeacherClassDetail({
               onClick={async () => {
                 if (
                   !window.confirm(
-                    "Archive this class? This stops invitations and sharing."
+                    tr(
+                      "Archive this class? This stops invitations and sharing."
+                    )
                   )
                 )
                   return;
@@ -929,43 +1019,46 @@ export default function TeacherClassDetail({
                 }
               }}
             >
-              Archive class
+              {tr("Archive class")}
             </button>
           </div>
         </Dialog>
       )}
       {dialog === "offer" && offering && (
         <Dialog
-          title={`Offer exam access to ${offering.name}`}
-          description="This uses one prepaid seat from your wallet. There is no additional charge."
+          title={tr("Offer exam access to {{name}}", { name: offering.name })}
+          description={tr(
+            "This uses one prepaid seat from your wallet. There is no additional charge."
+          )}
           onClose={close}
         >
           <div className="rounded-xl bg-blue-50 p-5 dark:bg-blue-500/10">
             <div className="flex items-center gap-3">
               <Ticket size={24} className="text-blue-600" />
               <div>
-                <p className="font-semibold">10 mock exams</p>
+                <p className="font-semibold">{tr("10 mock exams")}</p>
                 <p className="mt-1 text-sm text-gray-500">
-                  60 days from student acceptance
+                  {tr("60 days from student acceptance")}
                 </p>
               </div>
             </div>
           </div>
           <p className={`${muted} mt-4`}>
-            Your student has 14 days to accept. If they decline or the offer
-            expires, the seat returns to your wallet.
+            {tr(
+              "Your student has 14 days to accept. If they decline or the offer expires, the seat returns to your wallet."
+            )}
           </p>
           <p className="mt-3 text-sm font-semibold">
-            {availableSeats} {availableSeats === 1 ? "seat" : "seats"} available
+            {tr("Available seats")}: {availableSeats}
           </p>
           {formError && (
             <p role="alert" className="mt-4 text-sm text-red-600">
-              {formError}
+              {tr(formError)}
             </p>
           )}
           <div className="mt-6 flex justify-end gap-3">
             <button className={secondary} disabled={busy} onClick={close}>
-              Cancel
+              {tr("Cancel")}
             </button>
             <button
               className={button}
@@ -980,13 +1073,16 @@ export default function TeacherClassDetail({
                 if (ok) {
                   setDialog(null);
                   notify(
-                    `Seat offered to ${offering.name}. They can accept it from My classes.`
+                    tr(
+                      "Seat offered to {{name}}. They can accept it from My classes.",
+                      { name: offering.name }
+                    )
                   );
                 }
               }}
             >
-              Send seat offer
-              <ArrowRight size={16} />
+              {tr("Send seat offer")}
+              <ArrowRight size={16} className="rtl:rotate-180" />
             </button>
           </div>
         </Dialog>

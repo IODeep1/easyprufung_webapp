@@ -1,3 +1,4 @@
+import { tr, useFeatureLocale } from "../../localization/feature-i18n";
 import React, { useEffect, useRef } from "react";
 import {
   X,
@@ -19,6 +20,8 @@ export function Badge({
   children: React.ReactNode;
   tone?: "blue" | "green" | "amber" | "neutral";
 }) {
+  useFeatureLocale();
+
   return (
     <span
       className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${
@@ -52,6 +55,8 @@ const labels: Record<string, string> = {
   EVALUATED: "Completed",
 };
 export function Status({ value }: { value: string }) {
+  useFeatureLocale();
+
   return (
     <Badge
       tone={
@@ -62,7 +67,7 @@ export function Status({ value }: { value: string }) {
           : "neutral"
       }
     >
-      {labels[value] || value}
+      {tr(labels[value] || value)}
     </Badge>
   );
 }
@@ -75,22 +80,26 @@ export function Empty({
   body: string;
   action?: React.ReactNode;
 }) {
+  useFeatureLocale();
+
   return (
     <div className="flex flex-col items-center rounded-2xl border border-dashed border-gray-200 px-5 py-12 text-center dark:border-gray-700">
       <span className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 dark:bg-blue-500/10">
         <Users size={25} aria-hidden="true" />
       </span>
-      <h3 className="text-lg font-semibold">{title}</h3>
-      <p className={`${muted} mt-2 max-w-sm`}>{body}</p>
+      <h3 className="text-lg font-semibold">{tr(title)}</h3>
+      <p className={`${muted} mt-2 max-w-sm`}>{tr(body)}</p>
       {action && <div className="mt-5">{action}</div>}
     </div>
   );
 }
 export function Loading({
-  text = "Loading your workspace…",
+  text = tr("Loading your workspace…"),
 }: {
   text?: string;
 }) {
+  useFeatureLocale();
+
   return (
     <div
       role="status"
@@ -101,7 +110,7 @@ export function Loading({
         size={22}
         aria-hidden="true"
       />
-      {text}
+      {tr(text)}
     </div>
   );
 }
@@ -114,10 +123,12 @@ export function Stat({
   value: number;
   icon: React.ElementType;
 }) {
+  useFeatureLocale();
+
   return (
     <div className={`${panel} flex items-center justify-between gap-3 p-5`}>
       <div>
-        <p className="text-sm text-gray-500 dark:text-gray-400">{label}</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">{tr(label)}</p>
         <p className="mt-2 text-3xl font-bold tracking-tight">{value}</p>
       </div>
       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400">
@@ -135,11 +146,13 @@ export function SectionHeading({
   description?: string;
   action?: React.ReactNode;
 }) {
+  useFeatureLocale();
+
   return (
     <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
       <div>
-        <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
-        {description && <p className={`${muted} mt-1`}>{description}</p>}
+        <h2 className="text-lg font-semibold tracking-tight">{tr(title)}</h2>
+        {description && <p className={`${muted} mt-1`}>{tr(description)}</p>}
       </div>
       {action}
     </div>
@@ -152,6 +165,8 @@ export function ClassCards({
   classes: { id: string; name: string; archived: boolean }[];
   onCreate: () => void;
 }) {
+  useFeatureLocale();
+
   return classes.length ? (
     <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
       {classes.map((c) => (
@@ -165,26 +180,32 @@ export function ClassCards({
               <Users size={22} />
             </span>
             <Badge tone={c.archived ? "neutral" : "green"}>
-              {c.archived ? "Archived" : "Active"}
+              {c.archived ? tr("Archived") : tr("Active")}
             </Badge>
           </div>
           <h3 className="mt-5 truncate text-lg font-semibold">{c.name}</h3>
-          <p className="mt-1 text-sm text-gray-500">TELC Deutsch B1</p>
+          <p className="mt-1 text-sm text-gray-500">{tr("TELC Deutsch B1")}</p>
           <span className="mt-6 flex items-center justify-between border-t border-gray-100 pt-4 text-sm font-semibold text-blue-600 dark:border-gray-800 dark:text-blue-400">
-            Open class
-            <ArrowRight size={17} aria-hidden="true" />
+            {tr("Open class")}
+            <ArrowRight
+              size={17}
+              aria-hidden="true"
+              className="rtl:rotate-180"
+            />
           </span>
         </Link>
       ))}
     </div>
   ) : (
     <Empty
-      title="Your first class starts here"
-      body="Create a class, invite your students and keep their practice in one place."
+      title={tr("Your first class starts here")}
+      body={tr(
+        "Create a class, invite your students and keep their practice in one place."
+      )}
       action={
         <button className={button} onClick={onCreate}>
           <Plus size={16} aria-hidden="true" />
-          Create a class
+          {tr("Create a class")}
         </button>
       }
     />
@@ -203,6 +224,8 @@ export function Step({
   complete: boolean;
   action: React.ReactNode;
 }) {
+  useFeatureLocale();
+
   return (
     <div className="flex items-start gap-3">
       <span
@@ -215,8 +238,8 @@ export function Step({
         {complete ? <CheckCircle2 size={18} aria-hidden="true" /> : number}
       </span>
       <div className="min-w-0 flex-1">
-        <h3 className="font-semibold">{title}</h3>
-        <p className={`${muted} mt-1`}>{body}</p>
+        <h3 className="font-semibold">{tr(title)}</h3>
+        <p className={`${muted} mt-1`}>{tr(body)}</p>
         <div className="mt-3">{action}</div>
       </div>
     </div>
@@ -233,6 +256,8 @@ export function Dialog({
   children: React.ReactNode;
   onClose: () => void;
 }) {
+  useFeatureLocale();
+
   const ref = useRef<HTMLDivElement>(null),
     close = useRef(onClose);
   close.current = onClose;
@@ -292,22 +317,22 @@ export function Dialog({
         }
         className="relative max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl border border-black/10 bg-white p-6 text-gray-900 shadow-2xl dark:border-white/10 dark:bg-gray-900 dark:text-white"
       >
-        <header className="mb-6 pr-8">
+        <header className="mb-6 pe-8">
           <h2
             id="teacher-dialog-title"
             className="text-xl font-bold tracking-tight"
           >
-            {title}
+            {tr(title)}
           </h2>
           {description && (
             <p id="teacher-dialog-description" className={`${muted} mt-2`}>
-              {description}
+              {tr(description)}
             </p>
           )}
         </header>
         <button
-          className="absolute right-4 top-4 rounded-lg p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800"
-          aria-label="Close dialog"
+          className="absolute end-4 top-4 rounded-lg p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800"
+          aria-label={tr("Close dialog")}
           onClick={onClose}
         >
           <X size={18} />
@@ -326,6 +351,8 @@ export function DialogActions({
   onClose: () => void;
   label: string;
 }) {
+  useFeatureLocale();
+
   return (
     <div className="mt-6 flex justify-end gap-3 border-t border-gray-100 pt-5 dark:border-gray-800">
       <button
@@ -334,13 +361,13 @@ export function DialogActions({
         disabled={busy}
         onClick={onClose}
       >
-        Cancel
+        {tr("Cancel")}
       </button>
       <button className={button} type="submit" disabled={busy}>
         {busy ? (
           <>
             <Loader2 size={16} className="animate-spin" />
-            Saving…
+            {tr("Saving…")}
           </>
         ) : (
           label

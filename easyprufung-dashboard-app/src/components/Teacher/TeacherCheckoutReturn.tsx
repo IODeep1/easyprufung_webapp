@@ -1,3 +1,4 @@
+import { tr, useFeatureLocale } from "../../localization/feature-i18n";
 import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -27,6 +28,8 @@ export default function TeacherCheckoutReturn({
   orderId: string;
   onConfirmed: () => Promise<void>;
 }) {
+  useFeatureLocale();
+
   const [state, setState] = useState<CheckoutOrderState | null>(null),
     [error, setError] = useState(""),
     [waiting, setWaiting] = useState(false),
@@ -83,7 +86,7 @@ export default function TeacherCheckoutReturn({
     pending = !state || state.order.status === "PENDING";
   return (
     <section
-      aria-label="Checkout payment status"
+      aria-label={tr("Checkout payment status")}
       className={`${panel} overflow-hidden`}
     >
       <div
@@ -107,22 +110,33 @@ export default function TeacherCheckoutReturn({
           <div>
             <h2 className="font-semibold">
               {paid
-                ? "Payment confirmed"
+                ? tr("Payment confirmed")
                 : error
-                ? "Payment status unavailable"
+                ? tr("Payment status unavailable")
                 : pending
-                ? "Confirming your payment"
-                : "This payment needs attention"}
+                ? tr("Confirming your payment")
+                : tr("This payment needs attention")}
             </h2>
             <p className={`${muted} mt-1`}>
-              {error ||
+              {tr(error) ||
                 (paid
-                  ? `${state.seats.purchased} exam seats have been added to your wallet.`
+                  ? state.seats.purchased === 1
+                    ? tr("1 exam seat has been added to your wallet.")
+                    : tr(
+                        "{{count}} exam seats have been added to your wallet.",
+                        { count: state.seats.purchased }
+                      )
                   : pending
                   ? waiting
-                    ? "Confirmation is taking longer than usual. Refresh to check again; your payment has not been marked successful."
-                    : "We’re waiting for Stripe to confirm payment. Seats become available after confirmation."
-                  : "No additional seats are granted by this return page. Review the status below or try a new checkout.")}
+                    ? tr(
+                        "Confirmation is taking longer than usual. Refresh to check again; your payment has not been marked successful."
+                      )
+                    : tr(
+                        "We’re waiting for Stripe to confirm payment. Seats become available after confirmation."
+                      )
+                  : tr(
+                      "No additional seats are granted by this return page. Review the status below or try a new checkout."
+                    ))}
             </p>
             {state && !pending && !paid && (
               <div className="mt-3">
@@ -133,19 +147,19 @@ export default function TeacherCheckoutReturn({
         </div>
         <button className={secondary} onClick={refresh}>
           <RefreshCw size={15} />
-          Check again
+          {tr("Check again")}
         </button>
       </div>
       {paid && state && (
         <div className="p-5">
           <dl className="grid grid-cols-3 gap-4">
             {[
-              ["Purchased", state.seats.purchased],
-              ["Assigned", state.seats.assigned],
-              ["Available", state.seats.available],
+              [tr("Purchased"), state.seats.purchased],
+              [tr("Assigned"), state.seats.assigned],
+              [tr("Available"), state.seats.available],
             ].map(([label, value]) => (
               <div key={label}>
-                <dt className="text-xs text-gray-500">{label}</dt>
+                <dt className="text-xs text-gray-500">{tr(label)}</dt>
                 <dd className="mt-1 text-2xl font-bold">{value}</dd>
               </div>
             ))}
@@ -154,8 +168,8 @@ export default function TeacherCheckoutReturn({
             to="/teacher/classes"
             className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blue-600"
           >
-            Offer seats to your students
-            <ArrowRight size={15} />
+            {tr("Offer seats to your students")}
+            <ArrowRight size={15} className="rtl:rotate-180" />
           </Link>
         </div>
       )}

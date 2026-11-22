@@ -1,0 +1,4048 @@
+{
+  "(optional)": {
+    "de": "(optional)",
+    "fr": "(facultatif)",
+    "ar": "(اختياري)",
+    "uk": "(необов’язково)",
+    "tr": "(isteğe bağlı)"
+  },
+  "10 mock exams": {
+    "de": "10 Probeprüfungen",
+    "fr": "10 examens blancs",
+    "ar": "10 امتحانات تجريبية",
+    "uk": "10 пробних іспитів",
+    "tr": "10 deneme sınavı"
+  },
+  "10 mock exams and 60 days of practice. Access starts when you accept.": {
+    "de": "10 Probeprüfungen und 60 Tage Übung ab Annahme.",
+    "fr": "10 examens blancs et 60 jours d’accès dès l’acceptation.",
+    "ar": "10 امتحانات تجريبية و60 يومًا للتدريب تبدأ عند قبول العرض.",
+    "uk": "10 пробних іспитів і 60 днів доступу після прийняття.",
+    "tr": "Kabul ettiğinizde başlayan 10 deneme sınavı ve 60 günlük erişim."
+  },
+  "10 mock exams · 60 days": {
+    "de": "10 Probeprüfungen · 60 Tage",
+    "fr": "10 examens blancs · 60 jours",
+    "ar": "10 امتحانات تجريبية · 60 يومًا",
+    "uk": "10 пробних іспитів · 60 днів",
+    "tr": "10 deneme sınavı · 60 gün"
+  },
+  "10 mock exams · 60-day pass": {
+    "de": "10 Probeprüfungen · 60 Tage Zugang",
+    "fr": "10 examens blancs · accès de 60 jours",
+    "ar": "10 امتحانات تجريبية · صلاحية 60 يومًا",
+    "uk": "10 пробних іспитів · доступ на 60 днів",
+    "tr": "10 deneme sınavı · 60 günlük erişim"
+  },
+  "60 days from student acceptance": {
+    "de": "60 Tage ab Annahme durch den Lernenden",
+    "fr": "60 jours dès l’acceptation par l’apprenant",
+    "ar": "60 يومًا من قبول المتعلم",
+    "uk": "60 днів після прийняття учнем",
+    "tr": "Öğrencinin kabulünden itibaren 60 gün"
+  },
+  "A simple way to prepare": {
+    "de": "Einfach auf die Prüfung vorbereiten",
+    "fr": "Une préparation simple",
+    "ar": "طريقة سهلة للاستعداد",
+    "uk": "Простий спосіб підготовки",
+    "tr": "Hazırlanmanın kolay yolu"
+  },
+  "A teacher Stripe Price does not match the configured one-time EUR seat pricing.": {
+    "de": "Ein Stripe-Preis stimmt nicht mit dem einmaligen Sitzpreis in EUR überein.",
+    "fr": "Un tarif Stripe ne correspond pas au prix unique par place en EUR.",
+    "ar": "أحد أسعار Stripe لا يطابق سعر المقعد المحدد باليورو للدفع مرة واحدة.",
+    "uk": "Ціна Stripe не відповідає одноразовій ціні місця в євро.",
+    "tr": "Stripe fiyatı, EUR cinsinden tek seferlik koltuk fiyatıyla eşleşmiyor."
+  },
+  "A1–C2 exam roadmap": {
+    "de": "Prüfungsplanung für A1–C2",
+    "fr": "Programme d'examens A1–C2",
+    "ar": "خطة امتحانات A1–C2",
+    "uk": "План іспитів A1–C2",
+    "tr": "A1–C2 sınav yol haritası"
+  },
+  "AI scoring & personalized feedback": {
+    "de": "KI-Bewertung und persönliches Feedback",
+    "fr": "Notation IA et retours personnalisés",
+    "ar": "تقييم بالذكاء الاصطناعي وملاحظات مخصصة",
+    "uk": "Оцінювання ШІ та персональні відгуки",
+    "tr": "Yapay zekâ puanlaması ve kişiselleştirilmiş geri bildirim"
+  },
+  "Accept offer": {
+    "de": "Angebot annehmen",
+    "fr": "Accepter l’offre",
+    "ar": "قبول العرض",
+    "uk": "Прийняти пропозицію",
+    "tr": "Teklifi kabul et"
+  },
+  "Accept your exam access": {
+    "de": "Prüfungszugang annehmen",
+    "fr": "Accepter votre accès aux examens",
+    "ar": "قبول الوصول إلى الامتحانات",
+    "uk": "Прийняти доступ до іспитів",
+    "tr": "Sınav erişimini kabul et"
+  },
+  "Access and privacy": {
+    "de": "Zugang und Datenschutz",
+    "fr": "Accès et confidentialité",
+    "ar": "الوصول والخصوصية",
+    "uk": "Доступ і конфіденційність",
+    "tr": "Erişim ve gizlilik"
+  },
+  "Access begins when the student accepts, not when you buy.": {
+    "de": "Der Zugang beginnt bei Annahme, nicht beim Kauf.",
+    "fr": "L’accès commence à l’acceptation, pas à l’achat.",
+    "ar": "يبدأ الوصول عند قبول المتعلم، وليس عند الشراء.",
+    "uk": "Доступ починається після прийняття, а не купівлі.",
+    "tr": "Erişim satın alındığında değil, öğrenci kabul ettiğinde başlar."
+  },
+  "Access ready": {
+    "de": "Zugang bereit",
+    "fr": "Accès prêt",
+    "ar": "الوصول جاهز",
+    "uk": "Доступ готовий",
+    "tr": "Erişim hazır"
+  },
+  "Access starts when you accept. You keep it if you leave the class.": {
+    "de": "Der Zugang beginnt bei Annahme und bleibt beim Verlassen der Klasse erhalten.",
+    "fr": "L’accès commence à l’acceptation et reste valable si vous quittez la classe.",
+    "ar": "يبدأ الوصول عند قبولك ويظل ساريًا إذا غادرت الصف.",
+    "uk": "Доступ починається після прийняття й зберігається після виходу з класу.",
+    "tr": "Erişim kabulünüzle başlar; sınıftan ayrılsanız da devam eder."
+  },
+  "Activated": {
+    "de": "Aktiviert",
+    "fr": "Activé",
+    "ar": "مفعّل",
+    "uk": "Активовано",
+    "tr": "Etkinleştirildi"
+  },
+  "Activated seats stay with students if they leave a class.": {
+    "de": "Aktivierte Zugänge bleiben nach dem Verlassen der Klasse erhalten.",
+    "fr": "Les accès activés restent valables après le départ de la classe.",
+    "ar": "يحتفظ المتعلمون بالوصول المفعّل إذا غادروا الصف.",
+    "uk": "Активований доступ зберігається після виходу з класу.",
+    "tr": "Etkinleştirilen erişim, sınıftan ayrılınca da korunur."
+  },
+  "Activating…": {
+    "de": "Wird aktiviert…",
+    "fr": "Activation…",
+    "ar": "جارٍ التفعيل…",
+    "uk": "Активація…",
+    "tr": "Etkinleştiriliyor…"
+  },
+  "Active class membership and sharing consent are required.": {
+    "de": "Aktive Klassenmitgliedschaft und Zustimmung zur Freigabe erforderlich.",
+    "fr": "Une inscription active à la classe et un consentement au partage sont requis.",
+    "ar": "تلزم عضوية نشطة في الصف والموافقة على مشاركة النتائج.",
+    "uk": "Потрібні активне членство в класі та згода на обмін результатами.",
+    "tr": "Aktif sınıf üyeliği ve paylaşım izni gereklidir."
+  },
+  "Active classes": {
+    "de": "Aktive Klassen",
+    "fr": "Classes actives",
+    "ar": "الصفوف النشطة",
+    "uk": "Активні класи",
+    "tr": "Aktif sınıflar"
+  },
+  "Agree and join class — free": {
+    "de": "Zustimmen und kostenlos beitreten",
+    "fr": "Accepter et rejoindre gratuitement",
+    "ar": "الموافقة والانضمام مجانًا",
+    "uk": "Погодитися та приєднатися безкоштовно",
+    "tr": "Onayla ve ücretsiz katıl"
+  },
+  "All classes": {
+    "de": "Alle Klassen",
+    "fr": "Toutes les classes",
+    "ar": "جميع الصفوف",
+    "uk": "Усі класи",
+    "tr": "Tüm sınıflar"
+  },
+  "All exams": {
+    "de": "Alle Prüfungen",
+    "fr": "Tous les examens",
+    "ar": "كل الاختبارات",
+    "uk": "Усі іспити",
+    "tr": "Tüm sınavlar"
+  },
+  "All teacher seat Prices must belong to the same Stripe product.": {
+    "de": "Alle Sitzpreise müssen zum selben Stripe-Produkt gehören.",
+    "fr": "Tous les tarifs des places doivent appartenir au même produit Stripe.",
+    "ar": "يجب أن تتبع جميع أسعار المقاعد منتج Stripe نفسه.",
+    "uk": "Усі ціни місць мають належати одному продукту Stripe.",
+    "tr": "Tüm koltuk fiyatları aynı Stripe ürününe ait olmalıdır."
+  },
+  "Already have an account?": {
+    "de": "Du hast bereits ein Konto?",
+    "fr": "Vous avez déjà un compte ?",
+    "ar": "هل لديك حساب بالفعل؟",
+    "uk": "Вже маєте обліковий запис?",
+    "tr": "Zaten hesabınız var mı?"
+  },
+  "Already registered?": {
+    "de": "Bereits registriert?",
+    "fr": "Déjà inscrit ?",
+    "ar": "لديك حساب؟",
+    "uk": "Уже зареєстровані?",
+    "tr": "Zaten kayıtlı mısınız?"
+  },
+  "Appearance and account": {
+    "de": "Darstellung und Konto",
+    "fr": "Apparence et compte",
+    "ar": "المظهر والحساب",
+    "uk": "Вигляд і обліковий запис",
+    "tr": "Görünüm ve hesap"
+  },
+  "Archive class": {
+    "de": "Klasse archivieren",
+    "fr": "Archiver la classe",
+    "ar": "أرشفة الصف",
+    "uk": "Архівувати клас",
+    "tr": "Sınıfı arşivle"
+  },
+  "Archive this class": {
+    "de": "Diese Klasse archivieren",
+    "fr": "Archiver cette classe",
+    "ar": "أرشفة هذا الصف",
+    "uk": "Архівувати цей клас",
+    "tr": "Bu sınıfı arşivle"
+  },
+  "Archive this class? This stops invitations and sharing.": {
+    "de": "Klasse archivieren? Einladungen und Freigaben werden beendet.",
+    "fr": "Archiver cette classe ? Les invitations et le partage seront arrêtés.",
+    "ar": "هل تريد أرشفة الصف؟ ستتوقف الدعوات ومشاركة النتائج.",
+    "uk": "Архівувати клас? Запрошення й обмін результатами припиняться.",
+    "tr": "Sınıf arşivlensin mi? Davetler ve paylaşım durdurulur."
+  },
+  "Ask your teacher for an invitation link, then join for free. Your assignments will appear here.": {
+    "de": "Bitte deine Lehrkraft um einen Einladungslink. Tritt kostenlos bei; Aufgaben erscheinen hier.",
+    "fr": "Demandez un lien à votre enseignant. Rejoignez gratuitement la classe ; vos devoirs apparaîtront ici.",
+    "ar": "اطلب رابط دعوة من معلمك وانضم مجانًا. ستظهر واجباتك هنا.",
+    "uk": "Попросіть учителя надіслати посилання й приєднайтеся безкоштовно. Завдання з’являться тут.",
+    "tr": "Öğretmeninizden davet bağlantısı isteyip ücretsiz katılın. Ödevleriniz burada görünür."
+  },
+  "Assign a mock exam": {
+    "de": "Eine Probeprüfung zuweisen",
+    "fr": "Attribuer un examen blanc",
+    "ar": "تعيين امتحان تجريبي",
+    "uk": "Призначити пробний іспит",
+    "tr": "Deneme sınavı ata"
+  },
+  "Assign an exam": {
+    "de": "Eine Prüfung zuweisen",
+    "fr": "Attribuer un examen",
+    "ar": "تعيين امتحان",
+    "uk": "Призначити іспит",
+    "tr": "Sınav ata"
+  },
+  "Assign an exam to start tracking completion and section scores.": {
+    "de": "Weise eine Prüfung zu, um Abschluss und Abschnittsergebnisse zu verfolgen.",
+    "fr": "Attribuez un examen pour suivre son achèvement et les scores par partie.",
+    "ar": "عيّن امتحانًا لمتابعة إكماله ودرجات أقسامه.",
+    "uk": "Призначте іспит, щоб відстежувати завершення й бали за розділами.",
+    "tr": "Tamamlanma ve bölüm puanlarını izlemek için sınav atayın."
+  },
+  "Assign exam": {
+    "de": "Prüfung zuweisen",
+    "fr": "Attribuer l’examen",
+    "ar": "تعيين الامتحان",
+    "uk": "Призначити іспит",
+    "tr": "Sınav ata"
+  },
+  "Assign mock exams and set due dates": {
+    "de": "Probeprüfungen zuweisen und Fristen festlegen",
+    "fr": "Attribuer des examens blancs et fixer des échéances",
+    "ar": "تعيين امتحانات تجريبية وتحديد المواعيد النهائية",
+    "uk": "Призначайте пробні іспити та терміни",
+    "tr": "Deneme sınavları atayın ve son tarihler belirleyin"
+  },
+  "Assign timed TELC B1 mock exams to the whole class or selected learners.": {
+    "de": "Weise zeitlich begrenzte TELC-B1-Prüfungen der ganzen Klasse oder ausgewählten Lernenden zu.",
+    "fr": "Attribuez des examens TELC B1 chronométrés à toute la classe ou à certains apprenants.",
+    "ar": "عيّن امتحانات TELC B1 بوقت محدد للصف كله أو لمتعلمين محددين.",
+    "uk": "Призначайте іспити TELC B1 з таймером усьому класу або окремим учням.",
+    "tr": "Süreli TELC B1 denemelerini tüm sınıfa veya seçtiğiniz öğrencilere atayın."
+  },
+  "Assigned": {
+    "de": "Zugewiesen",
+    "fr": "Attribué",
+    "ar": "تم التعيين",
+    "uk": "Призначено",
+    "tr": "Atandı"
+  },
+  "Assigned practice": {
+    "de": "Zugewiesene Übungen",
+    "fr": "Entraînement attribué",
+    "ar": "التدريب المعيّن",
+    "uk": "Призначені вправи",
+    "tr": "Atanan alıştırmalar"
+  },
+  "Assignment not found.": {
+    "de": "Aufgabe nicht gefunden.",
+    "fr": "Devoir introuvable.",
+    "ar": "الواجب غير موجود.",
+    "uk": "Завдання не знайдено.",
+    "tr": "Ödev bulunamadı."
+  },
+  "Assignments": {
+    "de": "Aufgaben",
+    "fr": "Devoirs",
+    "ar": "الواجبات",
+    "uk": "Завдання",
+    "tr": "Ödevler"
+  },
+  "Assignments to do": {
+    "de": "Offene Aufgaben",
+    "fr": "Devoirs à faire",
+    "ar": "الواجبات المطلوبة",
+    "uk": "Невиконані завдання",
+    "tr": "Yapılacak ödevler"
+  },
+  "Assignments use each student’s normal exam access. They do not add extra attempts.": {
+    "de": "Aufgaben nutzen den normalen Prüfungszugang und gewähren keine zusätzlichen Versuche.",
+    "fr": "Les devoirs utilisent l’accès habituel, sans ajouter de tentatives.",
+    "ar": "تستخدم الواجبات وصول المتعلم المعتاد ولا تضيف محاولات إضافية.",
+    "uk": "Завдання використовують звичайний доступ без додаткових спроб.",
+    "tr": "Ödevler mevcut sınav erişimini kullanır; ek deneme hakkı vermez."
+  },
+  "Assignments use your normal exam access and attempt allowance. No extra attempts are charged.": {
+    "de": "Aufgaben nutzen deinen normalen Zugang und dein Versuchskontingent. Es fallen keine zusätzlichen Versuche an.",
+    "fr": "Les devoirs utilisent votre accès et votre quota habituels, sans tentative supplémentaire facturée.",
+    "ar": "تستخدم الواجبات وصولك وحصتك المعتادة من المحاولات. لا تُخصم محاولات إضافية.",
+    "uk": "Завдання використовують ваш звичайний доступ і ліміт спроб. Додаткові спроби не списуються.",
+    "tr": "Ödevler mevcut erişiminizi ve deneme hakkınızı kullanır. Ek hak düşülmez."
+  },
+  "Available seats": {
+    "de": "Verfügbare Plätze",
+    "fr": "Places disponibles",
+    "ar": "المقاعد المتاحة",
+    "uk": "Доступні місця",
+    "tr": "Kullanılabilir koltuklar"
+  },
+  "Awaiting acceptance": {
+    "de": "Annahme ausstehend",
+    "fr": "En attente d’acceptation",
+    "ar": "بانتظار القبول",
+    "uk": "Очікує прийняття",
+    "tr": "Kabul bekleniyor"
+  },
+  "Awaiting your reply": {
+    "de": "Deine Antwort steht aus",
+    "fr": "En attente de votre réponse",
+    "ar": "بانتظار ردك",
+    "uk": "Очікує вашої відповіді",
+    "tr": "Yanıtınız bekleniyor"
+  },
+  "B1 Evening Class": {
+    "de": "B1-Abendkurs",
+    "fr": "Classe B1 du soir",
+    "ar": "صف B1 المسائي",
+    "uk": "Вечірній клас B1",
+    "tr": "B1 Akşam Sınıfı"
+  },
+  "Back to my classes": {
+    "de": "Zurück zu meinen Klassen",
+    "fr": "Retour à mes classes",
+    "ar": "العودة إلى صفوفي",
+    "uk": "До моїх класів",
+    "tr": "Sınıflarıma dön"
+  },
+  "Back to plans": {
+    "de": "Zurück zu den Paketen",
+    "fr": "Retour aux offres",
+    "ar": "العودة إلى الباقات",
+    "uk": "До тарифів",
+    "tr": "Paketlere dön"
+  },
+  "Before you start": {
+    "de": "Bevor du beginnst",
+    "fr": "Avant de commencer",
+    "ar": "قبل أن تبدأ",
+    "uk": "Перш ніж почати",
+    "tr": "Başlamadan önce"
+  },
+  "Billing": {
+    "de": "Abrechnung",
+    "fr": "Facturation",
+    "ar": "الفوترة",
+    "uk": "Оплата",
+    "tr": "Faturalandırma"
+  },
+  "Bring your next B1 class together.": {
+    "de": "Bereite deinen nächsten B1-Kurs gemeinsam vor.",
+    "fr": "Rassemblez votre prochaine classe B1.",
+    "ar": "اجمع متعلمي صف B1 القادم.",
+    "uk": "Об’єднайте свій наступний клас B1.",
+    "tr": "Bir sonraki B1 sınıfınızı bir araya getirin."
+  },
+  "Buy exam seats": {
+    "de": "Prüfungsplätze kaufen",
+    "fr": "Acheter des places d’examen",
+    "ar": "شراء مقاعد الامتحانات",
+    "uk": "Купити місця для іспитів",
+    "tr": "Sınav koltuğu satın al"
+  },
+  "Buy the seats you need": {
+    "de": "Kaufe nur die benötigten Plätze",
+    "fr": "Achetez seulement les places nécessaires",
+    "ar": "اشترِ المقاعد التي تحتاجها",
+    "uk": "Купуйте лише потрібні місця",
+    "tr": "İhtiyacınız kadar koltuk alın"
+  },
+  "Buy your own access, or accept a teacher’s offer below.": {
+    "de": "Kaufe eigenen Zugang oder nimm unten das Angebot deiner Lehrkraft an.",
+    "fr": "Achetez votre accès ou acceptez l’offre de votre enseignant ci-dessous.",
+    "ar": "اشترِ وصولك أو اقبل عرض معلمك أدناه.",
+    "uk": "Купіть власний доступ або прийміть пропозицію вчителя нижче.",
+    "tr": "Kendi erişiminizi alın veya aşağıdan öğretmeninizin teklifini kabul edin."
+  },
+  "By signing up, you agree to our": {
+    "tr": "Kaydolarak şunları kabul edersiniz:",
+    "de": "Mit der Registrierung akzeptierst du unsere",
+    "fr": "En vous inscrivant, vous acceptez nos",
+    "ar": "بالتسجيل، توافق على",
+    "uk": "Реєструючись, ви погоджуєтеся з нашими"
+  },
+  "Calculating your total…": {
+    "de": "Gesamtbetrag wird berechnet…",
+    "fr": "Calcul du total…",
+    "ar": "جارٍ حساب الإجمالي…",
+    "uk": "Обчислення суми…",
+    "tr": "Toplam hesaplanıyor…"
+  },
+  "Cancel": {
+    "de": "Abbrechen",
+    "fr": "Annuler",
+    "ar": "إلغاء",
+    "uk": "Скасувати",
+    "tr": "İptal"
+  },
+  "Cancel offer": {
+    "de": "Angebot zurückziehen",
+    "fr": "Annuler l’offre",
+    "ar": "إلغاء العرض",
+    "uk": "Скасувати пропозицію",
+    "tr": "Teklifi iptal et"
+  },
+  "Check again": {
+    "de": "Erneut prüfen",
+    "fr": "Vérifier à nouveau",
+    "ar": "التحقق مجددًا",
+    "uk": "Перевірити ще раз",
+    "tr": "Tekrar kontrol et"
+  },
+  "Check payment status in Billing": {
+    "de": "Zahlungsstatus unter Abrechnung prüfen",
+    "fr": "Vérifier le paiement dans Facturation",
+    "ar": "تحقق من الدفع في الفوترة",
+    "uk": "Перевірте оплату в розділі оплати",
+    "tr": "Ödeme durumunu Faturalandırma’dan kontrol edin"
+  },
+  "Checkout is temporarily unavailable. The configured Stripe price must match the advertised EUR price.": {
+    "de": "Zahlung vorübergehend nicht verfügbar: Der Stripe-Preis muss zum angegebenen EUR-Preis passen.",
+    "fr": "Paiement temporairement indisponible : le tarif Stripe doit correspondre au prix annoncé en EUR.",
+    "ar": "الدفع غير متاح مؤقتًا: يجب أن يطابق سعر Stripe السعر المعلن باليورو.",
+    "uk": "Оплата тимчасово недоступна: ціна Stripe має відповідати заявленій ціні в євро.",
+    "tr": "Ödeme geçici olarak kullanılamıyor: Stripe fiyatı ilan edilen EUR fiyatıyla eşleşmelidir."
+  },
+  "Checkout payment status": {
+    "de": "Zahlungsstatus",
+    "fr": "État du paiement",
+    "ar": "حالة الدفع",
+    "uk": "Стан оплати",
+    "tr": "Ödeme durumu"
+  },
+  "Checkout was closed.": {
+    "de": "Zahlungsfenster wurde geschlossen.",
+    "fr": "La page de paiement a été fermée.",
+    "ar": "أُغلقت صفحة الدفع.",
+    "uk": "Сторінку оплати закрито.",
+    "tr": "Ödeme sayfası kapatıldı."
+  },
+  "Choose a TELC B1 exam, select the students and add a due date if needed.": {
+    "de": "Wähle eine TELC-B1-Prüfung, die Lernenden und bei Bedarf eine Frist.",
+    "fr": "Choisissez un examen TELC B1, les apprenants et une échéance facultative.",
+    "ar": "اختر امتحان TELC B1 والمتعلمين وأضف موعدًا نهائيًا إن لزم.",
+    "uk": "Оберіть іспит TELC B1, учнів і за потреби термін.",
+    "tr": "TELC B1 sınavını, öğrencileri ve isterseniz son tarihi seçin."
+  },
+  "Choose a mock exam for everyone or selected learners. Add a due date if you like.": {
+    "de": "Wähle eine Probeprüfung für alle oder einzelne Lernende und bei Bedarf eine Frist.",
+    "fr": "Choisissez un examen blanc pour tous ou certains apprenants, avec une échéance si nécessaire.",
+    "ar": "اختر امتحانًا تجريبيًا للجميع أو لمتعلمين محددين، وأضف موعدًا عند الحاجة.",
+    "uk": "Оберіть пробний іспит для всіх або окремих учнів і за потреби термін.",
+    "tr": "Herkese veya seçilen öğrencilere deneme atayın; isterseniz son tarih ekleyin."
+  },
+  "Choose a name your students will recognise. You can invite them next.": {
+    "de": "Wähle einen erkennbaren Klassennamen. Danach kannst du Lernende einladen.",
+    "fr": "Choisissez un nom reconnaissable, puis invitez vos apprenants.",
+    "ar": "اختر اسمًا يعرفه المتعلمون. يمكنك دعوتهم بعدها.",
+    "uk": "Оберіть зрозумілу назву класу, а потім запросіть учнів.",
+    "tr": "Öğrencilerin tanıyacağı bir ad seçin; ardından davet edin."
+  },
+  "Choose a seat range": {
+    "de": "Platzanzahl wählen",
+    "fr": "Choisir une tranche de places",
+    "ar": "اختيار عدد المقاعد",
+    "uk": "Оберіть діапазон місць",
+    "tr": "Koltuk aralığı seçin"
+  },
+  "Choose a valid quantity to see your total and savings.": {
+    "de": "Gib eine gültige Anzahl ein, um Gesamtbetrag und Ersparnis zu sehen.",
+    "fr": "Saisissez une quantité valide pour voir le total et les économies.",
+    "ar": "أدخل عددًا صالحًا لعرض الإجمالي والتوفير.",
+    "uk": "Введіть допустиму кількість, щоб побачити суму й економію.",
+    "tr": "Toplamı ve tasarrufu görmek için geçerli bir sayı girin."
+  },
+  "Choose a whole number between 1 and 1,000.": {
+    "de": "Wähle eine ganze Zahl zwischen 1 und 1.000.",
+    "fr": "Choisissez un entier entre 1 et 1 000.",
+    "ar": "اختر عددًا صحيحًا بين 1 و1000.",
+    "uk": "Оберіть ціле число від 1 до 1000.",
+    "tr": "1 ile 1.000 arasında tam sayı seçin."
+  },
+  "Choose an assignment": {
+    "de": "Aufgabe auswählen",
+    "fr": "Choisir un devoir",
+    "ar": "اختيار واجب",
+    "uk": "Оберіть завдання",
+    "tr": "Ödev seçin"
+  },
+  "Choose an exam": {
+    "de": "Prüfung auswählen",
+    "fr": "Choisir un examen",
+    "ar": "اختيار امتحان",
+    "uk": "Оберіть іспит",
+    "tr": "Sınav seçin"
+  },
+  "Choose an exam plan.": {
+    "de": "Wähle ein Prüfungspaket.",
+    "fr": "Choisissez une offre d’examens.",
+    "ar": "اختر باقة امتحانات.",
+    "uk": "Оберіть пакет іспитів.",
+    "tr": "Bir sınav paketi seçin."
+  },
+  "Choose how to access more practice": {
+    "de": "Wähle deinen Zugang zu weiteren Übungen",
+    "fr": "Choisissez votre accès à davantage d’entraînement",
+    "ar": "اختر كيفية الحصول على تدريب إضافي",
+    "uk": "Оберіть доступ до подальшої практики",
+    "tr": "Daha fazla pratik için erişim seçin"
+  },
+  "Choose paid access for more exams, detailed explanations and AI-powered writing evaluation.": {
+    "de": "Mit kostenpflichtigem Zugang erhältst du mehr Prüfungen, Erklärungen und KI-Schreibbewertung.",
+    "fr": "L’accès payant ajoute des examens, des explications et une évaluation écrite par IA.",
+    "ar": "يوفر الوصول المدفوع امتحانات إضافية وشروحًا وتقييمًا للكتابة بالذكاء الاصطناعي.",
+    "uk": "Платний доступ дає більше іспитів, пояснення й оцінювання письма ШІ.",
+    "tr": "Ücretli erişim daha fazla sınav, açıklama ve yapay zekâ ile yazma değerlendirmesi sunar."
+  },
+  "Choose the practice you want your students to complete.": {
+    "de": "Wähle die Übungen für deine Lernenden.",
+    "fr": "Choisissez les exercices pour vos apprenants.",
+    "ar": "اختر التدريب الذي تريد من المتعلمين إكماله.",
+    "uk": "Оберіть вправи для учнів.",
+    "tr": "Öğrencilerinizin tamamlayacağı alıştırmaları seçin."
+  },
+  "Class archived.": {
+    "de": "Klasse archiviert.",
+    "fr": "Classe archivée.",
+    "ar": "تمت أرشفة الصف.",
+    "uk": "Клас архівовано.",
+    "tr": "Sınıf arşivlendi."
+  },
+  "Class created. Open it to invite your students.": {
+    "de": "Klasse erstellt. Öffne sie, um Lernende einzuladen.",
+    "fr": "Classe créée. Ouvrez-la pour inviter vos apprenants.",
+    "ar": "أُنشئ الصف. افتحه لدعوة المتعلمين.",
+    "uk": "Клас створено. Відкрийте його, щоб запросити учнів.",
+    "tr": "Sınıf oluşturuldu. Öğrencileri davet etmek için açın."
+  },
+  "Class is archived.": {
+    "de": "Die Klasse ist archiviert.",
+    "fr": "Cette classe est archivée.",
+    "ar": "الصف مؤرشف.",
+    "uk": "Клас архівовано.",
+    "tr": "Sınıf arşivlenmiş."
+  },
+  "Class management is free.": {
+    "de": "Die Klassenverwaltung ist kostenlos.",
+    "fr": "La gestion des classes est gratuite.",
+    "ar": "إدارة الصفوف مجانية.",
+    "uk": "Керування класами безкоштовне.",
+    "tr": "Sınıf yönetimi ücretsizdir."
+  },
+  "Class name": {
+    "de": "Klassenname",
+    "fr": "Nom de la classe",
+    "ar": "اسم الصف",
+    "uk": "Назва класу",
+    "tr": "Sınıf adı"
+  },
+  "Class name must be 1–120 characters.": {
+    "de": "Der Klassenname muss 1–120 Zeichen enthalten.",
+    "fr": "Le nom de la classe doit comporter 1 à 120 caractères.",
+    "ar": "يجب أن يتكون اسم الصف من 1 إلى 120 حرفًا.",
+    "uk": "Назва класу має містити 1–120 символів.",
+    "tr": "Sınıf adı 1–120 karakter olmalıdır."
+  },
+  "Class name updated.": {
+    "de": "Klassenname aktualisiert.",
+    "fr": "Nom de la classe modifié.",
+    "ar": "تم تحديث اسم الصف.",
+    "uk": "Назву класу оновлено.",
+    "tr": "Sınıf adı güncellendi."
+  },
+  "Class not found.": {
+    "de": "Klasse nicht gefunden.",
+    "fr": "Classe introuvable.",
+    "ar": "الصف غير موجود.",
+    "uk": "Клас не знайдено.",
+    "tr": "Sınıf bulunamadı."
+  },
+  "Class roster": {
+    "de": "Klassenliste",
+    "fr": "Liste des apprenants",
+    "ar": "قائمة المتعلمين",
+    "uk": "Список учнів",
+    "tr": "Sınıf listesi"
+  },
+  "Class sections": {
+    "de": "Klassenbereiche",
+    "fr": "Rubriques de la classe",
+    "ar": "أقسام الصف",
+    "uk": "Розділи класу",
+    "tr": "Sınıf bölümleri"
+  },
+  "Class settings": {
+    "de": "Klasseneinstellungen",
+    "fr": "Paramètres de la classe",
+    "ar": "إعدادات الصف",
+    "uk": "Налаштування класу",
+    "tr": "Sınıf ayarları"
+  },
+  "Class sharing settings": {
+    "de": "Freigabeeinstellungen der Klasse",
+    "fr": "Paramètres de partage de la classe",
+    "ar": "إعدادات مشاركة الصف",
+    "uk": "Налаштування обміну класу",
+    "tr": "Sınıf paylaşım ayarları"
+  },
+  "Class workspace": {
+    "de": "Klassenbereich",
+    "fr": "Espace de la classe",
+    "ar": "مساحة الصف",
+    "uk": "Простір класу",
+    "tr": "Sınıf alanı"
+  },
+  "Classes": {
+    "de": "Klassen",
+    "fr": "Classes",
+    "ar": "الصفوف",
+    "uk": "Класи",
+    "tr": "Sınıflar"
+  },
+  "Classes you archive will appear here.": {
+    "de": "Archivierte Klassen erscheinen hier.",
+    "fr": "Les classes archivées apparaîtront ici.",
+    "ar": "ستظهر الصفوف المؤرشفة هنا.",
+    "uk": "Архівовані класи з’являться тут.",
+    "tr": "Arşivlenen sınıflar burada görünür."
+  },
+  "Close dialog": {
+    "de": "Dialog schließen",
+    "fr": "Fermer la fenêtre",
+    "ar": "إغلاق النافذة",
+    "uk": "Закрити вікно",
+    "tr": "Pencereyi kapat"
+  },
+  "Completed": {
+    "de": "Abgeschlossen",
+    "fr": "Terminé",
+    "ar": "مكتمل",
+    "uk": "Завершено",
+    "tr": "Tamamlandı"
+  },
+  "Confirm and start access": {
+    "de": "Bestätigen und Zugang starten",
+    "fr": "Confirmer et activer l’accès",
+    "ar": "تأكيد وبدء الوصول",
+    "uk": "Підтвердити й активувати доступ",
+    "tr": "Onayla ve erişimi başlat"
+  },
+  "Confirmation is taking longer than usual. Refresh to check again; your payment has not been marked successful.": {
+    "de": "Die Bestätigung dauert länger. Aktualisiere zum Prüfen; die Zahlung wurde nicht als erfolgreich markiert.",
+    "fr": "La confirmation tarde. Actualisez pour vérifier ; le paiement n’est pas encore confirmé.",
+    "ar": "التأكيد يستغرق وقتًا أطول. حدّث للتحقق؛ لم يُسجّل الدفع كناجح بعد.",
+    "uk": "Підтвердження затримується. Оновіть сторінку; оплату ще не позначено успішною.",
+    "tr": "Onay gecikiyor. Tekrar kontrol için yenileyin; ödeme henüz başarılı sayılmadı."
+  },
+  "Confirming your payment": {
+    "de": "Zahlung wird bestätigt",
+    "fr": "Confirmation du paiement",
+    "ar": "جارٍ تأكيد الدفع",
+    "uk": "Підтвердження оплати",
+    "tr": "Ödemeniz onaylanıyor"
+  },
+  "Contact support": {
+    "de": "Support kontaktieren",
+    "fr": "Contacter l'assistance",
+    "ar": "تواصل مع الدعم",
+    "uk": "Зв'язатися з підтримкою",
+    "tr": "Destekle iletişime geç"
+  },
+  "Contact support if you need help with your teacher registration.": {
+    "de": "Bei Fragen zur Lehrkraftregistrierung wende dich an den Support.",
+    "fr": "Contactez l’assistance pour votre inscription comme enseignant.",
+    "ar": "تواصل مع الدعم للمساعدة في تسجيلك كمعلم.",
+    "uk": "З питань реєстрації вчителя зверніться до підтримки.",
+    "tr": "Öğretmen kaydı için destek ekibine başvurun."
+  },
+  "Contact us": {
+    "de": "Kontaktiere uns",
+    "fr": "Contactez-nous",
+    "ar": "تواصل معنا",
+    "uk": "Зв’яжіться з нами",
+    "tr": "Bize ulaşın"
+  },
+  "Continue an exam or start your next assignment.": {
+    "de": "Setze eine Prüfung fort oder beginne die nächste Aufgabe.",
+    "fr": "Reprenez un examen ou commencez le prochain devoir.",
+    "ar": "تابع امتحانًا أو ابدأ واجبك التالي.",
+    "uk": "Продовжте іспит або почніть наступне завдання.",
+    "tr": "Sınava devam edin veya sıradaki ödevi başlatın."
+  },
+  "Continue exam": {
+    "de": "Prüfung fortsetzen",
+    "fr": "Reprendre l’examen",
+    "ar": "متابعة الامتحان",
+    "uk": "Продовжити іспит",
+    "tr": "Sınava devam et"
+  },
+  "Continue to checkout": {
+    "de": "Weiter zur Zahlung",
+    "fr": "Passer au paiement",
+    "ar": "المتابعة للدفع",
+    "uk": "Перейти до оплати",
+    "tr": "Ödemeye geç"
+  },
+  "Copy the link from the field above.": {
+    "de": "Kopiere den Link aus dem Feld oben.",
+    "fr": "Copiez le lien dans le champ ci-dessus.",
+    "ar": "انسخ الرابط من الحقل أعلاه.",
+    "uk": "Скопіюйте посилання з поля вище.",
+    "tr": "Bağlantıyı yukarıdaki alandan kopyalayın."
+  },
+  "Could not check this payment. Please refresh.": {
+    "de": "Zahlungsstatus nicht abrufbar. Bitte aktualisieren.",
+    "fr": "Impossible de vérifier le paiement. Actualisez.",
+    "ar": "تعذر التحقق من الدفع. يرجى التحديث.",
+    "uk": "Не вдалося перевірити оплату. Оновіть сторінку.",
+    "tr": "Ödeme kontrol edilemedi. Lütfen yenileyin."
+  },
+  "Could not load invitation. Please reopen this dialog to try again.": {
+    "de": "Einladung nicht geladen. Öffne den Dialog erneut.",
+    "fr": "Invitation non chargée. Rouvrez cette fenêtre.",
+    "ar": "تعذر تحميل الدعوة. أعد فتح النافذة للمحاولة.",
+    "uk": "Не вдалося завантажити запрошення. Відкрийте вікно знову.",
+    "tr": "Davet yüklenemedi. Pencereyi yeniden açın."
+  },
+  "Create a class": {
+    "de": "Eine Klasse erstellen",
+    "fr": "Créer une classe",
+    "ar": "إنشاء صف",
+    "uk": "Створити клас",
+    "tr": "Sınıf oluştur"
+  },
+  "Create a class and invite your students to practise together.": {
+    "de": "Erstelle eine Klasse und lade Lernende zum gemeinsamen Üben ein.",
+    "fr": "Créez une classe et invitez vos apprenants à s’entraîner ensemble.",
+    "ar": "أنشئ صفًا وادعُ المتعلمين للتدريب معًا.",
+    "uk": "Створіть клас і запросіть учнів практикуватися разом.",
+    "tr": "Sınıf oluşturup öğrencileri birlikte çalışmaya davet edin."
+  },
+  "Create a class first": {
+    "de": "Erstelle zuerst eine Klasse",
+    "fr": "Créez d’abord une classe",
+    "ar": "أنشئ صفًا أولًا",
+    "uk": "Спочатку створіть клас",
+    "tr": "Önce sınıf oluşturun"
+  },
+  "Create a class, invite your students and keep their practice in one place.": {
+    "de": "Erstelle eine Klasse, lade Lernende ein und bündle ihre Übungen.",
+    "fr": "Créez une classe, invitez vos apprenants et regroupez leur entraînement.",
+    "ar": "أنشئ صفًا وادعُ المتعلمين واجمع تدريباتهم في مكان واحد.",
+    "uk": "Створіть клас, запросіть учнів і зберіть їхню практику в одному місці.",
+    "tr": "Sınıf oluşturun, öğrencileri davet edin ve çalışmalarını bir arada tutun."
+  },
+  "Create a link, then share it with your students by email or in your class chat.": {
+    "de": "Erstelle einen Link und teile ihn per E-Mail oder Klassenchat.",
+    "fr": "Créez un lien et partagez-le par e-mail ou dans le groupe de la classe.",
+    "ar": "أنشئ رابطًا وشاركه بالبريد أو في دردشة الصف.",
+    "uk": "Створіть посилання й надішліть його поштою або в чат класу.",
+    "tr": "Bağlantı oluşturup e-posta veya sınıf sohbetinde paylaşın."
+  },
+  "Create an account or sign in when prompted to continue. Your answers stay saved.": {
+    "de": "Erstelle bei Aufforderung ein Konto oder melde dich an. Deine Antworten bleiben gespeichert.",
+    "fr": "Créez un compte ou connectez-vous lorsque demandé. Vos réponses restent enregistrées.",
+    "ar": "أنشئ حسابًا أو سجّل الدخول عند الطلب. تبقى إجاباتك محفوظة.",
+    "uk": "Створіть обліковий запис або увійдіть, коли з’явиться запит. Відповіді збережуться.",
+    "tr": "İstendiğinde kaydolun veya giriş yapın. Yanıtlarınız kaydedilir."
+  },
+  "Create and manage classes": {
+    "de": "Klassen erstellen und verwalten",
+    "fr": "Créer et gérer des classes",
+    "ar": "إنشاء الصفوف وإدارتها",
+    "uk": "Створюйте класи й керуйте ними",
+    "tr": "Sınıf oluşturun ve yönetin"
+  },
+  "Create another class": {
+    "de": "Weitere Klasse erstellen",
+    "fr": "Créer une autre classe",
+    "ar": "إنشاء صف آخر",
+    "uk": "Створити ще один клас",
+    "tr": "Başka sınıf oluştur"
+  },
+  "Create class": {
+    "de": "Klasse erstellen",
+    "fr": "Créer la classe",
+    "ar": "إنشاء الصف",
+    "uk": "Створити клас",
+    "tr": "Sınıf oluştur"
+  },
+  "Create classes and track shared progress for free. If you fund exam access, buy only the seats you need. Students can also buy their own access.": {
+    "de": "Klassen und geteilten Fortschritt kostenlos verwalten. Finanziere nur benötigte Plätze; Lernende können auch selbst zahlen.",
+    "fr": "Gérez gratuitement vos classes et le suivi partagé. Financez les places nécessaires ou laissez les apprenants acheter leur accès.",
+    "ar": "أنشئ الصفوف وتابع التقدم المشترك مجانًا. اشترِ المقاعد المطلوبة فقط أو دع المتعلمين يشترون وصولهم.",
+    "uk": "Безкоштовно керуйте класами й спільним прогресом. Купуйте лише потрібні місця або дозвольте учням оплатити доступ самостійно.",
+    "tr": "Sınıfları ve paylaşılan ilerlemeyi ücretsiz yönetin. Gereken koltukları alın veya öğrenciler kendi erişimlerini alsın."
+  },
+  "Create invitation link": {
+    "de": "Einladungslink erstellen",
+    "fr": "Créer un lien d’invitation",
+    "ar": "إنشاء رابط دعوة",
+    "uk": "Створити запрошення",
+    "tr": "Davet bağlantısı oluştur"
+  },
+  "Create your account": {
+    "de": "Erstelle dein Konto",
+    "fr": "Créez votre compte",
+    "ar": "أنشئ حسابك",
+    "uk": "Створіть обліковий запис",
+    "tr": "Hesabınızı oluşturun"
+  },
+  "Create your class": {
+    "de": "Erstelle deine Klasse",
+    "fr": "Créez votre classe",
+    "ar": "أنشئ صفك",
+    "uk": "Створіть свій клас",
+    "tr": "Sınıfınızı oluşturun"
+  },
+  "Create your first class": {
+    "de": "Erste Klasse erstellen",
+    "fr": "Créer votre première classe",
+    "ar": "إنشاء صفك الأول",
+    "uk": "Створіть перший клас",
+    "tr": "İlk sınıfınızı oluşturun"
+  },
+  "Create your free account": {
+    "de": "Kostenloses Konto erstellen",
+    "fr": "Créer votre compte gratuit",
+    "ar": "إنشاء حسابك المجاني",
+    "uk": "Створити безкоштовний обліковий запис",
+    "tr": "Ücretsiz hesabınızı oluşturun"
+  },
+  "Create your free teacher account": {
+    "de": "Kostenloses Lehrkraftkonto erstellen",
+    "fr": "Créer votre compte enseignant gratuit",
+    "ar": "إنشاء حساب معلم مجاني",
+    "uk": "Створити безкоштовний обліковий запис учителя",
+    "tr": "Ücretsiz öğretmen hesabınızı oluşturun"
+  },
+  "Create your free teacher account, invite your learners and take the next step towards exam day.": {
+    "de": "Erstelle ein kostenloses Lehrkraftkonto, lade Lernende ein und bereite den Prüfungstag vor.",
+    "fr": "Créez votre compte enseignant gratuit, invitez vos apprenants et préparez le jour de l’examen.",
+    "ar": "أنشئ حساب معلم مجانيًا وادعُ المتعلمين واستعدوا ليوم الامتحان.",
+    "uk": "Створіть безкоштовний обліковий запис учителя, запросіть учнів і готуйтеся до іспиту.",
+    "tr": "Ücretsiz öğretmen hesabı açın, öğrencileri davet edin ve sınav gününe hazırlanın."
+  },
+  "Create your teacher account": {
+    "de": "Lehrkraftkonto erstellen",
+    "fr": "Créer votre compte enseignant",
+    "ar": "إنشاء حساب المعلم",
+    "uk": "Створити обліковий запис учителя",
+    "tr": "Öğretmen hesabınızı oluşturun"
+  },
+  "Creating account...": {
+    "tr": "Hesap oluşturuluyor…",
+    "de": "Konto wird erstellt…",
+    "fr": "Création du compte…",
+    "ar": "جارٍ إنشاء الحساب…",
+    "uk": "Створення облікового запису…"
+  },
+  "Creating your account...": {
+    "tr": "Hesabınız oluşturuluyor…",
+    "de": "Dein Konto wird erstellt…",
+    "fr": "Création de votre compte…",
+    "ar": "جارٍ إنشاء حسابك…",
+    "uk": "Створення вашого облікового запису…"
+  },
+  "Dark mode": {
+    "de": "Dunkler Modus",
+    "fr": "Mode sombre",
+    "ar": "الوضع الداكن",
+    "uk": "Темний режим",
+    "tr": "Koyu mod"
+  },
+  "Dashboard": {
+    "de": "Übersicht",
+    "fr": "Tableau de bord",
+    "ar": "لوحة المتابعة",
+    "uk": "Панель керування",
+    "tr": "Genel bakış"
+  },
+  "Decline": {
+    "de": "Ablehnen",
+    "fr": "Refuser",
+    "ar": "رفض",
+    "uk": "Відхилити",
+    "tr": "Reddet"
+  },
+  "Disable link": {
+    "de": "Link deaktivieren",
+    "fr": "Désactiver le lien",
+    "ar": "تعطيل الرابط",
+    "uk": "Вимкнути посилання",
+    "tr": "Bağlantıyı devre dışı bırak"
+  },
+  "Disable the invitation link? Students who have already joined will stay in your class.": {
+    "de": "Link deaktivieren? Bereits beigetretene Lernende bleiben in der Klasse.",
+    "fr": "Désactiver le lien ? Les membres actuels restent dans la classe.",
+    "ar": "هل تريد تعطيل الرابط؟ يبقى المنضمون سابقًا في الصف.",
+    "uk": "Вимкнути посилання? Учасники, які вже приєдналися, залишаться в класі.",
+    "tr": "Bağlantı kapatılsın mı? Katılmış öğrenciler sınıfta kalır."
+  },
+  "Discounts apply to the quantity in each order.": {
+    "de": "Rabatte gelten für die Anzahl je Bestellung.",
+    "fr": "Les réductions dépendent de la quantité par commande.",
+    "ar": "تُطبّق الخصومات على عدد المقاعد في كل طلب.",
+    "uk": "Знижки залежать від кількості в кожному замовленні.",
+    "tr": "İndirim her siparişteki koltuk sayısına göre uygulanır."
+  },
+  "Do I need an account to start?": {
+    "de": "Brauche ich zum Start ein Konto?",
+    "fr": "Faut-il un compte pour commencer ?",
+    "ar": "هل أحتاج إلى حساب للبدء؟",
+    "uk": "Чи потрібен обліковий запис для початку?",
+    "tr": "Başlamak için hesap gerekli mi?"
+  },
+  "Due date": {
+    "de": "Abgabefrist",
+    "fr": "Date limite",
+    "ar": "الموعد النهائي",
+    "uk": "Термін виконання",
+    "tr": "Son tarih"
+  },
+  "Due date must be in the future.": {
+    "de": "Die Frist muss in der Zukunft liegen.",
+    "fr": "L’échéance doit être dans le futur.",
+    "ar": "يجب أن يكون الموعد في المستقبل.",
+    "uk": "Термін має бути в майбутньому.",
+    "tr": "Son tarih gelecekte olmalıdır."
+  },
+  "Each seat includes 10 exams and 60 days of access, starting when the learner accepts it. The selected rate applies to every seat in this purchase. Prices in EUR; discount percentages rounded. Final checkout total is confirmed in the app.": {
+    "de": "Jeder Platz bietet 10 Prüfungen und 60 Tage ab Annahme. Der Mengenpreis gilt für alle Plätze dieser Bestellung. Preise in EUR, Rabattprozente gerundet. Endbetrag wird in der App bestätigt.",
+    "fr": "Chaque place inclut 10 examens et 60 jours dès l’acceptation. Le tarif choisi s’applique à toutes les places de cette commande. Prix en EUR, pourcentages arrondis. Total final confirmé dans l’application.",
+    "ar": "يشمل كل مقعد 10 امتحانات و60 يومًا تبدأ عند القبول. يسري السعر المختار على جميع مقاعد الطلب. الأسعار باليورو ونسب الخصم مقربة. يُؤكّد الإجمالي النهائي في التطبيق.",
+    "uk": "Кожне місце дає 10 іспитів і 60 днів після прийняття. Обрана ціна діє для всіх місць замовлення. Ціни в євро, відсотки округлено. Остаточна сума підтверджується в застосунку.",
+    "tr": "Her koltuk kabulden itibaren 10 sınav ve 60 gün içerir. Seçilen fiyat bu siparişteki tüm koltuklara uygulanır. Fiyatlar EUR, indirim yüzdeleri yuvarlanmıştır. Son tutar uygulamada onaylanır."
+  },
+  "Enter a whole number between 1 and 1,000 seats.": {
+    "de": "Gib eine ganze Zahl zwischen 1 und 1.000 Plätzen ein.",
+    "fr": "Saisissez un entier entre 1 et 1 000 places.",
+    "ar": "أدخل عددًا صحيحًا بين 1 و1000 مقعد.",
+    "uk": "Введіть ціле число від 1 до 1000 місць.",
+    "tr": "1 ile 1.000 arasında tam koltuk sayısı girin."
+  },
+  "Exam access": {
+    "de": "Prüfungszugang",
+    "fr": "Accès aux examens",
+    "ar": "الوصول إلى الامتحانات",
+    "uk": "Доступ до іспитів",
+    "tr": "Sınav erişimi"
+  },
+  "Exam assigned. Your students can find it in My classes.": {
+    "de": "Prüfung zugewiesen. Lernende finden sie unter Meine Klassen.",
+    "fr": "Examen attribué. Il apparaît dans Mes classes.",
+    "ar": "تم تعيين الامتحان. سيجده المتعلمون في «صفوفي».",
+    "uk": "Іспит призначено. Учні знайдуть його в розділі «Мої класи».",
+    "tr": "Sınav atandı. Öğrenciler Sınıflarım bölümünde bulabilir."
+  },
+  "Exam history": {
+    "de": "Prüfungsverlauf",
+    "fr": "Historique des examens",
+    "ar": "سجل الاختبارات",
+    "uk": "Історія іспитів",
+    "tr": "Sınav geçmişi"
+  },
+  "Exam seats": {
+    "de": "Prüfungsplätze",
+    "fr": "Places d’examen",
+    "ar": "مقاعد الامتحانات",
+    "uk": "Місця для іспитів",
+    "tr": "Sınav koltukları"
+  },
+  "Example": {
+    "de": "Beispiel",
+    "fr": "Exemple",
+    "ar": "مثال",
+    "uk": "Приклад",
+    "tr": "Örnek"
+  },
+  "Explicit sharing consent is required.": {
+    "de": "Ausdrückliche Zustimmung zur Freigabe erforderlich.",
+    "fr": "Le consentement explicite au partage est requis.",
+    "ar": "تلزم موافقة صريحة على المشاركة.",
+    "uk": "Потрібна явна згода на обмін результатами.",
+    "tr": "Açık paylaşım izni gereklidir."
+  },
+  "Explore": {
+    "de": "Entdecken",
+    "fr": "Découvrir",
+    "ar": "استكشف",
+    "uk": "Огляд",
+    "tr": "Keşfet"
+  },
+  "Explore exam seats": {
+    "de": "Prüfungsplätze entdecken",
+    "fr": "Découvrir les places d’examen",
+    "ar": "استكشاف مقاعد الامتحانات",
+    "uk": "Переглянути місця для іспитів",
+    "tr": "Sınav koltuklarını keşfedin"
+  },
+  "Find a class or exam…": {
+    "de": "Klasse oder Prüfung suchen…",
+    "fr": "Rechercher une classe ou un examen…",
+    "ar": "ابحث عن صف أو امتحان…",
+    "uk": "Знайти клас або іспит…",
+    "tr": "Sınıf veya sınav ara…"
+  },
+  "Find a student": {
+    "de": "Lernende suchen",
+    "fr": "Rechercher un apprenant",
+    "ar": "البحث عن متعلم",
+    "uk": "Знайти учня",
+    "tr": "Öğrenci ara"
+  },
+  "Find a student…": {
+    "de": "Lernende suchen…",
+    "fr": "Rechercher un apprenant…",
+    "ar": "ابحث عن متعلم…",
+    "uk": "Знайти учня…",
+    "tr": "Öğrenci ara…"
+  },
+  "Finish an assigned exam to see it here.": {
+    "de": "Schließe eine zugewiesene Prüfung ab, damit sie hier erscheint.",
+    "fr": "Terminez un examen attribué pour le voir ici.",
+    "ar": "أكمل امتحانًا معيّنًا ليظهر هنا.",
+    "uk": "Завершіть призначений іспит, щоб побачити його тут.",
+    "tr": "Burada görmek için atanan bir sınavı bitirin."
+  },
+  "Finish and submit your exam to see your basic score and result overview.": {
+    "de": "Reiche deine Prüfung ein, um Punktzahl und Ergebnisübersicht zu sehen.",
+    "fr": "Terminez et envoyez votre examen pour voir votre score et le bilan.",
+    "ar": "أكمل امتحانك وأرسله لعرض درجتك وملخص النتيجة.",
+    "uk": "Завершіть і надішліть іспит, щоб побачити бал і огляд результату.",
+    "tr": "Sınavı tamamlayıp göndererek puan ve sonuç özetini görün."
+  },
+  "Finish your current exam before starting this assignment.": {
+    "de": "Beende deine laufende Prüfung vor dieser Aufgabe.",
+    "fr": "Terminez votre examen en cours avant ce devoir.",
+    "ar": "أكمل امتحانك الحالي قبل بدء هذا الواجب.",
+    "uk": "Завершіть поточний іспит перед цим завданням.",
+    "tr": "Bu ödeve başlamadan mevcut sınavınızı tamamlayın."
+  },
+  "First name": {
+    "de": "Vorname",
+    "fr": "Prénom",
+    "ar": "الاسم الأول",
+    "uk": "Ім’я",
+    "tr": "Ad"
+  },
+  "Follow spoken German and answer questions.": {
+    "de": "Gesprochenes Deutsch verstehen und Fragen beantworten.",
+    "fr": "Comprenez l’allemand oral et répondez aux questions.",
+    "ar": "تابع الألمانية المنطوقة وأجب عن الأسئلة.",
+    "uk": "Слухайте німецьку й відповідайте на запитання.",
+    "tr": "Almanca konuşmaları takip edip soruları yanıtlayın."
+  },
+  "Follow their progress": {
+    "de": "Fortschritt verfolgen",
+    "fr": "Suivre leurs progrès",
+    "ar": "متابعة تقدمهم",
+    "uk": "Стежте за прогресом",
+    "tr": "İlerlemelerini takip edin"
+  },
+  "For Learners": {
+    "de": "Für Lernende",
+    "fr": "Pour les apprenants",
+    "ar": "للمتعلمين",
+    "uk": "Для учнів",
+    "tr": "Öğrenenler için"
+  },
+  "For Learners | SmartPrüfung": {
+    "de": "Für Lernende · SmartPrüfung",
+    "fr": "Pour les apprenants · SmartPrüfung",
+    "ar": "للمتعلمين · SmartPrüfung",
+    "uk": "Для учнів · SmartPrüfung",
+    "tr": "Öğrenenler için · SmartPrüfung"
+  },
+  "For Learners · TELC Deutsch B1": {
+    "de": "Für Lernende · TELC Deutsch B1",
+    "fr": "Pour les apprenants · TELC Deutsch B1",
+    "ar": "للمتعلمين · TELC Deutsch B1",
+    "uk": "Для учнів · TELC Deutsch B1",
+    "tr": "Öğrenenler için · TELC Deutsch B1"
+  },
+  "For Teachers": {
+    "de": "Für Lehrkräfte",
+    "fr": "Pour les enseignants",
+    "ar": "للمعلمين",
+    "uk": "Для вчителів",
+    "tr": "Öğretmenler için"
+  },
+  "For Teachers | SmartPrüfung": {
+    "de": "Für Lehrkräfte · SmartPrüfung",
+    "fr": "Pour les enseignants · SmartPrüfung",
+    "ar": "للمعلمين · SmartPrüfung",
+    "uk": "Для вчителів · SmartPrüfung",
+    "tr": "Öğretmenler için · SmartPrüfung"
+  },
+  "Former class member": {
+    "de": "Ehemaliges Klassenmitglied",
+    "fr": "Ancien membre",
+    "ar": "عضو سابق في الصف",
+    "uk": "Колишній учасник класу",
+    "tr": "Eski sınıf üyesi"
+  },
+  "Free class management": {
+    "de": "Kostenlose Klassenverwaltung",
+    "fr": "Gestion des classes gratuite",
+    "ar": "إدارة صفوف مجانية",
+    "uk": "Безкоштовне керування класами",
+    "tr": "Ücretsiz sınıf yönetimi"
+  },
+  "Free for you. Less per seat for your class.": {
+    "de": "Für dich kostenlos. Günstigere Plätze für deine Klasse.",
+    "fr": "Gratuit pour vous. Des places moins chères pour votre classe.",
+    "ar": "مجاني لك. ومقاعد أقل تكلفة لصفك.",
+    "uk": "Для вас безкоштовно. Місця для класу дешевші.",
+    "tr": "Size ücretsiz. Sınıfınız için daha uygun koltuk fiyatları."
+  },
+  "Free registration · No credit card required · No automatic renewal": {
+    "de": "Kostenlose Registrierung · Keine Kreditkarte nötig · Keine automatische Verlängerung",
+    "fr": "Inscription gratuite · Sans carte bancaire · Sans renouvellement automatique",
+    "ar": "تسجيل مجاني · دون بطاقة بنكية · دون تجديد تلقائي",
+    "uk": "Безкоштовна реєстрація · Без банківської картки · Без автоподовження",
+    "tr": "Ücretsiz kayıt · Kart gerekmez · Otomatik yenileme yok"
+  },
+  "Free to join": {
+    "de": "Kostenlos beitreten",
+    "fr": "Inscription gratuite à la classe",
+    "ar": "الانضمام مجاني",
+    "uk": "Безкоштовне приєднання",
+    "tr": "Katılmak ücretsiz"
+  },
+  "From sign-up to shared progress": {
+    "de": "Von der Anmeldung zum gemeinsamen Fortschritt",
+    "fr": "De l’inscription au suivi des progrès",
+    "ar": "من التسجيل إلى متابعة التقدم",
+    "uk": "Від реєстрації до спільного прогресу",
+    "tr": "Kayıttan paylaşılan ilerlemeye"
+  },
+  "Fund your class’s exam access": {
+    "de": "Finanziere den Prüfungszugang deiner Klasse",
+    "fr": "Financez l’accès aux examens de votre classe",
+    "ar": "موّل وصول صفك إلى الامتحانات",
+    "uk": "Оплатіть доступ класу до іспитів",
+    "tr": "Sınıfınızın sınav erişimini karşılayın"
+  },
+  "Funded by your teacher": {
+    "de": "Von deiner Lehrkraft finanziert",
+    "fr": "Financé par votre enseignant",
+    "ar": "بتمويل من معلمك",
+    "uk": "Оплачено вчителем",
+    "tr": "Öğretmeniniz tarafından karşılandı"
+  },
+  "Get comfortable with the format, the sections and the time limit.": {
+    "de": "Lerne Format, Abschnitte und Zeitlimit kennen.",
+    "fr": "Familiarisez-vous avec le format, les parties et le temps imparti.",
+    "ar": "تعرّف على الشكل والأقسام والوقت المحدد.",
+    "uk": "Звикніть до формату, розділів і обмеження часу.",
+    "tr": "Biçime, bölümlere ve süre sınırına alışın."
+  },
+  "Get exam seats": {
+    "de": "Prüfungsplätze erhalten",
+    "fr": "Obtenir des places d’examen",
+    "ar": "الحصول على مقاعد امتحانات",
+    "uk": "Отримати місця для іспитів",
+    "tr": "Sınav koltuğu edinin"
+  },
+  "Get familiar with the timer, navigation and section structure before your real exam.": {
+    "de": "Lerne Timer, Navigation und Abschnitte vor der echten Prüfung kennen.",
+    "fr": "Découvrez le chronomètre, la navigation et les parties avant le vrai examen.",
+    "ar": "تعرّف على المؤقت والتنقل وأقسام الامتحان قبل الامتحان الحقيقي.",
+    "uk": "Ознайомтеся з таймером, навігацією й розділами до справжнього іспиту.",
+    "tr": "Gerçek sınavdan önce zamanlayıcıya, gezinmeye ve bölümlere alışın."
+  },
+  "Get started as a teacher": {
+    "de": "Als Lehrkraft starten",
+    "fr": "Commencer comme enseignant",
+    "ar": "ابدأ كمعلم",
+    "uk": "Почати як учитель",
+    "tr": "Öğretmen olarak başlayın"
+  },
+  "Get started for free": {
+    "de": "Kostenlos starten",
+    "fr": "Commencer gratuitement",
+    "ar": "ابدأ مجانًا",
+    "uk": "Почати безкоштовно",
+    "tr": "Ücretsiz başlayın"
+  },
+  "Get your class started": {
+    "de": "Starte mit deiner Klasse",
+    "fr": "Lancez votre classe",
+    "ar": "ابدأ مع صفك",
+    "uk": "Розпочніть роботу з класом",
+    "tr": "Sınıfınızla başlayın"
+  },
+  "Get your score": {
+    "de": "Erhalte deine Punktzahl",
+    "fr": "Obtenez votre score",
+    "ar": "احصل على درجتك",
+    "uk": "Отримайте свій бал",
+    "tr": "Puanınızı görün"
+  },
+  "Give your class its first assignment": {
+    "de": "Weise deiner Klasse die erste Aufgabe zu",
+    "fr": "Attribuez le premier devoir à votre classe",
+    "ar": "عيّن أول واجب لصفك",
+    "uk": "Призначте перше завдання класу",
+    "tr": "Sınıfınıza ilk ödevi verin"
+  },
+  "Give your group a name.": {
+    "de": "Gib deiner Gruppe einen Namen.",
+    "fr": "Donnez un nom à votre groupe.",
+    "ar": "اختر اسمًا لمجموعتك.",
+    "uk": "Дайте групі назву.",
+    "tr": "Grubunuza bir ad verin."
+  },
+  "Give your learners realistic mock exams and see where they need help. Create a class, share an invitation, and bring exam preparation into one place.": {
+    "de": "Nutze realistische Probeprüfungen und erkenne Lernbedarf. Erstelle eine Klasse, teile die Einladung und bündle die Vorbereitung.",
+    "fr": "Proposez des examens blancs réalistes et repérez les besoins. Créez une classe, partagez l’invitation et regroupez la préparation.",
+    "ar": "قدّم امتحانات تجريبية واقعية وحدّد مواضع الحاجة للمساعدة. أنشئ صفًا وشارك الدعوة واجمع التحضير في مكان واحد.",
+    "uk": "Пропонуйте реалістичні пробні іспити й визначайте, де потрібна допомога. Створіть клас і поділіться запрошенням.",
+    "tr": "Gerçekçi deneme sınavları sunun, desteğe ihtiyaç duyulan alanları görün. Sınıf oluşturup daveti paylaşarak hazırlığı bir araya getirin."
+  },
+  "Help": {
+    "de": "Hilfe",
+    "fr": "Aide",
+    "ar": "مساعدة",
+    "uk": "Допомога",
+    "tr": "Yardım"
+  },
+  "Help students access more practice, when they need it.": {
+    "de": "Hilf Lernenden bei Bedarf mit mehr Übungen.",
+    "fr": "Aidez les apprenants à accéder à plus de pratique si nécessaire.",
+    "ar": "ساعد المتعلمين على الحصول على تدريب إضافي عند الحاجة.",
+    "uk": "Допоможіть учням отримати більше практики за потреби.",
+    "tr": "Gerektiğinde öğrencilerin daha fazla pratik yapmasını sağlayın."
+  },
+  "How many seats do you need?": {
+    "de": "Wie viele Plätze brauchst du?",
+    "fr": "Combien de places vous faut-il ?",
+    "ar": "كم مقعدًا تحتاج؟",
+    "uk": "Скільки місць вам потрібно?",
+    "tr": "Kaç koltuğa ihtiyacınız var?"
+  },
+  "How many students do you want to fund?": {
+    "de": "Wie viele Lernende möchtest du unterstützen?",
+    "fr": "Combien d’apprenants souhaitez-vous financer ?",
+    "ar": "كم متعلمًا تريد تمويله؟",
+    "uk": "Скільком учням ви хочете оплатити доступ?",
+    "tr": "Kaç öğrencinin erişimini karşılayacaksınız?"
+  },
+  "How seat access works": {
+    "de": "So funktioniert der Platzzugang",
+    "fr": "Fonctionnement des places",
+    "ar": "كيف يعمل الوصول بالمقاعد",
+    "uk": "Як працює доступ через місця",
+    "tr": "Koltuk erişimi nasıl çalışır?"
+  },
+  "I agree to share my class-linked exam performance with this teacher. I can withdraw permission by leaving the class.": {
+    "de": "Ich stimme der Freigabe meiner klassenbezogenen Prüfungsleistungen für diese Lehrkraft zu. Durch Verlassen der Klasse kann ich widerrufen.",
+    "fr": "J’accepte de partager les résultats des examens liés à cette classe avec cet enseignant. Je peux retirer mon accord en quittant la classe.",
+    "ar": "أوافق على مشاركة أدائي في امتحانات هذا الصف مع المعلم. يمكنني سحب الموافقة بمغادرة الصف.",
+    "uk": "Я погоджуюся ділитися з цим учителем результатами іспитів класу. Можу відкликати згоду, залишивши клас.",
+    "tr": "Bu sınıfa bağlı sınav sonuçlarımı öğretmenle paylaşmayı kabul ediyorum. Sınıftan ayrılarak iznimi geri çekebilirim."
+  },
+  "I have an invitation link": {
+    "de": "Ich habe einen Einladungslink",
+    "fr": "J’ai un lien d’invitation",
+    "ar": "لدي رابط دعوة",
+    "uk": "У мене є запрошення",
+    "tr": "Davet bağlantım var"
+  },
+  "In progress": {
+    "de": "In Bearbeitung",
+    "fr": "En cours",
+    "ar": "قيد الإنجاز",
+    "uk": "Виконується",
+    "tr": "Devam ediyor"
+  },
+  "Invitation disabled.": {
+    "de": "Einladung deaktiviert.",
+    "fr": "Invitation désactivée.",
+    "ar": "تم تعطيل الدعوة.",
+    "uk": "Запрошення вимкнено.",
+    "tr": "Davet devre dışı bırakıldı."
+  },
+  "Invitation is invalid or expired.": {
+    "de": "Einladung ungültig oder abgelaufen.",
+    "fr": "Invitation invalide ou expirée.",
+    "ar": "الدعوة غير صالحة أو منتهية.",
+    "uk": "Запрошення недійсне або прострочене.",
+    "tr": "Davet geçersiz veya süresi dolmuş."
+  },
+  "Invitation is unavailable.": {
+    "de": "Einladung nicht verfügbar.",
+    "fr": "Invitation indisponible.",
+    "ar": "الدعوة غير متاحة.",
+    "uk": "Запрошення недоступне.",
+    "tr": "Davet kullanılamıyor."
+  },
+  "Invitation link": {
+    "de": "Einladungslink",
+    "fr": "Lien d’invitation",
+    "ar": "رابط الدعوة",
+    "uk": "Посилання-запрошення",
+    "tr": "Davet bağlantısı"
+  },
+  "Invite a student to unlock assignments.": {
+    "de": "Lade Lernende ein, um Aufgaben zuzuweisen.",
+    "fr": "Invitez un apprenant pour débloquer les devoirs.",
+    "ar": "ادعُ متعلمًا لإتاحة تعيين الواجبات.",
+    "uk": "Запросіть учня, щоб призначати завдання.",
+    "tr": "Ödev atamak için öğrenci davet edin."
+  },
+  "Invite students": {
+    "de": "Lernende einladen",
+    "fr": "Inviter des apprenants",
+    "ar": "دعوة المتعلمين",
+    "uk": "Запросити учнів",
+    "tr": "Öğrencileri davet et"
+  },
+  "Invite students before assigning an exam.": {
+    "de": "Lade vor dem Zuweisen einer Prüfung Lernende ein.",
+    "fr": "Invitez des apprenants avant d’attribuer un examen.",
+    "ar": "ادعُ المتعلمين قبل تعيين امتحان.",
+    "uk": "Запросіть учнів перед призначенням іспиту.",
+    "tr": "Sınav atamadan önce öğrenci davet edin."
+  },
+  "Invite students first": {
+    "de": "Zuerst Lernende einladen",
+    "fr": "Invitez d’abord des apprenants",
+    "ar": "ادعُ المتعلمين أولًا",
+    "uk": "Спочатку запросіть учнів",
+    "tr": "Önce öğrenci davet edin"
+  },
+  "Invite students first. Then you can assign a mock exam to your class.": {
+    "de": "Lade zuerst Lernende ein. Danach kannst du der Klasse eine Probeprüfung zuweisen.",
+    "fr": "Invitez d’abord vos apprenants, puis attribuez un examen blanc.",
+    "ar": "ادعُ المتعلمين أولًا، ثم عيّن امتحانًا تجريبيًا لصفك.",
+    "uk": "Спочатку запросіть учнів, потім призначте класу пробний іспит.",
+    "tr": "Önce öğrencileri davet edin, ardından sınıfa deneme atayın."
+  },
+  "Invite students with a private link": {
+    "de": "Lernende über einen privaten Link einladen",
+    "fr": "Inviter par un lien privé",
+    "ar": "دعوة المتعلمين برابط خاص",
+    "uk": "Запрошуйте учнів приватним посиланням",
+    "tr": "Öğrencileri özel bağlantıyla davet edin"
+  },
+  "Invite your first student": {
+    "de": "Erste Lernende einladen",
+    "fr": "Inviter votre premier apprenant",
+    "ar": "دعوة متعلمك الأول",
+    "uk": "Запросіть першого учня",
+    "tr": "İlk öğrencinizi davet edin"
+  },
+  "Invite your students": {
+    "de": "Lade deine Lernenden ein",
+    "fr": "Invitez vos apprenants",
+    "ar": "ادعُ متعلميك",
+    "uk": "Запросіть своїх учнів",
+    "tr": "Öğrencilerinizi davet edin"
+  },
+  "Join SmartPrüfung to prepare for German TELC and Goethe exams with realistic mock exams and AI-powered feedback.": {
+    "de": "Bereite dich mit SmartPrüfung durch realistische Probeprüfungen und KI-Feedback auf TELC- und Goethe-Prüfungen vor.",
+    "fr": "Rejoignez SmartPrüfung pour préparer les examens TELC et Goethe avec des examens blancs et des retours IA.",
+    "ar": "انضم إلى SmartPrüfung للتحضير لامتحانات TELC وغوته باختبارات تجريبية واقعية وملاحظات مدعومة بالذكاء الاصطناعي.",
+    "uk": "Приєднуйтеся до SmartPrüfung для підготовки до TELC і Goethe з реалістичними тестами та відгуками ШІ.",
+    "tr": "Gerçekçi deneme sınavları ve yapay zekâ destekli geri bildirimle Almanca TELC ve Goethe sınavlarına hazırlanmak için SmartPrüfung'a katılın."
+  },
+  "Join a class": {
+    "de": "Einer Klasse beitreten",
+    "fr": "Rejoindre une classe",
+    "ar": "الانضمام إلى صف",
+    "uk": "Приєднатися до класу",
+    "tr": "Sınıfa katıl"
+  },
+  "Join your teacher’s class and keep your practice in one place.": {
+    "de": "Tritt der Klasse deiner Lehrkraft bei und bündle deine Übungen.",
+    "fr": "Rejoignez la classe de votre enseignant et regroupez votre pratique.",
+    "ar": "انضم إلى صف معلمك واجمع تدريباتك في مكان واحد.",
+    "uk": "Приєднайтеся до класу вчителя й зберігайте практику в одному місці.",
+    "tr": "Öğretmeninizin sınıfına katılıp çalışmalarınızı bir arada tutun."
+  },
+  "Joining is free. No exam access is purchased or activated automatically.": {
+    "de": "Der Beitritt ist kostenlos. Prüfungszugang wird nicht automatisch gekauft oder aktiviert.",
+    "fr": "Rejoindre est gratuit. Aucun accès n’est acheté ou activé automatiquement.",
+    "ar": "الانضمام مجاني. لا يُشترى وصول للامتحانات ولا يُفعّل تلقائيًا.",
+    "uk": "Приєднання безкоштовне. Доступ до іспитів не купується й не активується автоматично.",
+    "tr": "Katılım ücretsizdir. Sınav erişimi otomatik satın alınmaz veya açılmaz."
+  },
+  "Joining…": {
+    "de": "Beitritt läuft…",
+    "fr": "Inscription à la classe…",
+    "ar": "جارٍ الانضمام…",
+    "uk": "Приєднання…",
+    "tr": "Katılınıyor…"
+  },
+  "Keep class": {
+    "de": "In Klasse bleiben",
+    "fr": "Rester dans la classe",
+    "ar": "البقاء في الصف",
+    "uk": "Залишитися в класі",
+    "tr": "Sınıfta kal"
+  },
+  "Keep improving": {
+    "de": "Weiter verbessern",
+    "fr": "Continuez à progresser",
+    "ar": "واصل التحسن",
+    "uk": "Продовжуйте вдосконалюватися",
+    "tr": "Gelişmeye devam edin"
+  },
+  "Keep your class practice and sharing preferences together.": {
+    "de": "Klassenübungen und Freigaben gemeinsam verwalten.",
+    "fr": "Regroupez votre pratique en classe et vos préférences de partage.",
+    "ar": "اجمع تدريب الصف وتفضيلات المشاركة معًا.",
+    "uk": "Керуйте практикою класу й налаштуваннями обміну разом.",
+    "tr": "Sınıf çalışmalarınızı ve paylaşım tercihlerinizi bir arada tutun."
+  },
+  "Keep your classes, exam practice and student progress in one place.": {
+    "de": "Klassen, Übungen und Lernfortschritt an einem Ort.",
+    "fr": "Vos classes, examens et progrès au même endroit.",
+    "ar": "صفوفك وتدريبات الامتحانات وتقدم المتعلمين في مكان واحد.",
+    "uk": "Класи, практика й прогрес учнів в одному місці.",
+    "tr": "Sınıflar, sınav çalışmaları ve öğrenci ilerlemesi tek yerde."
+  },
+  "Know what to work on": {
+    "de": "Erkenne deinen Übungsbedarf",
+    "fr": "Sachez quoi travailler",
+    "ar": "اعرف ما تحتاج إلى تحسينه",
+    "uk": "Дізнайтеся, над чим працювати",
+    "tr": "Neye çalışmanız gerektiğini görün"
+  },
+  "Know where to help": {
+    "de": "Erkenne, wo Hilfe nötig ist",
+    "fr": "Repérez où aider",
+    "ar": "اعرف أين تقدم المساعدة",
+    "uk": "Дізнайтеся, де потрібна допомога",
+    "tr": "Nerede destek gerektiğini görün"
+  },
+  "Language elements": {
+    "de": "Sprachbausteine",
+    "fr": "Éléments de langue",
+    "ar": "التراكيب اللغوية",
+    "uk": "Мовні елементи",
+    "tr": "Dil bilgisi ve kelime"
+  },
+  "Last name": {
+    "de": "Nachname",
+    "fr": "Nom",
+    "ar": "اسم العائلة",
+    "uk": "Прізвище",
+    "tr": "Soyad"
+  },
+  "Learn from your writing": {
+    "de": "Aus deinen Texten lernen",
+    "fr": "Apprenez de vos écrits",
+    "ar": "تعلّم من كتابتك",
+    "uk": "Навчайтеся на власних текстах",
+    "tr": "Yazılarınızdan öğrenin"
+  },
+  "Learn together with your class": {
+    "de": "Gemeinsam mit deiner Klasse lernen",
+    "fr": "Apprendre avec votre classe",
+    "ar": "تعلّم مع صفك",
+    "uk": "Навчайтеся разом із класом",
+    "tr": "Sınıfınızla birlikte öğrenin"
+  },
+  "Learner A": {
+    "de": "Lernende A",
+    "fr": "Apprenant A",
+    "ar": "المتعلم أ",
+    "uk": "Учень А",
+    "tr": "Öğrenci A"
+  },
+  "Learner B": {
+    "de": "Lernende B",
+    "fr": "Apprenant B",
+    "ar": "المتعلم ب",
+    "uk": "Учень Б",
+    "tr": "Öğrenci B"
+  },
+  "Learner C": {
+    "de": "Lernende C",
+    "fr": "Apprenant C",
+    "ar": "المتعلم ج",
+    "uk": "Учень В",
+    "tr": "Öğrenci C"
+  },
+  "Learners agree before sharing class-related results. Personal exam history, raw answers and writing stay private. Leaving a class stops sharing and keeps their paid access intact.": {
+    "de": "Die Freigabe von Klassenergebnissen erfordert Zustimmung. Persönlicher Verlauf, Antworten und Texte bleiben privat. Verlassen beendet die Freigabe; bezahlter Zugang bleibt erhalten.",
+    "fr": "Le partage des résultats de classe nécessite un accord. Historique personnel, réponses et textes restent privés. Quitter arrête le partage sans perdre l’accès payé.",
+    "ar": "يوافق المتعلمون قبل مشاركة نتائج الصف. يبقى السجل الشخصي والإجابات والكتابة خاصة. مغادرة الصف توقف المشاركة مع الاحتفاظ بالوصول المدفوع.",
+    "uk": "Обмін результатами класу потребує згоди. Особиста історія, відповіді й тексти приватні. Вихід припиняє обмін, зберігаючи платний доступ.",
+    "tr": "Sınıf sonuçları izinle paylaşılır. Kişisel geçmiş, yanıtlar ve yazılar gizli kalır. Ayrılmak paylaşımı durdurur; ücretli erişim korunur."
+  },
+  "Learners can buy their own exam access, or you can offer prepaid seats to those who need them. Both options work in the same class. A learner with active paid access can keep using it.": {
+    "de": "Lernende können selbst zahlen oder vorausbezahlte Plätze erhalten. Beide Möglichkeiten funktionieren in einer Klasse. Aktiver bezahlter Zugang bleibt nutzbar.",
+    "fr": "Les apprenants peuvent acheter leur accès ou recevoir une place prépayée. Les deux options coexistent. Un accès payé actif reste utilisable.",
+    "ar": "يمكن للمتعلمين شراء وصولهم أو تلقي مقاعد مسبقة الدفع. يعمل الخياران في الصف نفسه ويظل الوصول المدفوع النشط قابلًا للاستخدام.",
+    "uk": "Учні можуть купити доступ або отримати передплачене місце. Обидва варіанти діють в одному класі. Активний платний доступ зберігається.",
+    "tr": "Öğrenciler kendi erişimini alabilir veya ön ödemeli koltuk kullanabilir. İki seçenek aynı sınıfta çalışır. Aktif ücretli erişim devam eder."
+  },
+  "Learners join with a free account and agree to share class assignment results.": {
+    "de": "Lernende treten kostenlos bei und stimmen der Freigabe ihrer Aufgabenergebnisse zu.",
+    "fr": "Les apprenants rejoignent avec un compte gratuit et acceptent le partage des résultats des devoirs.",
+    "ar": "ينضم المتعلمون بحساب مجاني ويوافقون على مشاركة نتائج واجبات الصف.",
+    "uk": "Учні приєднуються з безкоштовним обліковим записом і погоджуються ділитися результатами завдань.",
+    "tr": "Öğrenciler ücretsiz hesapla katılır ve ödev sonuçlarını paylaşmayı kabul eder."
+  },
+  "Learners stay in control.": {
+    "de": "Lernende behalten die Kontrolle.",
+    "fr": "Les apprenants gardent le contrôle.",
+    "ar": "يتحكم المتعلمون ببياناتهم.",
+    "uk": "Учні зберігають контроль.",
+    "tr": "Kontrol öğrencilerde kalır."
+  },
+  "Learning together": {
+    "de": "Gemeinsam lernen",
+    "fr": "Apprendre ensemble",
+    "ar": "نتعلم معًا",
+    "uk": "Навчаємося разом",
+    "tr": "Birlikte öğreniyoruz"
+  },
+  "Leave and stop sharing": {
+    "de": "Verlassen und Freigabe beenden",
+    "fr": "Quitter et arrêter le partage",
+    "ar": "المغادرة وإيقاف المشاركة",
+    "uk": "Вийти й припинити обмін",
+    "tr": "Ayrıl ve paylaşımı durdur"
+  },
+  "Leave class": {
+    "de": "Klasse verlassen",
+    "fr": "Quitter la classe",
+    "ar": "مغادرة الصف",
+    "uk": "Залишити клас",
+    "tr": "Sınıftan ayrıl"
+  },
+  "Leaving removes you from this class and stops sharing your results. Your personal exam history and activated paid access stay with you.": {
+    "de": "Verlassen beendet Mitgliedschaft und Freigabe. Dein persönlicher Prüfungsverlauf und aktivierter bezahlter Zugang bleiben erhalten.",
+    "fr": "Quitter arrête l’inscription et le partage. Votre historique personnel et votre accès payé activé restent conservés.",
+    "ar": "المغادرة تنهي عضويتك ومشاركة النتائج. تحتفظ بسجل امتحاناتك الشخصي ووصولك المدفوع المفعّل.",
+    "uk": "Вихід припиняє членство й обмін. Особиста історія іспитів та активований платний доступ зберігаються.",
+    "tr": "Ayrılınca üyelik ve sonuç paylaşımı biter. Kişisel sınav geçmişiniz ve etkin ücretli erişiminiz korunur."
+  },
+  "Leaving…": {
+    "de": "Klasse wird verlassen…",
+    "fr": "Départ de la classe…",
+    "ar": "جارٍ المغادرة…",
+    "uk": "Вихід із класу…",
+    "tr": "Sınıftan ayrılınıyor…"
+  },
+  "Light mode": {
+    "de": "Heller Modus",
+    "fr": "Mode clair",
+    "ar": "الوضع الفاتح",
+    "uk": "Світлий режим",
+    "tr": "Açık mod"
+  },
+  "Loading exams…": {
+    "de": "Prüfungen werden geladen…",
+    "fr": "Chargement des examens…",
+    "ar": "جارٍ تحميل الامتحانات…",
+    "uk": "Завантаження іспитів…",
+    "tr": "Sınavlar yükleniyor…"
+  },
+  "Loading invitation link…": {
+    "de": "Einladungslink wird geladen…",
+    "fr": "Chargement du lien…",
+    "ar": "جارٍ تحميل رابط الدعوة…",
+    "uk": "Завантаження запрошення…",
+    "tr": "Davet bağlantısı yükleniyor…"
+  },
+  "Loading your classes…": {
+    "de": "Deine Klassen werden geladen…",
+    "fr": "Chargement de vos classes…",
+    "ar": "جارٍ تحميل صفوفك…",
+    "uk": "Завантаження ваших класів…",
+    "tr": "Sınıflarınız yükleniyor…"
+  },
+  "Loading your class…": {
+    "de": "Deine Klasse wird geladen…",
+    "fr": "Chargement de votre classe…",
+    "ar": "جارٍ تحميل صفك…",
+    "uk": "Завантаження класу…",
+    "tr": "Sınıfınız yükleniyor…"
+  },
+  "Loading your workspace…": {
+    "de": "Dein Arbeitsbereich wird geladen…",
+    "fr": "Chargement de votre espace…",
+    "ar": "جارٍ تحميل مساحتك…",
+    "uk": "Завантаження робочого простору…",
+    "tr": "Çalışma alanınız yükleniyor…"
+  },
+  "Log in": {
+    "de": "Anmelden",
+    "fr": "Se connecter",
+    "ar": "تسجيل الدخول",
+    "uk": "Увійти",
+    "tr": "Giriş yap"
+  },
+  "Main navigation": {
+    "de": "Hauptnavigation",
+    "fr": "Navigation principale",
+    "ar": "التنقل الرئيسي",
+    "uk": "Головна навігація",
+    "tr": "Ana gezinme"
+  },
+  "Make exam day": {
+    "de": "Damit der Prüfungstag",
+    "fr": "Pour que l’examen",
+    "ar": "اجعل يوم الامتحان",
+    "uk": "Нехай день іспиту",
+    "tr": "Sınav gününü"
+  },
+  "Mock exam": {
+    "de": "Probeprüfung",
+    "fr": "Examen blanc",
+    "ar": "امتحان تجريبي",
+    "uk": "Пробний іспит",
+    "tr": "Deneme sınavı"
+  },
+  "My account": {
+    "de": "Mein Konto",
+    "fr": "Mon compte",
+    "ar": "حسابي",
+    "uk": "Мій обліковий запис",
+    "tr": "Hesabım"
+  },
+  "My classes": {
+    "de": "Meine Klassen",
+    "fr": "Mes classes",
+    "ar": "صفوفي",
+    "uk": "Мої класи",
+    "tr": "Sınıflarım"
+  },
+  "My classes sections": {
+    "de": "Bereiche meiner Klassen",
+    "fr": "Rubriques de mes classes",
+    "ar": "أقسام صفوفي",
+    "uk": "Розділи моїх класів",
+    "tr": "Sınıflarım bölümleri"
+  },
+  "My teacher invited me. How do I join?": {
+    "de": "Meine Lehrkraft hat mich eingeladen. Wie trete ich bei?",
+    "fr": "Mon enseignant m’a invité. Comment rejoindre ?",
+    "ar": "دعاني معلمي. كيف أنضم؟",
+    "uk": "Учитель запросив мене. Як приєднатися?",
+    "tr": "Öğretmenim davet etti. Nasıl katılırım?"
+  },
+  "Need to fund a student’s practice?": {
+    "de": "Möchtest du Übungen finanzieren?",
+    "fr": "Besoin de financer un apprenant ?",
+    "ar": "هل تحتاج إلى تمويل تدريب متعلم؟",
+    "uk": "Хочете оплатити практику учня?",
+    "tr": "Öğrencinin çalışmasını karşılamak ister misiniz?"
+  },
+  "New exam": {
+    "de": "Neue Prüfung",
+    "fr": "Nouvel examen",
+    "ar": "امتحان جديد",
+    "uk": "Новий іспит",
+    "tr": "Yeni sınav"
+  },
+  "No additional seats are granted by this return page. Review the status below or try a new checkout.": {
+    "de": "Diese Rückkehrseite vergibt keine zusätzlichen Plätze. Prüfe den Status oder starte eine neue Zahlung.",
+    "fr": "Cette page de retour n’ajoute aucune place. Vérifiez le statut ou recommencez le paiement.",
+    "ar": "لا تضيف صفحة العودة مقاعد إضافية. راجع الحالة أو ابدأ عملية دفع جديدة.",
+    "uk": "Сторінка повернення не додає місць. Перевірте стан або почніть нову оплату.",
+    "tr": "Bu dönüş sayfası ek koltuk vermez. Durumu kontrol edin veya yeni ödeme başlatın."
+  },
+  "No archived classes": {
+    "de": "Keine archivierten Klassen",
+    "fr": "Aucune classe archivée",
+    "ar": "لا توجد صفوف مؤرشفة",
+    "uk": "Немає архівованих класів",
+    "tr": "Arşivlenen sınıf yok"
+  },
+  "No assignments yet": {
+    "de": "Noch keine Aufgaben",
+    "fr": "Aucun devoir pour l’instant",
+    "ar": "لا توجد واجبات بعد",
+    "uk": "Завдань ще немає",
+    "tr": "Henüz ödev yok"
+  },
+  "No available seats. Refresh your wallet or buy seats.": {
+    "de": "Keine Plätze verfügbar. Aktualisiere das Guthaben oder kaufe Plätze.",
+    "fr": "Aucune place disponible. Actualisez le solde ou achetez des places.",
+    "ar": "لا توجد مقاعد متاحة. حدّث الرصيد أو اشترِ مقاعد.",
+    "uk": "Немає доступних місць. Оновіть баланс або купіть місця.",
+    "tr": "Koltuk yok. Bakiyeyi yenileyin veya koltuk alın."
+  },
+  "No due date": {
+    "de": "Keine Abgabefrist",
+    "fr": "Sans date limite",
+    "ar": "دون موعد نهائي",
+    "uk": "Без терміну",
+    "tr": "Son tarih yok"
+  },
+  "No matching assignments": {
+    "de": "Keine passenden Aufgaben",
+    "fr": "Aucun devoir correspondant",
+    "ar": "لا توجد واجبات مطابقة",
+    "uk": "Відповідних завдань немає",
+    "tr": "Eşleşen ödev yok"
+  },
+  "No offers waiting for a reply": {
+    "de": "Keine Angebote warten auf Antwort",
+    "fr": "Aucune offre en attente de réponse",
+    "ar": "لا توجد عروض تنتظر ردًا",
+    "uk": "Немає пропозицій, що очікують відповіді",
+    "tr": "Yanıt bekleyen teklif yok"
+  },
+  "No offers yet": {
+    "de": "Noch keine Angebote",
+    "fr": "Aucune offre pour l’instant",
+    "ar": "لا توجد عروض بعد",
+    "uk": "Пропозицій ще немає",
+    "tr": "Henüz teklif yok"
+  },
+  "No passed exams yet.": {
+    "de": "Noch keine bestandenen Prüfungen.",
+    "fr": "Aucun examen réussi pour l’instant.",
+    "ar": "لم تنجح في أي امتحان بعد.",
+    "uk": "Складених іспитів ще немає.",
+    "tr": "Henüz geçilen sınav yok."
+  },
+  "No payment is needed to accept a teacher-funded offer.": {
+    "de": "Für die Annahme eines finanzierten Angebots ist keine Zahlung nötig.",
+    "fr": "Accepter une offre financée par l’enseignant ne demande aucun paiement.",
+    "ar": "لا يلزم دفع لقبول عرض موّله معلمك.",
+    "uk": "Прийняття оплаченої вчителем пропозиції не потребує оплати.",
+    "tr": "Öğretmenin karşıladığı teklifi kabul etmek için ödeme gerekmez."
+  },
+  "No payment required to create your workspace.": {
+    "de": "Keine Zahlung nötig, um deinen Arbeitsbereich zu erstellen.",
+    "fr": "Aucun paiement requis pour créer votre espace.",
+    "ar": "لا يلزم دفع لإنشاء مساحتك.",
+    "uk": "Оплата для створення простору не потрібна.",
+    "tr": "Çalışma alanı oluşturmak için ödeme gerekmez."
+  },
+  "No purchases yet": {
+    "de": "Noch keine Käufe",
+    "fr": "Aucun achat pour l’instant",
+    "ar": "لا توجد مشتريات بعد",
+    "uk": "Покупок ще немає",
+    "tr": "Henüz satın alma yok"
+  },
+  "No students match your search.": {
+    "de": "Keine Lernenden entsprechen deiner Suche.",
+    "fr": "Aucun apprenant ne correspond.",
+    "ar": "لا يوجد متعلمون مطابقون لبحثك.",
+    "uk": "Учнів за запитом не знайдено.",
+    "tr": "Aramanıza uyan öğrenci yok."
+  },
+  "No subscription. No automatic renewal.": {
+    "de": "Kein Abo. Keine automatische Verlängerung.",
+    "fr": "Sans abonnement. Sans renouvellement automatique.",
+    "ar": "دون اشتراك. دون تجديد تلقائي.",
+    "uk": "Без підписки. Без автоподовження.",
+    "tr": "Abonelik yok. Otomatik yenileme yok."
+  },
+  "No. Both paid options are one-time purchases with 60 days of access. There is no subscription or automatic renewal.": {
+    "de": "Nein. Beide Pakete sind Einmalkäufe mit 60 Tagen Zugang. Kein Abo und keine automatische Verlängerung.",
+    "fr": "Non. Les deux offres sont des achats uniques donnant 60 jours d’accès, sans abonnement ni renouvellement automatique.",
+    "ar": "لا. الباقتان تُشترَيان بدفعة واحدة وتمنحان 60 يومًا من الوصول، دون اشتراك أو تجديد تلقائي.",
+    "uk": "Ні. Обидва пакети оплачуються разово й дають 60 днів доступу, без підписки й автоподовження.",
+    "tr": "Hayır. İki paket de tek seferlik ödeme ile 60 gün erişim sunar. Abonelik ve otomatik yenileme yoktur."
+  },
+  "Not available": {
+    "de": "Nicht verfügbar",
+    "fr": "Indisponible",
+    "ar": "غير متاح",
+    "uk": "Недоступно",
+    "tr": "Kullanılamıyor"
+  },
+  "Not now": {
+    "de": "Nicht jetzt",
+    "fr": "Pas maintenant",
+    "ar": "ليس الآن",
+    "uk": "Не зараз",
+    "tr": "Şimdi değil"
+  },
+  "Not passed": {
+    "de": "Nicht bestanden",
+    "fr": "Non réussi",
+    "ar": "لم ينجح",
+    "uk": "Не складено",
+    "tr": "Başarısız"
+  },
+  "Not started": {
+    "de": "Nicht begonnen",
+    "fr": "Non commencé",
+    "ar": "لم يبدأ",
+    "uk": "Не розпочато",
+    "tr": "Başlanmadı"
+  },
+  "Not submitted yet": {
+    "de": "Noch nicht eingereicht",
+    "fr": "Pas encore envoyé",
+    "ar": "لم يُرسَل بعد",
+    "uk": "Ще не надіслано",
+    "tr": "Henüz gönderilmedi"
+  },
+  "Offer a prepaid seat, or let students use their own paid access.": {
+    "de": "Biete einen vorausbezahlten Platz an oder nutze vorhandenen Zugang der Lernenden.",
+    "fr": "Offrez une place prépayée ou laissez les apprenants utiliser leur accès payé.",
+    "ar": "قدّم مقعدًا مسبق الدفع أو دع المتعلمين يستخدمون وصولهم المدفوع.",
+    "uk": "Запропонуйте передплачене місце або використовуйте власний платний доступ учнів.",
+    "tr": "Ön ödemeli koltuk sunun veya öğrenciler kendi ücretli erişimini kullansın."
+  },
+  "Offer declined. No changes were made to your exam access.": {
+    "de": "Angebot abgelehnt. Dein Zugang bleibt unverändert.",
+    "fr": "Offre refusée. Votre accès reste inchangé.",
+    "ar": "رُفض العرض. لم يتغير وصولك إلى الامتحانات.",
+    "uk": "Пропозицію відхилено. Доступ не змінився.",
+    "tr": "Teklif reddedildi. Sınav erişiminiz değişmedi."
+  },
+  "Offer exam access": {
+    "de": "Prüfungszugang anbieten",
+    "fr": "Offrir un accès aux examens",
+    "ar": "تقديم وصول للامتحانات",
+    "uk": "Запропонувати доступ до іспитів",
+    "tr": "Sınav erişimi teklif et"
+  },
+  "Offer from a class roster": {
+    "de": "Angebot über die Klassenliste senden",
+    "fr": "Offrir depuis la liste de classe",
+    "ar": "تقديم عرض من قائمة الصف",
+    "uk": "Пропозиція зі списку класу",
+    "tr": "Sınıf listesinden teklif gönderin"
+  },
+  "Offer not found.": {
+    "de": "Angebot nicht gefunden.",
+    "fr": "Offre introuvable.",
+    "ar": "العرض غير موجود.",
+    "uk": "Пропозицію не знайдено.",
+    "tr": "Teklif bulunamadı."
+  },
+  "Offer seats to students from their class roster.": {
+    "de": "Biete Plätze über die Klassenliste an.",
+    "fr": "Offrez des places depuis la liste de classe.",
+    "ar": "قدّم المقاعد للمتعلمين من قائمة الصف.",
+    "uk": "Пропонуйте місця зі списку класу.",
+    "tr": "Sınıf listesinden öğrencilere koltuk teklif edin."
+  },
+  "Offer seats to your students": {
+    "de": "Biete deinen Lernenden Plätze an",
+    "fr": "Offrez des places à vos apprenants",
+    "ar": "قدّم مقاعد لمتعلميك",
+    "uk": "Пропонуйте місця учням",
+    "tr": "Öğrencilerinize koltuk teklif edin"
+  },
+  "Offers from your teacher": {
+    "de": "Angebote deiner Lehrkraft",
+    "fr": "Offres de votre enseignant",
+    "ar": "عروض معلمك",
+    "uk": "Пропозиції вчителя",
+    "tr": "Öğretmeninizin teklifleri"
+  },
+  "Once a student joins a class, you can offer them an available seat.": {
+    "de": "Nach dem Klassenbeitritt kannst du einen verfügbaren Platz anbieten.",
+    "fr": "Une fois l’apprenant inscrit à la classe, offrez-lui une place disponible.",
+    "ar": "بعد انضمام المتعلم للصف، يمكنك تقديم مقعد متاح له.",
+    "uk": "Після приєднання учня до класу запропонуйте йому доступне місце.",
+    "tr": "Öğrenci sınıfa katıldıktan sonra boş koltuk teklif edebilirsiniz."
+  },
+  "One complete mock exam with a basic score and result overview. Further exams, detailed review and AI-powered writing evaluation require paid access.": {
+    "de": "Eine vollständige Probeprüfung mit Punktzahl und Übersicht. Weitere Prüfungen, Detailauswertung und KI-Schreibbewertung erfordern bezahlten Zugang.",
+    "fr": "Un examen blanc complet avec score et bilan. Les examens supplémentaires, analyses détaillées et évaluations écrites par IA nécessitent un accès payant.",
+    "ar": "امتحان تجريبي كامل مع درجة وملخص. تتطلب الامتحانات الإضافية والمراجعة التفصيلية وتقييم الكتابة بالذكاء الاصطناعي وصولًا مدفوعًا.",
+    "uk": "Один повний пробний іспит із балом та оглядом. Додаткові іспити, детальний аналіз і оцінювання письма ШІ потребують платного доступу.",
+    "tr": "Puan ve özet içeren bir tam deneme sınavı. Ek sınavlar, ayrıntılı inceleme ve yapay zekâ ile yazma değerlendirmesi ücretli erişim gerektirir."
+  },
+  "One place for your class": {
+    "de": "Ein Ort für deine Klasse",
+    "fr": "Un seul espace pour votre classe",
+    "ar": "مكان واحد لصفك",
+    "uk": "Один простір для класу",
+    "tr": "Sınıfınız için tek alan"
+  },
+  "One seat gives one learner 10 exams.": {
+    "de": "Ein Platz bietet einer Person 10 Prüfungen.",
+    "fr": "Une place donne 10 examens à un apprenant.",
+    "ar": "يمنح المقعد متعلمًا واحدًا 10 امتحانات.",
+    "uk": "Одне місце дає одному учню 10 іспитів.",
+    "tr": "Bir koltuk bir öğrenciye 10 sınav verir."
+  },
+  "One seat gives one student 10 mock exams and 60 days of access.": {
+    "de": "Ein Platz bietet 10 Probeprüfungen und 60 Tage Zugang.",
+    "fr": "Une place donne 10 examens blancs et 60 jours d’accès.",
+    "ar": "يمنح كل مقعد متعلمًا واحدًا 10 امتحانات تجريبية و60 يومًا من الوصول.",
+    "uk": "Одне місце дає учню 10 пробних іспитів і 60 днів доступу.",
+    "tr": "Bir koltuk bir öğrenciye 10 deneme ve 60 gün erişim sağlar."
+  },
+  "One step closer to exam day.": {
+    "de": "Dem Prüfungstag einen Schritt näher.",
+    "fr": "Un pas de plus vers l’examen.",
+    "ar": "خطوة أقرب إلى يوم الامتحان.",
+    "uk": "Ще на крок ближче до іспиту.",
+    "tr": "Sınav gününe bir adım daha yakın."
+  },
+  "One-time payment": {
+    "de": "Einmalige Zahlung",
+    "fr": "Paiement unique",
+    "ar": "دفعة واحدة",
+    "uk": "Разова оплата",
+    "tr": "Tek seferlik ödeme"
+  },
+  "One-time total": {
+    "de": "Einmaliger Gesamtbetrag",
+    "fr": "Total du paiement unique",
+    "ar": "الإجمالي لدفعة واحدة",
+    "uk": "Загальна разова сума",
+    "tr": "Tek seferlik toplam"
+  },
+  "Only class-linked results are shared with your teacher. Leaving a class stops sharing and keeps your exam history and activated paid access.": {
+    "de": "Nur Klassenergebnisse werden geteilt. Verlassen beendet die Freigabe; persönlicher Verlauf und aktiver bezahlter Zugang bleiben erhalten.",
+    "fr": "Seuls les résultats de classe sont partagés. Quitter arrête le partage sans supprimer votre historique ou votre accès payé activé.",
+    "ar": "تُشارك نتائج الصف فقط. مغادرة الصف توقف المشاركة وتحافظ على سجلك ووصولك المدفوع المفعّل.",
+    "uk": "Надаються лише результати класу. Вихід припиняє обмін і зберігає історію та активований платний доступ.",
+    "tr": "Yalnızca sınıfa bağlı sonuçlar paylaşılır. Ayrılınca paylaşım biter; geçmişiniz ve etkin ücretli erişiminiz korunur."
+  },
+  "Only results from class assignments appear here. Personal exams and answers stay private.": {
+    "de": "Hier erscheinen nur Ergebnisse zugewiesener Aufgaben. Persönliche Prüfungen und Antworten bleiben privat.",
+    "fr": "Seuls les résultats des devoirs apparaissent ici. Examens personnels et réponses restent privés.",
+    "ar": "تظهر هنا نتائج واجبات الصف فقط. تبقى الامتحانات الشخصية والإجابات خاصة.",
+    "uk": "Тут лише результати завдань класу. Особисті іспити й відповіді приватні.",
+    "tr": "Burada yalnızca sınıf ödev sonuçları görünür. Kişisel sınavlar ve yanıtlar gizlidir."
+  },
+  "Only shared class assignment results are visible.": {
+    "de": "Nur freigegebene Aufgabenergebnisse sind sichtbar.",
+    "fr": "Seuls les résultats partagés des devoirs sont visibles.",
+    "ar": "تظهر نتائج واجبات الصف التي وافق المتعلم على مشاركتها فقط.",
+    "uk": "Видимі лише надані результати завдань класу.",
+    "tr": "Yalnızca paylaşılmış sınıf ödev sonuçları görünür."
+  },
+  "Open a class": {
+    "de": "Klasse öffnen",
+    "fr": "Ouvrir une classe",
+    "ar": "فتح صف",
+    "uk": "Відкрити клас",
+    "tr": "Sınıf aç"
+  },
+  "Open a mock exam and start practicing without registering first.": {
+    "de": "Öffne eine Probeprüfung und starte ohne Registrierung.",
+    "fr": "Ouvrez un examen blanc et commencez sans inscription.",
+    "ar": "افتح امتحانًا تجريبيًا وابدأ دون تسجيل مسبق.",
+    "uk": "Відкрийте пробний іспит і почніть без попередньої реєстрації.",
+    "tr": "Deneme sınavını açıp kaydolmadan başlayın."
+  },
+  "Open class": {
+    "de": "Klasse öffnen",
+    "fr": "Ouvrir la classe",
+    "ar": "فتح الصف",
+    "uk": "Відкрити клас",
+    "tr": "Sınıfı aç"
+  },
+  "Open the private invitation link from your teacher and sign in or create a free account. Review the sharing details before joining. For exam access, use your own active plan or accept a prepaid seat offered by your teacher.": {
+    "de": "Öffne den privaten Einladungslink und melde dich an oder registriere dich kostenlos. Prüfe die Freigabe vor dem Beitritt. Nutze eigenen Zugang oder einen angebotenen vorausbezahlten Platz.",
+    "fr": "Ouvrez le lien privé et connectez-vous ou créez un compte gratuit. Vérifiez le partage avant de rejoindre. Utilisez votre accès actif ou acceptez une place prépayée offerte.",
+    "ar": "افتح رابط الدعوة الخاص وسجّل الدخول أو أنشئ حسابًا مجانيًا. راجع تفاصيل المشاركة قبل الانضمام. استخدم باقتك النشطة أو اقبل مقعدًا مسبق الدفع يقدمه معلمك.",
+    "uk": "Відкрийте приватне посилання й увійдіть або зареєструйтеся безкоштовно. Перегляньте умови обміну до вступу. Використайте активний пакет або прийміть передплачене місце вчителя.",
+    "tr": "Özel davet bağlantısını açıp giriş yapın veya ücretsiz hesap oluşturun. Katılmadan paylaşım bilgilerini inceleyin. Mevcut paketinizi kullanın ya da öğretmenin ön ödemeli koltuğunu kabul edin."
+  },
+  "Opening Stripe checkout…": {
+    "de": "Stripe-Zahlung wird geöffnet…",
+    "fr": "Ouverture du paiement Stripe…",
+    "ar": "جارٍ فتح الدفع عبر Stripe…",
+    "uk": "Відкриття оплати Stripe…",
+    "tr": "Stripe ödeme sayfası açılıyor…"
+  },
+  "Opening your invitation…": {
+    "de": "Einladung wird geöffnet…",
+    "fr": "Ouverture de votre invitation…",
+    "ar": "جارٍ فتح دعوتك…",
+    "uk": "Відкриття запрошення…",
+    "tr": "Davetiniz açılıyor…"
+  },
+  "Optional · One-time payment · No automatic renewal": {
+    "de": "Optional · Einmalige Zahlung · Keine automatische Verlängerung",
+    "fr": "Facultatif · Paiement unique · Sans renouvellement automatique",
+    "ar": "اختياري · دفعة واحدة · دون تجديد تلقائي",
+    "uk": "Необов’язково · Разова оплата · Без автоподовження",
+    "tr": "İsteğe bağlı · Tek ödeme · Otomatik yenileme yok"
+  },
+  "Or sign up with email": {
+    "de": "Oder mit E-Mail registrieren",
+    "fr": "Ou s'inscrire par e-mail",
+    "ar": "أو سجّل بالبريد الإلكتروني",
+    "uk": "Або зареєструйтеся через пошту",
+    "tr": "Veya e-posta ile kayıt olun"
+  },
+  "Order": {
+    "de": "Bestellung",
+    "fr": "Commande",
+    "ar": "الطلب",
+    "uk": "Замовлення",
+    "tr": "Sipariş"
+  },
+  "Order not found.": {
+    "de": "Bestellung nicht gefunden.",
+    "fr": "Commande introuvable.",
+    "ar": "الطلب غير موجود.",
+    "uk": "Замовлення не знайдено.",
+    "tr": "Sipariş bulunamadı."
+  },
+  "Paid access includes AI-powered writing evaluation, so you can review your response and improve your next attempt.": {
+    "de": "Bezahlter Zugang umfasst KI-Schreibbewertung, damit du deine Texte prüfen und verbessern kannst.",
+    "fr": "L’accès payant inclut l’évaluation écrite par IA pour revoir vos réponses et progresser.",
+    "ar": "يشمل الوصول المدفوع تقييم الكتابة بالذكاء الاصطناعي لمراجعة إجابتك وتحسين محاولتك التالية.",
+    "uk": "Платний доступ включає оцінювання письма ШІ, щоб аналізувати відповіді й удосконалювати наступні спроби.",
+    "tr": "Ücretli erişimde yapay zekâ yazma değerlendirmesi bulunur; yanıtınızı inceleyip geliştirebilirsiniz."
+  },
+  "Paid individually": {
+    "de": "Selbst bezahlt",
+    "fr": "Payé individuellement",
+    "ar": "مدفوع فرديًا",
+    "uk": "Оплачено самостійно",
+    "tr": "Bireysel ödeme"
+  },
+  "Password": {
+    "de": "Passwort",
+    "fr": "Mot de passe",
+    "ar": "كلمة المرور",
+    "uk": "Пароль",
+    "tr": "Parola"
+  },
+  "Password must be at least 8 characters long.": {
+    "tr": "Parola en az 8 karakter olmalıdır.",
+    "de": "Das Passwort muss mindestens 8 Zeichen lang sein.",
+    "fr": "Le mot de passe doit contenir au moins 8 caractères.",
+    "ar": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل.",
+    "uk": "Пароль має містити щонайменше 8 символів."
+  },
+  "Password must contain at least one lowercase letter.": {
+    "tr": "Parola en az bir küçük harf içermelidir.",
+    "de": "Das Passwort muss einen Kleinbuchstaben enthalten.",
+    "fr": "Le mot de passe doit contenir une minuscule.",
+    "ar": "يجب أن تحتوي كلمة المرور على حرف صغير.",
+    "uk": "Пароль має містити малу літеру."
+  },
+  "Password must contain at least one number.": {
+    "tr": "Parola en az bir rakam içermelidir.",
+    "de": "Das Passwort muss eine Zahl enthalten.",
+    "fr": "Le mot de passe doit contenir un chiffre.",
+    "ar": "يجب أن تحتوي كلمة المرور على رقم.",
+    "uk": "Пароль має містити цифру."
+  },
+  "Password must contain at least one special character.": {
+    "tr": "Parola en az bir özel karakter içermelidir.",
+    "de": "Das Passwort muss ein Sonderzeichen enthalten.",
+    "fr": "Le mot de passe doit contenir un caractère spécial.",
+    "ar": "يجب أن تحتوي كلمة المرور على رمز خاص.",
+    "uk": "Пароль має містити спеціальний символ."
+  },
+  "Password must contain at least one uppercase letter.": {
+    "tr": "Parola en az bir büyük harf içermelidir.",
+    "de": "Das Passwort muss einen Großbuchstaben enthalten.",
+    "fr": "Le mot de passe doit contenir une majuscule.",
+    "ar": "يجب أن تحتوي كلمة المرور على حرف كبير.",
+    "uk": "Пароль має містити велику літеру."
+  },
+  "Past due": {
+    "de": "Überfällig",
+    "fr": "En retard",
+    "ar": "متأخر",
+    "uk": "Прострочено",
+    "tr": "Gecikmiş"
+  },
+  "Paste the full SmartPrüfung invitation link your teacher sent you.": {
+    "de": "Füge den vollständigen Einladungslink deiner Lehrkraft ein.",
+    "fr": "Collez le lien SmartPrüfung complet envoyé par votre enseignant.",
+    "ar": "ألصق رابط دعوة SmartPrüfung الكامل الذي أرسله معلمك.",
+    "uk": "Вставте повне посилання SmartPrüfung від учителя.",
+    "tr": "Öğretmeninizin gönderdiği tam SmartPrüfung davet bağlantısını yapıştırın."
+  },
+  "Paste your teacher’s invitation link": {
+    "de": "Einladungslink deiner Lehrkraft einfügen",
+    "fr": "Coller le lien de votre enseignant",
+    "ar": "ألصق رابط دعوة معلمك",
+    "uk": "Вставте посилання від учителя",
+    "tr": "Öğretmeninizin davet bağlantısını yapıştırın"
+  },
+  "Payment confirmed": {
+    "de": "Zahlung bestätigt",
+    "fr": "Paiement confirmé",
+    "ar": "تم تأكيد الدفع",
+    "uk": "Оплату підтверджено",
+    "tr": "Ödeme onaylandı"
+  },
+  "Payment failed": {
+    "de": "Zahlung fehlgeschlagen",
+    "fr": "Paiement échoué",
+    "ar": "فشل الدفع",
+    "uk": "Оплата не вдалася",
+    "tr": "Ödeme başarısız"
+  },
+  "Payment is confirmed, but the wallet could not refresh. Select Check again to refresh it.": {
+    "de": "Zahlung bestätigt, aber Guthaben nicht aktualisiert. Wähle Erneut prüfen.",
+    "fr": "Paiement confirmé, mais solde non actualisé. Cliquez sur Vérifier à nouveau.",
+    "ar": "تم تأكيد الدفع لكن تعذر تحديث الرصيد. اختر «التحقق مجددًا».",
+    "uk": "Оплату підтверджено, але баланс не оновився. Натисніть «Перевірити ще раз».",
+    "tr": "Ödeme onaylandı, bakiye yenilenemedi. Tekrar kontrol et’i seçin."
+  },
+  "Payment pending": {
+    "de": "Zahlung ausstehend",
+    "fr": "Paiement en attente",
+    "ar": "الدفع قيد الانتظار",
+    "uk": "Очікується оплата",
+    "tr": "Ödeme bekleniyor"
+  },
+  "Payment status unavailable": {
+    "de": "Zahlungsstatus nicht verfügbar",
+    "fr": "Statut du paiement indisponible",
+    "ar": "حالة الدفع غير متاحة",
+    "uk": "Стан оплати недоступний",
+    "tr": "Ödeme durumu kullanılamıyor"
+  },
+  "Payment status updates after Stripe confirms your purchase.": {
+    "de": "Der Status wird nach Stripe-Bestätigung aktualisiert.",
+    "fr": "Le statut sera actualisé après confirmation par Stripe.",
+    "ar": "تُحدّث الحالة بعد تأكيد Stripe للشراء.",
+    "uk": "Стан оновиться після підтвердження Stripe.",
+    "tr": "Stripe satın almayı onaylayınca durum güncellenir."
+  },
+  "Pending offers return to your wallet after 14 days.": {
+    "de": "Offene Angebote kehren nach 14 Tagen ins Guthaben zurück.",
+    "fr": "Les offres non acceptées reviennent au solde après 14 jours.",
+    "ar": "تعود العروض المعلقة إلى رصيدك بعد 14 يومًا.",
+    "uk": "Неприйняті пропозиції повертаються на баланс через 14 днів.",
+    "tr": "Bekleyen teklifler 14 gün sonra bakiyenize döner."
+  },
+  "Personal practice": {
+    "de": "Persönliches Üben",
+    "fr": "Entraînement personnel",
+    "ar": "التدريب الشخصي",
+    "uk": "Особиста практика",
+    "tr": "Kişisel çalışma"
+  },
+  "Pick a class to invite students or check their practice.": {
+    "de": "Öffne eine Klasse, um einzuladen oder Übungen zu prüfen.",
+    "fr": "Ouvrez une classe pour inviter ou suivre la pratique.",
+    "ar": "اختر صفًا لدعوة المتعلمين أو متابعة تدريبهم.",
+    "uk": "Оберіть клас, щоб запросити учнів або переглянути практику.",
+    "tr": "Davet veya çalışma takibi için sınıf seçin."
+  },
+  "Plans": {
+    "de": "Tarife",
+    "fr": "Offres",
+    "ar": "الباقات",
+    "uk": "Плани",
+    "tr": "Planlar"
+  },
+  "Plans &amp; pricing": {
+    "de": "Pakete und Preise",
+    "fr": "Offres et tarifs",
+    "ar": "الباقات والأسعار",
+    "uk": "Пакети й ціни",
+    "tr": "Paketler ve fiyatlar"
+  },
+  "Please try again in a minute.": {
+    "de": "Bitte versuche es in einer Minute erneut.",
+    "fr": "Réessayez dans une minute.",
+    "ar": "حاول مجددًا بعد دقيقة.",
+    "uk": "Спробуйте знову за хвилину.",
+    "tr": "Bir dakika sonra tekrar deneyin."
+  },
+  "Please try again.": {
+    "de": "Bitte versuche es erneut.",
+    "fr": "Veuillez réessayer.",
+    "ar": "يرجى المحاولة مجددًا.",
+    "uk": "Спробуйте знову.",
+    "tr": "Lütfen tekrar deneyin."
+  },
+  "Practice at your pace": {
+    "de": "Übe in deinem Tempo",
+    "fr": "Pratiquez à votre rythme",
+    "ar": "تدرّب حسب وتيرتك",
+    "uk": "Практикуйтеся у власному темпі",
+    "tr": "Kendi temponuzda çalışın"
+  },
+  "Practice benefits": {
+    "de": "Vorteile des Übens",
+    "fr": "Avantages de la pratique",
+    "ar": "فوائد التدريب",
+    "uk": "Переваги практики",
+    "tr": "Çalışmanın faydaları"
+  },
+  "Practice grammar and vocabulary in context.": {
+    "de": "Grammatik und Wortschatz im Zusammenhang üben.",
+    "fr": "Travaillez grammaire et vocabulaire en contexte.",
+    "ar": "تدرّب على القواعد والمفردات في سياقها.",
+    "uk": "Практикуйте граматику й лексику в контексті.",
+    "tr": "Dil bilgisi ve kelimeleri bağlam içinde çalışın."
+  },
+  "Practice that feels familiar": {
+    "de": "Vertrautes Prüfungstraining",
+    "fr": "Une pratique proche de l’examen",
+    "ar": "تدريب يجعلك تألف الامتحان",
+    "uk": "Практика зі знайомим форматом",
+    "tr": "Tanıdık bir sınav deneyimi"
+  },
+  "Practice under exam conditions": {
+    "de": "Unter Prüfungsbedingungen üben",
+    "fr": "Entraînez-vous en conditions d’examen",
+    "ar": "تدرّب في ظروف الامتحان",
+    "uk": "Практикуйтеся в умовах іспиту",
+    "tr": "Sınav koşullarında çalışın"
+  },
+  "Practice with realistic, timed TELC B1 mock exams. Get used to the format, find the areas you need to work on and build confidence with every attempt.": {
+    "de": "Übe realistische TELC-B1-Prüfungen mit Timer. Lerne das Format kennen, finde Übungsbedarf und gewinne mit jedem Versuch Sicherheit.",
+    "fr": "Entraînez-vous avec des examens TELC B1 réalistes et chronométrés. Découvrez le format, repérez vos besoins et gagnez en confiance.",
+    "ar": "تدرّب بامتحانات TELC B1 واقعية ومؤقتة. تعرّف على الشكل وحدّد ما تحتاج إلى تحسينه وابنِ ثقتك مع كل محاولة.",
+    "uk": "Практикуйтеся на реалістичних іспитах TELC B1 з таймером. Звикайте до формату, знаходьте слабкі місця й набувайте впевненості.",
+    "tr": "Gerçekçi, süreli TELC B1 denemeleriyle çalışın. Biçime alışın, eksiklerinizi bulun ve her denemede güven kazanın."
+  },
+  "Practice. Review. Learn from your next attempt.": {
+    "de": "Üben. Auswerten. Beim nächsten Versuch dazulernen.",
+    "fr": "Pratiquez. Révisez. Progressez au prochain essai.",
+    "ar": "تدرّب. راجع. تعلّم في محاولتك التالية.",
+    "uk": "Практикуйтеся. Аналізуйте. Навчайтеся з кожної спроби.",
+    "tr": "Çalışın. İnceleyin. Sonraki denemede geliştirin."
+  },
+  "Practise now": {
+    "de": "Jetzt üben",
+    "fr": "S’entraîner maintenant",
+    "ar": "تدرّب الآن",
+    "uk": "Практикуватися зараз",
+    "tr": "Şimdi çalış"
+  },
+  "Prepare and support your class": {
+    "de": "Deine Klasse vorbereiten und begleiten",
+    "fr": "Préparer et accompagner votre classe",
+    "ar": "جهّز صفك وادعمه",
+    "uk": "Готуйте й підтримуйте свій клас",
+    "tr": "Sınıfınızı hazırlayın ve destekleyin"
+  },
+  "Prepare for TELC Deutsch B1 with realistic, timed mock exams. Start free, get familiar with the exam format and learn from detailed feedback with paid access.": {
+    "de": "Bereite TELC Deutsch B1 mit realistischen Probeprüfungen auf Zeit vor. Starte kostenlos; bezahlter Zugang ergänzt detailliertes Feedback.",
+    "fr": "Préparez TELC Deutsch B1 avec des examens blancs réalistes et chronométrés. Commencez gratuitement ; l’accès payant ajoute des retours détaillés.",
+    "ar": "استعد لامتحان TELC Deutsch B1 بامتحانات تجريبية واقعية ومؤقتة. ابدأ مجانًا واحصل على ملاحظات تفصيلية مع الوصول المدفوع.",
+    "uk": "Готуйтеся до TELC Deutsch B1 з реалістичними іспитами на час. Почніть безкоштовно; платний доступ додає детальні пояснення.",
+    "tr": "Gerçekçi, süreli denemelerle TELC Deutsch B1’e hazırlanın. Ücretsiz başlayın; ücretli erişim ayrıntılı geri bildirim sunar."
+  },
+  "Prepare your class for TELC Deutsch B1. Create classes for free, assign realistic mock exams and save up to 40% on prepaid exam seats.": {
+    "de": "Bereite deine Klasse auf TELC Deutsch B1 vor. Klassen kostenlos erstellen, Probeprüfungen zuweisen und bis zu 40 % auf Plätze sparen.",
+    "fr": "Préparez votre classe au TELC Deutsch B1. Créez des classes gratuitement, attribuez des examens blancs et économisez jusqu’à 40 % sur les places.",
+    "ar": "جهّز صفك لامتحان TELC Deutsch B1. أنشئ الصفوف مجانًا وعيّن امتحانات تجريبية ووفّر حتى 40٪ على المقاعد.",
+    "uk": "Готуйте клас до TELC Deutsch B1. Безкоштовно створюйте класи, призначайте пробні іспити й заощаджуйте до 40% на місцях.",
+    "tr": "Sınıfınızı TELC Deutsch B1’e hazırlayın. Ücretsiz sınıf oluşturun, denemeler atayın ve koltuklarda %40’a varan tasarruf edin."
+  },
+  "Preparing exam…": {
+    "de": "Prüfung wird vorbereitet…",
+    "fr": "Préparation de l’examen…",
+    "ar": "جارٍ تجهيز الامتحان…",
+    "uk": "Підготовка іспиту…",
+    "tr": "Sınav hazırlanıyor…"
+  },
+  "Preparing your assigned exam…": {
+    "de": "Zugewiesene Prüfung wird vorbereitet…",
+    "fr": "Préparation de l’examen attribué…",
+    "ar": "جارٍ تجهيز الامتحان المعيّن…",
+    "uk": "Підготовка призначеного іспиту…",
+    "tr": "Atanan sınav hazırlanıyor…"
+  },
+  "Previous offers (": {
+    "de": "Frühere Angebote (",
+    "fr": "Offres précédentes (",
+    "ar": "العروض السابقة (",
+    "uk": "Попередні пропозиції (",
+    "tr": "Önceki teklifler ("
+  },
+  "Price per seat": {
+    "de": "Preis pro Platz",
+    "fr": "Prix par place",
+    "ar": "سعر المقعد",
+    "uk": "Ціна за місце",
+    "tr": "Koltuk başına fiyat"
+  },
+  "Privacy Policy": {
+    "de": "Datenschutzerklärung",
+    "fr": "Politique de confidentialité",
+    "ar": "سياسة الخصوصية",
+    "uk": "Політика конфіденційності",
+    "tr": "Gizlilik politikası"
+  },
+  "Private class invitation": {
+    "de": "Private Klasseneinladung",
+    "fr": "Invitation privée à la classe",
+    "ar": "دعوة خاصة للصف",
+    "uk": "Приватне запрошення до класу",
+    "tr": "Özel sınıf daveti"
+  },
+  "Private invitations and assignments": {
+    "de": "Private Einladungen und Aufgaben",
+    "fr": "Invitations et devoirs privés",
+    "ar": "دعوات وواجبات خاصة",
+    "uk": "Приватні запрошення й завдання",
+    "tr": "Özel davetler ve ödevler"
+  },
+  "Progress": {
+    "de": "Fortschritt",
+    "fr": "Progrès",
+    "ar": "التقدم",
+    "uk": "Прогрес",
+    "tr": "İlerleme"
+  },
+  "Put your ideas into a clear written response.": {
+    "de": "Formuliere deine Gedanken in einer klaren schriftlichen Antwort.",
+    "fr": "Exprimez vos idées dans une réponse écrite claire.",
+    "ar": "عبّر عن أفكارك بإجابة كتابية واضحة.",
+    "uk": "Викладіть думки в чіткій письмовій відповіді.",
+    "tr": "Fikirlerinizi açık bir yazılı yanıta dönüştürün."
+  },
+  "Ready for TELC B1.": {
+    "de": "Bereit für TELC B1.",
+    "fr": "Prêts pour TELC B1.",
+    "ar": "مستعدون لـ TELC B1.",
+    "uk": "Готові до TELC B1.",
+    "tr": "TELC B1’e hazır."
+  },
+  "Ready to offer": {
+    "de": "Bereit zum Anbieten",
+    "fr": "Prêtes à offrir",
+    "ar": "جاهزة للتقديم",
+    "uk": "Готові до пропозиції",
+    "tr": "Teklif vermeye hazır"
+  },
+  "Record not found.": {
+    "de": "Datensatz nicht gefunden.",
+    "fr": "Enregistrement introuvable.",
+    "ar": "السجل غير موجود.",
+    "uk": "Запис не знайдено.",
+    "tr": "Kayıt bulunamadı."
+  },
+  "Redeem your code": {
+    "de": "Code einlösen",
+    "fr": "Utiliser votre code",
+    "ar": "استرداد الرمز",
+    "uk": "Активувати код",
+    "tr": "Kodunuzu kullanın"
+  },
+  "Refresh": {
+    "de": "Aktualisieren",
+    "fr": "Actualiser",
+    "ar": "تحديث",
+    "uk": "Оновити",
+    "tr": "Yenile"
+  },
+  "Register as a teacher, name your class and you’re ready to invite learners.": {
+    "de": "Registriere dich als Lehrkraft, benenne deine Klasse und lade Lernende ein.",
+    "fr": "Inscrivez-vous comme enseignant, nommez votre classe et invitez vos apprenants.",
+    "ar": "سجّل كمعلم وسمّ صفك ثم ادعُ المتعلمين.",
+    "uk": "Зареєструйтеся як учитель, назвіть клас і запросіть учнів.",
+    "tr": "Öğretmen olarak kaydolun, sınıfınızı adlandırıp öğrencileri davet edin."
+  },
+  "Register to create classes, invite students and assign TELC Deutsch B1 mock exams. Teacher Mode is free.": {
+    "de": "Registriere dich, um Klassen zu erstellen, Lernende einzuladen und TELC-B1-Probeprüfungen zuzuweisen. Der Lehrkraftmodus ist kostenlos.",
+    "fr": "Inscrivez-vous pour créer des classes, inviter des apprenants et attribuer des examens TELC B1. Le mode enseignant est gratuit.",
+    "ar": "سجّل لإنشاء الصفوف ودعوة المتعلمين وتعيين امتحانات TELC B1. وضع المعلم مجاني.",
+    "uk": "Зареєструйтеся, щоб створювати класи, запрошувати учнів і призначати іспити TELC B1. Режим учителя безкоштовний.",
+    "tr": "Sınıf oluşturmak, öğrenci davet etmek ve TELC B1 denemeleri atamak için kaydolun. Öğretmen Modu ücretsizdir."
+  },
+  "Replace link": {
+    "de": "Link ersetzen",
+    "fr": "Remplacer le lien",
+    "ar": "استبدال الرابط",
+    "uk": "Замінити посилання",
+    "tr": "Bağlantıyı değiştir"
+  },
+  "Replace the invitation link? The previous link will stop working.": {
+    "de": "Einladungslink ersetzen? Der alte Link wird ungültig.",
+    "fr": "Remplacer le lien ? L’ancien cessera de fonctionner.",
+    "ar": "هل تريد استبدال رابط الدعوة؟ سيتوقف الرابط القديم.",
+    "uk": "Замінити запрошення? Старе посилання перестане працювати.",
+    "tr": "Davet bağlantısı değiştirilsin mi? Eski bağlantı çalışmayacak."
+  },
+  "Reply by": {
+    "de": "Antwort bis",
+    "fr": "Répondre avant le",
+    "ar": "الرد قبل",
+    "uk": "Відповісти до",
+    "tr": "Son yanıt tarihi"
+  },
+  "Results will appear as students practise": {
+    "de": "Ergebnisse erscheinen, sobald Lernende üben",
+    "fr": "Les résultats apparaissent après la pratique",
+    "ar": "ستظهر النتائج مع تدريب المتعلمين",
+    "uk": "Результати з’являться після практики",
+    "tr": "Öğrenciler çalıştıkça sonuçlar görünür"
+  },
+  "Retry": {
+    "de": "Erneut versuchen",
+    "fr": "Réessayer",
+    "ar": "إعادة المحاولة",
+    "uk": "Спробувати знову",
+    "tr": "Tekrar dene"
+  },
+  "Review": {
+    "de": "Prüfen",
+    "fr": "Examiner",
+    "ar": "مراجعة",
+    "uk": "Переглянути",
+    "tr": "İncele"
+  },
+  "Review invitation": {
+    "de": "Einladung prüfen",
+    "fr": "Vérifier l’invitation",
+    "ar": "مراجعة الدعوة",
+    "uk": "Переглянути запрошення",
+    "tr": "Daveti incele"
+  },
+  "Review result": {
+    "de": "Ergebnis ansehen",
+    "fr": "Voir le résultat",
+    "ar": "مراجعة النتيجة",
+    "uk": "Переглянути результат",
+    "tr": "Sonucu incele"
+  },
+  "Save changes": {
+    "de": "Änderungen speichern",
+    "fr": "Enregistrer les modifications",
+    "ar": "حفظ التغييرات",
+    "uk": "Зберегти зміни",
+    "tr": "Değişiklikleri kaydet"
+  },
+  "Save up to 40%": {
+    "de": "Bis zu 40 % sparen",
+    "fr": "Économisez jusqu’à 40 %",
+    "ar": "وفّر حتى 40٪",
+    "uk": "Заощаджуйте до 40%",
+    "tr": "%40’a varan tasarruf"
+  },
+  "Save your progress": {
+    "de": "Fortschritt speichern",
+    "fr": "Enregistrez votre progression",
+    "ar": "احفظ تقدمك",
+    "uk": "Збережіть прогрес",
+    "tr": "İlerlemenizi kaydedin"
+  },
+  "Saving…": {
+    "de": "Wird gespeichert…",
+    "fr": "Enregistrement…",
+    "ar": "جارٍ الحفظ…",
+    "uk": "Збереження…",
+    "tr": "Kaydediliyor…"
+  },
+  "Search assignments": {
+    "de": "Aufgaben durchsuchen",
+    "fr": "Rechercher des devoirs",
+    "ar": "البحث في الواجبات",
+    "uk": "Пошук завдань",
+    "tr": "Ödev ara"
+  },
+  "Seat checkout is not enabled yet. Class management is free.": {
+    "de": "Platzkäufe sind noch nicht freigeschaltet. Klassenverwaltung ist kostenlos.",
+    "fr": "L’achat de places n’est pas encore activé. La gestion des classes est gratuite.",
+    "ar": "شراء المقاعد غير مفعّل بعد. إدارة الصفوف مجانية.",
+    "uk": "Купівлю місць ще не ввімкнено. Керування класами безкоштовне.",
+    "tr": "Koltuk satın alma henüz açık değil. Sınıf yönetimi ücretsizdir."
+  },
+  "Seat is unavailable.": {
+    "de": "Platz nicht verfügbar.",
+    "fr": "Place indisponible.",
+    "ar": "المقعد غير متاح.",
+    "uk": "Місце недоступне.",
+    "tr": "Koltuk kullanılamıyor."
+  },
+  "Seat not found.": {
+    "de": "Platz nicht gefunden.",
+    "fr": "Place introuvable.",
+    "ar": "المقعد غير موجود.",
+    "uk": "Місце не знайдено.",
+    "tr": "Koltuk bulunamadı."
+  },
+  "Seat offers": {
+    "de": "Platzangebote",
+    "fr": "Offres de places",
+    "ar": "عروض المقاعد",
+    "uk": "Пропозиції місць",
+    "tr": "Koltuk teklifleri"
+  },
+  "Seat purchases": {
+    "de": "Platzkäufe",
+    "fr": "Achats de places",
+    "ar": "مشتريات المقاعد",
+    "uk": "Покупки місць",
+    "tr": "Koltuk satın alımları"
+  },
+  "Seat purchases are not open yet. You can still create classes, invite students and assign practice for free.": {
+    "de": "Platzkäufe sind noch nicht möglich. Klassen, Einladungen und Aufgaben bleiben kostenlos nutzbar.",
+    "fr": "Les achats de places ne sont pas encore ouverts. Vous pouvez toujours gérer classes, invitations et devoirs gratuitement.",
+    "ar": "شراء المقاعد غير متاح بعد. ما زال بإمكانك إنشاء الصفوف والدعوات والواجبات مجانًا.",
+    "uk": "Купівлю місць ще не відкрито. Створюйте класи, запрошуйте учнів і призначайте практику безкоштовно.",
+    "tr": "Koltuk alımı henüz açık değil. Sınıf, davet ve ödev özelliklerini ücretsiz kullanabilirsiniz."
+  },
+  "Section scores": {
+    "de": "Abschnittsergebnisse",
+    "fr": "Scores par partie",
+    "ar": "درجات الأقسام",
+    "uk": "Бали за розділами",
+    "tr": "Bölüm puanları"
+  },
+  "Secure checkout": {
+    "de": "Sichere Zahlung",
+    "fr": "Paiement sécurisé",
+    "ar": "دفع آمن",
+    "uk": "Безпечна оплата",
+    "tr": "Güvenli ödeme"
+  },
+  "See completion, overall scores and section results for shared assignments.": {
+    "de": "Sieh Abschluss, Gesamtpunktzahl und Abschnittsergebnisse geteilter Aufgaben.",
+    "fr": "Consultez l’achèvement, le score global et les scores par partie des devoirs partagés.",
+    "ar": "اطّلع على إكمال الواجبات المشتركة ودرجاتها الإجمالية ودرجات الأقسام.",
+    "uk": "Переглядайте завершення, загальний бал і бали за розділами наданих завдань.",
+    "tr": "Paylaşılan ödevlerin tamamlanmasını, toplam ve bölüm puanlarını görün."
+  },
+  "See how it works": {
+    "de": "So funktioniert es",
+    "fr": "Voir le fonctionnement",
+    "ar": "كيف يعمل؟",
+    "uk": "Як це працює",
+    "tr": "Nasıl çalıştığını görün"
+  },
+  "See results after students finish.": {
+    "de": "Ergebnisse nach Abschluss ansehen.",
+    "fr": "Consultez les résultats après leur examen.",
+    "ar": "شاهد النتائج بعد إكمال المتعلمين.",
+    "uk": "Переглядайте результати після завершення.",
+    "tr": "Öğrenciler bitirince sonuçları görün."
+  },
+  "See who has finished and use their section scores to guide your next lesson.": {
+    "de": "Sieh, wer fertig ist, und plane die nächste Stunde anhand der Abschnittsergebnisse.",
+    "fr": "Voyez qui a terminé et utilisez les scores par partie pour préparer votre prochain cours.",
+    "ar": "اعرف من أكمل الامتحان واستفد من درجات الأقسام في درسك التالي.",
+    "uk": "Дізнайтеся, хто завершив іспит, і сплануйте наступний урок за балами розділів.",
+    "tr": "Kimin bitirdiğini görün; bölüm puanlarıyla sonraki dersi planlayın."
+  },
+  "See who has joined and whether they have exam access.": {
+    "de": "Sieh, wer beigetreten ist und Prüfungszugang hat.",
+    "fr": "Voyez qui a rejoint et dispose d’un accès aux examens.",
+    "ar": "اعرف من انضم ومن لديه وصول للامتحانات.",
+    "uk": "Дізнайтеся, хто приєднався й має доступ до іспитів.",
+    "tr": "Kimin katıldığını ve sınav erişimi olduğunu görün."
+  },
+  "See your assignments": {
+    "de": "Deine Aufgaben ansehen",
+    "fr": "Voir vos devoirs",
+    "ar": "عرض واجباتك",
+    "uk": "Перегляньте свої завдання",
+    "tr": "Ödevlerinizi görün"
+  },
+  "See your score after your free exam. Paid access adds detailed results and explanations to help you review mistakes.": {
+    "de": "Die kostenlose Prüfung zeigt deine Punktzahl. Bezahlter Zugang ergänzt Detailergebnisse und Erklärungen zur Fehleranalyse.",
+    "fr": "L’examen gratuit affiche votre score. L’accès payant ajoute résultats détaillés et explications pour revoir vos erreurs.",
+    "ar": "شاهد درجتك بعد الامتحان المجاني. يضيف الوصول المدفوع نتائج تفصيلية وشروحًا لمراجعة أخطائك.",
+    "uk": "Безкоштовний іспит показує бал. Платний доступ додає детальні результати й пояснення помилок.",
+    "tr": "Ücretsiz sınavda puanınızı görün. Ücretli erişim hatalarınızı incelemek için ayrıntılı sonuç ve açıklama ekler."
+  },
+  "Select an existing TELC B1 exam.": {
+    "de": "Wähle eine vorhandene TELC-B1-Prüfung.",
+    "fr": "Sélectionnez un examen TELC B1 existant.",
+    "ar": "اختر امتحان TELC B1 موجودًا.",
+    "uk": "Оберіть наявний іспит TELC B1.",
+    "tr": "Mevcut bir TELC B1 sınavı seçin."
+  },
+  "Select at least one student.": {
+    "de": "Wähle mindestens eine Person aus.",
+    "fr": "Sélectionnez au moins un apprenant.",
+    "ar": "اختر متعلمًا واحدًا على الأقل.",
+    "uk": "Оберіть принаймні одного учня.",
+    "tr": "En az bir öğrenci seçin."
+  },
+  "Selected students": {
+    "de": "Ausgewählte Lernende",
+    "fr": "Apprenants sélectionnés",
+    "ar": "المتعلمون المحددون",
+    "uk": "Обрані учні",
+    "tr": "Seçilen öğrenciler"
+  },
+  "Send seat offer": {
+    "de": "Platzangebot senden",
+    "fr": "Envoyer l’offre de place",
+    "ar": "إرسال عرض مقعد",
+    "uk": "Надіслати пропозицію місця",
+    "tr": "Koltuk teklifi gönder"
+  },
+  "Send them a private invitation link. Joining your class is free.": {
+    "de": "Sende einen privaten Einladungslink. Der Klassenbeitritt ist kostenlos.",
+    "fr": "Envoyez un lien privé. Rejoindre la classe est gratuit.",
+    "ar": "أرسل رابط دعوة خاصًا. الانضمام لصفك مجاني.",
+    "uk": "Надішліть приватне запрошення. Приєднання безкоштовне.",
+    "tr": "Özel davet bağlantısı gönderin. Sınıfa katılmak ücretsizdir."
+  },
+  "Send this link to your students. They will appear in the class after joining.": {
+    "de": "Sende diesen Link an deine Lernenden. Nach dem Beitritt erscheinen sie hier.",
+    "fr": "Envoyez ce lien à vos apprenants. Ils apparaîtront après leur inscription.",
+    "ar": "أرسل هذا الرابط لمتعلميك. سيظهرون في الصف بعد الانضمام.",
+    "uk": "Надішліть учням це посилання. Після вступу вони з’являться в класі.",
+    "tr": "Bu bağlantıyı öğrencilere gönderin. Katıldıklarında sınıfta görünürler."
+  },
+  "Share a private invitation link and keep your class roster organised.": {
+    "de": "Teile einen privaten Link und verwalte deine Klassenliste übersichtlich.",
+    "fr": "Partagez un lien privé et organisez la liste de votre classe.",
+    "ar": "شارك رابط دعوة خاصًا ونظّم قائمة الصف.",
+    "uk": "Поділіться приватним запрошенням і впорядкуйте список класу.",
+    "tr": "Özel davet bağlantısı paylaşın ve sınıf listenizi düzenli tutun."
+  },
+  "Share one link": {
+    "de": "Einen Link teilen",
+    "fr": "Partagez un lien",
+    "ar": "شارك رابطًا واحدًا",
+    "uk": "Поділіться посиланням",
+    "tr": "Tek bağlantı paylaşın"
+  },
+  "Shared class progress": {
+    "de": "Geteilter Klassenfortschritt",
+    "fr": "Progrès partagés de la classe",
+    "ar": "تقدم الصف المشترك",
+    "uk": "Спільний прогрес класу",
+    "tr": "Paylaşılan sınıf ilerlemesi"
+  },
+  "Sharing enabled": {
+    "de": "Freigabe aktiviert",
+    "fr": "Partage activé",
+    "ar": "المشاركة مفعّلة",
+    "uk": "Обмін увімкнено",
+    "tr": "Paylaşım açık"
+  },
+  "Sharing is enabled for this class": {
+    "de": "Die Freigabe für diese Klasse ist aktiviert",
+    "fr": "Le partage est activé pour cette classe",
+    "ar": "مشاركة النتائج مفعّلة لهذا الصف",
+    "uk": "Обмін результатами для цього класу ввімкнено",
+    "tr": "Bu sınıf için paylaşım açık"
+  },
+  "Sharing settings": {
+    "de": "Freigabeeinstellungen",
+    "fr": "Paramètres de partage",
+    "ar": "إعدادات المشاركة",
+    "uk": "Налаштування обміну",
+    "tr": "Paylaşım ayarları"
+  },
+  "Sharing stopped": {
+    "de": "Freigabe beendet",
+    "fr": "Partage arrêté",
+    "ar": "توقفت المشاركة",
+    "uk": "Обмін припинено",
+    "tr": "Paylaşım durduruldu"
+  },
+  "Sign in to continue.": {
+    "de": "Melde dich an, um fortzufahren.",
+    "fr": "Connectez-vous pour continuer.",
+    "ar": "سجّل الدخول للمتابعة.",
+    "uk": "Увійдіть, щоб продовжити.",
+    "tr": "Devam etmek için giriş yapın."
+  },
+  "Sign in to keep practicing": {
+    "de": "Anmelden und weiterüben",
+    "fr": "Connectez-vous pour continuer",
+    "ar": "سجّل الدخول لمتابعة التدريب",
+    "uk": "Увійдіть, щоб продовжити практику",
+    "tr": "Çalışmaya devam etmek için giriş yapın"
+  },
+  "Sign in to your workspace": {
+    "de": "Im Arbeitsbereich anmelden",
+    "fr": "Connectez-vous à votre espace",
+    "ar": "سجّل الدخول إلى مساحتك",
+    "uk": "Увійдіть до робочого простору",
+    "tr": "Çalışma alanınıza giriş yapın"
+  },
+  "Sign up": {
+    "de": "Registrieren",
+    "fr": "S'inscrire",
+    "ar": "إنشاء حساب",
+    "uk": "Зареєструватися",
+    "tr": "Kayıt ol"
+  },
+  "Simple to start. Easy to keep using.": {
+    "de": "Einfach starten. Einfach weiterarbeiten.",
+    "fr": "Simple à démarrer. Facile au quotidien.",
+    "ar": "بداية بسيطة واستخدام سهل.",
+    "uk": "Легко почати. Зручно користуватися.",
+    "tr": "Başlamak kolay. Kullanmak kolay."
+  },
+  "Simple, flexible pricing": {
+    "de": "Einfache, flexible Preise",
+    "fr": "Des tarifs simples et flexibles",
+    "ar": "أسعار بسيطة ومرنة",
+    "uk": "Прості й гнучкі ціни",
+    "tr": "Basit, esnek fiyatlar"
+  },
+  "SmartPrüfung": {
+    "de": "SmartPrüfung",
+    "fr": "SmartPrüfung",
+    "ar": "SmartPrüfung",
+    "uk": "SmartPrüfung",
+    "tr": "SmartPrüfung"
+  },
+  "SmartPrüfung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.": {
+    "de": "SmartPrüfung ist eine unabhängige Vorbereitungsplattform und weder mit telc gGmbH noch mit dem Goethe-Institut verbunden oder von ihnen unterstützt.",
+    "fr": "SmartPrüfung est une plateforme de préparation indépendante, sans affiliation ni approbation de telc gGmbH ou du Goethe-Institut.",
+    "ar": "SmartPrüfung منصة تحضير مستقلة لا تتبع شركة telc gGmbH أو معهد غوته ولا تحظى بتأييدهما.",
+    "uk": "SmartPrüfung — незалежна платформа підготовки, не пов’язана з telc gGmbH чи Goethe-Institut і не схвалена ними.",
+    "tr": "SmartPrüfung bağımsız bir hazırlık platformudur; telc gGmbH veya Goethe-Institut ile bağlantılı değildir ve bu kurumlar tarafından onaylanmamıştır."
+  },
+  "Something went wrong. Please try again.": {
+    "tr": "Bir sorun oluştu. Tekrar deneyin.",
+    "de": "Etwas ist schiefgelaufen. Bitte erneut versuchen.",
+    "fr": "Une erreur est survenue. Réessayez.",
+    "ar": "حدث خطأ. يرجى المحاولة مجددًا.",
+    "uk": "Щось пішло не так. Спробуйте знову."
+  },
+  "Standard price": {
+    "de": "Standardpreis",
+    "fr": "Tarif standard",
+    "ar": "السعر الأساسي",
+    "uk": "Стандартна ціна",
+    "tr": "Standart fiyat"
+  },
+  "Start a free exam": {
+    "de": "Kostenlose Prüfung starten",
+    "fr": "Commencer un examen gratuit",
+    "ar": "ابدأ امتحانًا مجانيًا",
+    "uk": "Почніть безкоштовний іспит",
+    "tr": "Ücretsiz sınav başlat"
+  },
+  "Start assigned exam": {
+    "de": "Zugewiesene Prüfung starten",
+    "fr": "Commencer l’examen attribué",
+    "ar": "بدء الامتحان المعيّن",
+    "uk": "Почати призначений іспит",
+    "tr": "Atanan sınavı başlat"
+  },
+  "Start with a free mock exam and see where you stand. A little practice today can make the format feel more familiar tomorrow.": {
+    "de": "Starte mit einer kostenlosen Probeprüfung und erkenne deinen Stand. Etwas Übung heute macht das Format morgen vertrauter.",
+    "fr": "Commencez par un examen blanc gratuit pour faire le point. Un peu de pratique aujourd’hui rendra le format plus familier demain.",
+    "ar": "ابدأ بامتحان تجريبي مجاني واعرف مستواك. قليل من التدريب اليوم يجعل شكل الامتحان أكثر ألفة غدًا.",
+    "uk": "Почніть із безкоштовного пробного іспиту й оцініть свій рівень. Практика сьогодні зробить формат знайомішим завтра.",
+    "tr": "Ücretsiz denemeyle seviyenizi görün. Bugünkü küçük bir çalışma, yarın sınav biçimini daha tanıdık kılar."
+  },
+  "Start with one exam. Build from there.": {
+    "de": "Starte mit einer Prüfung. Baue darauf auf.",
+    "fr": "Commencez par un examen. Progressez ensuite.",
+    "ar": "ابدأ بامتحان واحد وابنِ عليه.",
+    "uk": "Почніть з одного іспиту. Рухайтеся далі.",
+    "tr": "Bir sınavla başlayın. Üzerine ekleyin."
+  },
+  "Start without an account · Register when prompted to continue · No credit card required": {
+    "de": "Ohne Konto starten · Bei Aufforderung registrieren · Keine Kreditkarte nötig",
+    "fr": "Commencez sans compte · Inscrivez-vous lorsque demandé · Sans carte bancaire",
+    "ar": "ابدأ دون حساب · سجّل عند الطلب للمتابعة · دون بطاقة بنكية",
+    "uk": "Почніть без облікового запису · Зареєструйтеся за запитом · Без картки",
+    "tr": "Hesapsız başlayın · İstendiğinde kaydolun · Kart gerekmez"
+  },
+  "Start your free mock exam": {
+    "de": "Kostenlose Probeprüfung starten",
+    "fr": "Commencez votre examen blanc gratuit",
+    "ar": "ابدأ امتحانك التجريبي المجاني",
+    "uk": "Почніть безкоштовний пробний іспит",
+    "tr": "Ücretsiz deneme sınavınızı başlatın"
+  },
+  "Stop new invitations, assignments and progress sharing. Students keep their paid access.": {
+    "de": "Beendet neue Einladungen, Aufgaben und Fortschrittsfreigaben. Bezahlter Zugang bleibt erhalten.",
+    "fr": "Arrête les invitations, les nouveaux devoirs et le partage. L’accès payé reste valable.",
+    "ar": "يوقف الدعوات والواجبات الجديدة ومشاركة التقدم. يحتفظ المتعلمون بالوصول المدفوع.",
+    "uk": "Припиняє нові запрошення, завдання й обмін прогресом. Платний доступ зберігається.",
+    "tr": "Yeni davetleri, ödevleri ve ilerleme paylaşımını durdurur. Ücretli erişim korunur."
+  },
+  "Student accepts to start": {
+    "de": "Annahme startet den Zugang",
+    "fr": "L’acceptation démarre l’accès",
+    "ar": "يبدأ الوصول عند قبول المتعلم",
+    "uk": "Прийняття активує доступ",
+    "tr": "Öğrenci kabul edince başlar"
+  },
+  "Student already has a pending seat offer.": {
+    "de": "Für diese Person besteht bereits ein offenes Angebot.",
+    "fr": "Cet apprenant a déjà une offre en attente.",
+    "ar": "لدى المتعلم عرض معلق بالفعل.",
+    "uk": "Цей учень уже має пропозицію, що очікує відповіді.",
+    "tr": "Öğrencinin zaten bekleyen bir teklifi var."
+  },
+  "Student already has active paid access.": {
+    "de": "Diese Person hat bereits aktiven bezahlten Zugang.",
+    "fr": "Cet apprenant dispose déjà d’un accès payé actif.",
+    "ar": "لدى المتعلم وصول مدفوع نشط بالفعل.",
+    "uk": "Учень уже має активний платний доступ.",
+    "tr": "Öğrencinin zaten aktif ücretli erişimi var."
+  },
+  "Student-controlled progress sharing": {
+    "de": "Lernende entscheiden über die Freigabe",
+    "fr": "Partage contrôlé par l’apprenant",
+    "ar": "المتعلم يتحكم بمشاركة تقدمه",
+    "uk": "Учні керують обміном прогресом",
+    "tr": "Paylaşımı öğrenci kontrol eder"
+  },
+  "Students": {
+    "de": "Lernende",
+    "fr": "Apprenants",
+    "ar": "المتعلمون",
+    "uk": "Учні",
+    "tr": "Öğrenciler"
+  },
+  "Students control sharing. Leaving the class removes their results from this view.": {
+    "de": "Lernende steuern die Freigabe. Beim Verlassen verschwinden ihre Ergebnisse aus dieser Ansicht.",
+    "fr": "Les apprenants contrôlent le partage. Quitter retire leurs résultats de cette vue.",
+    "ar": "يتحكم المتعلمون بالمشاركة. مغادرة الصف تزيل نتائجهم من هذا العرض.",
+    "uk": "Учні керують обміном. Після виходу їхні результати зникають із цього перегляду.",
+    "tr": "Paylaşımı öğrenciler yönetir. Ayrıldıklarında sonuçları bu görünümden kaldırılır."
+  },
+  "Students join for free and agree to share their class results with you.": {
+    "de": "Lernende treten kostenlos bei und stimmen der Ergebnisfreigabe zu.",
+    "fr": "Les apprenants rejoignent gratuitement et acceptent de partager leurs résultats de classe.",
+    "ar": "ينضم المتعلمون مجانًا ويوافقون على مشاركة نتائج الصف معك.",
+    "uk": "Учні приєднуються безкоштовно й погоджуються ділитися результатами класу.",
+    "tr": "Öğrenciler ücretsiz katılır ve sınıf sonuçlarını paylaşmayı kabul eder."
+  },
+  "Students join through your private link.": {
+    "de": "Der Beitritt erfolgt über deinen privaten Link.",
+    "fr": "Les apprenants rejoignent via votre lien privé.",
+    "ar": "ينضم المتعلمون عبر رابطك الخاص.",
+    "uk": "Учні приєднуються за вашим приватним посиланням.",
+    "tr": "Öğrenciler özel bağlantınızla katılır."
+  },
+  "Students use their existing exam access for each assignment.": {
+    "de": "Für jede Aufgabe wird der vorhandene Prüfungszugang genutzt.",
+    "fr": "Chaque devoir utilise l’accès existant de l’apprenant.",
+    "ar": "يستخدم المتعلمون وصولهم الحالي لكل واجب.",
+    "uk": "Кожне завдання використовує наявний доступ учня.",
+    "tr": "Her ödev öğrencinin mevcut erişimini kullanır."
+  },
+  "Students with paid access keep their own plan.": {
+    "de": "Lernende mit bezahltem Zugang behalten ihr Paket.",
+    "fr": "Les apprenants avec un accès payé gardent leur offre.",
+    "ar": "يحتفظ المتعلمون بوصولهم المدفوع الحالي.",
+    "uk": "Учні з платним доступом зберігають свій пакет.",
+    "tr": "Ücretli erişimi olan öğrenciler paketini korur."
+  },
+  "Students, assignments and progress — together.": {
+    "de": "Lernende, Aufgaben und Fortschritt – gemeinsam.",
+    "fr": "Apprenants, devoirs et progrès au même endroit.",
+    "ar": "المتعلمون والواجبات والتقدم معًا.",
+    "uk": "Учні, завдання й прогрес разом.",
+    "tr": "Öğrenciler, ödevler ve ilerleme bir arada."
+  },
+  "Support review": {
+    "de": "Supportprüfung",
+    "fr": "Examen par l’assistance",
+    "ar": "مراجعة الدعم",
+    "uk": "Перевірка підтримкою",
+    "tr": "Destek incelemesi"
+  },
+  "Support review required": {
+    "de": "Supportprüfung erforderlich",
+    "fr": "Vérification par l’assistance requise",
+    "ar": "تلزم مراجعة الدعم",
+    "uk": "Потрібна перевірка підтримкою",
+    "tr": "Destek incelemesi gerekli"
+  },
+  "Switch to dark mode": {
+    "de": "Zum dunklen Modus wechseln",
+    "fr": "Passer au mode sombre",
+    "ar": "التبديل للوضع الداكن",
+    "uk": "Увімкнути темний режим",
+    "tr": "Koyu moda geç"
+  },
+  "Switch to light mode": {
+    "de": "Zum hellen Modus wechseln",
+    "fr": "Passer au mode clair",
+    "ar": "التبديل للوضع الفاتح",
+    "uk": "Увімкнути світлий режим",
+    "tr": "Açık moda geç"
+  },
+  "TELC B1 · Mock Exam 1": {
+    "de": "TELC B1 · Probeprüfung 1",
+    "fr": "TELC B1 · Examen blanc 1",
+    "ar": "TELC B1 · امتحان تجريبي 1",
+    "uk": "TELC B1 · Пробний іспит 1",
+    "tr": "TELC B1 · Deneme sınavı 1"
+  },
+  "TELC Deutsch B1": {
+    "de": "TELC Deutsch B1",
+    "fr": "TELC Deutsch B1",
+    "ar": "TELC Deutsch B1",
+    "uk": "TELC Deutsch B1",
+    "tr": "TELC Deutsch B1"
+  },
+  "TELC Deutsch B1 available now": {
+    "de": "TELC Deutsch B1 jetzt verfügbar",
+    "fr": "TELC Deutsch B1 disponible maintenant",
+    "ar": "امتحان TELC Deutsch B1 متاح الآن",
+    "uk": "TELC Deutsch B1 вже доступний",
+    "tr": "TELC Deutsch B1 şimdi mevcut"
+  },
+  "TELC Deutsch B1 mock exam": {
+    "de": "TELC-Deutsch-B1-Probeprüfung",
+    "fr": "Examen blanc TELC Deutsch B1",
+    "ar": "امتحان TELC Deutsch B1 تجريبي",
+    "uk": "Пробний іспит TELC Deutsch B1",
+    "tr": "TELC Deutsch B1 deneme sınavı"
+  },
+  "TELC Deutsch B1 ·": {
+    "de": "TELC Deutsch B1 ·",
+    "fr": "TELC Deutsch B1 ·",
+    "ar": "TELC Deutsch B1 ·",
+    "uk": "TELC Deutsch B1 ·",
+    "tr": "TELC Deutsch B1 ·"
+  },
+  "Teacher Mode benefits": {
+    "de": "Vorteile des Lehrkraftmodus",
+    "fr": "Avantages du mode enseignant",
+    "ar": "مزايا وضع المعلم",
+    "uk": "Переваги режиму вчителя",
+    "tr": "Öğretmen Modu avantajları"
+  },
+  "Teacher Mode is not active.": {
+    "de": "Der Lehrkraftmodus ist nicht aktiv.",
+    "fr": "Le mode enseignant n’est pas actif.",
+    "ar": "وضع المعلم غير نشط.",
+    "uk": "Режим учителя неактивний.",
+    "tr": "Öğretmen Modu aktif değil."
+  },
+  "Teacher Mode · Free class management": {
+    "de": "Lehrkraftmodus · Kostenlose Klassenverwaltung",
+    "fr": "Mode enseignant · Gestion gratuite des classes",
+    "ar": "وضع المعلم · إدارة صفوف مجانية",
+    "uk": "Режим учителя · Безкоштовне керування класами",
+    "tr": "Öğretmen Modu · Ücretsiz sınıf yönetimi"
+  },
+  "Teacher checkout is not configured. Set all four teacher Stripe Price IDs.": {
+    "de": "Zahlung für Lehrkräfte nicht eingerichtet. Die vier Stripe-Preis-IDs fehlen.",
+    "fr": "Le paiement enseignant n’est pas configuré. Définissez les quatre identifiants de tarifs Stripe.",
+    "ar": "الدفع للمعلمين غير مهيأ. يجب ضبط معرفات أسعار Stripe الأربعة.",
+    "uk": "Оплату для вчителів не налаштовано. Потрібні чотири ідентифікатори цін Stripe.",
+    "tr": "Öğretmen ödemesi yapılandırılmamış. Dört Stripe fiyat kimliğini ayarlayın."
+  },
+  "Teacher pages": {
+    "de": "Lehrkraftseiten",
+    "fr": "Pages enseignant",
+    "ar": "صفحات المعلم",
+    "uk": "Сторінки вчителя",
+    "tr": "Öğretmen sayfaları"
+  },
+  "Teacher workspace": {
+    "de": "Lehrkraftbereich",
+    "fr": "Espace enseignant",
+    "ar": "مساحة المعلم",
+    "uk": "Простір учителя",
+    "tr": "Öğretmen alanı"
+  },
+  "Teacher:": {
+    "de": "Lehrkraft:",
+    "fr": "Enseignant :",
+    "ar": "المعلم:",
+    "uk": "Учитель:",
+    "tr": "Öğretmen:"
+  },
+  "Terms": {
+    "de": "Nutzungsbedingungen",
+    "fr": "Conditions d'utilisation",
+    "ar": "الشروط",
+    "uk": "Умови",
+    "tr": "Koşullar"
+  },
+  "The offer status has changed. Please review your access.": {
+    "de": "Der Angebotsstatus hat sich geändert. Prüfe deinen Zugang.",
+    "fr": "Le statut de l’offre a changé. Vérifiez votre accès.",
+    "ar": "تغيّرت حالة العرض. راجع وصولك.",
+    "uk": "Стан пропозиції змінився. Перевірте доступ.",
+    "tr": "Teklif durumu değişti. Erişiminizi kontrol edin."
+  },
+  "This assignment already has an attempt. Resume it from Exams.": {
+    "de": "Zu dieser Aufgabe besteht bereits ein Versuch. Setze ihn unter Prüfungen fort.",
+    "fr": "Ce devoir a déjà une tentative. Reprenez-la dans Examens.",
+    "ar": "لهذا الواجب محاولة بالفعل. تابعها من قسم الامتحانات.",
+    "uk": "Для завдання вже є спроба. Продовжте її в розділі іспитів.",
+    "tr": "Bu ödevde bir deneme var. Sınavlar bölümünden devam edin."
+  },
+  "This class is archived": {
+    "de": "Diese Klasse ist archiviert",
+    "fr": "Cette classe est archivée",
+    "ar": "هذا الصف مؤرشف",
+    "uk": "Цей клас архівовано",
+    "tr": "Bu sınıf arşivlenmiş"
+  },
+  "This class no longer shares exam performance. You can leave to remove it from your class list.": {
+    "de": "Diese Klasse teilt keine Prüfungsergebnisse mehr. Verlasse sie, um sie aus deiner Liste zu entfernen.",
+    "fr": "Cette classe ne partage plus de résultats. Quittez-la pour la retirer de votre liste.",
+    "ar": "لم يعد هذا الصف يشارك نتائج الامتحانات. غادره لإزالته من قائمتك.",
+    "uk": "Клас більше не надає результатів іспитів. Вийдіть, щоб прибрати його зі списку.",
+    "tr": "Bu sınıf artık sınav sonuçları paylaşmıyor. Listeden kaldırmak için ayrılın."
+  },
+  "This invitation was created before links could be saved. Replace it once to get a link you can view and copy anytime. The previous link will stop working.": {
+    "de": "Diese alte Einladung wurde nur als Hash gespeichert. Ersetze sie einmal, um den Link später anzeigen und kopieren zu können. Der alte Link wird ungültig.",
+    "fr": "Cette ancienne invitation n’a pas de lien récupérable. Remplacez-la une fois pour pouvoir l’afficher et le copier ensuite. L’ancien lien cessera de fonctionner.",
+    "ar": "أُنشئت هذه الدعوة قبل إتاحة حفظ الروابط. استبدلها مرة واحدة لعرض الرابط ونسخه لاحقًا. سيتوقف الرابط القديم.",
+    "uk": "Це запрошення створено до збереження посилань. Замініть його один раз, щоб переглядати й копіювати. Старе посилання перестане працювати.",
+    "tr": "Bu davet bağlantıların kaydedilmesinden önce oluşturuldu. Sonradan görüntüleyip kopyalamak için bir kez değiştirin. Eski bağlantı çalışmayacak."
+  },
+  "This payment needs attention": {
+    "de": "Diese Zahlung erfordert Aufmerksamkeit",
+    "fr": "Ce paiement nécessite une vérification",
+    "ar": "هذا الدفع يحتاج إلى متابعة",
+    "uk": "Ця оплата потребує уваги",
+    "tr": "Bu ödeme kontrol gerektiriyor"
+  },
+  "This uses one prepaid seat from your wallet. There is no additional charge.": {
+    "de": "Ein vorausbezahlter Platz wird genutzt. Es entstehen keine zusätzlichen Kosten.",
+    "fr": "Une place prépayée est utilisée, sans frais supplémentaires.",
+    "ar": "يستخدم هذا مقعدًا مسبق الدفع من رصيدك. لا توجد رسوم إضافية.",
+    "uk": "Використовується одне передплачене місце. Додаткової оплати немає.",
+    "tr": "Bakiyenizden bir ön ödemeli koltuk kullanılır. Ek ücret yoktur."
+  },
+  "Three steps. No payment needed to create a class.": {
+    "de": "Drei Schritte. Keine Zahlung zur Klassenerstellung nötig.",
+    "fr": "Trois étapes. Aucune dépense pour créer une classe.",
+    "ar": "ثلاث خطوات. لا يلزم دفع لإنشاء صف.",
+    "uk": "Три кроки. Оплата для створення класу не потрібна.",
+    "tr": "Üç adım. Sınıf açmak için ödeme gerekmez."
+  },
+  "Timed mock exam": {
+    "de": "Probeprüfung mit Timer",
+    "fr": "Examen blanc chronométré",
+    "ar": "امتحان تجريبي مؤقت",
+    "uk": "Пробний іспит із таймером",
+    "tr": "Süreli deneme sınavı"
+  },
+  "To do": {
+    "de": "Zu erledigen",
+    "fr": "À faire",
+    "ar": "مطلوب إنجازه",
+    "uk": "До виконання",
+    "tr": "Yapılacaklar"
+  },
+  "Too many invitation requests. Try again in a minute.": {
+    "de": "Zu viele Einladungsanfragen. Versuche es in einer Minute erneut.",
+    "fr": "Trop de demandes d’invitation. Réessayez dans une minute.",
+    "ar": "طلبات دعوة كثيرة. حاول مجددًا بعد دقيقة.",
+    "uk": "Забагато запитів запрошення. Спробуйте за хвилину.",
+    "tr": "Çok fazla davet isteği. Bir dakika sonra tekrar deneyin."
+  },
+  "Total": {
+    "de": "Gesamtbetrag",
+    "fr": "Total",
+    "ar": "الإجمالي",
+    "uk": "Разом",
+    "tr": "Toplam"
+  },
+  "Try a free mock exam": {
+    "de": "Teste eine kostenlose Modellprüfung",
+    "fr": "Essayez un examen blanc gratuit",
+    "ar": "جرّب اختبارًا تجريبيًا مجانيًا",
+    "uk": "Спробуйте безкоштовний пробний іспит",
+    "tr": "Ücretsiz bir deneme sınavını deneyin"
+  },
+  "Try again": {
+    "de": "Erneut versuchen",
+    "fr": "Réessayer",
+    "ar": "حاول مجددًا",
+    "uk": "Спробувати ще раз",
+    "tr": "Tekrar dene"
+  },
+  "Try another class name or clear your search.": {
+    "de": "Versuche einen anderen Klassennamen oder lösche die Suche.",
+    "fr": "Essayez un autre nom de classe ou effacez la recherche.",
+    "ar": "جرّب اسم صف آخر أو امسح البحث.",
+    "uk": "Спробуйте іншу назву класу або очистьте пошук.",
+    "tr": "Başka sınıf adı deneyin veya aramayı temizleyin."
+  },
+  "Try the exam experience for free, then choose more practice when you’re ready.": {
+    "de": "Probiere das Prüfungsformat kostenlos aus und wähle mehr Übung, wenn du bereit bist.",
+    "fr": "Essayez gratuitement le format, puis choisissez plus de pratique quand vous le souhaitez.",
+    "ar": "جرّب تجربة الامتحان مجانًا ثم اختر تدريبًا إضافيًا عندما تكون مستعدًا.",
+    "uk": "Спробуйте формат безкоштовно, а потім оберіть більше практики, коли будете готові.",
+    "tr": "Sınav deneyimini ücretsiz deneyin, hazır olduğunuzda daha fazla pratik seçin."
+  },
+  "Under review": {
+    "de": "In Prüfung",
+    "fr": "En cours de vérification",
+    "ar": "قيد المراجعة",
+    "uk": "Перевіряється",
+    "tr": "İnceleniyor"
+  },
+  "Understand texts and find the right information.": {
+    "de": "Texte verstehen und passende Informationen finden.",
+    "fr": "Comprenez les textes et trouvez les bonnes informations.",
+    "ar": "افهم النصوص واعثر على المعلومات الصحيحة.",
+    "uk": "Розумійте тексти й знаходьте потрібну інформацію.",
+    "tr": "Metinleri anlayıp doğru bilgiyi bulun."
+  },
+  "Unfortunately, we can’t create your account at this moment. Please try again later.": {
+    "tr": "Hesabınız şu anda oluşturulamıyor. Daha sonra tekrar deneyin.",
+    "de": "Dein Konto kann gerade nicht erstellt werden. Bitte später erneut versuchen.",
+    "fr": "Votre compte ne peut pas être créé pour le moment. Réessayez plus tard.",
+    "ar": "لا يمكن إنشاء حسابك حاليًا. يرجى المحاولة لاحقًا.",
+    "uk": "Зараз не вдалося створити обліковий запис. Спробуйте пізніше."
+  },
+  "Unknown exam plan.": {
+    "de": "Unbekanntes Prüfungspaket.",
+    "fr": "Offre d’examens inconnue.",
+    "ar": "باقة امتحانات غير معروفة.",
+    "uk": "Невідомий пакет іспитів.",
+    "tr": "Bilinmeyen sınav paketi."
+  },
+  "Unlimited exam access": {
+    "de": "Unbegrenzter Prüfungszugang",
+    "fr": "Accès illimité aux examens",
+    "ar": "وصول غير محدود للامتحانات",
+    "uk": "Необмежений доступ до іспитів",
+    "tr": "Sınırsız sınav erişimi"
+  },
+  "Use Google or your email to get started.": {
+    "de": "Starte mit Google oder deiner E-Mail-Adresse.",
+    "fr": "Commencez avec Google ou votre e-mail.",
+    "ar": "ابدأ باستخدام Google أو بريدك الإلكتروني.",
+    "uk": "Почніть через Google або електронну пошту.",
+    "tr": "Başlamak için Google veya e-posta adresinizi kullanın."
+  },
+  "Use at least 8 characters with a mix of uppercase, lowercase, numbers and symbols.": {
+    "de": "Verwende mindestens 8 Zeichen mit Groß- und Kleinbuchstaben, Zahlen und Symbolen.",
+    "fr": "Utilisez au moins 8 caractères avec majuscules, minuscules, chiffres et symboles.",
+    "ar": "استخدم 8 أحرف على الأقل مع مزيج من الأحرف الكبيرة والصغيرة والأرقام والرموز.",
+    "uk": "Використовуйте принаймні 8 символів із великими й малими літерами, цифрами та знаками.",
+    "tr": "Büyük harf, küçük harf, rakam ve simgelerden oluşan en az 8 karakter kullanın."
+  },
+  "Use your own plan or accept an offer from your teacher.": {
+    "de": "Nutze dein eigenes Paket oder ein Angebot deiner Lehrkraft.",
+    "fr": "Utilisez votre offre ou acceptez celle de votre enseignant.",
+    "ar": "استخدم باقتك أو اقبل عرض معلمك.",
+    "uk": "Використайте свій пакет або прийміть пропозицію вчителя.",
+    "tr": "Kendi paketinizi kullanın veya öğretmeninizin teklifini kabul edin."
+  },
+  "Valid for 30 days · Account required": {
+    "de": "30 Tage gültig · Konto erforderlich",
+    "fr": "Valable 30 jours · Compte requis",
+    "ar": "صالح 30 يومًا · الحساب مطلوب",
+    "uk": "Дійсне 30 днів · Потрібен обліковий запис",
+    "tr": "30 gün geçerli · Hesap gerekli"
+  },
+  "View all": {
+    "de": "Alle ansehen",
+    "fr": "Tout voir",
+    "ar": "عرض الكل",
+    "uk": "Переглянути все",
+    "tr": "Tümünü gör"
+  },
+  "View exam history": {
+    "de": "Prüfungsverlauf anzeigen",
+    "fr": "Voir l'historique des examens",
+    "ar": "عرض سجل الاختبارات",
+    "uk": "Переглянути історію іспитів",
+    "tr": "Sınav geçmişini görüntüle"
+  },
+  "View exam plans": {
+    "de": "Prüfungspakete ansehen",
+    "fr": "Voir les offres d’examens",
+    "ar": "عرض باقات الامتحانات",
+    "uk": "Переглянути пакети іспитів",
+    "tr": "Sınav paketlerini gör"
+  },
+  "View receipt": {
+    "de": "Beleg ansehen",
+    "fr": "Voir le reçu",
+    "ar": "عرض الإيصال",
+    "uk": "Переглянути квитанцію",
+    "tr": "Makbuzu gör"
+  },
+  "View shared assignment scores and progress": {
+    "de": "Geteilte Aufgabenergebnisse und Fortschritt ansehen",
+    "fr": "Voir les scores et progrès partagés",
+    "ar": "عرض درجات الواجبات والتقدم المشترك",
+    "uk": "Переглядайте надані бали й прогрес",
+    "tr": "Paylaşılan ödev puanlarını ve ilerlemeyi görün"
+  },
+  "View student progress": {
+    "de": "Lernfortschritt ansehen",
+    "fr": "Voir les progrès des apprenants",
+    "ar": "عرض تقدم المتعلمين",
+    "uk": "Переглянути прогрес учнів",
+    "tr": "Öğrenci ilerlemesini gör"
+  },
+  "Volume discounts start at 10 seats.": {
+    "de": "Mengenrabatte ab 10 Plätzen.",
+    "fr": "Les réductions commencent à 10 places.",
+    "ar": "تبدأ خصومات الكمية من 10 مقاعد.",
+    "uk": "Знижки починаються від 10 місць.",
+    "tr": "Toplu indirim 10 koltuktan başlar."
+  },
+  "Waiting for student": {
+    "de": "Wartet auf Lernende",
+    "fr": "En attente de l’apprenant",
+    "ar": "بانتظار المتعلم",
+    "uk": "Очікує учня",
+    "tr": "Öğrenci bekleniyor"
+  },
+  "We’re waiting for Stripe to confirm payment. Seats become available after confirmation.": {
+    "de": "Wir warten auf die Stripe-Bestätigung. Danach sind die Plätze verfügbar.",
+    "fr": "En attente de confirmation Stripe. Les places seront disponibles après confirmation.",
+    "ar": "ننتظر تأكيد الدفع من Stripe. تتاح المقاعد بعد التأكيد.",
+    "uk": "Очікуємо підтвердження Stripe. Після нього місця стануть доступними.",
+    "tr": "Stripe ödeme onayı bekleniyor. Onaydan sonra koltuklar açılır."
+  },
+  "What do I get for free?": {
+    "de": "Was erhalte ich kostenlos?",
+    "fr": "Que comprend l’offre gratuite ?",
+    "ar": "ما الذي أحصل عليه مجانًا؟",
+    "uk": "Що я отримую безкоштовно?",
+    "tr": "Ücretsiz neler sunuluyor?"
+  },
+  "When you offer a seat, it is reserved until they accept. Their 60-day access period starts on acceptance.": {
+    "de": "Ein angebotener Platz bleibt bis zur Annahme reserviert. Die 60 Tage beginnen bei Annahme.",
+    "fr": "La place est réservée jusqu’à l’acceptation, qui démarre les 60 jours d’accès.",
+    "ar": "يُحجز المقعد حتى قبوله. تبدأ مدة الوصول البالغة 60 يومًا عند القبول.",
+    "uk": "Місце резервується до прийняття. Від нього починаються 60 днів доступу.",
+    "tr": "Koltuk kabul edilene kadar rezerve edilir. 60 günlük erişim kabulde başlar."
+  },
+  "When your teacher offers exam access, you can review and accept it here.": {
+    "de": "Angebote deiner Lehrkraft kannst du hier prüfen und annehmen.",
+    "fr": "Consultez et acceptez ici les offres d’accès de votre enseignant.",
+    "ar": "يمكنك مراجعة عروض الوصول من معلمك وقبولها هنا.",
+    "uk": "Тут можна переглянути й прийняти доступ від учителя.",
+    "tr": "Öğretmeninizin erişim teklifini burada inceleyip kabul edebilirsiniz."
+  },
+  "Who is this for?": {
+    "de": "Für wen ist das gedacht?",
+    "fr": "À qui cela s’adresse-t-il ?",
+    "ar": "لمن هذا؟",
+    "uk": "Для кого це?",
+    "tr": "Kimler için?"
+  },
+  "Whole class": {
+    "de": "Ganze Klasse",
+    "fr": "Toute la classe",
+    "ar": "الصف كله",
+    "uk": "Увесь клас",
+    "tr": "Tüm sınıf"
+  },
+  "Will my plan renew automatically?": {
+    "de": "Verlängert sich mein Paket automatisch?",
+    "fr": "Mon offre se renouvelle-t-elle automatiquement ?",
+    "ar": "هل تتجدد باقتي تلقائيًا؟",
+    "uk": "Чи подовжується пакет автоматично?",
+    "tr": "Paketim otomatik yenilenir mi?"
+  },
+  "You already have active paid access. The seat was returned to your teacher.": {
+    "de": "Du hast bereits bezahlten Zugang. Der Platz wurde deiner Lehrkraft zurückgegeben.",
+    "fr": "Vous avez déjà un accès payé actif. La place a été rendue à votre enseignant.",
+    "ar": "لديك وصول مدفوع نشط بالفعل. أُعيد المقعد إلى معلمك.",
+    "uk": "Ви вже маєте активний платний доступ. Місце повернено вчителю.",
+    "tr": "Zaten aktif ücretli erişiminiz var. Koltuk öğretmeninize iade edildi."
+  },
+  "You already have active paid exam access.": {
+    "de": "Du hast bereits aktiven bezahlten Prüfungszugang.",
+    "fr": "Vous disposez déjà d’un accès payé actif.",
+    "ar": "لديك وصول مدفوع نشط للامتحانات بالفعل.",
+    "uk": "Ви вже маєте активний платний доступ до іспитів.",
+    "tr": "Zaten aktif ücretli sınav erişiminiz var."
+  },
+  "You already have paid access. You can decline this offer or wait until your access expires.": {
+    "de": "Du hast bezahlten Zugang. Lehne das Angebot ab oder warte bis zum Ablauf.",
+    "fr": "Vous avez déjà un accès payé. Refusez l’offre ou attendez son expiration.",
+    "ar": "لديك وصول مدفوع بالفعل. يمكنك رفض العرض أو الانتظار حتى انتهاء وصولك.",
+    "uk": "Ви вже маєте платний доступ. Відхиліть пропозицію або дочекайтеся завершення доступу.",
+    "tr": "Zaten ücretli erişiminiz var. Teklifi reddedebilir veya erişimin bitmesini bekleyebilirsiniz."
+  },
+  "You can start your free exam without an account. We’ll ask you to register or sign in during the exam so you can continue with your saved answers.": {
+    "de": "Du kannst ohne Konto kostenlos starten. Während der Prüfung bitten wir um Anmeldung oder Registrierung; deine Antworten bleiben gespeichert.",
+    "fr": "Commencez gratuitement sans compte. Pendant l’examen, inscrivez-vous ou connectez-vous pour continuer avec vos réponses enregistrées.",
+    "ar": "يمكنك بدء الامتحان المجاني دون حساب. سنطلب التسجيل أو الدخول أثناء الامتحان للمتابعة بإجاباتك المحفوظة.",
+    "uk": "Почніть безкоштовний іспит без облікового запису. Під час іспиту ми попросимо зареєструватися або увійти; відповіді збережуться.",
+    "tr": "Ücretsiz sınava hesapsız başlayın. Sınav sırasında kaydolmanız veya giriş yapmanız istenir; yanıtlarınız kaydedilir."
+  },
+  "You choose who pays for access.": {
+    "de": "Du entscheidest, wer den Zugang bezahlt.",
+    "fr": "Vous choisissez qui paie l’accès.",
+    "ar": "اختر من يدفع مقابل الوصول.",
+    "uk": "Ви обираєте, хто оплачує доступ.",
+    "tr": "Erişimi kimin ödeyeceğini siz seçin."
+  },
+  "You control what you share": {
+    "de": "Du entscheidest, was du teilst",
+    "fr": "Vous contrôlez le partage",
+    "ar": "أنت تتحكم بما تشاركه",
+    "uk": "Ви керуєте тим, чим ділитеся",
+    "tr": "Neyi paylaşacağınızı siz seçin"
+  },
+  "You don’t need to buy seats to set up your class. Start with a free teacher account and choose exam access when your learners need it.": {
+    "de": "Zur Klassenerstellung sind keine Plätze nötig. Starte kostenlos und wähle Zugang, sobald Lernende ihn brauchen.",
+    "fr": "Pas besoin d’acheter des places pour créer une classe. Commencez gratuitement et choisissez l’accès selon vos besoins.",
+    "ar": "لا تحتاج إلى شراء مقاعد لإنشاء الصف. ابدأ بحساب معلم مجاني واختر الوصول عندما يحتاجه المتعلمون.",
+    "uk": "Для створення класу не потрібно купувати місця. Почніть із безкоштовного облікового запису й оберіть доступ за потреби.",
+    "tr": "Sınıf açmak için koltuk almanız gerekmez. Ücretsiz öğretmen hesabıyla başlayıp gerektiğinde erişim seçin."
+  },
+  "You save": {
+    "de": "Du sparst",
+    "fr": "Vous économisez",
+    "ar": "توفّر",
+    "uk": "Ви заощаджуєте",
+    "tr": "Tasarrufunuz"
+  },
+  "Your 60 days of access begin when you confirm.": {
+    "de": "Deine 60 Tage Zugang beginnen mit deiner Bestätigung.",
+    "fr": "Vos 60 jours d’accès commencent à la confirmation.",
+    "ar": "تبدأ مدة وصولك البالغة 60 يومًا عند التأكيد.",
+    "uk": "Ваші 60 днів доступу починаються після підтвердження.",
+    "tr": "60 günlük erişiminiz onayladığınızda başlar."
+  },
+  "Your class": {
+    "de": "Deine Klasse",
+    "fr": "Votre classe",
+    "ar": "صفك",
+    "uk": "Ваш клас",
+    "tr": "Sınıfınız"
+  },
+  "Your class. Their progress.": {
+    "de": "Deine Klasse. Ihr Fortschritt.",
+    "fr": "Votre classe. Leurs progrès.",
+    "ar": "صفك. وتقدم متعلميك.",
+    "uk": "Ваш клас. Їхній прогрес.",
+    "tr": "Sınıfınız. Onların ilerlemesi."
+  },
+  "Your classes": {
+    "de": "Deine Klassen",
+    "fr": "Vos classes",
+    "ar": "صفوفك",
+    "uk": "Ваші класи",
+    "tr": "Sınıflarınız"
+  },
+  "Your classes, assignments and next steps — together.": {
+    "de": "Deine Klassen, Aufgaben und nächsten Schritte – gemeinsam.",
+    "fr": "Vos classes, devoirs et prochaines étapes au même endroit.",
+    "ar": "صفوفك وواجباتك وخطواتك التالية معًا.",
+    "uk": "Ваші класи, завдання й наступні кроки разом.",
+    "tr": "Sınıflarınız, ödevleriniz ve sonraki adımlarınız bir arada."
+  },
+  "Your classroom flow": {
+    "de": "Dein Klassenablauf",
+    "fr": "Le parcours de votre classe",
+    "ar": "خطوات إدارة صفك",
+    "uk": "Робота з класом",
+    "tr": "Sınıf işleyişiniz"
+  },
+  "Your completed exams will appear here": {
+    "de": "Deine abgeschlossenen Prüfungen erscheinen hier",
+    "fr": "Vos examens terminés apparaîtront ici",
+    "ar": "ستظهر امتحاناتك المكتملة هنا",
+    "uk": "Завершені іспити з’являться тут",
+    "tr": "Tamamlanan sınavlarınız burada görünür"
+  },
+  "Your email": {
+    "de": "Deine E-Mail-Adresse",
+    "fr": "Votre e-mail",
+    "ar": "بريدك الإلكتروني",
+    "uk": "Ваша електронна пошта",
+    "tr": "E-posta adresiniz"
+  },
+  "Your exam access": {
+    "de": "Dein Prüfungszugang",
+    "fr": "Votre accès aux examens",
+    "ar": "وصولك إلى الامتحانات",
+    "uk": "Ваш доступ до іспитів",
+    "tr": "Sınav erişiminiz"
+  },
+  "Your exam access is active: 10 exams for 60 days.": {
+    "de": "Dein Prüfungszugang ist aktiv: 10 Prüfungen für 60 Tage.",
+    "fr": "Votre accès est actif : 10 examens pendant 60 jours.",
+    "ar": "وصولك مفعّل: 10 امتحانات لمدة 60 يومًا.",
+    "uk": "Доступ активовано: 10 іспитів на 60 днів.",
+    "tr": "Sınav erişiminiz aktif: 60 gün boyunca 10 sınav."
+  },
+  "Your exam practice": {
+    "de": "Dein Prüfungstraining",
+    "fr": "Votre entraînement aux examens",
+    "ar": "تدريبك للامتحانات",
+    "uk": "Ваша підготовка до іспитів",
+    "tr": "Sınav çalışmanız"
+  },
+  "Your exam seat purchases and receipts will appear here.": {
+    "de": "Deine Platzkäufe und Belege erscheinen hier.",
+    "fr": "Vos achats de places et reçus apparaîtront ici.",
+    "ar": "ستظهر مشتريات المقاعد والإيصالات هنا.",
+    "uk": "Ваші покупки місць і квитанції з’являться тут.",
+    "tr": "Koltuk alımlarınız ve makbuzlarınız burada görünür."
+  },
+  "Your first class starts here": {
+    "de": "Hier beginnt deine erste Klasse",
+    "fr": "Votre première classe commence ici",
+    "ar": "هنا يبدأ صفك الأول",
+    "uk": "Тут починається ваш перший клас",
+    "tr": "İlk sınıfınız burada başlar"
+  },
+  "Your first name": {
+    "de": "Dein Vorname",
+    "fr": "Votre prénom",
+    "ar": "اسمك الأول",
+    "uk": "Ваше ім’я",
+    "tr": "Adınız"
+  },
+  "Your last name": {
+    "de": "Dein Nachname",
+    "fr": "Votre nom",
+    "ar": "اسم عائلتك",
+    "uk": "Ваше прізвище",
+    "tr": "Soyadınız"
+  },
+  "Your next step towards TELC B1.": {
+    "de": "Dein nächster Schritt zu TELC B1.",
+    "fr": "Votre prochaine étape vers TELC B1.",
+    "ar": "خطوتك التالية نحو TELC B1.",
+    "uk": "Ваш наступний крок до TELC B1.",
+    "tr": "TELC B1’e doğru sonraki adımınız."
+  },
+  "Your own exam preparation": {
+    "de": "Deine eigene Prüfungsvorbereitung",
+    "fr": "Votre préparation personnelle",
+    "ar": "تحضيرك الشخصي للامتحان",
+    "uk": "Ваша особиста підготовка",
+    "tr": "Kendi sınav hazırlığınız"
+  },
+  "Your password": {
+    "de": "Dein Passwort",
+    "fr": "Votre mot de passe",
+    "ar": "كلمة المرور الخاصة بك",
+    "uk": "Ваш пароль",
+    "tr": "Parolanız"
+  },
+  "Your personal access": {
+    "de": "Dein persönlicher Zugang",
+    "fr": "Votre accès personnel",
+    "ar": "وصولك الشخصي",
+    "uk": "Ваш особистий доступ",
+    "tr": "Kişisel erişiminiz"
+  },
+  "Your personal practice stays private": {
+    "de": "Dein persönliches Üben bleibt privat",
+    "fr": "Votre pratique personnelle reste privée",
+    "ar": "تدريبك الشخصي يبقى خاصًا",
+    "uk": "Ваша особиста практика приватна",
+    "tr": "Kişisel çalışmalarınız gizli kalır"
+  },
+  "Your registration is being reviewed": {
+    "de": "Deine Registrierung wird geprüft",
+    "fr": "Votre inscription est en cours d’examen",
+    "ar": "تسجيلك قيد المراجعة",
+    "uk": "Ваша реєстрація перевіряється",
+    "tr": "Kaydınız inceleniyor"
+  },
+  "Your seat purchases, payment status and receipts.": {
+    "de": "Deine Platzkäufe, Zahlungsstatus und Belege.",
+    "fr": "Vos achats de places, paiements et reçus.",
+    "ar": "مشتريات مقاعدك وحالة الدفع والإيصالات.",
+    "uk": "Ваші покупки місць, стан оплати й квитанції.",
+    "tr": "Koltuk alımlarınız, ödeme durumu ve makbuzlarınız."
+  },
+  "Your student has 14 days to accept. If they decline or the offer expires, the seat returns to your wallet.": {
+    "de": "14 Tage Zeit zur Annahme. Bei Ablehnung oder Ablauf kehrt der Platz ins Guthaben zurück.",
+    "fr": "L’apprenant a 14 jours pour accepter. En cas de refus ou d’expiration, la place revient au solde.",
+    "ar": "لدى المتعلم 14 يومًا للقبول. إذا رفض أو انتهى العرض، يعود المقعد إلى رصيدك.",
+    "uk": "Учень має 14 днів на прийняття. Після відмови або завершення строку місце повертається на баланс.",
+    "tr": "Öğrencinin kabul için 14 günü vardır. Reddederse veya süre dolarsa koltuk bakiyenize döner."
+  },
+  "Your students will appear here": {
+    "de": "Deine Lernenden erscheinen hier",
+    "fr": "Vos apprenants apparaîtront ici",
+    "ar": "سيظهر متعلموك هنا",
+    "uk": "Ваші учні з’являться тут",
+    "tr": "Öğrencileriniz burada görünür"
+  },
+  "Your teacher account needs attention": {
+    "de": "Dein Lehrkraftkonto erfordert Aufmerksamkeit",
+    "fr": "Votre compte enseignant nécessite une vérification",
+    "ar": "حساب المعلم يحتاج إلى متابعة",
+    "uk": "Обліковий запис учителя потребує уваги",
+    "tr": "Öğretmen hesabınız kontrol gerektiriyor"
+  },
+  "Your teacher can see class-linked completion, scores and section results. Your personal practice, raw answers and writing stay private.": {
+    "de": "Deine Lehrkraft sieht klassenbezogenen Abschluss, Punktzahlen und Abschnittsergebnisse. Persönliche Übungen, Antworten und Texte bleiben privat.",
+    "fr": "Votre enseignant voit l’achèvement et les scores des examens de classe. Votre pratique personnelle, vos réponses et écrits restent privés.",
+    "ar": "يرى معلمك إكمال امتحانات الصف ودرجاتها ونتائج الأقسام. يبقى تدريبك الشخصي وإجاباتك وكتابتك خاصة.",
+    "uk": "Учитель бачить завершення й бали іспитів класу. Особиста практика, відповіді й письмові роботи приватні.",
+    "tr": "Öğretmeniniz sınıfa bağlı tamamlanma ve puanları görür. Kişisel çalışmalarınız, yanıtlarınız ve yazılarınız gizli kalır."
+  },
+  "Your teacher can see completion, scores and section results for exams you start from this class's assignments. Past personal exams, raw answers and writing content are not shared. Leave the class at any time to stop sharing.": {
+    "de": "Deine Lehrkraft sieht Abschluss, Punktzahlen und Abschnittsergebnisse von Prüfungen aus Klassenaufgaben. Frühere persönliche Prüfungen, Rohantworten und Texte werden nicht geteilt. Verlasse die Klasse jederzeit, um die Freigabe zu beenden.",
+    "fr": "Votre enseignant voit l’achèvement, les scores et résultats par partie des examens lancés depuis les devoirs de cette classe. Les anciens examens personnels, réponses brutes et textes ne sont pas partagés. Quittez la classe à tout moment pour arrêter le partage.",
+    "ar": "يرى معلمك الإكمال والدرجات ونتائج الأقسام للامتحانات التي تبدأها من واجبات الصف. لا تُشارك الامتحانات الشخصية السابقة أو الإجابات الأصلية أو الكتابة. يمكنك مغادرة الصف في أي وقت لإيقاف المشاركة.",
+    "uk": "Учитель бачить завершення, бали й результати розділів іспитів, розпочатих із завдань класу. Попередні особисті іспити, відповіді й тексти не надаються. Залиште клас будь-коли, щоб припинити обмін.",
+    "tr": "Öğretmeniniz bu sınıfın ödevlerinden başlattığınız sınavların tamamlanmasını ve puanlarını görür. Önceki kişisel sınavlar, ham yanıtlar ve yazılar paylaşılmaz. Paylaşımı durdurmak için istediğiniz zaman sınıftan ayrılabilirsiniz."
+  },
+  "Your teacher has already funded this access. You won’t be charged, and you keep the access if you leave the class.": {
+    "de": "Deine Lehrkraft hat den Zugang bereits bezahlt. Du zahlst nichts und behältst ihn beim Verlassen der Klasse.",
+    "fr": "Votre enseignant a déjà payé cet accès. Rien ne vous sera facturé et l’accès reste valable si vous quittez la classe.",
+    "ar": "موّل معلمك هذا الوصول بالفعل. لن تُحاسَب وتحتفظ بالوصول إذا غادرت الصف.",
+    "uk": "Учитель уже оплатив доступ. Ви не платите й зберігаєте доступ після виходу з класу.",
+    "tr": "Öğretmeniniz bu erişimi ödedi. Sizden ücret alınmaz; sınıftan ayrılsanız da erişim korunur."
+  },
+  "Your teacher has offered you exam access": {
+    "de": "Deine Lehrkraft bietet dir Prüfungszugang an",
+    "fr": "Votre enseignant vous propose un accès aux examens",
+    "ar": "عرض عليك معلمك وصولًا للامتحانات",
+    "uk": "Учитель запропонував доступ до іспитів",
+    "tr": "Öğretmeniniz sınav erişimi teklif etti"
+  },
+  "Your teacher will send you a private invitation link. Paste it below to review the class before joining.": {
+    "de": "Deine Lehrkraft sendet einen privaten Link. Füge ihn unten ein, um die Klasse vor dem Beitritt zu prüfen.",
+    "fr": "Votre enseignant enverra un lien privé. Collez-le ci-dessous pour vérifier la classe avant de rejoindre.",
+    "ar": "سيرسل معلمك رابط دعوة خاصًا. ألصقه أدناه لمراجعة الصف قبل الانضمام.",
+    "uk": "Учитель надішле приватне запрошення. Вставте його нижче, щоб переглянути клас перед вступом.",
+    "tr": "Öğretmeniniz özel bağlantı gönderecek. Katılmadan sınıfı incelemek için aşağıya yapıştırın."
+  },
+  "Your teacher workspace": {
+    "de": "Dein Lehrkraftbereich",
+    "fr": "Votre espace enseignant",
+    "ar": "مساحة المعلم الخاصة بك",
+    "uk": "Ваш простір учителя",
+    "tr": "Öğretmen alanınız"
+  },
+  "Your teacher’s next assignment will appear here when it’s ready.": {
+    "de": "Die nächste Aufgabe deiner Lehrkraft erscheint hier, sobald sie bereit ist.",
+    "fr": "Le prochain devoir de votre enseignant apparaîtra ici.",
+    "ar": "سيظهر واجب معلمك التالي هنا عندما يكون جاهزًا.",
+    "uk": "Наступне завдання вчителя з’явиться тут, коли буде готове.",
+    "tr": "Öğretmeninizin sonraki ödevi hazır olunca burada görünür."
+  },
+  "Your teaching workspace": {
+    "de": "Dein Unterrichtsbereich",
+    "fr": "Votre espace d’enseignement",
+    "ar": "مساحتك التعليمية",
+    "uk": "Ваш навчальний простір",
+    "tr": "Öğretim alanınız"
+  },
+  "You’ll see which results are shared before you agree to join.": {
+    "de": "Vor deiner Zustimmung siehst du, welche Ergebnisse geteilt werden.",
+    "fr": "Vous verrez les résultats partagés avant de donner votre accord.",
+    "ar": "ستعرف النتائج التي تُشارك قبل الموافقة على الانضمام.",
+    "uk": "Ви побачите, які результати надаються, перед згодою на вступ.",
+    "tr": "Katılmayı onaylamadan hangi sonuçların paylaşılacağını görürsünüz."
+  },
+  "You’re all caught up": {
+    "de": "Alles erledigt",
+    "fr": "Tout est à jour",
+    "ar": "أنجزت كل المطلوب",
+    "uk": "Усе виконано",
+    "tr": "Her şey tamam"
+  },
+  "and": {
+    "tr": "ve",
+    "de": "und",
+    "fr": "et",
+    "ar": "و",
+    "uk": "і"
+  },
+  "assignments": {
+    "de": "Aufgaben",
+    "fr": "devoirs",
+    "ar": "واجبات",
+    "uk": "завдання",
+    "tr": "ödev"
+  },
+  "available": {
+    "de": "verfügbar",
+    "fr": "disponibles",
+    "ar": "متاحة",
+    "uk": "доступно",
+    "tr": "kullanılabilir"
+  },
+  "before trying again.": {
+    "de": "bevor du es erneut versuchst.",
+    "fr": "avant de réessayer.",
+    "ar": "قبل المحاولة مجددًا.",
+    "uk": "перш ніж спробувати знову.",
+    "tr": "ve tekrar deneyin."
+  },
+  "completed": {
+    "de": "abgeschlossen",
+    "fr": "terminés",
+    "ar": "مكتمل",
+    "uk": "завершено",
+    "tr": "tamamlandı"
+  },
+  "e.g. B1 Evening Class": {
+    "de": "z. B. B1-Abendkurs",
+    "fr": "p. ex. Classe B1 du soir",
+    "ar": "مثلًا: صف B1 المسائي",
+    "uk": "наприклад, Вечірній клас B1",
+    "tr": "örn. B1 Akşam Sınıfı"
+  },
+  "exam": {
+    "de": "Prüfung",
+    "fr": "examen",
+    "ar": "امتحان",
+    "uk": "іспит",
+    "tr": "sınav"
+  },
+  "feel more familiar.": {
+    "de": "vertrauter wird.",
+    "fr": "vous soit plus familier.",
+    "ar": "أكثر ألفة.",
+    "uk": "буде знайомішим.",
+    "tr": "daha tanıdık kılın."
+  },
+  "logo": {
+    "de": "Logo",
+    "fr": "logo",
+    "ar": "الشعار",
+    "uk": "логотип",
+    "tr": "logo"
+  },
+  "per seat.": {
+    "de": "pro Platz.",
+    "fr": "par place.",
+    "ar": "للمقعد.",
+    "uk": "за місце.",
+    "tr": "koltuk başına."
+  },
+  "seats": {
+    "de": "Plätze",
+    "fr": "places",
+    "ar": "مقاعد",
+    "uk": "місць",
+    "tr": "koltuk"
+  },
+  "seats ×": {
+    "de": "Plätze ×",
+    "fr": "places ×",
+    "ar": "مقاعد ×",
+    "uk": "місць ×",
+    "tr": "koltuk ×"
+  },
+  "Purchased": {
+    "de": "Gekauft",
+    "fr": "Achetés",
+    "ar": "المشتراة",
+    "uk": "Придбано",
+    "tr": "Satın alınan"
+  },
+  "Available": {
+    "de": "Verfügbar",
+    "fr": "Disponibles",
+    "ar": "متاح",
+    "uk": "Доступно",
+    "tr": "Kullanılabilir"
+  },
+  "Learners": {
+    "de": "Lernende",
+    "fr": "Apprenants",
+    "ar": "المتعلمون",
+    "uk": "Учні",
+    "tr": "Öğrenciler"
+  },
+  "Assignment": {
+    "de": "Aufgabe",
+    "fr": "Devoir",
+    "ar": "واجب",
+    "uk": "Завдання",
+    "tr": "Ödev"
+  },
+  "Reading": {
+    "de": "Lesen",
+    "fr": "Lecture",
+    "ar": "القراءة",
+    "uk": "Читання",
+    "tr": "Okuma"
+  },
+  "Listening": {
+    "de": "Hören",
+    "fr": "Écoute",
+    "ar": "الاستماع",
+    "uk": "Аудіювання",
+    "tr": "Dinleme"
+  },
+  "Writing": {
+    "de": "Schreiben",
+    "fr": "Expression écrite",
+    "ar": "الكتابة",
+    "uk": "Письмо",
+    "tr": "Yazma"
+  },
+  "Could not load exams.": {
+    "de": "Prüfungen konnten nicht geladen werden.",
+    "fr": "Impossible de charger les examens.",
+    "ar": "تعذر تحميل الامتحانات.",
+    "uk": "Не вдалося завантажити іспити.",
+    "tr": "Sınavlar yüklenemedi."
+  },
+  "Request failed ({{status}}).": {
+    "de": "Anfrage fehlgeschlagen ({{status}}).",
+    "fr": "Échec de la demande ({{status}}).",
+    "ar": "فشل الطلب ({{status}}).",
+    "uk": "Запит не виконано ({{status}}).",
+    "tr": "İstek başarısız ({{status}})."
+  },
+  "Active classes: {{count}}": {
+    "de": "Aktive Klassen: {{count}}",
+    "fr": "Classes actives : {{count}}",
+    "ar": "الصفوف النشطة: {{count}}",
+    "uk": "Активні класи: {{count}}",
+    "tr": "Aktif sınıflar: {{count}}"
+  },
+  "{{count}} exam seats have been added to your wallet.": {
+    "de": "Deinem Guthaben wurden {{count}} Prüfungsplätze hinzugefügt.",
+    "fr": "{{count}} places d’examen ont été ajoutées à votre solde.",
+    "ar": "أُضيفت {{count}} مقاعد امتحانات إلى رصيدك.",
+    "uk": "На баланс додано місць для іспитів: {{count}}.",
+    "tr": "Bakiyenize {{count}} sınav koltuğu eklendi."
+  },
+  "1 exam seat has been added to your wallet.": {
+    "de": "Deinem Guthaben wurde ein Prüfungsplatz hinzugefügt.",
+    "fr": "Une place d’examen a été ajoutée à votre solde.",
+    "ar": "أُضيف مقعد امتحان واحد إلى رصيدك.",
+    "uk": "На баланс додано одне місце для іспиту.",
+    "tr": "Bakiyenize bir sınav koltuğu eklendi."
+  },
+  "Due {{date}}": {
+    "de": "Fällig: {{date}}",
+    "fr": "À rendre le {{date}}",
+    "ar": "الموعد النهائي: {{date}}",
+    "uk": "Термін: {{date}}",
+    "tr": "Son tarih: {{date}}"
+  },
+  "Save {{percent}}%": {
+    "de": "{{percent}} % sparen",
+    "fr": "Économisez {{percent}} %",
+    "ar": "وفّر {{percent}}٪",
+    "uk": "Заощаджуйте {{percent}}%",
+    "tr": "%{{percent}} tasarruf"
+  },
+  "Standard total {{amount}}": {
+    "de": "Standardgesamtbetrag {{amount}}",
+    "fr": "Total standard : {{amount}}",
+    "ar": "الإجمالي الأساسي: {{amount}}",
+    "uk": "Стандартна сума: {{amount}}",
+    "tr": "Standart toplam: {{amount}}"
+  },
+  "{{quantity}} seats × {{price}}": {
+    "de": "{{quantity}} Plätze × {{price}}",
+    "fr": "{{quantity}} places × {{price}}",
+    "ar": "عدد المقاعد: {{quantity}} × {{price}}",
+    "uk": "Місць: {{quantity}} × {{price}}",
+    "tr": "{{quantity}} koltuk × {{price}}"
+  },
+  "You save {{amount}} ({{percent}}%) compared with {{price}} per seat.": {
+    "de": "Du sparst {{amount}} ({{percent}} %) gegenüber {{price}} pro Platz.",
+    "fr": "Vous économisez {{amount}} ({{percent}} %) par rapport à {{price}} par place.",
+    "ar": "توفّر {{amount}} ({{percent}}٪) مقارنةً بـ {{price}} للمقعد.",
+    "uk": "Ви заощаджуєте {{amount}} ({{percent}}%) порівняно з {{price}} за місце.",
+    "tr": "Koltuk başına {{price}} fiyatına göre {{amount}} (%{{percent}}) tasarruf edersiniz."
+  },
+  "Seats: {{range}}": {
+    "de": "Plätze: {{range}}",
+    "fr": "Places : {{range}}",
+    "ar": "المقاعد: {{range}}",
+    "uk": "Місця: {{range}}",
+    "tr": "Koltuk: {{range}}"
+  },
+  "Students: {{count}}": {
+    "de": "Lernende: {{count}}",
+    "fr": "Apprenants : {{count}}",
+    "ar": "المتعلمون: {{count}}",
+    "uk": "Учні: {{count}}",
+    "tr": "Öğrenci: {{count}}"
+  },
+  "Assignments: {{count}}": {
+    "de": "Aufgaben: {{count}}",
+    "fr": "Devoirs : {{count}}",
+    "ar": "الواجبات: {{count}}",
+    "uk": "Завдання: {{count}}",
+    "tr": "Ödev: {{count}}"
+  },
+  "Completed: {{done}} / {{total}}": {
+    "de": "Abgeschlossen: {{done}} / {{total}}",
+    "fr": "Terminés : {{done}} / {{total}}",
+    "ar": "المكتمل: {{done}} / {{total}}",
+    "uk": "Завершено: {{done}} / {{total}}",
+    "tr": "Tamamlanan: {{done}} / {{total}}"
+  },
+  "Previous offers ({{count}})": {
+    "de": "Frühere Angebote ({{count}})",
+    "fr": "Offres précédentes ({{count}})",
+    "ar": "العروض السابقة ({{count}})",
+    "uk": "Попередні пропозиції ({{count}})",
+    "tr": "Önceki teklifler ({{count}})"
+  },
+  "Exam {{count}}": {
+    "de": "Prüfung {{count}}",
+    "fr": "Examen {{count}}",
+    "ar": "الامتحان {{count}}",
+    "uk": "Іспит {{count}}",
+    "tr": "Sınav {{count}}"
+  },
+  "Billing and receipts": {
+    "de": "Abrechnung und Belege",
+    "fr": "Facturation et reçus",
+    "ar": "الفوترة والإيصالات",
+    "uk": "Оплата й квитанції",
+    "tr": "Faturalandırma ve makbuzlar"
+  },
+  "Terms of Use": {
+    "de": "Nutzungsbedingungen",
+    "fr": "Conditions d’utilisation",
+    "ar": "شروط الاستخدام",
+    "uk": "Умови використання",
+    "tr": "Kullanım koşulları"
+  },
+  "Free": {
+    "de": "Kostenlos",
+    "fr": "Gratuit",
+    "ar": "مجاني",
+    "uk": "Безкоштовно",
+    "tr": "Ücretsiz"
+  },
+  "Teacher seat pending": {
+    "de": "Platzangebot ausstehend",
+    "fr": "Place enseignant en attente",
+    "ar": "مقعد المعلم قيد الانتظار",
+    "uk": "Очікується місце від учителя",
+    "tr": "Öğretmen koltuğu bekleniyor"
+  },
+  "Teacher-funded": {
+    "de": "Von der Lehrkraft bezahlt",
+    "fr": "Financé par l’enseignant",
+    "ar": "بتمويل المعلم",
+    "uk": "Оплачено вчителем",
+    "tr": "Öğretmen tarafından karşılandı"
+  },
+  "Paid": {
+    "de": "Bezahlt",
+    "fr": "Payé",
+    "ar": "مدفوع",
+    "uk": "Оплачено",
+    "tr": "Ödendi"
+  },
+  "Plans & pricing": {
+    "de": "Pakete und Preise",
+    "fr": "Offres et tarifs",
+    "ar": "الباقات والأسعار",
+    "uk": "Пакети й ціни",
+    "tr": "Paketler ve fiyatlar"
+  },
+  "Active": {
+    "de": "Aktiv",
+    "fr": "Actif",
+    "ar": "نشط",
+    "uk": "Активний",
+    "tr": "Aktif"
+  },
+  "Archived": {
+    "de": "Archiviert",
+    "fr": "Archivé",
+    "ar": "مؤرشف",
+    "uk": "Архівовано",
+    "tr": "Arşivlendi"
+  },
+  "Copy": {
+    "de": "Kopieren",
+    "fr": "Copier",
+    "ar": "نسخ",
+    "uk": "Копіювати",
+    "tr": "Kopyala"
+  },
+  "Copied": {
+    "de": "Kopiert",
+    "fr": "Copié",
+    "ar": "تم النسخ",
+    "uk": "Скопійовано",
+    "tr": "Kopyalandı"
+  },
+  "Passed": {
+    "de": "Bestanden",
+    "fr": "Réussi",
+    "ar": "ناجح",
+    "uk": "Складено",
+    "tr": "Başarılı"
+  },
+  "All": {
+    "de": "Alle",
+    "fr": "Tous",
+    "ar": "الكل",
+    "uk": "Усі",
+    "tr": "Tümü"
+  },
+  "Email": {
+    "de": "E-Mail",
+    "fr": "E-mail",
+    "ar": "البريد الإلكتروني",
+    "uk": "Електронна пошта",
+    "tr": "E-posta"
+  },
+  "Student": {
+    "de": "Lernende Person",
+    "fr": "Apprenant",
+    "ar": "متعلم",
+    "uk": "Учень",
+    "tr": "Öğrenci"
+  },
+  "Class": {
+    "de": "Klasse",
+    "fr": "Classe",
+    "ar": "صف",
+    "uk": "Клас",
+    "tr": "Sınıf"
+  },
+  "Purchase": {
+    "de": "Kauf",
+    "fr": "Achat",
+    "ar": "شراء",
+    "uk": "Покупка",
+    "tr": "Satın alma"
+  },
+  "Date": {
+    "de": "Datum",
+    "fr": "Date",
+    "ar": "التاريخ",
+    "uk": "Дата",
+    "tr": "Tarih"
+  },
+  "Status": {
+    "de": "Status",
+    "fr": "Statut",
+    "ar": "الحالة",
+    "uk": "Стан",
+    "tr": "Durum"
+  },
+  "Receipt": {
+    "de": "Beleg",
+    "fr": "Reçu",
+    "ar": "إيصال",
+    "uk": "Квитанція",
+    "tr": "Makbuz"
+  },
+  "Remove {{name}}": {
+    "de": "{{name}} entfernen",
+    "fr": "Retirer {{name}}",
+    "ar": "إزالة {{name}}",
+    "uk": "Вилучити {{name}}",
+    "tr": "{{name}} adlı öğrenciyi çıkar"
+  },
+  "Remove {{name}} from this class and stop sharing their results? Their paid access is kept.": {
+    "de": "{{name}} entfernen und Ergebnisfreigabe beenden? Bezahlter Zugang bleibt erhalten.",
+    "fr": "Retirer {{name}} de la classe et arrêter le partage ? Son accès payé reste valable.",
+    "ar": "إزالة {{name}} من الصف وإيقاف مشاركة النتائج؟ سيحتفظ بالوصول المدفوع.",
+    "uk": "Вилучити {{name}} із класу й припинити обмін результатами? Платний доступ зберігається.",
+    "tr": "{{name}} sınıftan çıkarılıp sonuç paylaşımı durdurulsun mu? Ücretli erişimi korunur."
+  },
+  "Offer exam access to {{name}}": {
+    "de": "{{name}} Prüfungszugang anbieten",
+    "fr": "Offrir l’accès aux examens à {{name}}",
+    "ar": "تقديم وصول للامتحانات إلى {{name}}",
+    "uk": "Запропонувати доступ до іспитів для {{name}}",
+    "tr": "{{name}} için sınav erişimi teklif et"
+  },
+  "Seat offered to {{name}}. They can accept it from My classes.": {
+    "de": "Platz für {{name}} angeboten. Annahme unter Meine Klassen möglich.",
+    "fr": "Place proposée à {{name}}. L’offre peut être acceptée dans Mes classes.",
+    "ar": "قُدّم عرض مقعد إلى {{name}}. يمكن قبوله من «صفوفي».",
+    "uk": "Місце запропоновано для {{name}}. Прийняти можна в розділі «Мої класи».",
+    "tr": "{{name}} için koltuk teklif edildi. Sınıflarım’dan kabul edilebilir."
+  },
+  "{{count}} exam access offers need your reply": {
+    "de": "{{count}} Zugangsangebote warten auf Antwort",
+    "fr": "{{count}} offres d’accès attendent votre réponse",
+    "ar": "عروض وصول تنتظر ردك: {{count}}",
+    "uk": "Пропозиції доступу очікують відповіді: {{count}}",
+    "tr": "{{count}} sınav erişimi teklifi yanıtınızı bekliyor"
+  },
+  "{{count}} exams remaining": {
+    "de": "Verbleibende Prüfungen: {{count}}",
+    "fr": "Examens restants : {{count}}",
+    "ar": "الامتحانات المتبقية: {{count}}",
+    "uk": "Залишилося іспитів: {{count}}",
+    "tr": "Kalan sınav: {{count}}"
+  },
+  "Until {{date}}": {
+    "de": "Bis {{date}}",
+    "fr": "Jusqu’au {{date}}",
+    "ar": "حتى {{date}}",
+    "uk": "До {{date}}",
+    "tr": "{{date}} tarihine kadar"
+  },
+  "Respond by {{date}}": {
+    "de": "Antwort bis {{date}}",
+    "fr": "Répondre avant le {{date}}",
+    "ar": "الرد قبل {{date}}",
+    "uk": "Відповісти до {{date}}",
+    "tr": "Son yanıt: {{date}}"
+  },
+  "You left {{name}}. Your exam history and activated access are kept.": {
+    "de": "Du hast {{name}} verlassen. Prüfungsverlauf und aktivierter Zugang bleiben erhalten.",
+    "fr": "Vous avez quitté {{name}}. Votre historique et votre accès activé sont conservés.",
+    "ar": "غادرت {{name}}. احتفظت بسجل امتحاناتك ووصولك المفعّل.",
+    "uk": "Ви залишили {{name}}. Історія іспитів і активований доступ збережені.",
+    "tr": "{{name}} sınıfından ayrıldınız. Sınav geçmişiniz ve etkin erişiminiz korundu."
+  },
+  "Practice": {
+    "de": "Üben",
+    "fr": "Entraînement",
+    "ar": "التدريب",
+    "uk": "Практика",
+    "tr": "Çalışma"
+  },
+  "Result": {
+    "de": "Ergebnis",
+    "fr": "Résultat",
+    "ar": "النتيجة",
+    "uk": "Результат",
+    "tr": "Sonuç"
+  },
+  "Review offer": {
+    "de": "Angebot prüfen",
+    "fr": "Examiner l’offre",
+    "ar": "مراجعة العرض",
+    "uk": "Переглянути пропозицію",
+    "tr": "Teklifi incele"
+  },
+  "Review offers": {
+    "de": "Angebote prüfen",
+    "fr": "Examiner les offres",
+    "ar": "مراجعة العروض",
+    "uk": "Переглянути пропозиції",
+    "tr": "Teklifleri incele"
+  }
+}
