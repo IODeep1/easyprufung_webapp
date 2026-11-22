@@ -1,3 +1,7 @@
+import StudentPurchase from "../../Teacher/StudentPurchase";
+import TeacherPage from "../../Teacher/TeacherPage";
+import StudentClasses from "../../Teacher/StudentClasses";
+import {useLocation} from "react-router-dom";
 import { readGuest } from "../Exam/guest/guest-api";
 import SavedGuestExamNotice from "../Exam/guest/SavedGuestExamNotice";
 import { useSelector } from "react-redux";
@@ -26,6 +30,7 @@ import {PassedExamsPage} from "../Exam/PassedExamsPage.tsx";
 import {PassedExamReviewRoute} from "../Exam/PassedExamReviewRoute.tsx";
 
 const Root: React.FC = () => {
+    const currentPath = useLocation().pathname;
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     //Theme
@@ -59,7 +64,7 @@ const Root: React.FC = () => {
 
     const user = useSelector((state: IStateType) => state.userAccount.user);
     // Only explicitly incomplete accounts are gated; older accounts remain unaffected.
-    if (user?.acquisitionOnboardingCompleted === false) return <AcquisitionOnboarding returnTo={readGuest()?.pending ? "/guest-exam" : "/"} />;
+    if (user?.acquisitionOnboardingCompleted === false) return <AcquisitionOnboarding returnTo={currentPath.startsWith("/teacher") || currentPath.startsWith("/class/") || currentPath==="/my-classes" ? currentPath : readGuest()?.pending ? "/guest-exam" : "/"} />;
 
     return (
         <Fragment>
@@ -76,7 +81,7 @@ const Root: React.FC = () => {
                         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setTheme={setTheme} />
                         {/* <!-- ===== Header End ===== --> */}
 
-                        <SavedGuestExamNotice userId={user?.uuid} plan={user?.subscription?.plan} />
+                        {!currentPath.startsWith("/teacher") && <SavedGuestExamNotice userId={user?.uuid} plan={user?.subscription?.plan} />}
                         {/* <!-- ===== Main Content Start ===== --> */}
                         <main>
                             <div className="mx-auto"  onClick={(e) => {
@@ -85,6 +90,14 @@ const Root: React.FC = () => {
                             }}>
                                 <ThemeProvider theme={usedTheme}>
                                     <Routes>
+                                        <Route path="/purchase" element={<StudentPurchase />} />
+                                        <Route path="/teacher" element={<TeacherPage />} />
+                                        <Route path="/teacher/classes" element={<TeacherPage />} />
+                                        <Route path="/teacher/classes/:id" element={<TeacherPage />} />
+                                        <Route path="/teacher/seats" element={<TeacherPage />} />
+                                        <Route path="/teacher/billing" element={<TeacherPage />} />
+                                        <Route path="/class/join/:token" element={<StudentClasses />} />
+                                        <Route path="/my-classes" element={<StudentClasses />} />
                                         <Route path="/*"  element={<MainExamPage />}></Route>
                                         <Route path="/new"  element={<MainExamPage />}></Route>
                                         <Route path="/exams"  element={<PassedExamsPage />}></Route>

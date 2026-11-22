@@ -20,8 +20,8 @@ export default function ExamUpgradeOffer({ source, compact = false }: { source: 
  const language = (i18n.resolvedLanguage || i18n.language).split(/[-_]/)[0];
  const copy = copies[language as keyof typeof copies] || copies.en;
  const plans: {plan: PaidExamPlan; label: string; price: string; original: string; saving: string}[] = [
-  {plan:"b1",label:copy.limited,price:"€9.99",original:"€14.99",saving:"33%"},
-  {plan:"b1_unlimited",label:copy.unlimited,price:"€29.99",original:"€49.99",saving:"40%"}
+  {plan:"b1",label:copy.limited,price:"€19.99",original:"",saving:""},
+  {plan:"b1_unlimited",label:copy.unlimited,price:"€39.99",original:"",saving:""}
  ];
  return <section data-upgrade-offer className={`relative isolate w-full overflow-hidden rounded-2xl border border-blue-100 bg-white text-gray-900 shadow-lg dark:border-blue-900/50 dark:bg-gray-950 dark:text-white ${compact ? "p-5" : "p-6 sm:p-8"}`} lang={language} dir={i18n.dir(language)}>
   <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500 to-indigo-600" aria-hidden="true" />
@@ -39,7 +39,7 @@ export default function ExamUpgradeOffer({ source, compact = false }: { source: 
     onAuxClick={event => {if(event.button===1) trackPaymentClick(plan.plan,source);}}
     className={`group relative flex min-w-0 items-center justify-between gap-3 rounded-xl px-4 py-4 text-white shadow-sm transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ${plan.plan === "b1" ? "bg-black hover:bg-gray-800" : "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"}`}>
     <span className="min-w-0"><span className="block text-base font-bold">{plan.label}</span><span className="mt-1 block text-xs text-white/80">{copy.once}</span></span>
-    <span className="shrink-0 text-end"><span className="block text-xs text-white/70 line-through">{plan.original}</span><span className="inline-flex items-center gap-1.5 text-xl font-bold">{plan.price}<ArrowRight size={16} aria-hidden="true" /></span><span className="block text-xs text-white/90">{copy.save} {plan.saving}</span></span>
+    <span className="shrink-0 text-end"><span className="inline-flex items-center gap-1.5 text-xl font-bold">{plan.price}<ArrowRight size={16} aria-hidden="true" /></span></span>
    </a>)}
   </div>
   <p className="mt-4 flex items-center justify-center gap-2 text-xs text-gray-500 dark:text-gray-400"><ShieldCheck size={14} aria-hidden="true" />{copy.access} · {copy.benefits[4]}</p>

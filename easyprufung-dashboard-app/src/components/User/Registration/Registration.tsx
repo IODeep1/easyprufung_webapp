@@ -15,7 +15,7 @@ import { IStateType } from "../../../store/models/root.interface";
 import { login } from "../../../store/actions/user/userAccount.actions";
 import Loading from "../../Shared/Loading";
 
-const Registration = () => {
+const Registration = ({teacherMode = false}: {teacherMode?:boolean}) => {
 // init
     let user: IUser;
     const account: IUserAccount = useSelector((state: IStateType) => state.userAccount);
@@ -127,6 +127,9 @@ const Registration = () => {
     return (
         <section
             id="register"
+            data-no-translate={teacherMode ? "true" : undefined}
+            lang={teacherMode ? "en" : undefined}
+            dir={teacherMode ? "ltr" : undefined}
             className="relative min-h-screen bg-white text-black dark:bg-black dark:text-white"
         >
             {/* Background accents */}
@@ -152,24 +155,24 @@ const Registration = () => {
                     {/* Left: Content */}
                     <div className="order-2 md:order-1">
                         <h1 className="text-4xl lg:text-5xl font-extrabold leading-tight">
-                            Create your account
+                            {teacherMode ? "Create your teacher account" : "Create your account"}
                         </h1>
                         <p className="mt-4 text-sm text-gray-700 dark:text-gray-300">
-                            Join SmartPrüfung to prepare for German TELC and Goethe exams with realistic mock exams and AI-powered feedback.
+                            {teacherMode ? "Register to create classes, invite students and assign TELC Deutsch B1 mock exams. Teacher Mode is free." : "Join SmartPrüfung to prepare for German TELC and Goethe exams with realistic mock exams and AI-powered feedback."}
                         </p>
 
                         <div className="mt-8 space-y-3">
                             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur px-3 py-1 text-xs text-gray-700 dark:text-gray-300">
                                 <span className="h-2 w-2 rounded-full bg-blue-500" />
-                                TELC Deutsch B1 available now
+                                {teacherMode ? "Free class management" : "TELC Deutsch B1 available now"}
                             </div>
                             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur px-3 py-1 text-xs text-gray-700 dark:text-gray-300 ml-2">
                                 <span className="h-2 w-2 rounded-full bg-blue-500" />
-                                AI scoring & personalized feedback
+                                {teacherMode ? "Private invitations and assignments" : "AI scoring & personalized feedback"}
                             </div>
                             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur px-3 py-1 text-xs text-gray-700 dark:text-gray-300 ml-2">
                                 <span className="h-2 w-2 rounded-full bg-blue-500" />
-                                A1–C2 exam roadmap
+                                {teacherMode ? "Student-controlled progress sharing" : "A1–C2 exam roadmap"}
                             </div>
                         </div>
 
@@ -218,7 +221,7 @@ const Registration = () => {
                                     {/* Name fields */}
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div>
-                                            <label className={labelClass}>{t("contact_us_firstname")}</label>
+                                            <label className={labelClass}>{teacherMode ? "First name" : t("contact_us_firstname")}</label>
                                             <TextInput
                                                 id="input_firstname"
                                                 field="firstname"
@@ -231,7 +234,7 @@ const Registration = () => {
                                             />
                                         </div>
                                         <div>
-                                            <label className={labelClass}>{t("contact_us_lastname")}</label>
+                                            <label className={labelClass}>{teacherMode ? "Last name" : t("contact_us_lastname")}</label>
                                             <TextInput
                                                 id="input_lastname"
                                                 field="lastname"
@@ -247,7 +250,7 @@ const Registration = () => {
 
                                     {/* Email */}
                                     <div>
-                                        <label className={labelClass}>{t("contact_us_email")}</label>
+                                        <label className={labelClass}>{teacherMode ? "Email" : t("contact_us_email")}</label>
                                         <TextInput
                                             id="input_email"
                                             field="email"

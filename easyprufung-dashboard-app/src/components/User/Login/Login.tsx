@@ -57,7 +57,7 @@ const Login = () => {
             );
             if (user) {
                 dispatch(login(user));
-                if (authDestination() === "/guest-exam") navigate("/guest-exam");
+                navigate(authDestination());
             } else {
                 setError("Your email or password is incorrect.");
             }

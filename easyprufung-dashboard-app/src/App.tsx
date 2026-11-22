@@ -1,3 +1,5 @@
+import {TeacherRoleProvider} from "./components/Teacher/TeacherRole";
+import AuthIntent from "./components/Teacher/AuthIntent";
 import GoogleCallback from "./components/User/Login/GoogleCallback";
 import LegalPage from "./components/Shared/LegalPage";
 import AppPrivacy from "./components/Shared/AppPrivacy";
@@ -20,8 +22,11 @@ const App: React.FC = () => {
       <div className="App dark:bg-gray-900" id="wrapper">
           <AppLanguage />
           <UserLanguagePreference />
+          <TeacherRoleProvider>
           <Router>
+              <AuthIntent />
               <Routes>
+                  <Route path="/teacher/register" element={<Registration teacherMode />} />
                   <Route path="/google/callback" element={<GoogleCallback />} />
                   <Route path="/privacy" element={<LegalPage kind="privacy" />} />
                   <Route path="/privacy-policy" element={<LegalPage kind="privacy" />} />
@@ -50,6 +55,7 @@ const App: React.FC = () => {
               </Routes>
               <AppPrivacy />
           </Router>
+          </TeacherRoleProvider>
       </div>
   );
 };

@@ -90,8 +90,8 @@ const Pricing = () => {
                     <div className="relative mx-auto max-w-7xl px-4 lg:px-6">
                         <div className="mx-auto mb-10 max-w-2xl text-center lg:mb-12">
                             <p className="text-base text-neutral-600 sm:text-lg dark:text-neutral-400">
-                                Start with one free exam, choose 10 exams for €9.99,
-                                or unlock unlimited exams for €29.99.
+                                Start with one free exam, choose 10 exams for €19.99,
+                                or unlock unlimited exams for €39.99.
                             </p>
                         </div>
 
@@ -132,10 +132,8 @@ const Pricing = () => {
                                 </p>
 
                                 <div className="my-8 flex flex-col items-center justify-center gap-2">
-                                    <span className="text-lg font-medium text-neutral-500 line-through dark:text-neutral-400">€14.99</span>
-                                    <div className="flex items-baseline justify-center"><span className={price}>€9.99</span>
+                                    <div className="flex items-baseline justify-center"><span className={price}>€19.99</span>
                                     <span className={priceSub}>one-time</span></div>
-                                    <span className="inline-flex rounded-full bg-green-100 px-3 py-1 text-sm font-bold text-green-800 dark:bg-green-900/40 dark:text-green-300">Save 33%</span>
                                 </div>
 
                                 <div className="mb-6 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-center dark:border-blue-900/40 dark:bg-blue-950/30">
@@ -179,10 +177,8 @@ const Pricing = () => {
                                     </p>
 
                                     <div className="my-8 flex flex-col items-center justify-center gap-2">
-                                        <span className="text-lg font-medium text-neutral-500 line-through dark:text-neutral-400">€49.99</span>
-                                        <div className="flex items-baseline justify-center"><span className={price}>€29.99</span>
+                                        <div className="flex items-baseline justify-center"><span className={price}>€39.99</span>
                                         <span className={priceSub}>one-time</span></div>
-                                        <span className="inline-flex rounded-full bg-green-100 px-3 py-1 text-sm font-bold text-green-800 dark:bg-green-900/40 dark:text-green-300">Save 40%</span>
                                     </div>
 
                                     <div className="mb-6 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-center dark:border-blue-900/40 dark:bg-blue-950/30">
