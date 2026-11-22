@@ -1,30 +1,30 @@
 import { tr, useFeatureLocale } from "../../localization/feature-i18n";
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { teacherApi, button, card } from "./api";
+import { button, card } from "./api";
+import { useSelector } from "react-redux";
+import type { IStateType } from "../../store/models/root.interface";
+import { buildPaymentUrl } from "../User/Pricing/payment-links";
 export default function StudentPurchase() {
   const { locale, dir } = useFeatureLocale();
 
   const [params] = useSearchParams(),
     [error, setError] = useState("");
   const plan = params.get("plan");
+  const user = useSelector((state: IStateType) => state.userAccount.user);
   useEffect(() => {
-    let active = true;
     if (plan !== "b1" && plan !== "b1_unlimited") {
       setError("Choose an exam plan.");
       return;
     }
-    teacherApi<{ url: string }>("student/access/checkout", "POST", { plan })
-      .then((r) => {
-        if (active) window.location.assign(r.url);
-      })
-      .catch((e) => {
-        if (active) setError(e.message);
-      });
-    return () => {
-      active = false;
-    };
-  }, [plan]);
+    if (!user?.uuid || !user?.email) {
+      setError("Sign in to continue.");
+      return;
+    }
+    setError("");
+    // Compatibility for saved /purchase URLs: individual plans use the original Payment Links.
+    window.location.replace(buildPaymentUrl(plan, user.email, user.uuid));
+  }, [plan, user?.email, user?.uuid]);
   return (
     <section
       lang={locale}
