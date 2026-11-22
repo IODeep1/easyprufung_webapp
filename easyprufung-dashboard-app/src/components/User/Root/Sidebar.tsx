@@ -216,10 +216,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           : "-translate-x-full"
       }`}
     >
-      <div className="no-scrollbar flex h-full flex-col overflow-y-auto duration-300 ease-linear">
+      <div className="flex h-full min-h-0 flex-col">
         <nav
           aria-label="Main navigation"
-          className="flex h-full flex-col px-4 pb-5 pt-20 lg:mt-2"
+          className="no-scrollbar flex min-h-0 flex-1 flex-col overflow-y-auto px-4 pb-2 pt-20 lg:mt-2"
         >
           <TeacherNavigation onNavigate={() => setSidebarOpen(false)} />
           <section
@@ -370,11 +370,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
             </ul>
           </section>
-          <div className="mt-auto flex items-center justify-between border-t border-gray-100 pt-4 dark:border-gray-800">
-            <DarkModeSwitcher />
-            <DropdownUser sidebarOpen={sidebarOpen} />
-          </div>
         </nav>
+        <div
+          aria-label="Appearance and account"
+          className="mx-4 flex shrink-0 flex-col gap-1.5 border-t border-gray-100 py-4 dark:border-gray-800"
+        >
+          <DarkModeSwitcher />
+          <DropdownUser sidebarOpen={sidebarOpen} />
+        </div>
       </div>
     </aside>
   );

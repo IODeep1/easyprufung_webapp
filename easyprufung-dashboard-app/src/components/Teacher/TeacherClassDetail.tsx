@@ -69,6 +69,7 @@ export default function TeacherClassDetail({
     [formError, setFormError] = useState(""),
     [invite, setInvite] = useState(""),
     [copied, setCopied] = useState(false),
+    [inviteLoading, setInviteLoading] = useState(false),
     [examCode, setExamCode] = useState(""),
     [due, setDue] = useState(""),
     [audience, setAudience] = useState("all"),
@@ -108,6 +109,15 @@ export default function TeacherClassDetail({
   const open = (value: typeof dialog) => {
     setFormError("");
     setDialog(value);
+    if (value === "invite") {
+      setInvite("");
+      setCopied(false);
+      setInviteLoading(true);
+      teacherApi<{ active: boolean; token?: string }>(`teacher/classes/${id}/invites`)
+        .then((r) => setInvite(r.active && r.token ? `${window.location.origin}/class/join/${r.token}` : ""))
+        .catch((e) => setFormError(e instanceof Error ? e.message : "Could not load invitation. Please reopen this dialog to try again."))
+        .finally(() => setInviteLoading(false));
+    }
   };
   const close = () => {
     if (!busy) setDialog(null);
@@ -633,7 +643,9 @@ export default function TeacherClassDetail({
               </p>
             </div>
           </div>
-          {invite ? (
+          {inviteLoading ? (
+            <Loading text="Loading invitation link…" />
+          ) : invite ? (
             <>
               <label
                 className="block text-sm font-semibold"
@@ -651,7 +663,7 @@ export default function TeacherClassDetail({
                 />
                 <button
                   className={button}
-                  disabled={busy}
+                  disabled={busy || inviteLoading}
                   onClick={async () => {
                     try {
                       await navigator.clipboard.writeText(invite);
@@ -673,7 +685,7 @@ export default function TeacherClassDetail({
           ) : (
             <p className={`${muted} mb-5`}>
               {hasInvite
-                ? "This class already has an active invitation. Replacing it will stop the previous link from working."
+                ? "This invitation was created before links could be saved. Replace it once to get a link you can view and copy anytime. The previous link will stop working."
                 : "Create a link, then share it with your students by email or in your class chat."}
             </p>
           )}
@@ -686,7 +698,7 @@ export default function TeacherClassDetail({
             {(hasInvite || invite) && (
               <button
                 className="text-sm font-semibold text-red-600"
-                disabled={busy}
+                disabled={busy || inviteLoading}
                 onClick={async () => {
                   if (
                     !window.confirm(
@@ -707,7 +719,7 @@ export default function TeacherClassDetail({
             )}
             <button
               className={invite ? secondary : button}
-              disabled={busy}
+              disabled={busy || inviteLoading}
               onClick={() => {
                 if (
                   (hasInvite || invite) &&

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, Dispatch, useLayoutEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { sidebarLink } from '../../Shared/sidebar-style';
 import { useTranslation } from 'react-i18next';
 import {useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
@@ -98,7 +99,7 @@ const DropdownUser = ({ sidebarOpen }: DropdownUserProps) => {
     });
 
     return (
-        <div className="relative flex flex-col min-w-0">
+        <div className="relative flex w-full min-w-0 flex-col">
             <button
                 ref={trigger}
                 type="button"
@@ -106,14 +107,16 @@ const DropdownUser = ({ sidebarOpen }: DropdownUserProps) => {
                 aria-haspopup="menu"
                 aria-label={t("dropdown_user_account_menu")}
                 onClick={() => setDropdownOpen((open) => !open)}
-                className="flex w-full items-center gap-4 p-2 rounded-lg bg-gray-100 dark:bg-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600"
+                className={sidebarLink(dropdownOpen)}
             >
-            <span className="h-8 w-8 flex items-center justify-center rounded-full bg-black">
-                <p className="font-semibold text-sm text-white">{twoChars.toUpperCase()}</p>
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gray-900 dark:bg-gray-600">
+                <p className="font-semibold text-xs text-white">{twoChars.toUpperCase()}</p>
             </span>
+            <span className="min-w-0 flex-1 truncate">{[userFirstName, userLastName].filter(Boolean).join(" ") || "My account"}</span>
 
                 <svg
-                    className={`fill-current transition-transform duration-300 ${
+                    aria-hidden="true"
+                    className={`shrink-0 fill-current transition-transform duration-300 ${
                         dropdownOpen ? 'rotate-180' : ''
                     }`}
                     width="12"

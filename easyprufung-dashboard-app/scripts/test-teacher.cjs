@@ -46,6 +46,7 @@ function compile(file, resolve) {
     ).outputText,
     {
       Error,
+      navigator: dom.window.navigator,
       exports,
       require: resolve,
       window,
@@ -182,6 +183,7 @@ const Navigation = compile("components/Teacher/TeacherNavigation.tsx", (name) =>
 );
 
 let classroomList = [];
+let savedInvite = "";
 let detailStudents = [],
   detailAssignments = [],
   detailPerformance = [];
@@ -193,7 +195,8 @@ const detailApi = {
     if (p.endsWith("/performance")) return detailPerformance;
     if (p === "teacher/exams")
       return [{ code: "B1", title: "TELC Deutsch B1" }];
-    if (p.endsWith("/invites/rotate")) return { token: "n".repeat(43) };
+    if (p.endsWith("/invites/rotate")) { savedInvite = "n".repeat(43); return { token: savedInvite }; }
+    if (p.endsWith("/invites")) return { active: Boolean(savedInvite), token: savedInvite };
     return { id: "class-test", name: "B1 Evening", archived: false };
   },
 };
@@ -503,6 +506,17 @@ const flush = () =>
   );
   await flush();
   assert.ok(target.textContent.includes("Student One"));
+  // Remounting the class loses local state; the saved link still loads from the server.
+  await act(async () => [...target.querySelectorAll("button")].find((b) => b.textContent === "Invite students").click());
+  await flush();
+  assert.equal(target.querySelector("#class-invitation").value, "http://localhost:3006/class/join/" + savedInvite);
+  let copiedLink = "";
+  Object.defineProperty(dom.window.navigator, "clipboard", { configurable: true, value: { writeText: async (value) => { copiedLink = value; } } });
+  await act(async () => [...target.querySelectorAll("button")].find((b) => b.textContent.trim() === "Copy").click());
+  assert.equal(copiedLink, "http://localhost:3006/class/join/" + savedInvite);
+  assert.ok(target.textContent.includes("Copied"));
+  await act(async () => document.dispatchEvent(new window.KeyboardEvent("keydown", { key: "Escape", bubbles: true })));
+
   await act(async () =>
     [...target.querySelectorAll("button")]
       .find((b) => b.textContent === "Assign exam")
