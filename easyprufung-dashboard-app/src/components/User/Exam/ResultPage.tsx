@@ -83,15 +83,14 @@ export function ResultPage(props: {
 
     return (
         <main className="min-h-screen bg-white text-black">
-            <section className="border-b border-black bg-white px-5 py-12 text-black sm:px-10 sm:py-16">
+            <section className={`border-b border-black bg-white px-5 text-black sm:px-10 ${showBrand ? "py-8 sm:py-10" : "py-12 sm:py-16"}`}>
                 <div className="mx-auto max-w-6xl">
-                    <div className="mt-14 grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_auto]">
-                        <div className={showBrand ? "flex min-w-0 flex-col gap-6 sm:flex-row sm:items-start sm:gap-8" : "min-w-0"}>
-                            {showBrand && <a href="/" dir="ltr" className="inline-flex shrink-0 items-center gap-3 self-start rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500" aria-label="SmartPrüfung">
-                                <img src={Logo} alt="" width={44} height={44} className="h-11 w-11 rounded-lg" />
-                                <span className="text-xl font-semibold tracking-tight">SmartPrüfung</span>
-                            </a>}
-                            <div className="min-w-0">
+                    {showBrand && <a href="/" dir="ltr" className="inline-flex shrink-0 items-center gap-3 self-start rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500" aria-label="SmartPrüfung">
+                        <img src={Logo} alt="" width={44} height={44} className="h-11 w-11 rounded-lg" />
+                        <span className="text-xl font-semibold tracking-tight">SmartPrüfung</span>
+                    </a>}
+                    <div className={`${showBrand ? "mt-8" : "mt-14"} grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_auto]`}>
+                        <div className="min-w-0">
                             <p className="text-xs font-black uppercase tracking-[0.25em] text-black/50">
                                 Prüfung abgeschlossen
                             </p>
@@ -105,7 +104,6 @@ export function ResultPage(props: {
                             </p>
 
                             {result.passed && hasPremiumAccess && <ExamCertificateButton session={session} result={result} />}
-                            </div>
                         </div>
 
                         {/* Overall result stays visible for free users */}
