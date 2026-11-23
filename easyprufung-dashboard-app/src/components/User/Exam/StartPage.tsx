@@ -19,7 +19,7 @@ const providers: Array<{
 }> = [
     {
         value: "TELC",
-        label: "Deutsch",
+        label: "TELC",
         available: true
     },
     {
