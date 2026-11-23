@@ -475,6 +475,7 @@ export function PassedExamsPage() {
 
                                         <div className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
                                             <h2 className="text-xl font-black">{entry.session.title}</h2>
+                            <p className="mt-2 text-xs font-semibold">{entry.session.format === "PAPER" ? "Papierbasiert" : "Digital"}</p>
                                             <ExamOutcome passed={entry.result.passed} compact />
                                         </div>
 

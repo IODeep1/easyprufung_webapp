@@ -1,3 +1,4 @@
+export type ExamFormat = "DIGITAL" | "PAPER";
 export type ExamProvider = "TELC" | "GOETHE";
 export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
 export type SessionStatus =
@@ -48,6 +49,7 @@ export interface ExerciseView {
 export interface ExamSessionView {
     sessionId: string;
     examCode: string;
+    format?: ExamFormat;
     title: string;
     provider: ExamProvider;
     level: CefrLevel;
@@ -63,6 +65,7 @@ export interface StartExamRequest {
     provider: ExamProvider;
     level: CefrLevel;
     examCode?: string;
+    format?: ExamFormat;
 }
 
 export interface AnswerPayload {
@@ -121,6 +124,7 @@ export interface LocalAnswer {
 export interface ExamSessionSummaryView {
     sessionId: string;
     examCode: string;
+    format?: ExamFormat;
     title: string;
     provider: ExamProvider;
     level: CefrLevel;

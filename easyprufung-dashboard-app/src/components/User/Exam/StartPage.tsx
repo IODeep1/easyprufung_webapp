@@ -1,3 +1,5 @@
+import { ExamFormatSelector } from "./components/ExamFormatSelector";
+import type { ExamFormat } from "./models/exam";
 import ExamUpgradeOffer from "../Pricing/ExamUpgradeOffer";
 import { useTranslation } from "react-i18next";
 import { useState, type FormEvent } from "react";
@@ -85,6 +87,8 @@ export function StartPage({
     const [provider, setProvider] =
         useState<ExamProvider>("TELC");
 
+    const [format, setFormat] = useState<ExamFormat>("DIGITAL");
+
     const [level, setLevel] =
         useState<CefrLevel>("B1");
 
@@ -99,6 +103,7 @@ export function StartPage({
             userId: userId.trim(),
             provider,
             level,
+            format,
             examCode: "TELC_DEUTSCH_B1_WRITTEN"
         });
     };
@@ -298,6 +303,8 @@ export function StartPage({
                                 })}
                             </div>
                         </fieldset>
+
+                        <ExamFormatSelector value={format} onChange={setFormat} />
 
                         <button
                             type="submit"

@@ -1,3 +1,5 @@
+import { ExamFormatSelector } from "../User/Exam/components/ExamFormatSelector";
+import type { ExamFormat } from "../User/Exam/models/exam";
 import { tr, useFeatureLocale } from "../../localization/feature-i18n";
 import React, { useCallback, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -64,6 +66,7 @@ export default function StudentClasses() {
     [assignments, setAssignments] = useState<Assignment[]>([]),
     [offers, setOffers] = useState<Offer[]>([]),
     [preview, setPreview] = useState<Preview | null>(null);
+  const [examFormat, setExamFormat] = useState<ExamFormat>("DIGITAL");
   const [consent, setConsent] = useState(false),
     [loading, setLoading] = useState(true),
     [busy, setBusy] = useState(false),
@@ -565,6 +568,7 @@ export default function StudentClasses() {
                   />
                 </div>
               </div>
+              {assignments.some(a => !a.attemptId) && <div className="mb-6 max-w-xl"><ExamFormatSelector value={examFormat} onChange={setExamFormat} /></div>}
               {!visible.length ? (
                 <Empty
                   title={
@@ -652,7 +656,7 @@ export default function StudentClasses() {
                                 await run(async () => {
                                   setMessage("Preparing your assigned exam…");
                                   await teacherApi(
-                                    `student/assignments/${a.id}/start`,
+                                    `student/assignments/${a.id}/start?format=${examFormat}`,
                                     "POST"
                                   );
                                   navigate("/");

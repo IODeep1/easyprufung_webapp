@@ -68,6 +68,7 @@ function compile(file, resolve) {
   return exports;
 }
 function common(name) {
+  if (name.endsWith("ExamFormatSelector")) return compile("components/User/Exam/components/ExamFormatSelector.tsx", common);
   if (name.endsWith("feature-i18n")) {
     const tr = (source, values = {}) => (featureLanguage === "en" ? String(source ?? "") : featurePhrases[String(source ?? "")]?.[featureLanguage] || String(source ?? "")).replace(/\{\{(\w+)\}\}/g, (m,k) => k in values ? String(values[k]) : m);
     return { tr, featureLocale: () => featureLanguage, useFeatureLocale: () => ({locale:featureLanguage,dir:featureLanguage === "ar"?"rtl":"ltr",tr}) };
@@ -157,7 +158,7 @@ const Student = compile("components/Teacher/StudentClasses.tsx", (name) =>
             studentData = { classes: [], assignments: [], offers: [] };
             return {};
           }
-          if (p.endsWith("/start") && studentStartFails)
+          if (p.split("?")[0].endsWith("/start") && studentStartFails)
             throw Error("Purchase required to start another exam.");
 
           return [];
@@ -625,6 +626,7 @@ const flush = () =>
       .find((b) => b.textContent === "To do")
       .click()
   );
+  await act(async () => target.querySelector('input[name="exam-format"][value="PAPER"]').click());
   studentStartFails = true;
   const previousNavigation = navigations.length;
   await act(async () =>
@@ -633,6 +635,7 @@ const flush = () =>
       .click()
   );
   await flush();
+  assert.ok(calls.some(c => c.p.endsWith('/start?format=PAPER') && c.m === 'POST'));
   assert.ok(target.textContent.includes("Purchase required"));
   assert.equal(navigations.length, previousNavigation);
   assert.equal(

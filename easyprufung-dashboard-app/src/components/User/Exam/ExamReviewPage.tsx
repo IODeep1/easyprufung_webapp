@@ -1,3 +1,4 @@
+import { PaperExam } from "./paper/PaperExam";
 import { ExamOutcome } from "./components/ExamOutcome";
 import { ArrowLeft, ArrowRight, Check, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
@@ -189,7 +190,7 @@ export function ExamReviewPage({
 
     const last = index === session.exercises.length - 1;
     const audio = exercise.audioUrl ? (
-        <AudioPlayer src={exercise.audioUrl} playLimit={exercise.audioPlayLimit} />
+        <AudioPlayer src={exercise.audioUrl} playbackLimit={exercise.audioPlayLimit} />
     ) : undefined;
 
     return (
@@ -225,22 +226,23 @@ export function ExamReviewPage({
                 <div className="mb-5 flex items-center border-b border-black/10 pb-4">
                     <ExamOutcome passed={result.passed} compact />
                 </div>
-                <PartInformation
+                {session.format !== "PAPER" && <PartInformation
                     exercise={exercise}
                     index={index}
                     total={session.exercises.length}
                     extra={audio}
-                />
+                />}
 
                 <div className="mt-6">
-                    <PartRenderer
+                    {session.format === "PAPER" ? <PaperExam session={session} index={index} answers={answers}
+                        onSelection={() => undefined} onText={() => undefined} readOnly reviewResults={resultByNumber} audio={audio} /> : <PartRenderer
                         exercise={exercise}
                         answers={answers}
                         onSelection={() => undefined}
                         onText={() => undefined}
                         readOnly
                         reviewResults={resultByNumber}
-                    />
+                    />}
                 </div>
 
                 <ExerciseExplanationFrame

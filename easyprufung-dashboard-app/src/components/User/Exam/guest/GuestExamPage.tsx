@@ -1,3 +1,5 @@
+import { ExamFormatSelector } from "../components/ExamFormatSelector";
+import type { ExamFormat } from "../models/exam";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -28,6 +30,8 @@ export default function GuestExamPage() {
  const user = useSelector((s: IStateType) => s.userAccount.user);
  const navigate = useNavigate(), dispatch = useDispatch<any>();
  const { t, i18n } = useTranslation(); const copy = guestCopy(i18n.resolvedLanguage || i18n.language);
+ const [chosenFormat, setChosenFormat] = useState<ExamFormat | null>(null);
+ const [format, setFormat] = useState<ExamFormat>("DIGITAL");
  const [session, setSession] = useState<ExamSessionView | null>(null);
  const [progress, setProgress] = useState<ExamProgress | null>(null);
  const [result, setResult] = useState<ExamResultView | null>(null);
@@ -72,9 +76,10 @@ export default function GuestExamPage() {
    if (!alive) return;
    let active = restored.session;
    if (!active) {
+    if (!chosenFormat) { setScreen("choose"); return; }
     const startedAt = performance.now();
     setPreparation({ startedAt, durationMs: 90000 });
-    active = await guestRequest<ExamSessionView>(guest.token, "/start", {method: "POST"});
+    active = await guestRequest<ExamSessionView>(guest.token, `/start?format=${chosenFormat}`, {method: "POST"});
     if (!alive) return;
     const durationMs = performance.now() - startedAt <= 10000 ? 10000 : 90000;
     setPreparation({ startedAt, durationMs });
@@ -106,7 +111,7 @@ export default function GuestExamPage() {
    if (preparationTimer !== undefined) window.clearTimeout(preparationTimer);
    completeDelay?.();
   };
- }, [userId, refresh, navigate, dispatch]);
+ }, [userId, refresh, navigate, dispatch, chosenFormat]);
 
  const requireRegistration = async (draft:ExamProgress) => {
   try {
@@ -127,6 +132,14 @@ export default function GuestExamPage() {
  // Failed attempts can be retried through the same claim/restore path. Already evaluated
  // sessions load their stored result, so reloads never intentionally resubmit them.
  const submit = () => { if (!busy) setRefresh(v => v + 1); };
+ if (screen === "choose") return <main className="grid min-h-screen place-items-center bg-white p-6 text-black">
+  <section className="w-full max-w-xl rounded-3xl border border-black p-7 sm:p-10">
+   <p className="text-xs font-black uppercase tracking-widest">SmartPrüfung · TELC Deutsch B1</p>
+   <h1 className="mt-4 text-3xl font-black">Wie möchten Sie üben?</h1>
+   <ExamFormatSelector value={format} onChange={setFormat} />
+   <button type="button" onClick={() => { setScreen("loading"); setChosenFormat(format); }} className="mt-7 w-full rounded-xl bg-black px-6 py-4 font-bold text-white">Prüfung starten</button>
+  </section>
+ </main>;
  if (screen === "loading" && preparation) return <LoadingScreen message={t("examPreparation.loadingMessage")} durationMs={preparation.durationMs} startedAt={preparation.startedAt} />;
  if (screen === "loading") return <main className="grid min-h-screen place-items-center p-8" role="status">{copy.loading}</main>;
  if (screen === "exam" && session && progress) return <>

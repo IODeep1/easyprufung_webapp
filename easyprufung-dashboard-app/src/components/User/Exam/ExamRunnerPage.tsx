@@ -1,3 +1,4 @@
+import { PaperExam } from "./paper/PaperExam";
 import appI18n from "i18next";
 import { useTranslation } from "react-i18next";
 import { ExamApiError, ExamProgress, putExamProgress } from "../../../api/exam/api-helper";
@@ -47,6 +48,7 @@ export function ExamRunnerPage(props: {
     ) => Promise<void>;
 }) {
     const { session, onSubmit } = props;
+    const paper = session.format === "PAPER";
     const { t, i18n } = useTranslation(undefined, { i18n: appI18n });
 
     const [restoredProgress] = useState(() =>
@@ -379,9 +381,9 @@ export function ExamRunnerPage(props: {
     ) : undefined;
 
     return (
-        <div className="min-h-screen pb-10">
+        <div className={`min-h-screen pb-10 ${paper ? "bg-[#e9eaec]" : ""}`}>
             <ExamHeader
-                title={session.title}
+                title={paper ? `${session.title} · Papierbasiert` : session.title}
                 level={session.level}
                 expiresAt={session.expiresAt}
                 currentIndex={index}
@@ -391,14 +393,14 @@ export function ExamRunnerPage(props: {
             />
 
             <main className="mx-auto max-w-[1500px] px-4 py-6 sm:px-7 sm:py-8 lg:px-10">
-                <PartInformation
+                {!paper && <PartInformation
                     exercise={exercise}
                     index={index}
                     total={
                         session.exercises.length
                     }
                     extra={audio}
-                />
+                />}
 
                 {syncError && <p role="alert" className="mt-5 p-4 border rounded-2xl">{syncError}</p>}
                 {submitError && (
@@ -418,14 +420,17 @@ export function ExamRunnerPage(props: {
                 )}
 
                 <div className="mt-6">
-                    <PartRenderer
+                    {paper ? <PaperExam session={session} index={index} answers={answers}
+                        onSelection={setSelection} onText={setText} audio={audio}
+                        registrationRequiredFrom={props.registrationRequiredFrom}
+                        onNavigate={target => { if (!submitting) setIndex(target); }} /> : <PartRenderer
                         exercise={exercise}
                         answers={answers}
                         onSelection={
                             setSelection
                         }
                         onText={setText}
-                    />
+                    />}
                 </div>
 
                 <BottomNavigation
