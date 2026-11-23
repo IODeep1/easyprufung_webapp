@@ -4086,5 +4086,12 @@
     "ar": "الأسعار",
     "uk": "Ціни",
     "tr": "Fiyatlar"
+  },
+  "Current plan": {
+    "de": "Aktueller Tarif",
+    "fr": "Offre actuelle",
+    "ar": "الباقة الحالية",
+    "uk": "Поточний план",
+    "tr": "Mevcut plan"
   }
 }

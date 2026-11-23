@@ -49,6 +49,7 @@ const Pricing = () => {
 
     const trackedAccount = useRef<string | null>(null);
     const userUuid = account?.user?.uuid;
+    const isFreePlan = Boolean(account?.user) && (account.user?.subscription?.plan?.toLowerCase?.() || "free") === "free";
     useEffect(() => {
         if (userUuid && trackedAccount.current !== userUuid) {
             trackedAccount.current = userUuid;
@@ -100,7 +101,10 @@ const Pricing = () => {
 
                         <div className="grid gap-6 pt-2 lg:grid-cols-3 xl:gap-8">
                             <div className={cardBase}>
-                                <h3 className={headingBase}>Free</h3>
+                                <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+                                    <h3 className="text-3xl font-semibold tracking-tight">Free</h3>
+                                    {isFreePlan && <span data-no-translate className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 dark:bg-blue-950 dark:text-blue-200">{tr("Current plan")}</span>}
+                                </div>
                                 <p className="text-neutral-600 sm:text-lg dark:text-neutral-400">
                                     Try the complete TELC Deutsch B1 exam experience before paying.
                                 </p>
@@ -118,13 +122,16 @@ const Pricing = () => {
                                 </ul>
 
                                 <div className="mt-auto pt-2">
-                                    <a
+                                    {isFreePlan ? <button type="button" disabled data-no-translate
+                                        className="inline-flex w-full cursor-not-allowed items-center justify-center rounded-xl border border-neutral-200 bg-neutral-100 px-6 py-3 text-lg font-medium text-neutral-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400">
+                                        {tr("Current plan")}
+                                    </button> : <a
                                         href="/"
                                         className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-black px-6 py-3 text-lg font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg dark:bg-white dark:text-black"
                                     >
                                         Start free
                                         <ArrowRight />
-                                    </a>
+                                    </a>}
                                 </div>
                             </div>
 
