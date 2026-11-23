@@ -38,7 +38,7 @@ export default function GuestSubmissionPage({ examTitle, ready, busy, error, onS
      <div className="p-6 sm:p-8">
       <span className="mb-6 inline-grid h-14 w-14 place-items-center rounded-2xl bg-blue-50 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400">{ready ? <FileCheck2 size={28} aria-hidden="true" /> : <AlertCircle size={28} aria-hidden="true" />}</span>
       <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">{ready ? auth.completed : copy.unavailable}</p>
-      <h2 className="mt-3 text-2xl font-bold">{examTitle || "TELC Deutsch B1"}</h2>
+      <h2 className="mt-3 text-2xl font-bold">{examTitle?.replace(/\btelc\b[\s-]*/gi, "").trim() || "Deutsch B1"}</h2>
       {ready && <div className="mt-5 flex items-center gap-2 rounded-xl border border-blue-100 bg-blue-50/70 px-4 py-3 text-sm text-blue-800 dark:border-blue-900 dark:bg-blue-950/30 dark:text-blue-200"><Check size={17} className="shrink-0" aria-hidden="true" />{auth.saved}</div>}
       {error && <div role="alert" className="mt-5 flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 p-4 text-sm leading-6 text-red-700 dark:border-red-900 dark:bg-red-950/30 dark:text-red-300"><AlertCircle size={18} className="mt-1 shrink-0" aria-hidden="true" /><p className="min-w-0 break-words">{error}</p></div>}
       <div className="mt-6 space-y-3">

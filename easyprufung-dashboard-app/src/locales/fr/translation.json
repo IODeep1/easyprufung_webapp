@@ -115,7 +115,7 @@
     "title": "Reprise de votre examen précédent",
     "message": "Nous avons trouvé un examen inachevé et restauré vos réponses enregistrées ainsi que votre position. Vous reprenez cet examen.",
     "dismiss": "Compris"
-},
+  },
   "examSubmission": {
     "close": "Fermer",
     "label": "Envoi définitif",
@@ -126,7 +126,7 @@
     "submit": "Envoyer l’examen",
     "expiredTitle": "Le temps de l’examen est écoulé.",
     "expiredMessage": "Le temps imparti est terminé. Vous pouvez toujours envoyer votre examen. Vos réponses enregistrées ont été conservées."
-},
+  },
   "examOutcome": {
     "label": "Résultat de l’examen",
     "passed": "Réussi",
@@ -134,7 +134,7 @@
     "historyTitle": "Examens terminés",
     "emptyTitle": "Aucun examen terminé pour le moment",
     "emptyMessage": "Vos examens terminés apparaîtront ici."
-},
+  },
   "examIncomplete": {
     "title": "Examen incomplet",
     "message": "Répondez à toutes les questions avant de remettre votre examen. Sélectionnez une partie incomplète pour y revenir.",
@@ -142,12 +142,12 @@
     "goToPart": "Aller à la partie {{number}}",
     "dismiss": "Compris",
     "sections": {
-        "LESEVERSTEHEN": "Compréhension écrite",
-        "SPRACHBAUSTEINE": "Éléments de langue",
-        "HOERVERSTEHEN": "Compréhension orale",
-        "SCHRIFTLICHER_AUSDRUCK": "Expression écrite"
+      "LESEVERSTEHEN": "Compréhension écrite",
+      "SPRACHBAUSTEINE": "Éléments de langue",
+      "HOERVERSTEHEN": "Compréhension orale",
+      "SCHRIFTLICHER_AUSDRUCK": "Expression écrite"
     }
-},
+  },
   "certificateShare": {
     "open": "Ouvrir l’attestation d’entraînement",
     "title": "Attestation d’entraînement",
@@ -162,5 +162,13 @@
     "loading": "Chargement de l’attestation d’entraînement…",
     "unavailable": "Cette attestation d’entraînement est indisponible.",
     "loadError": "Impossible de charger l’attestation d’entraînement. Veuillez réessayer."
-}
+  },
+  "examFormatSelector": {
+    "title": "Format de l’examen",
+    "digitalLabel": "Numérique",
+    "digitalDescription": "Répondez aux questions directement à l’écran.",
+    "paperLabel": "Sur papier",
+    "paperDescription": "Livret de questions et feuille de réponses séparée.",
+    "hint": "Choisissez le format avant de commencer. Votre choix s’applique à cet examen."
+  }
 }

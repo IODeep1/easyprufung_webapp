@@ -19,7 +19,7 @@ const providers: Array<{
 }> = [
     {
         value: "TELC",
-        label: "TELC",
+        label: "Deutsch",
         available: true
     },
     {
@@ -120,9 +120,9 @@ export function StartPage({
         : isExpired
             ? "Ihr Zugang ist abgelaufen"
             : isUnlimited
-                ? "TELC B1 Unlimited"
+                ? "B1 Unlimited"
                 : isB1
-                    ? "TELC B1 · 10 Prüfungen"
+                    ? "B1 · 10 Prüfungen"
                     : isFree
                         ? "Kostenloser Zugang"
                         : "Prüfungszugang";

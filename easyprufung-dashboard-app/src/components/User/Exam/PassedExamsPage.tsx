@@ -70,14 +70,14 @@ function ExamResultDetails({
                             <ExamOutcome passed={result.passed} />
 
                             <p className="mt-4 text-lg font-medium text-black/65 sm:text-xl">
-                                {session.title}
+                                {session.title.replace(/\btelc\b[\s-]*/gi, "").trim()}
                             </p>
 
                             {result.passed && <ExamCertificateButton session={session} result={result} />}
 
                             <div className="mt-5 flex flex-wrap gap-3 text-sm font-black">
                                 <span className="rounded-full border border-black px-4 py-2">
-                                    {session.provider}
+                                    {session.provider === "TELC" ? "Deutsch" : session.provider}
                                 </span>
 
                                 <span className="rounded-full border border-black px-4 py-2">
@@ -465,7 +465,7 @@ export function PassedExamsPage() {
                                     <div>
                                         <div className="flex flex-wrap gap-2">
                                             <span className="rounded-full border border-black px-3 py-1 text-xs font-black">
-                                                {entry.session.provider}
+                                                {entry.session.provider === "TELC" ? "Deutsch" : entry.session.provider}
                                             </span>
 
                                             <span className="rounded-full border border-black px-3 py-1 text-xs font-black">
@@ -474,7 +474,7 @@ export function PassedExamsPage() {
                                         </div>
 
                                         <div className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                                            <h2 className="text-xl font-black">{entry.session.title}</h2>
+                                            <h2 className="text-xl font-black">{entry.session.title.replace(/\btelc\b[\s-]*/gi, "").trim()}</h2>
                             <p className="mt-2 text-xs font-semibold">{entry.session.format === "PAPER" ? "Papierbasiert" : "Digital"}</p>
                                             <ExamOutcome passed={entry.result.passed} compact />
                                         </div>

@@ -11,7 +11,8 @@ function compile(file, overrides = {}) {
     return exports;
 }
 const {PaperExam, paperGaps} = compile('paper/PaperExam.tsx');
-const {ExamFormatSelector} = compile('components/ExamFormatSelector.tsx');
+const selectorLocale = require('../src/locales/de/translation.json').examFormatSelector;
+const {ExamFormatSelector} = compile('components/ExamFormatSelector.tsx', {'react-i18next':{useTranslation:()=>({t:key=>selectorLocale[key.split('.').pop()],i18n:{resolvedLanguage:'de',dir:()=> 'ltr'}})}});
 const parts = ['LESEN_1','LESEN_2','LESEN_3','SPRACHE_1','SPRACHE_2','HOEREN_1','HOEREN_2','HOEREN_3','SCHREIBEN_EMAIL'];
 let number = 0;
 const exercises = parts.map((partKey,index) => ({id:partKey, partKey, sectionKey:index<3?'LESEVERSTEHEN':index<5?'SPRACHBAUSTEINE':index<8?'HOERVERSTEHEN':'SCHREIBEN',

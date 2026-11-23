@@ -8,9 +8,9 @@ import {
 import {
   FilePlus2,
   BookOpen,
-  Coins,
-  TicketCheck,
-  MessageCircle,
+  Tag,
+  Ticket,
+  Mail,
   ChevronRight,
   List,
 } from "lucide-react";
@@ -232,9 +232,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {teacherRole.isTeacher ? tr("Personal practice") : tr("Practice")}
             </h3>
             <ul className={sidebarList}>
-              <StudentClassesNavigation
-                onNavigate={() => setSidebarOpen(false)}
-              />
               <li>
                 <NavLink
                   to="/new"
@@ -328,6 +325,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </SidebarLinkGroup>
             </ul>
           </section>
+          <StudentClassesNavigation onNavigate={() => setSidebarOpen(false)} />
           {!isPaidSubscription && (
             <section className="mb-6" aria-label={tr("Plans")}>
               <h3 className={sidebarTitle}>{tr("Plans")}</h3>
@@ -338,8 +336,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     onClick={() => setSidebarOpen(false)}
                     className={({ isActive }) => sidebarLink(isActive)}
                   >
-                    <Coins {...sidebarIcon} />
-                    {tr("Plans & pricing")}
+                    <Tag {...sidebarIcon} />
+                    {tr("Pricing")}
                   </NavLink>
                 </li>
                 {subscriptionPlan !== "tester" && (
@@ -349,7 +347,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                       onClick={() => setSidebarOpen(false)}
                       className={({ isActive }) => sidebarLink(isActive)}
                     >
-                      <TicketCheck {...sidebarIcon} />
+                      <Ticket {...sidebarIcon} />
                       {tr("Redeem your code")}
                     </NavLink>
                   </li>
@@ -366,7 +364,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   onClick={() => setSidebarOpen(false)}
                   className={({ isActive }) => sidebarLink(isActive)}
                 >
-                  <MessageCircle {...sidebarIcon} />
+                  <Mail {...sidebarIcon} />
                   {tr("Contact us")}
                 </NavLink>
               </li>

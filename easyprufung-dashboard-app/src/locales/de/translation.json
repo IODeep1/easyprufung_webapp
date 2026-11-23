@@ -115,7 +115,7 @@
     "title": "Ihre bisherige Prüfung wird fortgesetzt",
     "message": "Wir haben eine begonnene Prüfung gefunden und Ihre gespeicherten Antworten sowie Ihre letzte Position wiederhergestellt. Sie setzen diese Prüfung fort.",
     "dismiss": "Verstanden"
-},
+  },
   "examSubmission": {
     "close": "Schließen",
     "label": "Endgültige Abgabe",
@@ -126,7 +126,7 @@
     "submit": "Prüfung abgeben",
     "expiredTitle": "Die Prüfungszeit ist abgelaufen.",
     "expiredMessage": "Die vorgesehene Bearbeitungszeit ist beendet. Sie können Ihre Prüfung trotzdem weiterhin einreichen. Ihre bisherigen Antworten bleiben erhalten."
-},
+  },
   "examOutcome": {
     "label": "Prüfungsergebnis",
     "passed": "Bestanden",
@@ -134,7 +134,7 @@
     "historyTitle": "Abgeschlossene Prüfungen",
     "emptyTitle": "Noch keine abgeschlossenen Prüfungen",
     "emptyMessage": "Ihre abgeschlossenen Prüfungen werden hier angezeigt."
-},
+  },
   "examIncomplete": {
     "title": "Prüfung nicht vollständig",
     "message": "Beantworte alle Fragen, bevor du die Prüfung abgibst. Wähle einen offenen Teil aus, um dorthin zurückzukehren.",
@@ -142,12 +142,12 @@
     "goToPart": "Zu Teil {{number}}",
     "dismiss": "Verstanden",
     "sections": {
-        "LESEVERSTEHEN": "Leseverstehen",
-        "SPRACHBAUSTEINE": "Sprachbausteine",
-        "HOERVERSTEHEN": "Hörverstehen",
-        "SCHRIFTLICHER_AUSDRUCK": "Schriftlicher Ausdruck"
+      "LESEVERSTEHEN": "Leseverstehen",
+      "SPRACHBAUSTEINE": "Sprachbausteine",
+      "HOERVERSTEHEN": "Hörverstehen",
+      "SCHRIFTLICHER_AUSDRUCK": "Schriftlicher Ausdruck"
     }
-},
+  },
   "certificateShare": {
     "open": "Übungsnachweis öffnen",
     "title": "Übungsnachweis",
@@ -162,5 +162,13 @@
     "loading": "Übungsnachweis wird geladen …",
     "unavailable": "Dieser Übungsnachweis ist nicht verfügbar.",
     "loadError": "Der Übungsnachweis konnte nicht geladen werden. Bitte versuchen Sie es erneut."
-}
+  },
+  "examFormatSelector": {
+    "title": "Prüfungsformat",
+    "digitalLabel": "Digital",
+    "digitalDescription": "Aufgaben direkt am Bildschirm bearbeiten.",
+    "paperLabel": "Papierbasiert",
+    "paperDescription": "Aufgabenheft und separater Antwortbogen.",
+    "hint": "Wählen Sie das Format vor dem Start. Die Auswahl gilt für diese Prüfung."
+  }
 }

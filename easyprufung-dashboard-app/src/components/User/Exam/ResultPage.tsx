@@ -100,7 +100,7 @@ export function ResultPage(props: {
                             </h1>
 
                             <p className="mt-5 text-black/50">
-                                {session.title}
+                                {session.title.replace(/\btelc\b[\s-]*/gi, "").trim()}
                             </p>
 
                             {result.passed && hasPremiumAccess && <ExamCertificateButton session={session} result={result} />}

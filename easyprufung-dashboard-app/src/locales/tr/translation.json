@@ -124,7 +124,7 @@
     "title": "Önceki sınavınıza devam ediyorsunuz",
     "message": "Tamamlanmamış bir sınav bulduk ve kaydedilen yanıtlarınızla kaldığınız yeri geri yükledik. Bu sınava devam ediyorsunuz.",
     "dismiss": "Anladım"
-},
+  },
   "examSubmission": {
     "close": "Kapat",
     "label": "Son teslim",
@@ -135,7 +135,7 @@
     "submit": "Sınavı teslim et",
     "expiredTitle": "Sınav süresi doldu.",
     "expiredMessage": "Ayrılan süre sona erdi. Sınavınızı yine de teslim edebilirsiniz. Kaydedilen yanıtlarınız korundu."
-},
+  },
   "examOutcome": {
     "label": "Sınav sonucu",
     "passed": "Başarılı",
@@ -143,7 +143,7 @@
     "historyTitle": "Tamamlanan sınavlar",
     "emptyTitle": "Henüz tamamlanan sınav yok",
     "emptyMessage": "Tamamladığınız sınavlar burada görünecek."
-},
+  },
   "examIncomplete": {
     "title": "Sınav tamamlanmadı",
     "message": "Sınavı teslim etmeden önce tüm soruları yanıtlayın. Geri dönmek için tamamlanmamış bir bölüm seçin.",
@@ -151,12 +151,12 @@
     "goToPart": "{{number}}. bölüme git",
     "dismiss": "Anladım",
     "sections": {
-        "LESEVERSTEHEN": "Okuduğunu anlama",
-        "SPRACHBAUSTEINE": "Dil öğeleri",
-        "HOERVERSTEHEN": "Dinlediğini anlama",
-        "SCHRIFTLICHER_AUSDRUCK": "Yazılı anlatım"
+      "LESEVERSTEHEN": "Okuduğunu anlama",
+      "SPRACHBAUSTEINE": "Dil öğeleri",
+      "HOERVERSTEHEN": "Dinlediğini anlama",
+      "SCHRIFTLICHER_AUSDRUCK": "Yazılı anlatım"
     }
-},
+  },
   "certificateShare": {
     "open": "Deneme sınavı belgesini aç",
     "title": "Deneme sınavı belgesi",
@@ -171,5 +171,13 @@
     "loading": "Deneme sınavı belgesi yükleniyor…",
     "unavailable": "Bu deneme sınavı belgesine erişilemiyor.",
     "loadError": "Deneme sınavı belgesi yüklenemedi. Lütfen tekrar deneyin."
-}
+  },
+  "examFormatSelector": {
+    "title": "Sınav formatı",
+    "digitalLabel": "Dijital",
+    "digitalDescription": "Soruları doğrudan ekranda yanıtlayın.",
+    "paperLabel": "Kâğıt tabanlı",
+    "paperDescription": "Soru kitapçığı ve ayrı cevap kâğıdı.",
+    "hint": "Başlamadan önce formatı seçin. Seçiminiz bu sınav için geçerlidir."
+  }
 }

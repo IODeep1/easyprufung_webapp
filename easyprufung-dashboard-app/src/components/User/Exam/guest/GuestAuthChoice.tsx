@@ -41,7 +41,7 @@ export default function GuestAuthChoice({ examTitle, continueExam=false }: { exa
       <div className="p-6 sm:p-8">
        <span className="mb-6 inline-grid h-14 w-14 place-items-center rounded-2xl bg-blue-50 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400"><FileCheck2 size={28} aria-hidden="true" /></span>
        <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">{copy.completed}</p>
-       <h2 className="mt-3 text-2xl font-bold">{examTitle || "TELC Deutsch B1"}</h2>
+       <h2 className="mt-3 text-2xl font-bold">{examTitle?.replace(/\btelc\b[\s-]*/gi, "").trim() || "Deutsch B1"}</h2>
        <div className="mt-5 flex items-center gap-2 rounded-xl border border-blue-100 bg-blue-50/70 px-4 py-3 text-sm text-blue-800 dark:border-blue-900 dark:bg-blue-950/30 dark:text-blue-200"><Check size={17} className="shrink-0" aria-hidden="true" />{copy.saved}</div>
        <p className="mt-5 text-sm leading-6 text-gray-600 dark:text-gray-300">{copy.message}</p>
        <button className={`${primary} mt-6 w-full`} onClick={() => setOpen(true)}>{copy.continue}<ArrowRight size={17} aria-hidden="true" /></button>

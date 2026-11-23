@@ -62,7 +62,10 @@ export function StudentClassesNavigation({
   const role = useTeacherRole();
   if (role.status !== "NOT_REGISTERED") return null;
   return (
-    <li data-no-translate lang={locale} dir={dir}>
+    <section data-no-translate lang={locale} dir={dir} className="mb-6" aria-label={tr("Learning together")}>
+      <h3 className={sidebarTitle}>{tr("Learning together")}</h3>
+      <ul className={sidebarList}>
+      <li>
       <NavLink
         to="/my-classes"
         onClick={onNavigate}
@@ -71,6 +74,8 @@ export function StudentClassesNavigation({
         <Users {...sidebarIcon} />
         {tr("My classes")}
       </NavLink>
-    </li>
+      </li>
+      </ul>
+    </section>
   );
 }

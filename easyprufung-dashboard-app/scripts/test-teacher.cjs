@@ -68,6 +68,10 @@ function compile(file, resolve) {
   return exports;
 }
 function common(name) {
+  if (name === "react-i18next") return {useTranslation:()=>({t:key=>{
+    const dict=JSON.parse(fs.readFileSync(path.join(__dirname,'../src/locales',featureLanguage,'translation.json'),'utf8'));
+    return key.split('.').reduce((value,part)=>value?.[part],dict) || key;
+  },i18n:{resolvedLanguage:featureLanguage,dir:()=>featureLanguage==='ar'?'rtl':'ltr'}})};
   if (name.endsWith("ExamFormatSelector")) return compile("components/User/Exam/components/ExamFormatSelector.tsx", common);
   if (name.endsWith("feature-i18n")) {
     const tr = (source, values = {}) => (featureLanguage === "en" ? String(source ?? "") : featurePhrases[String(source ?? "")]?.[featureLanguage] || String(source ?? "")).replace(/\{\{(\w+)\}\}/g, (m,k) => k in values ? String(values[k]) : m);

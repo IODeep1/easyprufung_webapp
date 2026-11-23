@@ -85,7 +85,7 @@ export function ExamHeader({ title, level, expiresAt, currentIndex, total }: Exa
                 <div className="min-w-0">
                     <div className="flex items-center gap-3">
                         <div className="min-w-0">
-                            <p className="truncate text-lg text-black/55">{title} · {level}</p>
+                            <p className="truncate text-lg text-black/55">{title.replace(/\btelc\b[\s-]*/gi, "").trim()} · {level}</p>
                         </div>
                     </div>
                 </div>

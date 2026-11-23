@@ -115,7 +115,7 @@
     "title": "Continuing your previous exam",
     "message": "We found an unfinished exam and restored your saved answers and position. You are continuing that exam.",
     "dismiss": "Got it"
-},
+  },
   "examSubmission": {
     "close": "Close",
     "label": "Final submission",
@@ -126,7 +126,7 @@
     "submit": "Submit exam",
     "expiredTitle": "The exam time has expired.",
     "expiredMessage": "The allotted time has ended. You can still submit your exam. Your saved answers have been retained."
-},
+  },
   "examOutcome": {
     "label": "Exam result",
     "passed": "Passed",
@@ -134,7 +134,7 @@
     "historyTitle": "Completed exams",
     "emptyTitle": "No completed exams yet",
     "emptyMessage": "Your completed exams will appear here."
-},
+  },
   "examIncomplete": {
     "title": "Exam incomplete",
     "message": "Answer every question before submitting. Select an incomplete part to return to it.",
@@ -142,12 +142,12 @@
     "goToPart": "Go to part {{number}}",
     "dismiss": "Got it",
     "sections": {
-        "LESEVERSTEHEN": "Reading comprehension",
-        "SPRACHBAUSTEINE": "Language elements",
-        "HOERVERSTEHEN": "Listening comprehension",
-        "SCHRIFTLICHER_AUSDRUCK": "Written expression"
+      "LESEVERSTEHEN": "Reading comprehension",
+      "SPRACHBAUSTEINE": "Language elements",
+      "HOERVERSTEHEN": "Listening comprehension",
+      "SCHRIFTLICHER_AUSDRUCK": "Written expression"
     }
-},
+  },
   "certificateShare": {
     "open": "Open practice certificate",
     "title": "Practice certificate",
@@ -162,5 +162,13 @@
     "loading": "Loading practice certificate…",
     "unavailable": "This practice certificate is unavailable.",
     "loadError": "Could not load the practice certificate. Please try again."
-}
+  },
+  "examFormatSelector": {
+    "title": "Exam format",
+    "digitalLabel": "Digital",
+    "digitalDescription": "Complete the tasks directly on screen.",
+    "paperLabel": "Paper-based",
+    "paperDescription": "Question booklet and separate answer sheet.",
+    "hint": "Choose the format before starting. Your choice applies to this exam."
+  }
 }

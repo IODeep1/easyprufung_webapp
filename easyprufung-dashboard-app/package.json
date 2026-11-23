@@ -86,7 +86,8 @@
     "test:google": "node scripts/test-google-redirect.cjs",
     "test:guest-recovery": "NODE_ENV=test node scripts/test-guest-recovery.cjs",
     "test:guest-checkpoint": "NODE_ENV=test node scripts/test-guest-checkpoint.cjs",
-    "test:paper": "NODE_ENV=test node scripts/test-paper-exam.cjs"
+    "test:paper": "NODE_ENV=test node scripts/test-paper-exam.cjs",
+    "test:navbar": "NODE_ENV=test node scripts/test-navbar-menu.cjs"
   },
   "eslintConfig": {
     "extends": [

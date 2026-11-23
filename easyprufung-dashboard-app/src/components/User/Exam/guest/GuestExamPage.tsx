@@ -134,7 +134,7 @@ export default function GuestExamPage() {
  const submit = () => { if (!busy) setRefresh(v => v + 1); };
  if (screen === "choose") return <main className="grid min-h-screen place-items-center bg-white p-6 text-black">
   <section className="w-full max-w-xl rounded-3xl border border-black p-7 sm:p-10">
-   <p className="text-xs font-black uppercase tracking-widest">SmartPrüfung · TELC Deutsch B1</p>
+   <p className="text-xs font-black uppercase tracking-widest">SmartPrüfung · Deutsch B1</p>
    <h1 className="mt-4 text-3xl font-black">Wie möchten Sie üben?</h1>
    <ExamFormatSelector value={format} onChange={setFormat} />
    <button type="button" onClick={() => { setScreen("loading"); setChosenFormat(format); }} className="mt-7 w-full rounded-xl bg-black px-6 py-4 font-bold text-white">Prüfung starten</button>

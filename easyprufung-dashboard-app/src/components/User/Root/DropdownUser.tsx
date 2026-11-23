@@ -5,46 +5,43 @@ import React, {
   useState,
   Dispatch,
   useLayoutEffect,
+  useId,
 } from "react";
 import { createPortal } from "react-dom";
 import { sidebarLink } from "../../Shared/sidebar-style";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import ProfileNavigation from "./ProfileNavigation";
 import { useDispatch, useSelector } from "react-redux";
 import { IStateType } from "../../../store/models/root.interface";
 import { logout } from "../../../store/actions/user/userAccount.actions";
-import { IUserAccount } from "../../../store/models/user/userAccount.interface";
 
 interface DropdownUserProps {
-  sidebarOpen: boolean;
+  sidebarOpen?: boolean;
+  variant?: "sidebar" | "header";
 }
 
-const DropdownUser = ({ sidebarOpen }: DropdownUserProps) => {
+const DropdownUser = ({ sidebarOpen = true, variant = "sidebar" }: DropdownUserProps) => {
+  const inHeader = variant === "header";
 
   const dispatch: Dispatch<any> = useDispatch();
   const navigate = useNavigate();
   const { i18n, t } = useTranslation();
   const isRtl = (i18n.resolvedLanguage || i18n.language).startsWith("ar");
   const userFirstName: string = useSelector(
-    (state: IStateType) => state.userAccount.user?.firstname
+    (state: IStateType) => state.userAccount.user?.firstname || ""
   );
   const userLastName: string = useSelector(
-    (state: IStateType) => state.userAccount.user?.lastname
+    (state: IStateType) => state.userAccount.user?.lastname || ""
   );
   let twoChars = "DF";
   if (userFirstName) twoChars = userFirstName.charAt(0);
   if (userLastName) twoChars = twoChars + userLastName.charAt(0);
 
-  const account: IUserAccount = useSelector(
-    (state: IStateType) => state.userAccount
-  );
-  const isSubscriptionActive = account.user?.subscription?.isActive;
-  let isPayedSubscription = isSubscriptionActive;
-  if (account.user?.subscription?.plan === "free") {
-    isPayedSubscription = false;
-  }
-
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const menuId = useId();
+  const { pathname } = useLocation();
+  useEffect(() => { setDropdownOpen(false); }, [pathname]);
 
   // The menu is portaled to document.body and would otherwise remain visible
   // after the sidebar is translated off-screen.
@@ -58,41 +55,42 @@ const DropdownUser = ({ sidebarOpen }: DropdownUserProps) => {
   const updateMenuPosition = () => {
     if (!trigger.current) return;
     const rect = trigger.current.getBoundingClientRect();
-    const menuWidth = 208;
-    const menuHeight = 112;
+    const menuWidth = Math.min(inHeader ? 320 : 208, window.innerWidth - 16);
+    const menuHeight = dropdown.current?.scrollHeight || 112;
     const margin = 8;
     const left = Math.max(
       margin,
       Math.min(
-        isRtl ? rect.right - menuWidth : rect.left,
+        inHeader
+          ? (isRtl ? rect.left : rect.right - menuWidth)
+          : (isRtl ? rect.right - menuWidth : rect.left),
         window.innerWidth - menuWidth - margin
       )
     );
-    const top =
-      rect.top >= menuHeight + margin
-        ? rect.top - menuHeight - margin
-        : Math.min(
-            rect.bottom + margin,
-            window.innerHeight - menuHeight - margin
-          );
+    const below = rect.bottom + margin;
+    const above = rect.top - menuHeight - margin;
+    const top = inHeader
+      ? (below + 120 <= window.innerHeight - margin ? below : margin)
+      : (above >= margin ? above : below);
     setMenuPosition({ top: Math.max(margin, top), left });
   };
 
   useLayoutEffect(() => {
     if (!dropdownOpen) return;
     updateMenuPosition();
+    if (inHeader) dropdown.current?.querySelector<HTMLElement>("a[href], button:not([disabled])")?.focus();
     window.addEventListener("resize", updateMenuPosition);
     window.addEventListener("scroll", updateMenuPosition, true);
     return () => {
       window.removeEventListener("resize", updateMenuPosition);
       window.removeEventListener("scroll", updateMenuPosition, true);
     };
-  }, [dropdownOpen, isRtl]);
+  }, [dropdownOpen, isRtl, inHeader]);
 
   // close on click outside
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
-      if (!dropdown.current) return;
+      if (!dropdown.current || !(target instanceof Node)) return;
       if (
         !dropdownOpen ||
         dropdown.current.contains(target) ||
@@ -101,37 +99,61 @@ const DropdownUser = ({ sidebarOpen }: DropdownUserProps) => {
         return;
       setDropdownOpen(false);
     };
-    document.addEventListener("click", clickHandler);
-    return () => document.removeEventListener("click", clickHandler);
+    document.addEventListener("click", clickHandler, true);
+    return () => document.removeEventListener("click", clickHandler, true);
   });
 
-  // close if the esc key is pressed
+  // Keep the popup usable with keyboard navigation and return focus on Escape.
   useEffect(() => {
-    const keyHandler = ({ keyCode }: KeyboardEvent) => {
-      if (!dropdownOpen || keyCode !== 27) return;
-      setDropdownOpen(false);
+    const keyHandler = (event: KeyboardEvent) => {
+      if (!dropdownOpen) return;
+      if (event.key === "Escape" || event.keyCode === 27) {
+        event.preventDefault();
+        setDropdownOpen(false);
+        trigger.current?.focus();
+        return;
+      }
+      if (!inHeader || !["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) return;
+      if (!(event.target instanceof Node) || (!dropdown.current?.contains(event.target) && !trigger.current?.contains(event.target))) return;
+      const items = Array.from(dropdown.current?.querySelectorAll<HTMLElement>("a[href], button:not([disabled])") || []);
+      if (!items.length) return;
+      event.preventDefault();
+      const current = items.indexOf(document.activeElement as HTMLElement);
+      const next = event.key === "Home" ? 0 : event.key === "End" ? items.length - 1
+        : event.key === "ArrowUp" ? (current < 0 ? items.length - 1 : (current - 1 + items.length) % items.length) : (current + 1) % items.length;
+      items[next].focus();
+    };
+    const focusHandler = (event: FocusEvent) => {
+      if (dropdownOpen && event.target instanceof Node && !dropdown.current?.contains(event.target) && !trigger.current?.contains(event.target)) setDropdownOpen(false);
     };
     document.addEventListener("keydown", keyHandler);
-    return () => document.removeEventListener("keydown", keyHandler);
-  });
+    document.addEventListener("focusin", focusHandler);
+    return () => {
+      document.removeEventListener("keydown", keyHandler);
+      document.removeEventListener("focusin", focusHandler);
+    };
+  }, [dropdownOpen, inHeader]);
 
   return (
-    <div className="relative flex w-full min-w-0 flex-col">
+    <div className={`relative flex min-w-0 flex-col ${inHeader ? "w-auto" : "w-full"}`}>
       <button
         ref={trigger}
         type="button"
         aria-expanded={dropdownOpen}
-        aria-haspopup="menu"
-        aria-label={t("dropdown_user_account_menu")}
+        aria-haspopup={inHeader ? "dialog" : "menu"}
+        aria-controls={dropdownOpen ? menuId : undefined}
+        aria-label={String(t("dropdown_user_account_menu"))}
         onClick={() => setDropdownOpen((open) => !open)}
-        className={sidebarLink(dropdownOpen)}
+        className={inHeader
+          ? `inline-flex items-center gap-2 rounded-full px-2 py-1.5 text-start text-sm font-medium text-gray-700 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:text-gray-200 dark:hover:bg-gray-800 ${dropdownOpen ? "bg-gray-100 dark:bg-gray-800" : ""}`
+          : sidebarLink(dropdownOpen)}
       >
-        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gray-900 dark:bg-gray-600">
+        <span className={`flex shrink-0 items-center justify-center rounded-full bg-gray-900 dark:bg-gray-600 ${inHeader ? "h-8 w-8" : "h-6 w-6"}`}>
           <p className="text-xs font-semibold text-white">
             {twoChars.toUpperCase()}
           </p>
         </span>
-        <span className="min-w-0 flex-1 truncate">
+        <span className={inHeader ? "hidden max-w-[10rem] truncate sm:block" : "min-w-0 flex-1 truncate"}>
           {[userFirstName, userLastName].filter(Boolean).join(" ") ||
             tr("My account")}
         </span>
@@ -159,22 +181,32 @@ const DropdownUser = ({ sidebarOpen }: DropdownUserProps) => {
         createPortal(
           <div
             ref={dropdown}
-            role="menu"
-            data-sidebar-user-dropdown="true"
+            id={menuId}
+            role={inHeader ? "dialog" : "menu"}
+            aria-label={String(t("dropdown_user_account_menu"))}
+            data-sidebar-user-dropdown={inHeader ? undefined : "true"}
+            data-header-user-dropdown={inHeader ? "true" : undefined}
             dir={isRtl ? "rtl" : "ltr"}
             style={{
               position: "fixed",
               top: menuPosition.top,
               left: menuPosition.left,
-              width: 208,
+              width: inHeader ? 320 : 208,
+              maxHeight: `calc(100dvh - ${menuPosition.top + 8}px)`,
+              overflowY: "auto",
+              overscrollBehavior: "contain",
               maxWidth: "calc(100vw - 16px)",
               zIndex: 9999,
             }}
             className="flex flex-col rounded-md border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800"
           >
+            {inHeader && <>
+              <ProfileNavigation onNavigate={() => setDropdownOpen(false)} />
+              <h3 className="border-t border-gray-100 px-5 pb-1 pt-3 text-xs font-bold uppercase tracking-wide text-gray-500 dark:border-gray-700 dark:text-gray-400">{tr("My account")}</h3>
+            </>}
             <button
               type="button"
-              role="menuitem"
+              role={inHeader ? undefined : "menuitem"}
               onClick={() => {
                 setDropdownOpen(false);
                 navigate("/settings");
@@ -199,7 +231,7 @@ const DropdownUser = ({ sidebarOpen }: DropdownUserProps) => {
             </button>
             <button
               type="button"
-              role="menuitem"
+              role={inHeader ? undefined : "menuitem"}
               onClick={() => {
                 setDropdownOpen(false);
                 dispatch(logout());

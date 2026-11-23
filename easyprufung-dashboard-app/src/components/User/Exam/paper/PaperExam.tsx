@@ -40,7 +40,7 @@ function Page({ title, timing, children, number, answerSheet = false }: {
         <header className="paper-page-header"><span>{timing}</span><b>{number}</b></header>
         <div className="paper-side-label" aria-hidden="true">{answerSheet ? "Antwortbogen" : title.replace(/ Teil \d+/, "")}</div>
         <div className="paper-page-body"><h2>{title}</h2>{children}</div>
-        <footer className="paper-page-footer"><span>SmartPrüfung · TELC Deutsch B1 · Übungsprüfung</span><span>{answerSheet ? "Antwortbogen" : "Aufgabenheft"}</span></footer>
+        <footer className="paper-page-footer"><span>SmartPrüfung · Deutsch B1 · Übungsprüfung</span><span>{answerSheet ? "Antwortbogen" : "Aufgabenheft"}</span></footer>
     </article>;
 }
 

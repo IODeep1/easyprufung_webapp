@@ -1542,9 +1542,9 @@
   "Learning together": {
     "de": "Gemeinsam lernen",
     "fr": "Apprendre ensemble",
-    "ar": "نتعلم معًا",
-    "uk": "Навчаємося разом",
-    "tr": "Birlikte öğreniyoruz"
+    "ar": "التعلّم معًا",
+    "uk": "Спільне навчання",
+    "tr": "Birlikte öğrenme"
   },
   "Leave and stop sharing": {
     "de": "Verlassen und Freigabe beenden",
@@ -4079,5 +4079,12 @@
     "ar": "60 يومًا من الوصول",
     "uk": "60 днів доступу",
     "tr": "60 gün erişim"
+  },
+  "Pricing": {
+    "de": "Preise",
+    "fr": "Tarifs",
+    "ar": "الأسعار",
+    "uk": "Ціни",
+    "tr": "Fiyatlar"
   }
 }
