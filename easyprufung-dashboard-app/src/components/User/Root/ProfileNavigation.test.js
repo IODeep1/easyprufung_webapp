@@ -1,0 +1,17 @@
+import React from "react";
+import {createRoot} from "react-dom/client";
+import {act} from "react-dom/test-utils";
+import ProfileNavigation from "./ProfileNavigation";
+let mockRole={isTeacher:false,isPartner:false,status:"NOT_REGISTERED"};
+jest.mock("../../../localization/feature-i18n",()=>({tr:text=>text,useFeatureLocale:()=>({locale:"en",dir:"ltr"})}));
+jest.mock("../../Teacher/TeacherRole",()=>({useTeacherRole:()=>mockRole}));
+jest.mock("react-redux",()=>({useSelector:fn=>fn({userAccount:{user:{subscription:{plan:"b1_unlimited",isActive:true}}}})}));
+jest.mock("react-router-dom",()=>({useLocation:()=>({pathname:"/settings"}),NavLink:({children,to,...props})=><a href={to}>{children}</a>}));
+jest.mock("../../Shared/DarkModeSwitcher",()=>()=>null);
+let root,container;
+beforeEach(()=>{global.IS_REACT_ACT_ENVIRONMENT=true;container=document.createElement("div");document.body.appendChild(container);root=createRoot(container);});
+afterEach(()=>{act(()=>root.unmount());container.remove();});
+const headings=()=>[...container.querySelectorAll('section h3')].map(h=>h.textContent).filter(h=>h!=="Appearance and account");
+test("partners see partner workspace before teacher workspace",()=>{mockRole={isTeacher:true,isPartner:true,status:"ACTIVE"};act(()=>root.render(<ProfileNavigation onNavigate={()=>{}}/>));expect(headings()).toEqual(["Partner workspace","Teacher workspace","Personal practice","Pricing","Help"]);});
+test("teachers can optionally apply while teacher workspace remains first",()=>{mockRole={isTeacher:true,isPartner:false,status:"ACTIVE"};act(()=>root.render(<ProfileNavigation onNavigate={()=>{}}/>));expect(headings()).toEqual(["Teacher workspace","Partner workspace","Personal practice","Pricing","Help"]);expect(container.querySelector('a[href="/partners"]').textContent).toBe("Become a partner");});
+test("learners retain class access under personal practice without workspace sections",()=>{mockRole={isTeacher:false,isPartner:false,status:"NOT_REGISTERED"};act(()=>root.render(<ProfileNavigation onNavigate={()=>{}}/>));expect(headings()).toEqual(["Personal practice","Pricing","Help"]);expect(container.querySelector('a[href="/partners"]')).toBeNull();expect(container.querySelector('a[href="/my-classes"]')).not.toBeNull();});

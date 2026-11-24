@@ -1,3 +1,4 @@
+import PartnerPage from "../../Partner/PartnerPage";
 import StudentPurchase from "../../Teacher/StudentPurchase";
 import TeacherPage from "../../Teacher/TeacherPage";
 import StudentClasses from "../../Teacher/StudentClasses";
@@ -64,7 +65,7 @@ const Root: React.FC = () => {
 
     const user = useSelector((state: IStateType) => state.userAccount.user);
     // Only explicitly incomplete accounts are gated; older accounts remain unaffected.
-    if (user?.acquisitionOnboardingCompleted === false) return <AcquisitionOnboarding returnTo={currentPath.startsWith("/teacher") || currentPath.startsWith("/class/") || currentPath==="/my-classes" ? currentPath : readGuest()?.pending ? "/guest-exam" : "/"} />;
+    if (user?.acquisitionOnboardingCompleted === false) return <AcquisitionOnboarding returnTo={currentPath.startsWith("/partners") || currentPath.startsWith("/teacher") || currentPath.startsWith("/class/") || currentPath==="/my-classes" ? currentPath : readGuest()?.pending ? "/guest-exam" : "/"} />;
 
     return (
         <Fragment>
@@ -81,7 +82,7 @@ const Root: React.FC = () => {
                         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setTheme={setTheme} />
                         {/* <!-- ===== Header End ===== --> */}
 
-                        {!currentPath.startsWith("/teacher") && <SavedGuestExamNotice userId={user?.uuid} plan={user?.subscription?.plan} />}
+                        {!currentPath.startsWith("/teacher") && !currentPath.startsWith("/partners") && <SavedGuestExamNotice userId={user?.uuid} plan={user?.subscription?.plan} />}
                         {/* <!-- ===== Main Content Start ===== --> */}
                         <main>
                             <div className="mx-auto"  onClick={(e) => {
@@ -90,6 +91,7 @@ const Root: React.FC = () => {
                             }}>
                                 <ThemeProvider theme={usedTheme}>
                                     <Routes>
+                                        <Route path="/partners" element={<PartnerPage />} />
                                         <Route path="/purchase" element={<StudentPurchase />} />
                                         <Route path="/teacher" element={<TeacherPage />} />
                                         <Route path="/teacher/classes" element={<TeacherPage />} />

@@ -13,7 +13,7 @@ export function completeGuest(token:string) {
     try { saveGuest({...readGuest()!,pending:false,completed:true}); } catch { return; }
     try { window.dispatchEvent(new Event(guestStateEvent)); } catch {}
 }
-export function authDestination() { let classroom:string|null=null;try{classroom=sessionStorage.getItem("smartpruefung:class-auth-return");}catch{} if(classroom && (/^\/teacher(?:\/|$)/.test(classroom)||/^\/class\/join\/[A-Za-z0-9_-]{43}$/.test(classroom)||classroom==="/my-classes"||/^\/purchase\?plan=b1(?:_unlimited)?$/.test(classroom)))return classroom; const guest = readGuest(); return guest && (guest.pending || guest.sessionId) ? "/guest-exam" : "/"; }
+export function authDestination() { let classroom:string|null=null;try{classroom=sessionStorage.getItem("smartpruefung:class-auth-return");}catch{} if(classroom && (/^\/partners(?:\/|$)/.test(classroom)||/^\/teacher(?:\/|$)/.test(classroom)||/^\/class\/join\/[A-Za-z0-9_-]{43}$/.test(classroom)||classroom==="/my-classes"||/^\/purchase\?plan=b1(?:_unlimited)?$/.test(classroom)))return classroom; const guest = readGuest(); return guest && (guest.pending || guest.sessionId) ? "/guest-exam" : "/"; }
 export async function guestRequest<T>(token: string | null, suffix: string, init: RequestInit = {}): Promise<T> {
     const response = await fetch(`/public/exams/guest${suffix}`, { ...init, headers: { ...(token ? { "X-Guest-Token": token } : {}), ...(init.body ? { "Content-Type": "application/json" } : {}) } });
     if (!response.ok) { let message = `Request failed (${response.status})`; try { message = (await response.json()).message || message; } catch {} throw new ExamApiError(response.status, message); }

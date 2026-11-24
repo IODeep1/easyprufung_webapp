@@ -6,6 +6,7 @@ import {
   sidebarIcon,
 } from "../../Shared/sidebar-style";
 import {
+  Users,
   FilePlus2,
   BookOpen,
   Tag,
@@ -15,9 +16,7 @@ import {
   List,
 } from "lucide-react";
 import { useTeacherRole } from "../../Teacher/TeacherRole";
-import TeacherNavigation, {
-  StudentClassesNavigation,
-} from "../../Teacher/TeacherNavigation";
+import TeacherNavigation from "../../Teacher/TeacherNavigation";
 import React, { Dispatch, useEffect, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -42,7 +41,6 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
-
   const { pathname } = useLocation();
   const teacherRole = useTeacherRole();
   const { i18n } = useTranslation();
@@ -221,16 +219,64 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           aria-label={tr("Main navigation")}
           className="no-scrollbar flex min-h-0 flex-1 flex-col overflow-y-auto px-4 pb-2 pt-20 lg:mt-2"
         >
-          <TeacherNavigation onNavigate={() => setSidebarOpen(false)} />
-          <section
-            className="mb-6"
-            aria-label={
-              teacherRole.isTeacher ? tr("Personal practice") : tr("Practice")
-            }
-          >
-            <h3 className={sidebarTitle}>
-              {teacherRole.isTeacher ? tr("Personal practice") : tr("Practice")}
-            </h3>
+          {(teacherRole.isTeacher || teacherRole.isPartner) && (
+            <>
+              {teacherRole.isPartner && (
+                <section
+                  data-no-translate
+                  lang="en"
+                  dir="ltr"
+                  className="mb-6"
+                  aria-label="Partner workspace"
+                >
+                  <h3 className={sidebarTitle}>Partner workspace</h3>
+                  <ul className={sidebarList}>
+                    <li>
+                      <NavLink
+                        to="/partners"
+                        onClick={() => setSidebarOpen(false)}
+                        className={({ isActive }) => sidebarLink(isActive)}
+                      >
+                        <Users {...sidebarIcon} />
+                        {teacherRole.isPartner
+                          ? "Partner Mode"
+                          : "Become a partner"}
+                      </NavLink>
+                    </li>
+                  </ul>
+                </section>
+              )}
+              <TeacherNavigation onNavigate={() => setSidebarOpen(false)} />
+              {!teacherRole.isPartner && (
+                <section
+                  data-no-translate
+                  lang="en"
+                  dir="ltr"
+                  className="mb-6"
+                  aria-label="Partner workspace"
+                >
+                  <h3 className={sidebarTitle}>Partner workspace</h3>
+                  <ul className={sidebarList}>
+                    <li>
+                      <NavLink
+                        to="/partners"
+                        onClick={() => setSidebarOpen(false)}
+                        className={({ isActive }) => sidebarLink(isActive)}
+                      >
+                        <Users {...sidebarIcon} />
+                        {teacherRole.isPartner
+                          ? "Partner Mode"
+                          : "Become a partner"}
+                      </NavLink>
+                    </li>
+                  </ul>
+                </section>
+              )}
+            </>
+          )}
+
+          <section className="mb-6" aria-label={tr("Personal practice")}>
+            <h3 className={sidebarTitle}>{tr("Personal practice")}</h3>
             <ul className={sidebarList}>
               <li>
                 <NavLink
@@ -244,6 +290,18 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   {tr("New exam")}
                 </NavLink>
               </li>
+              {!teacherRole.isTeacher && (
+                <li>
+                  <NavLink
+                    to="/my-classes"
+                    onClick={() => setSidebarOpen(false)}
+                    className={({ isActive }) => sidebarLink(isActive)}
+                  >
+                    <Users {...sidebarIcon} />
+                    {tr("My classes")}
+                  </NavLink>
+                </li>
+              )}
               <SidebarLinkGroup
                 activeCondition={
                   pathname === "/exams" || pathname.startsWith("/exams/")
@@ -325,36 +383,33 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </SidebarLinkGroup>
             </ul>
           </section>
-          <StudentClassesNavigation onNavigate={() => setSidebarOpen(false)} />
-          {!isPaidSubscription && (
-            <section className="mb-6" aria-label={tr("Plans")}>
-              <h3 className={sidebarTitle}>{tr("Plans")}</h3>
-              <ul className={sidebarList}>
+          <section className="mb-6" aria-label={tr("Pricing")}>
+            <h3 className={sidebarTitle}>{tr("Pricing")}</h3>
+            <ul className={sidebarList}>
+              <li>
+                <NavLink
+                  to="/pricing"
+                  onClick={() => setSidebarOpen(false)}
+                  className={({ isActive }) => sidebarLink(isActive)}
+                >
+                  <Tag {...sidebarIcon} />
+                  {tr("Pricing")}
+                </NavLink>
+              </li>
+              {!isPaidSubscription && subscriptionPlan !== "tester" && (
                 <li>
                   <NavLink
-                    to="/pricing"
+                    to="/code_redemption"
                     onClick={() => setSidebarOpen(false)}
                     className={({ isActive }) => sidebarLink(isActive)}
                   >
-                    <Tag {...sidebarIcon} />
-                    {tr("Pricing")}
+                    <Ticket {...sidebarIcon} />
+                    {tr("Redeem your code")}
                   </NavLink>
                 </li>
-                {subscriptionPlan !== "tester" && (
-                  <li>
-                    <NavLink
-                      to="/code_redemption"
-                      onClick={() => setSidebarOpen(false)}
-                      className={({ isActive }) => sidebarLink(isActive)}
-                    >
-                      <Ticket {...sidebarIcon} />
-                      {tr("Redeem your code")}
-                    </NavLink>
-                  </li>
-                )}
-              </ul>
-            </section>
-          )}
+              )}
+            </ul>
+          </section>
           <section className="mb-6" aria-label={tr("Help")}>
             <h3 className={sidebarTitle}>{tr("Help")}</h3>
             <ul className={sidebarList}>

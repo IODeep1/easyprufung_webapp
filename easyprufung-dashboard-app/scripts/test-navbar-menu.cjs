@@ -45,7 +45,7 @@ async function clickText(text) {const item=[...menu().querySelectorAll('button,a
 (async()=>{
     await mount('learner');assert.ok(!document.querySelector('header').textContent.includes('Free'));assert.ok(!document.querySelector('header').textContent.includes('0 exams'));
     await open();assert.equal(menu().getAttribute('role'),'dialog');assert.equal(menu().style.top,'64px');assert.equal(menu().style.width,'320px');assert.equal(menu().style.overflowY,'auto');
-    for(const group of ['Practice','Learning together','Plans','Help','Appearance and account'])assert.ok(menu().querySelector(`section[aria-label="${group}"]`),group);
+    for(const group of ['Personal practice','Pricing','Help','Appearance and account'])assert.ok(menu().querySelector(`section[aria-label="${group}"]`),group);
     for(const href of ['/new','/my-classes','/pricing','/code_redemption','/contact'])assert.ok(menu().querySelector(`a[href="${href}"]`),href);
     assert.equal(menu().querySelector('a[href="/teacher"]'),null);
     await clickText('Exam history');assert.ok(menu().querySelector('a[href="/exams"]'));await clickText('All exams');assert.equal(menu(),null);assert.equal(navigations.at(-1),'/exams');
@@ -58,12 +58,12 @@ async function clickText(text) {const item=[...menu().querySelectorAll('button,a
     assert.ok(menu().querySelector('section[aria-label="Teacher workspace"]'));assert.ok(menu().querySelector('section[aria-label="Personal practice"]'));
     for(const href of ['/teacher','/teacher/classes','/teacher/seats','/teacher/billing'])assert.ok(menu().querySelector(`a[href="${href}"]`),href);
     assert.equal(menu().querySelector('a[href="/my-classes"]'),null);
-    subscription={plan:'b1',isActive:true,status:'active',endDate:'2030-12-01'};await mount('paid-teacher');await open();assert.equal(menu().querySelector('section[aria-label="Plans"]'),null);
+    subscription={plan:'b1',isActive:true,status:'active',endDate:'2030-12-01'};await mount('paid-teacher');await open();assert.ok(menu().querySelector('section[aria-label="Pricing"]'));assert.equal(menu().querySelector('a[href="/code_redemption"]'),null);
     subscription={...subscription,status:'expired'};await mount('expired-teacher');await open();assert.ok(menu().querySelector('a[href="/pricing"]'));
     const settings=[...menu().querySelectorAll('button')].find(el=>el.textContent.includes('Settings'));await act(async()=>settings.click());assert.equal(menu(),null);assert.equal(navigations.at(-1),'/settings');
     await open();await act(async()=>menu().querySelectorAll('button')[menu().querySelectorAll('button').length-1].click());assert.equal(dispatched.at(-1).type,'LOGOUT');assert.equal(menu(),null);
     role={isTeacher:false,status:'NOT_REGISTERED'};subscription={plan:'free'};
-    for(locale of ['de','fr','ar','uk','tr']) {await mount(locale);await open();assert.equal(menu().dir,locale==='ar'?'rtl':'ltr');assert.ok(menu().textContent.includes(translate('Learning together')));assert.ok(menu().textContent.includes(translate('Pricing')));}
+    for(locale of ['de','fr','ar','uk','tr']) {await mount(locale);await open();assert.equal(menu().dir,locale==='ar'?'rtl':'ltr');assert.ok(menu().textContent.includes(translate('Personal practice')));assert.ok(!menu().textContent.includes(translate('Learning together')));assert.ok(menu().textContent.includes(translate('Pricing')));}
     await act(async()=>root.render(React.createElement(Dropdown,{key:'sidebar',variant:'sidebar',sidebarOpen:true})));await act(async()=>trigger().click());assert.ok(document.querySelector('[data-sidebar-user-dropdown]'));assert.equal(document.querySelector('[data-sidebar-user-dropdown] nav'),null,'Sidebar account menu remains compact');
     await act(async()=>root.unmount());dom.window.close();
     console.log('Navbar menu checks passed: learner/teacher groups, subscription visibility, translations/RTL, history, routing, theme, keyboard/focus, logout, compact sidebar and removed navbar badges.');

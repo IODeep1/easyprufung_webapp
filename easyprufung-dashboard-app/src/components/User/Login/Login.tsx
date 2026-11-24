@@ -1,3 +1,4 @@
+import { classAuthDestination } from "../../Teacher/AuthIntent";
 import { authDestination } from "../Exam/guest/guest-api";
 import React, { useState, FormEvent, Dispatch, useEffect } from "react";
 import { useTranslation } from "react-i18next";
@@ -16,6 +17,7 @@ const Login = () => {
     const dispatch: Dispatch<any> = useDispatch();
     const location = useLocation();
     const navigate = useNavigate();
+    const partnerMode = location.pathname.startsWith("/partners") || classAuthDestination() === "/partners";
     const { t } = useTranslation();
 
     const [formState, setFormState] = useState({
@@ -71,6 +73,7 @@ const Login = () => {
     return (
         <section
             id="Login"
+            data-no-translate={partnerMode ? true : undefined} lang={partnerMode ? "en" : undefined} dir={partnerMode ? "ltr" : undefined}
             className="relative min-h-screen flex items-center justify-center bg-white text-black dark:bg-black dark:text-white px-6 py-10"
         >
             {/* Background accents */}
@@ -103,7 +106,7 @@ const Login = () => {
                         </h1>
 
                         <p className="mt-5 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-                            Continue your German exam preparation with realistic timed mock exams, AI scoring, and personalized feedback.
+                            {partnerMode ? "Sign in to apply as a partner or manage your codes, commissions and payouts." : "Continue your German exam preparation with realistic timed mock exams, AI scoring, and personalized feedback."}
                         </p>
 
                         {/* Highlights */}
@@ -125,7 +128,7 @@ const Login = () => {
                         <p className="mt-6 text-sm text-gray-700 dark:text-gray-300">
                             Don’t have an account?
                             <a
-                                href="/register"
+                                href={partnerMode ? "/partners/register" : "/register"}
                                 className="ml-1 font-semibold text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 underline-offset-4 hover:underline"
                             >
                                 Register here
@@ -134,7 +137,7 @@ const Login = () => {
                         </p>
 
                         <div className="mt-10">
-                            <JoinMakers />
+                            {!partnerMode && <JoinMakers />}
                         </div>
                     </div>
 

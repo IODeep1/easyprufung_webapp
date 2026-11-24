@@ -174,6 +174,7 @@ const Student = compile("components/Teacher/StudentClasses.tsx", (name) =>
     ? { updateUser: (x) => x }
     : common(name)
 ).default;
+let partnerStatus = "NOT_REGISTERED";
 let roleStatus = "NOT_REGISTERED",
   roleFails = false;
 const Role = compile("components/Teacher/TeacherRole.tsx", (name) =>
@@ -181,7 +182,7 @@ const Role = compile("components/Teacher/TeacherRole.tsx", (name) =>
     ? {
         teacherApi: async () => {
           if (roleFails) throw Error("offline");
-          return { status: roleStatus };
+          return { status: roleStatus, partnerStatus };
         },
       }
     : common(name)
@@ -739,6 +740,7 @@ const flush = () =>
   await flush();
   const titles = [...target.querySelectorAll("h3")];
   assert.ok(titles.some((h) => h.textContent === "Personal practice"));
+  assert.ok(titles.some((h) => h.textContent === "Partner workspace"));
   assert.equal(
     new Set(titles.map((h) => h.className)).size,
     1,
@@ -772,11 +774,7 @@ const flush = () =>
   await flush();
   assert.ok(target.querySelector('a[href="/my-classes"]'));
   assert.equal(target.querySelector('a[href="/teacher"]'), null);
-  assert.equal(
-    target.querySelector('a[href="/pricing"]'),
-    null,
-    "Paid students keep My classes independently of Plans"
-  );
+  assert.ok(target.querySelector('a[href="/pricing"]'), "Pricing remains available for every account type");
 
   pathname = "/teacher/seats";
   roleStatus = "ACTIVE";
@@ -869,6 +867,19 @@ const flush = () =>
   await act(async () => target.querySelector("#tab-students").dispatchEvent(new window.KeyboardEvent("keydown",{key:"ArrowLeft",bubbles:true})));
   assert.equal(target.querySelector("#tab-assignments").getAttribute("aria-selected"),"true");
   featureLanguage = "en";
+  signedIn = true; roleFails = false;
+  for (const testCase of [
+    {teacher:"ACTIVE", partner:"APPROVED", headings:["Partner workspace","Teacher workspace","Personal practice","Pricing","Help"]},
+    {teacher:"ACTIVE", partner:"NOT_REGISTERED", headings:["Teacher workspace","Partner workspace","Personal practice","Pricing","Help"]},
+    {teacher:"NOT_REGISTERED", partner:"NOT_REGISTERED", headings:["Personal practice","Pricing","Help"]},
+  ]) {
+    roleStatus=testCase.teacher;partnerStatus=testCase.partner;pathname="/settings";
+    await act(async()=>root.render(React.createElement(SidebarTest,{key:testCase.headings.join("-")})));
+    await flush();
+    assert.deepEqual([...target.querySelectorAll("nav h3")].map(h=>h.textContent),testCase.headings);
+    assert.ok(!target.textContent.includes("Learning together"));
+    if(testCase.teacher==="NOT_REGISTERED")assert.ok(target.querySelector('a[href="/my-classes"]'));
+  }
   await act(async () => root.unmount());
   console.log(
     "Teacher checkout and account UI checks passed: server-fed pricing, webhook-confirmed return status, pending/failed payment handling, role isolation, shared sidebar styles, class and assignment tabs, completed reviews, failed-start recovery, offer acceptance, sharing withdrawal, safe invitation links and affirmative consent."

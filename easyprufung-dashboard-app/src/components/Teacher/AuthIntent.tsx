@@ -7,7 +7,8 @@ export function classAuthDestination(): string | null {
   try {
     const p = sessionStorage.getItem(classReturnKey);
     return p &&
-      (/^\/teacher(?:\/|$)/.test(p) ||
+      (/^\/partners(?:\/|$)/.test(p) ||
+        /^\/teacher(?:\/|$)/.test(p) ||
         /^\/class\/join\/[A-Za-z0-9_-]{43}$/.test(p) ||
         p === "/my-classes" ||
         /^\/purchase\?plan=b1(?:_unlimited)?$/.test(p))
@@ -29,12 +30,13 @@ export default function AuthIntent() {
       } catch {}
     }
     if (
+      pathname.startsWith("/partners") ||
       pathname.startsWith("/teacher") ||
       pathname.startsWith("/class/join/") ||
       pathname === "/my-classes" ||
       pathname === "/purchase"
     ) {
-      if (signedIn && pathname !== "/teacher/register") {
+      if (signedIn && pathname !== "/teacher/register" && pathname !== "/partners/register") {
         try {
           sessionStorage.removeItem(classReturnKey);
         } catch {}
@@ -43,7 +45,9 @@ export default function AuthIntent() {
       try {
         sessionStorage.setItem(
           classReturnKey,
-          pathname === "/teacher/register"
+          pathname === "/partners/register"
+            ? "/partners"
+            : pathname === "/teacher/register"
             ? "/teacher"
             : pathname === "/purchase"
             ? pathname + search

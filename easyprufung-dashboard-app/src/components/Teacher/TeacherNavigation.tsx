@@ -7,7 +7,7 @@ import {
 } from "../Shared/sidebar-style";
 import React from "react";
 import { useTeacherRole } from "./TeacherRole";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { LayoutDashboard, Users, Ticket, Receipt } from "lucide-react";
 export const teacherLinks = [
   { to: "/teacher", label: "Dashboard", icon: LayoutDashboard },
@@ -60,21 +60,29 @@ export function StudentClassesNavigation({
   const { locale, dir } = useFeatureLocale();
 
   const role = useTeacherRole();
-  if (role.status !== "NOT_REGISTERED") return null;
+  const { pathname } = useLocation();
+  if (role.status !== "NOT_REGISTERED" || pathname.startsWith("/partners"))
+    return null;
   return (
-    <section data-no-translate lang={locale} dir={dir} className="mb-6" aria-label={tr("Learning together")}>
+    <section
+      data-no-translate
+      lang={locale}
+      dir={dir}
+      className="mb-6"
+      aria-label={tr("Learning together")}
+    >
       <h3 className={sidebarTitle}>{tr("Learning together")}</h3>
       <ul className={sidebarList}>
-      <li>
-      <NavLink
-        to="/my-classes"
-        onClick={onNavigate}
-        className={({ isActive }) => sidebarLink(isActive)}
-      >
-        <Users {...sidebarIcon} />
-        {tr("My classes")}
-      </NavLink>
-      </li>
+        <li>
+          <NavLink
+            to="/my-classes"
+            onClick={onNavigate}
+            className={({ isActive }) => sidebarLink(isActive)}
+          >
+            <Users {...sidebarIcon} />
+            {tr("My classes")}
+          </NavLink>
+        </li>
       </ul>
     </section>
   );

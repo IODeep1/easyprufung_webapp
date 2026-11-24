@@ -18,12 +18,14 @@ type Role = {
   loading: boolean;
   status: TeacherStatus | null;
   isTeacher: boolean;
+  isPartner: boolean;
   refresh: () => Promise<void>;
 };
 const Context = createContext<Role>({
   loading: true,
   status: null,
   isTeacher: false,
+  isPartner: false,
   refresh: async () => {},
 });
 export function TeacherRoleProvider({
@@ -36,6 +38,7 @@ export function TeacherRoleProvider({
     userId: string | undefined;
     status: TeacherStatus | null;
     loading: boolean;
+    partnerStatus?: string;
   }>({ userId: undefined, status: null, loading: true });
   const refresh = useCallback(async () => {
     if (!userId) {
@@ -43,8 +46,16 @@ export function TeacherRoleProvider({
       return;
     }
     try {
-      const p = await teacherApi<{ status: TeacherStatus }>("teacher/me");
-      setRole({ userId, status: p.status, loading: false });
+      const p = await teacherApi<{
+        status: TeacherStatus;
+        partnerStatus?: string;
+      }>("teacher/me");
+      setRole({
+        userId,
+        status: p.status,
+        partnerStatus: p.partnerStatus,
+        loading: false,
+      });
     } catch {
       setRole({ userId, status: null, loading: false });
     }
@@ -53,9 +64,17 @@ export function TeacherRoleProvider({
     let active = true;
     setRole({ userId, status: null, loading: !!userId });
     if (userId)
-      teacherApi<{ status: TeacherStatus }>("teacher/me")
+      teacherApi<{ status: TeacherStatus; partnerStatus?: string }>(
+        "teacher/me"
+      )
         .then((p) => {
-          if (active) setRole({ userId, status: p.status, loading: false });
+          if (active)
+            setRole({
+              userId,
+              status: p.status,
+              partnerStatus: p.partnerStatus,
+              loading: false,
+            });
         })
         .catch(() => {
           if (active) setRole({ userId, status: null, loading: false });
@@ -72,7 +91,9 @@ export function TeacherRoleProvider({
     return () => window.removeEventListener(teacherRoleChanged, update);
   }, [refresh]);
   const current =
-    role.userId === userId ? role : { status: null, loading: true };
+    role.userId === userId
+      ? role
+      : { status: null, partnerStatus: undefined, loading: true };
   return (
     <Context.Provider
       value={{
@@ -80,6 +101,9 @@ export function TeacherRoleProvider({
         status: current.status,
         isTeacher:
           current.status !== null && current.status !== "NOT_REGISTERED",
+        isPartner: Boolean(
+          current.partnerStatus && current.partnerStatus !== "NOT_REGISTERED"
+        ),
         refresh,
       }}
     >

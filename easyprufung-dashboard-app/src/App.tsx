@@ -26,6 +26,7 @@ const App: React.FC = () => {
           <Router>
               <AuthIntent />
               <Routes>
+                  <Route path="/partners/register" element={<Registration partnerMode />} />
                   <Route path="/teacher/register" element={<Registration teacherMode />} />
                   <Route path="/google/callback" element={<GoogleCallback />} />
                   <Route path="/privacy" element={<LegalPage kind="privacy" />} />

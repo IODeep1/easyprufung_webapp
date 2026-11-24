@@ -1,3 +1,6 @@
+import PartnerPage from "../../Partner/PartnerPage";
+import { useTeacherRole } from "../../Teacher/TeacherRole";
+import { Link } from "react-router-dom";
 import { tr } from "../../../localization/feature-i18n";
 import { trackPaymentClick } from "../../../api/activity/activity";
 import React, { Dispatch, FormEvent, useEffect, useRef, useState } from "react";
@@ -31,6 +34,7 @@ const ArrowRight = ({ className = "h-4 w-4" }) => (
 );
 
 const Settings = () => {
+    const role = useTeacherRole();
     const dispatch: Dispatch<any> = useDispatch();
     const { t, i18n } = useTranslation();
     const euros = (amount: number) => new Intl.NumberFormat(i18n.resolvedLanguage || i18n.language, {style:"currency",currency:"EUR"}).format(amount);
@@ -312,6 +316,8 @@ const Settings = () => {
 
                 <div className="mb-8"><LanguageSelector /></div>
 
+                {role.isPartner && <PartnerPage settingsMode />}
+                {role.isTeacher && !role.isPartner && <section data-no-translate lang="en" dir="ltr" className="mb-8 rounded-2xl border border-gray-200 p-6 dark:border-gray-700"><h2 className="text-xl font-bold">Partner program</h2><p className="mt-2 text-sm text-gray-500">Partner participation is optional. Apply if you would like to share discounts and earn commission.</p><Link to="/partners" className="mt-4 inline-flex rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white">Become a partner</Link></section>}
                 {/* Exam access / quota status */}
                 <div
                     id="access"

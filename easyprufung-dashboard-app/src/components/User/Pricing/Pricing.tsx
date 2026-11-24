@@ -91,6 +91,7 @@ const Pricing = () => {
                     <div className="mx-auto mt-3 h-1 w-20 rounded-full bg-blue-500/80" />
                 </div>
 
+                <p data-no-translate lang="en" dir="ltr" className="relative mb-6 px-4 text-center text-sm text-neutral-500">Have a partner code? Enter it in Stripe Checkout before paying.</p>
                 <Container className="!p-0">
                     <div className="relative mx-auto max-w-7xl px-4 lg:px-6">
                         <div className="mx-auto mb-10 max-w-2xl text-center lg:mb-12">
