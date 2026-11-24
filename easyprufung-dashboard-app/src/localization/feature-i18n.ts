@@ -21,6 +21,11 @@ export function translateFeature(
     return translateFeature("Request failed ({{status}}).", locale, {
       status: requestError[1],
     });
+  const fieldError = key.match(/^Check (.+)\.$/);
+  if (fieldError && !dictionary[key])
+    return translateFeature("Check {{field}}.", locale, {
+      field: translateFeature(fieldError[1], locale),
+    });
   const result =
     locale === "en"
       ? text

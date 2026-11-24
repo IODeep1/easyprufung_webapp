@@ -1,240 +1,381 @@
 import { useTranslation } from "react-i18next";
 import { tr } from "../../../localization/feature-i18n";
 import React, { useEffect, useRef } from "react";
-import { trackActivity, trackPaymentClick } from "../../../api/activity/activity";
+import {
+  trackActivity,
+  trackPaymentClick,
+} from "../../../api/activity/activity";
 import Container from "../../Shared/Container";
 import { useSelector } from "react-redux";
 import { IStateType } from "../../../store/models/root.interface";
 import { IUserAccount } from "../../../store/models/user/userAccount.interface";
 import { buildPaymentUrl } from "./payment-links";
-
 const CheckIcon = () => (
-    <svg
-        className="h-5 w-5 flex-shrink-0 text-blue-600 dark:text-blue-400"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        aria-hidden="true"
-    >
-        <path
-            fillRule="evenodd"
-            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-            clipRule="evenodd"
-        />
-    </svg>
+  <svg
+    className="h-5 w-5 flex-shrink-0 text-blue-600 dark:text-blue-400"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path
+      fillRule="evenodd"
+      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+      clipRule="evenodd"
+    />
+  </svg>
 );
-
 const ArrowRight = ({ className = "h-4 w-4" }) => (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className={className}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-    >
-        <path d="M18 8L22 12L18 16" />
-        <path d="M2 12H22" />
-    </svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M18 8L22 12L18 16" />
+    <path d="M2 12H22" />
+  </svg>
 );
-
 const Pricing = () => {
-    const {i18n} = useTranslation();
-    const euros = (amount: number) => new Intl.NumberFormat(i18n.resolvedLanguage || i18n.language, {style:"currency",currency:"EUR"}).format(amount);
-    const account: IUserAccount = useSelector(
-        (state: IStateType) => state.userAccount
-    );
+  const { i18n } = useTranslation();
+  const euros = (amount: number) =>
+    new Intl.NumberFormat(i18n.resolvedLanguage || i18n.language, {
+      style: "currency",
+      currency: "EUR",
+    }).format(amount);
+  const account: IUserAccount = useSelector(
+    (state: IStateType) => state.userAccount
+  );
+  const trackedAccount = useRef<string | null>(null);
+  const userUuid = account?.user?.uuid;
+  const isFreePlan =
+    Boolean(account?.user) &&
+    (account.user?.subscription?.plan?.toLowerCase?.() || "free") === "free";
+  useEffect(() => {
+    if (userUuid && trackedAccount.current !== userUuid) {
+      trackedAccount.current = userUuid;
+      trackActivity("PRICING_VIEWED", "pricing");
+    }
+  }, [userUuid]);
+  const limitedPaymentUrl = buildPaymentUrl(
+    "b1",
+    account?.user?.email,
+    account?.user?.uuid
+  );
+  const unlimitedPaymentUrl = buildPaymentUrl(
+    "b1_unlimited",
+    account?.user?.email,
+    account?.user?.uuid
+  );
+  const cardBase =
+    "relative flex h-full flex-col rounded-2xl border border-neutral-200 bg-white p-6 text-neutral-900 shadow-sm transition hover:-translate-y-1 hover:shadow-xl xl:p-8 dark:border-neutral-800 dark:bg-neutral-950 dark:text-white";
+  const headingBase = "mb-4 text-3xl font-semibold tracking-tight";
+  const priceRow = "my-8 flex items-baseline justify-center";
+  const price =
+    "mr-2 text-5xl font-extrabold tracking-tight text-black dark:text-white";
+  const priceSub = "text-neutral-500 dark:text-neutral-400";
+  const listBase = "mb-8 space-y-4 text-left";
+  const listItem = "flex items-start gap-3";
+  return (
+    <div className="relative">
+      <section id="pricing" className="relative py-16 sm:py-20">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.08),transparent_55%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.12),transparent_55%)]" />
 
-    const trackedAccount = useRef<string | null>(null);
-    const userUuid = account?.user?.uuid;
-    const isFreePlan = Boolean(account?.user) && (account.user?.subscription?.plan?.toLowerCase?.() || "free") === "free";
-    useEffect(() => {
-        if (userUuid && trackedAccount.current !== userUuid) {
-            trackedAccount.current = userUuid;
-            trackActivity("PRICING_VIEWED", "pricing");
-        }
-    }, [userUuid]);
+        <div className="relative mb-8 flex w-full flex-col items-center text-center sm:mb-10">
+          <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl md:text-5xl">
+            Prepare for TELC Deutsch B1
+          </h2>
+          <div className="mx-auto mt-3 h-1 w-20 rounded-full bg-blue-500/80" />
+        </div>
 
-    const limitedPaymentUrl = buildPaymentUrl(
-        "b1",
-        account?.user?.email,
-        account?.user?.uuid
-    );
+        <p
+          data-no-translate
+          className="relative mb-6 px-4 text-center text-sm text-neutral-500"
+        >
+          {tr(
+            "Have a partner code? Enter it in Stripe Checkout before paying."
+          )}
+        </p>
+        <Container className="!p-0">
+          <div className="relative mx-auto max-w-7xl px-4 lg:px-6">
+            <div className="mx-auto mb-10 max-w-2xl text-center lg:mb-12">
+              <p className="text-base text-neutral-600 dark:text-neutral-400 sm:text-lg">
+                {tr(
+                  "Start with one free exam, choose 10 exams for {{limited}}, or unlock unlimited exams for {{unlimited}}.",
+                  { limited: euros(19.99), unlimited: euros(39.99) }
+                )}
+              </p>
+            </div>
 
-    const unlimitedPaymentUrl = buildPaymentUrl(
-        "b1_unlimited",
-        account?.user?.email,
-        account?.user?.uuid
-    );
+            <div className="grid gap-6 pt-2 lg:grid-cols-3 xl:gap-8">
+              <div className={cardBase}>
+                <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+                  <h3 className="text-3xl font-semibold tracking-tight">
+                    Free
+                  </h3>
+                  {isFreePlan && (
+                    <span
+                      data-no-translate
+                      className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 dark:bg-blue-950 dark:text-blue-200"
+                    >
+                      {tr("Current plan")}
+                    </span>
+                  )}
+                </div>
+                <p className="text-neutral-600 dark:text-neutral-400 sm:text-lg">
+                  Try the complete TELC Deutsch B1 exam experience before
+                  paying.
+                </p>
 
-    const cardBase =
-        "relative flex h-full flex-col rounded-2xl border border-neutral-200 bg-white p-6 text-neutral-900 shadow-sm transition hover:-translate-y-1 hover:shadow-xl xl:p-8 dark:border-neutral-800 dark:bg-neutral-950 dark:text-white";
-    const headingBase = "mb-4 text-3xl font-semibold tracking-tight";
-    const priceRow = "my-8 flex items-baseline justify-center";
-    const price =
-        "mr-2 text-5xl font-extrabold tracking-tight text-black dark:text-white";
-    const priceSub = "text-neutral-500 dark:text-neutral-400";
-    const listBase = "mb-8 space-y-4 text-left";
-    const listItem = "flex items-start gap-3";
-
-    return (
-        <div className="relative">
-            <section id="pricing" className="relative py-16 sm:py-20">
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.08),transparent_55%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.12),transparent_55%)]" />
-
-                <div className="relative mb-8 flex w-full flex-col items-center text-center sm:mb-10">
-                    <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl md:text-5xl dark:text-white">
-                        Prepare for TELC Deutsch B1
-                    </h2>
-                    <div className="mx-auto mt-3 h-1 w-20 rounded-full bg-blue-500/80" />
+                <div className={priceRow}>
+                  <span className={price}>€0</span>
+                  <span className={priceSub}>No card required</span>
                 </div>
 
-                <p data-no-translate lang="en" dir="ltr" className="relative mb-6 px-4 text-center text-sm text-neutral-500">Have a partner code? Enter it in Stripe Checkout before paying.</p>
-                <Container className="!p-0">
-                    <div className="relative mx-auto max-w-7xl px-4 lg:px-6">
-                        <div className="mx-auto mb-10 max-w-2xl text-center lg:mb-12">
-                            <p className="text-base text-neutral-600 sm:text-lg dark:text-neutral-400">
-                                {tr("Start with one free exam, choose 10 exams for {{limited}}, or unlock unlimited exams for {{unlimited}}.", {limited:euros(19.99),unlimited:euros(39.99)})}
-                            </p>
-                        </div>
+                <ul role="list" className={listBase}>
+                  <li className={listItem}>
+                    <CheckIcon />
+                    <span className="font-semibold">1 exam included</span>
+                  </li>
+                  <li className={listItem}>
+                    <CheckIcon />
+                    <span>Realistic TELC Deutsch B1 exam experience</span>
+                  </li>
+                  <li className={listItem}>
+                    <CheckIcon />
+                    <span>
+                      Reading, language elements, listening and writing
+                    </span>
+                  </li>
+                  <li className={listItem}>
+                    <CheckIcon />
+                    <span>Automatic scoring and basic result</span>
+                  </li>
+                </ul>
 
-                        <div className="grid gap-6 pt-2 lg:grid-cols-3 xl:gap-8">
-                            <div className={cardBase}>
-                                <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-                                    <h3 className="text-3xl font-semibold tracking-tight">Free</h3>
-                                    {isFreePlan && <span data-no-translate className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 dark:bg-blue-950 dark:text-blue-200">{tr("Current plan")}</span>}
-                                </div>
-                                <p className="text-neutral-600 sm:text-lg dark:text-neutral-400">
-                                    Try the complete TELC Deutsch B1 exam experience before paying.
-                                </p>
+                <div className="mt-auto pt-2">
+                  {isFreePlan ? (
+                    <button
+                      type="button"
+                      disabled
+                      data-no-translate
+                      className="inline-flex w-full cursor-not-allowed items-center justify-center rounded-xl border border-neutral-200 bg-neutral-100 px-6 py-3 text-lg font-medium text-neutral-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400"
+                    >
+                      {tr("Current plan")}
+                    </button>
+                  ) : (
+                    <a
+                      href="/"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-black px-6 py-3 text-lg font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg dark:bg-white dark:text-black"
+                    >
+                      Start free
+                      <ArrowRight />
+                    </a>
+                  )}
+                </div>
+              </div>
 
-                                <div className={priceRow}>
-                                    <span className={price}>€0</span>
-                                    <span className={priceSub}>No card required</span>
-                                </div>
+              <div className={cardBase}>
+                <h3 className={headingBase}>10 Exams</h3>
+                <p className="text-neutral-600 dark:text-neutral-400 sm:text-lg">
+                  A low-cost pack for focused TELC B1 practice.
+                </p>
 
-                                <ul role="list" className={listBase}>
-                                    <li className={listItem}><CheckIcon /><span className="font-semibold">1 exam included</span></li>
-                                    <li className={listItem}><CheckIcon /><span>Realistic TELC Deutsch B1 exam experience</span></li>
-                                    <li className={listItem}><CheckIcon /><span>Reading, language elements, listening and writing</span></li>
-                                    <li className={listItem}><CheckIcon /><span>Automatic scoring and basic result</span></li>
-                                </ul>
+                <div className="my-8 flex flex-col items-center justify-center gap-2">
+                  <div
+                    className="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1"
+                    data-no-translate
+                  >
+                    <del
+                      className="text-xl font-medium text-neutral-500 line-through decoration-2 dark:text-neutral-400"
+                      aria-label={tr("Previous price {{price}}", {
+                        price: euros(29.99),
+                      })}
+                    >
+                      {euros(29.99)}
+                    </del>
+                    <span
+                      className={price}
+                      aria-label={tr("Current price {{price}}", {
+                        price: euros(19.99),
+                      })}
+                    >
+                      {euros(19.99)}
+                    </span>
+                    <span className={priceSub}>{tr("One-time payment")}</span>
+                  </div>
+                  <span
+                    data-no-translate
+                    className="rounded-full bg-green-100 px-2.5 py-1 text-xs font-semibold text-green-800 dark:bg-green-900/40 dark:text-green-300"
+                  >
+                    {tr("Save {{percent}}%", { percent: 33 })}
+                  </span>
+                </div>
 
-                                <div className="mt-auto pt-2">
-                                    {isFreePlan ? <button type="button" disabled data-no-translate
-                                        className="inline-flex w-full cursor-not-allowed items-center justify-center rounded-xl border border-neutral-200 bg-neutral-100 px-6 py-3 text-lg font-medium text-neutral-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400">
-                                        {tr("Current plan")}
-                                    </button> : <a
-                                        href="/"
-                                        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-black px-6 py-3 text-lg font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg dark:bg-white dark:text-black"
-                                    >
-                                        Start free
-                                        <ArrowRight />
-                                    </a>}
-                                </div>
-                            </div>
+                <div className="mb-6 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-center dark:border-blue-900/40 dark:bg-blue-950/30">
+                  <p className="font-semibold text-blue-900 dark:text-blue-200">
+                    10 exams · 60 days access
+                  </p>
+                </div>
 
-                            <div className={cardBase}>
-                                <h3 className={headingBase}>10 Exams</h3>
-                                <p className="text-neutral-600 sm:text-lg dark:text-neutral-400">
-                                    A low-cost pack for focused TELC B1 practice.
-                                </p>
+                <ul role="list" className={listBase}>
+                  <li className={listItem}>
+                    <CheckIcon />
+                    <span className="font-semibold">
+                      10 complete mock exams
+                    </span>
+                  </li>
+                  <li className={listItem}>
+                    <CheckIcon />
+                    <span>60 days of TELC B1 access</span>
+                  </li>
+                  <li className={listItem}>
+                    <CheckIcon />
+                    <span>Detailed results and explanations</span>
+                  </li>
+                  <li className={listItem}>
+                    <CheckIcon />
+                    <span>AI evaluation for written answers</span>
+                  </li>
+                  <li className={listItem}>
+                    <CheckIcon />
+                    <span>No subscription or automatic renewal</span>
+                  </li>
+                </ul>
 
-                                <div className="my-8 flex flex-col items-center justify-center gap-2">
-                                    <div className="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1" data-no-translate><del className="text-xl font-medium text-neutral-500 line-through decoration-2 dark:text-neutral-400" aria-label={tr("Previous price {{price}}", {price:euros(29.99)})}>{euros(29.99)}</del><span className={price} aria-label={tr("Current price {{price}}", {price:euros(19.99)})}>{euros(19.99)}</span>
-                                    <span className={priceSub}>{tr("One-time payment")}</span></div>
-                                    <span data-no-translate className="rounded-full bg-green-100 px-2.5 py-1 text-xs font-semibold text-green-800 dark:bg-green-900/40 dark:text-green-300">{tr("Save {{percent}}%", {percent:33})}</span>
-                                </div>
+                <div className="mt-auto pt-2">
+                  <a
+                    href={limitedPaymentUrl}
+                    onClick={() => trackPaymentClick("b1", "pricing")}
+                    onAuxClick={(e) => {
+                      if (e.button === 1) trackPaymentClick("b1", "pricing");
+                    }}
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-black bg-black px-6 py-3 text-lg font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-black/90 dark:border-white dark:bg-white dark:text-black"
+                  >
+                    Get 10 exams
+                    <ArrowRight />
+                  </a>
+                </div>
+              </div>
 
-                                <div className="mb-6 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-center dark:border-blue-900/40 dark:bg-blue-950/30">
-                                    <p className="font-semibold text-blue-900 dark:text-blue-200">
-                                        10 exams · 60 days access
-                                    </p>
-                                </div>
+              <div className="relative pt-4 lg:scale-105 lg:pt-0">
+                <div className="pointer-events-none absolute -top-3 left-1/2 z-10 -translate-x-1/2">
+                  <div className="whitespace-nowrap rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-white shadow-sm">
+                    Best value
+                  </div>
+                </div>
 
-                                <ul role="list" className={listBase}>
-                                    <li className={listItem}><CheckIcon /><span className="font-semibold">10 complete mock exams</span></li>
-                                    <li className={listItem}><CheckIcon /><span>60 days of TELC B1 access</span></li>
-                                    <li className={listItem}><CheckIcon /><span>Detailed results and explanations</span></li>
-                                    <li className={listItem}><CheckIcon /><span>AI evaluation for written answers</span></li>
-                                    <li className={listItem}><CheckIcon /><span>No subscription or automatic renewal</span></li>
-                                </ul>
+                <div
+                  className={`${cardBase} border-blue-100 shadow-blue-200/40 ring-1 ring-blue-500/20 dark:border-blue-900/40`}
+                >
+                  <h3 className={headingBase}>Unlimited</h3>
+                  <p className="text-neutral-600 dark:text-neutral-400 sm:text-lg">
+                    Practice as often as you want during your preparation
+                    period.
+                  </p>
 
-                                <div className="mt-auto pt-2">
-                                    <a
-                                        href={limitedPaymentUrl}
-                                        onClick={() => trackPaymentClick("b1", "pricing")}
-                                        onAuxClick={e => { if (e.button === 1) trackPaymentClick("b1", "pricing"); }}
-                                        className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-black bg-black px-6 py-3 text-lg font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-black/90 dark:border-white dark:bg-white dark:text-black"
-                                    >
-                                        Get 10 exams
-                                        <ArrowRight />
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div className="relative pt-4 lg:pt-0 lg:scale-105">
-                                <div className="pointer-events-none absolute -top-3 left-1/2 z-10 -translate-x-1/2">
-                                    <div className="whitespace-nowrap rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-white shadow-sm">
-                                        Best value
-                                    </div>
-                                </div>
-
-                                <div className={`${cardBase} border-blue-100 shadow-blue-200/40 ring-1 ring-blue-500/20 dark:border-blue-900/40`}>
-                                    <h3 className={headingBase}>Unlimited</h3>
-                                    <p className="text-neutral-600 sm:text-lg dark:text-neutral-400">
-                                        Practice as often as you want during your preparation period.
-                                    </p>
-
-                                    <div className="my-8 flex flex-col items-center justify-center gap-2">
-                                        <div className="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1" data-no-translate><del className="text-xl font-medium text-neutral-500 line-through decoration-2 dark:text-neutral-400" aria-label={tr("Previous price {{price}}", {price:euros(69.99)})}>{euros(69.99)}</del><span className={price} aria-label={tr("Current price {{price}}", {price:euros(39.99)})}>{euros(39.99)}</span>
-                                        <span className={priceSub}>{tr("One-time payment")}</span></div>
-                                    <span data-no-translate className="rounded-full bg-green-100 px-2.5 py-1 text-xs font-semibold text-green-800 dark:bg-green-900/40 dark:text-green-300">{tr("Save {{percent}}%", {percent:43})}</span>
-                                    </div>
-
-                                    <div className="mb-6 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-center dark:border-blue-900/40 dark:bg-blue-950/30">
-                                        <p className="font-semibold text-blue-900 dark:text-blue-200">
-                                            Unlimited exams · 60 days access
-                                        </p>
-                                    </div>
-
-                                    <ul role="list" className={listBase}>
-                                        <li className={listItem}><CheckIcon /><span className="font-semibold">Unlimited mock exams</span></li>
-                                        <li className={listItem}><CheckIcon /><span>60 days of TELC B1 access</span></li>
-                                        <li className={listItem}><CheckIcon /><span>Detailed results and explanations</span></li>
-                                        <li className={listItem}><CheckIcon /><span>AI evaluation for written answers</span></li>
-                                        <li className={listItem}><CheckIcon /><span>Review previous exams and mistakes</span></li>
-                                        <li className={listItem}><CheckIcon /><span>No subscription or automatic renewal</span></li>
-                                    </ul>
-
-                                    <div className="mt-auto pt-2">
-                                        <a
-                                            href={unlimitedPaymentUrl}
-                                        onClick={() => trackPaymentClick("b1_unlimited", "pricing")}
-                                        onAuxClick={e => { if (e.button === 1) trackPaymentClick("b1_unlimited", "pricing"); }}
-                                            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-lg font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
-                                        >
-                                            Get unlimited
-                                            <ArrowRight />
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <p className="mt-8 text-center text-sm text-neutral-500 dark:text-neutral-400">
-                            Both paid plans are one-time payments valid for 60 days. No recurring subscription.
-                        </p>
-                        <p className="mt-3 text-center text-xs text-neutral-500 dark:text-neutral-500">
-                            SmartPrüfung is an independent preparation platform and is not affiliated with or endorsed by telc gGmbH or the Goethe-Institut.
-                        </p>
+                  <div className="my-8 flex flex-col items-center justify-center gap-2">
+                    <div
+                      className="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1"
+                      data-no-translate
+                    >
+                      <del
+                        className="text-xl font-medium text-neutral-500 line-through decoration-2 dark:text-neutral-400"
+                        aria-label={tr("Previous price {{price}}", {
+                          price: euros(69.99),
+                        })}
+                      >
+                        {euros(69.99)}
+                      </del>
+                      <span
+                        className={price}
+                        aria-label={tr("Current price {{price}}", {
+                          price: euros(39.99),
+                        })}
+                      >
+                        {euros(39.99)}
+                      </span>
+                      <span className={priceSub}>{tr("One-time payment")}</span>
                     </div>
-                </Container>
-            </section>
-        </div>
-    );
-};
+                    <span
+                      data-no-translate
+                      className="rounded-full bg-green-100 px-2.5 py-1 text-xs font-semibold text-green-800 dark:bg-green-900/40 dark:text-green-300"
+                    >
+                      {tr("Save {{percent}}%", { percent: 43 })}
+                    </span>
+                  </div>
 
+                  <div className="mb-6 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-center dark:border-blue-900/40 dark:bg-blue-950/30">
+                    <p className="font-semibold text-blue-900 dark:text-blue-200">
+                      Unlimited exams · 60 days access
+                    </p>
+                  </div>
+
+                  <ul role="list" className={listBase}>
+                    <li className={listItem}>
+                      <CheckIcon />
+                      <span className="font-semibold">
+                        Unlimited mock exams
+                      </span>
+                    </li>
+                    <li className={listItem}>
+                      <CheckIcon />
+                      <span>60 days of TELC B1 access</span>
+                    </li>
+                    <li className={listItem}>
+                      <CheckIcon />
+                      <span>Detailed results and explanations</span>
+                    </li>
+                    <li className={listItem}>
+                      <CheckIcon />
+                      <span>AI evaluation for written answers</span>
+                    </li>
+                    <li className={listItem}>
+                      <CheckIcon />
+                      <span>Review previous exams and mistakes</span>
+                    </li>
+                    <li className={listItem}>
+                      <CheckIcon />
+                      <span>No subscription or automatic renewal</span>
+                    </li>
+                  </ul>
+
+                  <div className="mt-auto pt-2">
+                    <a
+                      href={unlimitedPaymentUrl}
+                      onClick={() =>
+                        trackPaymentClick("b1_unlimited", "pricing")
+                      }
+                      onAuxClick={(e) => {
+                        if (e.button === 1)
+                          trackPaymentClick("b1_unlimited", "pricing");
+                      }}
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-lg font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+                    >
+                      Get unlimited
+                      <ArrowRight />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p className="mt-8 text-center text-sm text-neutral-500 dark:text-neutral-400">
+              Both paid plans are one-time payments valid for 60 days. No
+              recurring subscription.
+            </p>
+            <p className="mt-3 text-center text-xs text-neutral-500 dark:text-neutral-500">
+              SmartPrüfung is an independent preparation platform and is not
+              affiliated with or endorsed by telc gGmbH or the Goethe-Institut.
+            </p>
+          </div>
+        </Container>
+      </section>
+    </div>
+  );
+};
 export default Pricing;

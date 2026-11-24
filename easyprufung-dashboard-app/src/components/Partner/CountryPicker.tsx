@@ -1,3 +1,4 @@
+import { tr, useFeatureLocale } from "../../localization/feature-i18n";
 import { useEffect, useId, useState } from "react";
 import { Search, Check } from "lucide-react";
 import { input } from "../Teacher/api";
@@ -14,9 +15,15 @@ export default function CountryPicker({
   value: string;
   onChange: (code: string) => void;
 }) {
+  const { locale } = useFeatureLocale();
   const id = useId();
-  const selected = countries.find((c) => c.code === value);
-  const label = selected ? `${selected.flag} ${selected.name}` : "";
+  const names = new Intl.DisplayNames([locale], { type: "region" });
+  const localizedCountries = countries.map((c) => ({
+    ...c,
+    localName: names.of(c.code) || c.name,
+  }));
+  const selected = localizedCountries.find((c) => c.code === value);
+  const label = selected ? `${selected.flag} ${selected.localName}` : "";
   const [query, setQuery] = useState(label);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
@@ -25,15 +32,17 @@ export default function CountryPicker({
   }, [value, label]);
   const filtered =
     query === label && value
-      ? countries
-      : countries.filter((c) =>
-          normalize(`${c.name} ${c.code}`).includes(normalize(query))
+      ? localizedCountries
+      : localizedCountries.filter((c) =>
+          normalize(`${c.localName} ${c.name} ${c.code}`).includes(
+            normalize(query)
+          )
         );
   function choose(index: number) {
     const country = filtered[index];
     if (!country) return;
     onChange(country.code);
-    setQuery(`${country.flag} ${country.name}`);
+    setQuery(`${country.flag} ${country.localName}`);
     setOpen(false);
   }
   return (
@@ -42,11 +51,11 @@ export default function CountryPicker({
         <Search
           size={16}
           aria-hidden="true"
-          className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+          className="pointer-events-none absolute start-3 top-1/2 -translate-y-1/2 text-gray-400"
         />
         <input
           name="countrySearch"
-          aria-label="Country"
+          aria-label={tr("Country")}
           role="combobox"
           aria-autocomplete="list"
           aria-expanded={open}
@@ -56,8 +65,8 @@ export default function CountryPicker({
           }
           autoComplete="off"
           required
-          className={`${input} w-full !pl-10`}
-          placeholder="Search for a country"
+          className={`${input} w-full !ps-10`}
+          placeholder={tr("Search for a country")}
           value={query}
           onFocus={(e) => {
             setOpen(true);
@@ -100,7 +109,7 @@ export default function CountryPicker({
         <ul
           id={`${id}-countries`}
           role="listbox"
-          aria-label="Countries"
+          aria-label={tr("Countries")}
           className="absolute z-40 mt-2 max-h-60 w-full overflow-y-auto rounded-xl border border-gray-200 bg-white py-1 shadow-lg dark:border-gray-700 dark:bg-gray-900"
         >
           {filtered.length ? (
@@ -116,12 +125,12 @@ export default function CountryPicker({
                 <button
                   type="button"
                   tabIndex={-1}
-                  className="flex w-full items-center gap-3 px-3 py-2.5 text-left text-sm"
+                  className="flex w-full items-center gap-3 px-3 py-2.5 text-start text-sm"
                   onMouseDown={(e) => e.preventDefault()}
                   onClick={() => choose(i)}
                 >
                   <span aria-hidden="true">{country.flag}</span>
-                  <span className="flex-1">{country.name}</span>
+                  <span className="flex-1">{country.localName}</span>
                   {country.code === value && (
                     <Check
                       size={15}
@@ -134,7 +143,7 @@ export default function CountryPicker({
             ))
           ) : (
             <li className="px-3 py-4 text-sm text-gray-500">
-              No countries found. Try a name or country code.
+              {tr("No countries found. Try a name or country code.")}
             </li>
           )}
         </ul>

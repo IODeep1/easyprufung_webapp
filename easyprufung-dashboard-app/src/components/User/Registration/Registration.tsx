@@ -1,4 +1,7 @@
-import { tr as translateFeature, useFeatureLocale } from "../../../localization/feature-i18n";
+import {
+  tr as translateFeature,
+  useFeatureLocale,
+} from "../../../localization/feature-i18n";
 import { authDestination } from "../Exam/guest/guest-api";
 import React, { Dispatch, FormEvent, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -15,13 +18,17 @@ import { IUserAccount } from "../../../store/models/user/userAccount.interface";
 import { IStateType } from "../../../store/models/root.interface";
 import { login } from "../../../store/actions/user/userAccount.actions";
 import Loading from "../../Shared/Loading";
-
-const Registration = ({ teacherMode = false, partnerMode = false }: { teacherMode?: boolean; partnerMode?: boolean }) => {
+const Registration = ({
+  teacherMode = false,
+  partnerMode = false,
+}: {
+  teacherMode?: boolean;
+  partnerMode?: boolean;
+}) => {
   const feature = useFeatureLocale();
-  const locale = partnerMode ? "en" : feature.locale;
-  const dir = partnerMode ? "ltr" : feature.dir;
-  const tr = partnerMode ? (text: string) => text : translateFeature;
-
+  const locale = feature.locale;
+  const dir = feature.dir;
+  const tr = translateFeature;
   // init
   let user: IUser;
   const account: IUserAccount = useSelector(
@@ -30,32 +37,31 @@ const Registration = ({ teacherMode = false, partnerMode = false }: { teacherMod
   const navigate = useNavigate();
   const location = useLocation();
   const guestError = Boolean(
-    (location.state as { guestError?: boolean } | null)?.guestError
+    (
+      location.state as {
+        guestError?: boolean;
+      } | null
+    )?.guestError
   );
   const { t, i18n } = useTranslation();
   const dispatch: Dispatch<any> = useDispatch();
-
   const [loading, setLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState("");
-
   const [formState, setFormState] = useState({
     firstname: { error: "", value: "" },
     lastname: { error: "", value: "" },
     email: { error: "", value: "" },
     password: { error: "", value: "" },
   });
-
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [captchaVal, setCaptchaVal] = useState<string | null>(null);
-
   function hasFormValueChanged(model: OnChangeModel): void {
     setError("");
     setFormState((prev) => ({
       ...prev,
       [model.field]: { error: model.error, value: model.value },
     }));
-
     if (model.field === "password") {
       const validation = validatePassword(model.value);
       if (validation !== "") {
@@ -63,18 +69,15 @@ const Registration = ({ teacherMode = false, partnerMode = false }: { teacherMod
       }
     }
   }
-
   function onCaptchaChange(value: string | null) {
     setCaptchaVal(value);
   }
-
   const validatePassword = (password: string) => {
     const minLength = 8;
     const hasUpperCase = /[A-Z]/.test(password);
     const hasLowerCase = /[a-z]/.test(password);
     const hasNumbers = /\d/.test(password);
     const hasSpecialChars = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-
     if (password.length < minLength)
       return tr("Password must be at least 8 characters long.");
     if (!hasUpperCase)
@@ -86,17 +89,14 @@ const Registration = ({ teacherMode = false, partnerMode = false }: { teacherMod
       return tr("Password must contain at least one special character.");
     return "";
   };
-
   // actions
   async function registeruser(e: FormEvent<HTMLFormElement>): Promise<void> {
     e.preventDefault();
-
     const validation = validatePassword(formState.password.value);
     if (validation !== "") {
       setError(validation);
       return;
     }
-
     const newUser = {
       ...user,
       firstname: formState.firstname.value,
@@ -104,14 +104,12 @@ const Registration = ({ teacherMode = false, partnerMode = false }: { teacherMod
       email: formState.email.value,
       password: formState.password.value,
       source: "default",
-      preferredLanguage: (partnerMode ? "en" : i18n.resolvedLanguage ||
+      preferredLanguage: (i18n.resolvedLanguage ||
         i18n.language) as IUser["preferredLanguage"],
     };
-
     setLoadingMessage("Creating your account...");
     setLoading(true);
     setIsSubmitting(true);
-
     try {
       const createdUser = await requestCreateUser(newUser);
       if (!createdUser) {
@@ -130,21 +128,17 @@ const Registration = ({ teacherMode = false, partnerMode = false }: { teacherMod
       setIsSubmitting(false);
     }
   }
-
   useEffect(() => {
     if (account && account.user?.email && !guestError) {
       navigate(authDestination());
     }
   }, [account, navigate, guestError]);
-
   const inputClass =
     "w-full bg-white/80 dark:bg-white/5 border border-black/10 dark:border-white/10 " +
     "text-black dark:text-white text-sm rounded-xl px-4 py-3 placeholder-gray-500 dark:placeholder-gray-400 " +
     "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition";
-
   const labelClass =
     "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300";
-
   return (
     <section
       id="register"
@@ -172,7 +166,7 @@ const Registration = ({ teacherMode = false, partnerMode = false }: { teacherMod
               width="44"
               height="44"
               src={Logo}
-              className="mr-2 rounded-md"
+              className="me-2 rounded-md"
             />
             <span>{tr("SmartPrüfung")}</span>
           </Link>
@@ -182,12 +176,18 @@ const Registration = ({ teacherMode = false, partnerMode = false }: { teacherMod
           {/* Left: Content */}
           <div className="order-2 md:order-1">
             <h1 className="text-4xl font-extrabold leading-tight lg:text-5xl">
-              {partnerMode ? "Create your partner account" : teacherMode
+              {partnerMode
+                ? tr("Create your partner account")
+                : teacherMode
                 ? tr("Create your teacher account")
                 : tr("Create your account")}
             </h1>
             <p className="mt-4 text-sm text-gray-700 dark:text-gray-300">
-              {partnerMode ? "Register for free, submit your partner application and get your own discount code after approval." : teacherMode
+              {partnerMode
+                ? tr(
+                    "Register for free, submit your partner application and get your own discount code after approval."
+                  )
+                : teacherMode
                 ? tr(
                     "Register to create classes, invite students and assign TELC Deutsch B1 mock exams. Teacher Mode is free."
                   )
@@ -199,19 +199,25 @@ const Registration = ({ teacherMode = false, partnerMode = false }: { teacherMod
             <div className="mt-8 space-y-3">
               <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/60 px-3 py-1 text-xs text-gray-700 backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-gray-300">
                 <span className="h-2 w-2 rounded-full bg-blue-500" />
-                {partnerMode ? "Free partner registration" : teacherMode
+                {partnerMode
+                  ? tr("Free partner registration")
+                  : teacherMode
                   ? tr("Free class management")
                   : tr("TELC Deutsch B1 available now")}
               </div>
               <div className="ms-2 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/60 px-3 py-1 text-xs text-gray-700 backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-gray-300">
                 <span className="h-2 w-2 rounded-full bg-blue-500" />
-                {partnerMode ? "Discounts for your learners" : teacherMode
+                {partnerMode
+                  ? tr("Discounts for your learners")
+                  : teacherMode
                   ? tr("Private invitations and assignments")
                   : tr("AI scoring & personalized feedback")}
               </div>
               <div className="ms-2 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/60 px-3 py-1 text-xs text-gray-700 backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-gray-300">
                 <span className="h-2 w-2 rounded-full bg-blue-500" />
-                {partnerMode ? "Track commissions and manual payouts" : teacherMode
+                {partnerMode
+                  ? tr("Track commissions and manual payouts")
+                  : teacherMode
                   ? tr("Student-controlled progress sharing")
                   : tr("A1–C2 exam roadmap")}
               </div>
@@ -222,7 +228,7 @@ const Registration = ({ teacherMode = false, partnerMode = false }: { teacherMod
                 {tr("Already have an account?")}
                 <Link
                   to="/login"
-                  className="ml-1 font-semibold text-blue-600 underline-offset-4 hover:text-blue-500 hover:underline dark:text-blue-400 dark:hover:text-blue-300"
+                  className="ms-1 font-semibold text-blue-600 underline-offset-4 hover:text-blue-500 hover:underline dark:text-blue-400 dark:hover:text-blue-300"
                 >
                   {tr("Log in")}
                 </Link>
@@ -233,7 +239,7 @@ const Registration = ({ teacherMode = false, partnerMode = false }: { teacherMod
 
           {/* Right: Card Form */}
           <div className="order-1 md:order-2">
-            <div className="w-full max-w-lg overflow-hidden rounded-2xl border border-black/10 bg-white/70 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-black/60 md:ml-auto">
+            <div className="w-full max-w-lg overflow-hidden rounded-2xl border border-black/10 bg-white/70 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-black/60 md:ms-auto">
               <div className="h-1 w-full bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600" />
               <div className="p-6 sm:p-8">
                 <h2 className="text-2xl font-bold">{tr("Sign up")}</h2>
@@ -300,7 +306,9 @@ const Registration = ({ teacherMode = false, partnerMode = false }: { teacherMod
                   {/* Email */}
                   <div>
                     <label className={labelClass}>
-                      {teacherMode || partnerMode ? tr("Email") : t("contact_us_email")}
+                      {teacherMode || partnerMode
+                        ? tr("Email")
+                        : t("contact_us_email")}
                     </label>
                     <TextInput
                       id="input_email"
@@ -399,5 +407,4 @@ const Registration = ({ teacherMode = false, partnerMode = false }: { teacherMod
     </section>
   );
 };
-
 export default Registration;

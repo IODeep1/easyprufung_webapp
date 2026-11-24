@@ -1,3 +1,8 @@
+import i18n from "i18next";
+import {initReactI18next} from "react-i18next";
+import {tr} from "../../localization/feature-i18n";
+import featureCatalog from "../../locales/feature-phrases.json";
+i18n.use(initReactI18next).init({lng:"en",fallbackLng:"en",initImmediate:false,resources:Object.fromEntries(["en","de","ar","fr","uk","tr"].map(l=>[l,{translation:{}}]))});
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { act, Simulate } from "react-dom/test-utils";
@@ -35,7 +40,8 @@ async function flush() {
     await new Promise((r) => setTimeout(r, 0));
   });
 }
-beforeEach(() => {
+beforeEach(async () => {
+  await i18n.changeLanguage("en");
   global.IS_REACT_ACT_ENVIRONMENT = true;
   container = document.createElement("div");
   document.body.appendChild(container);
@@ -216,4 +222,43 @@ test("zero analytics shows a useful empty state and settings never loads graphs"
  profile=approvedProfile();const previous=teacherApi.getMockImplementation();teacherApi.mockImplementation(async(path,...args)=>path==="partners/me/analytics"?{...analyticsFixture(),months:analyticsFixture().months.map(m=>({...m,earnedCents:0,adjustmentCents:0,netCents:0,qualifiedPurchases:0}))}:previous(path,...args));
  act(()=>root.render(<PartnerPage/>));await flush();expect(container.textContent).toContain("No commission recorded in this period");expect(container.textContent).toContain("No qualifying purchases in this period");
  teacherApi.mockClear();act(()=>root.render(<PartnerPage settingsMode/>));await flush();expect(teacherApi.mock.calls.some(([path])=>path==="partners/me/analytics")).toBe(false);expect(container.querySelector('svg[role="img"]')).toBeNull();
+});
+
+
+test("partner workspace switches languages live, localizes charts and preserves partner data",async()=>{
+ profile={...approvedProfile(),displayName:"Private Partner Name",contactEmail:"owner@example.com",country:"DE"};withAnalytics();
+ const writeText=jest.fn().mockResolvedValue();Object.defineProperty(navigator,"clipboard",{configurable:true,value:{writeText}});
+ act(()=>root.render(<PartnerPage/>));await flush();
+ for(const language of ["de","ar","fr","uk","tr","en"]){
+  await act(async()=>{await i18n.changeLanguage(language);});await flush();
+  const section=container.querySelector("section");expect(section.lang).toBe(language);expect(section.dir).toBe(language==="ar"?"rtl":"ltr");
+  expect(container.querySelector("h1").textContent).toBe(tr("Your partner workspace"));
+  expect(container.textContent).toContain(tr("Your discount codes"));expect(container.textContent).toContain("ANNA10");expect(container.textContent).toContain("Private Partner Name");expect(container.textContent).toContain("owner@example.com");
+  expect(container.querySelector('svg[role="img"]').getAttribute('aria-label')).not.toContain("{{");
+  expect(findButton(tr("Request payout")).disabled).toBe(false);
+  await act(async()=>Simulate.click(findButton(tr("Copy sharing text"))));
+  expect(writeText.mock.calls.at(-1)[0]).toContain(`https://smartpruefung.com/${language}/for-learners`);expect(writeText.mock.calls.at(-1)[0]).toContain("ANNA10");
+  if(language!=="en")expect(writeText.mock.calls.at(-1)[0]).not.toContain("I may earn a commission");
+  expect(container.textContent).toContain(new Intl.NumberFormat(language==="en"?"en-IE":language,{style:"currency",currency:"EUR"}).format(50));
+ }
+});
+test("localized application searches countries and preserves ISO codes, platform values and email input types",async()=>{
+ await i18n.changeLanguage("ar");mockSignedIn=true;act(()=>root.render(<PartnerPage/>));await flush();
+ expect(container.querySelector('[name="contactEmail"]').type).toBe("email");
+ change('[name="displayName"]',"Private Company");change('[name="countrySearch"]',new Intl.DisplayNames(["ar"],{type:"region"}).of("DE"));
+ const option=container.querySelector('[role="option"] button');act(()=>Simulate.click(option));
+ expect(container.querySelector('[name="country"]').value).toBe("DE");await submitStep();
+ const other=container.querySelector('option[value="Other"]');expect(other.textContent).toBe(tr("Other"));expect(other.value).toBe("Other");
+ expect(container.querySelector('option[value="Facebook"]').value).toBe("Facebook");
+ expect(container.querySelector("textarea").placeholder).toBe(tr("I help German learners through…"));
+ await fillAudience();change('[name="holder"]',"Private Company");change('[name="paypalEmail"]',"payout@example.com");
+ act(()=>Simulate.change(container.querySelector('input[type="checkbox"]'),{target:{checked:true}}));await submitStep();
+ const payload=teacherApi.mock.calls.find(([path,method])=>path==="partners/apply"&&method==="POST")[2];
+ expect(payload.country).toBe("DE");expect(payload.contactEmail).toBe("registered@example.com");expect(payload.payout.method).toBe("PAYPAL");expect(payload.payout.paypalEmail).toBe("payout@example.com");expect(payload.socials[0].platform).toBe("Instagram");
+});
+test("all partner phrases have complete translations and preserve interpolation placeholders",()=>{
+ const required=["Your partner workspace","Create your partner account","Partner terms and privacy notice · 24 November 2026","Give learners {{discount}}% off. Earn {{commission}}% commission on qualifying purchases.","Partner applications are temporarily unavailable. Please try again later."];
+ for(const key of required)for(const lang of ["de","ar","fr","uk","tr"]){expect(featureCatalog[key][lang]).toBeTruthy();expect(featureCatalog[key][lang]).not.toBe(key);}
+ for(const [key,values] of Object.entries(featureCatalog))for(const lang of ["de","ar","fr","uk","tr"]){expect(values[lang]).toBeTruthy();expect([...(values[lang].matchAll(/\{\{(\w+)\}\}/g))].map(m=>m[1]).sort()).toEqual([...(key.matchAll(/\{\{(\w+)\}\}/g))].map(m=>m[1]).sort());}
+ expect(tr("Check display name.")).toBe("Check display name.");
 });

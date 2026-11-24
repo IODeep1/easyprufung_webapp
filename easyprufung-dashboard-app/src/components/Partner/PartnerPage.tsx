@@ -1,3 +1,4 @@
+import { tr, useFeatureLocale } from "../../localization/feature-i18n";
 import { useSelector } from "react-redux";
 import type { IStateType } from "../../store/models/root.interface";
 import { useTeacherRole } from "../Teacher/TeacherRole";
@@ -17,8 +18,11 @@ import { teacherApi, button, secondary, input, card } from "../Teacher/api";
 import PartnerDashboard from "./PartnerDashboard";
 import { Analytics } from "./PartnerCharts";
 import { panel, muted, PartnerBadge } from "./workspace-ui";
-
-type Social = { platform: string; profile: string; audienceSize?: number };
+type Social = {
+  platform: string;
+  profile: string;
+  audienceSize?: number;
+};
 export type Profile = {
   id?: string;
   status: string;
@@ -52,10 +56,15 @@ export type Row = {
   maskedDestination?: string;
   paidAt?: string;
 };
-export type Page<T> = { content: T[]; totalElements: number };
-export type Code = { id: string; displayCode: string };
+export type Page<T> = {
+  content: T[];
+  totalElements: number;
+};
+export type Code = {
+  id: string;
+  displayCode: string;
+};
 type Overview = Record<string, number>;
-
 const emptyMethod: Method = {
   method: "PAYPAL",
   holder: "",
@@ -69,55 +78,37 @@ export function PartnerTerms() {
   return (
     <details className="rounded-xl border border-gray-200 p-4 text-sm leading-6 dark:border-gray-700">
       <summary className="cursor-pointer font-semibold">
-        Partner terms and privacy notice · 24 November 2026
+        {tr("Partner terms and privacy notice \u00B7 24 November 2026")}
       </summary>
       <div className="mt-3 space-y-3">
         <p>
-          Apply with an accurate profile and a bank or PayPal account you are
-          authorised to use. Approval is required. The initial learner discount
-          is 10%; your commission normally starts at 20%. Your dashboard shows
-          your assigned rates. Rates can change for future purchases.
+          {tr(
+            "Apply with an accurate profile and a bank or PayPal account you are authorised to use. Approval is required. The initial learner discount is 10%; your commission normally starts at 20%. Your dashboard shows your assigned rates. Rates can change for future purchases."
+          )}
         </p>
         <p>
-          Commission applies to verified, paid purchases of 10 Exams (€19.99)
-          and Unlimited (€39.99), after discounts and excluding tax. Teacher
-          seats, free access, self-referrals, fraudulent purchases, refunds and
-          chargebacks are excluded. Disclose that you may earn a commission
-          whenever you recommend SmartPrüfung. Do not spam, mislead learners,
-          impersonate SmartPrüfung or publish unauthorised offers.
+          {tr(
+            "Commission applies to verified, paid purchases of 10 Exams (\u20AC19.99) and Unlimited (\u20AC39.99), after discounts and excluding tax. Teacher seats, free access, self-referrals, fraudulent purchases, refunds and chargebacks are excluded. Disclose that you may earn a commission whenever you recommend SmartPr\u00FCfung. Do not spam, mislead learners, impersonate SmartPr\u00FCfung or publish unauthorised offers."
+          )}
         </p>
         <p>
-          Commissions normally remain pending for 14 days. You may request a
-          manual EUR payout once at least €50 is available and your destination
-          is verified. Payments are reviewed and made by bank transfer or
-          PayPal; there is no automatic transfer or guaranteed payout date.
-          Refunds or disputes can reduce future balances even after a payout.
-          SmartPrüfung bears ordinary transfer fees in this initial program; any
-          exceptional fee adjustment must be agreed separately. You are
-          responsible for your own taxes and any invoices or proof requested
-          before payment.
+          {tr(
+            "Commissions normally remain pending for 14 days. You may request a manual EUR payout once at least \u20AC50 is available and your destination is verified. Payments are reviewed and made by bank transfer or PayPal; there is no automatic transfer or guaranteed payout date. Refunds or disputes can reduce future balances even after a payout. SmartPr\u00FCfung bears ordinary transfer fees in this initial program; any exceptional fee adjustment must be agreed separately. You are responsible for your own taxes and any invoices or proof requested before payment."
+          )}
         </p>
         <p>
-          Accounts and codes may be suspended or terminated for abuse or
-          inaccurate information. Legitimate earlier earnings remain subject to
-          refund and review rules. You can leave the program by contacting
-          support.
+          {tr(
+            "Accounts and codes may be suspended or terminated for abuse or inaccurate information. Legitimate earlier earnings remain subject to refund and review rules. You can leave the program by contacting support."
+          )}
         </p>
         <p>
-          We use your account, contact information, country, public social
-          profiles and marketing description to review and operate your
-          application. Payout information is encrypted and only authorised
-          payout administrators can reveal it for verification or payment, with
-          an access record. Partners see masked destinations. We retain
-          application and financial records as needed to operate the program,
-          resolve disputes and meet recordkeeping obligations. You can update
-          your information here or contact support about access, correction,
-          deletion or closing your account. Financial records may need to be
-          retained after closure. See our{" "}
+          {tr(
+            "We use your account, contact information, country, public social profiles and marketing description to review and operate your application. Payout information is encrypted and only authorised payout administrators can reveal it for verification or payment, with an access record. Partners see masked destinations. We retain application and financial records as needed to operate the program, resolve disputes and meet recordkeeping obligations. You can update your information here or contact support about access, correction, deletion or closing your account. Financial records may need to be retained after closure. See our"
+          )}{" "}
           <Link className="text-blue-600 underline" to="/privacy">
-            Privacy Policy
+            {tr("Privacy Policy")}
           </Link>{" "}
-          for operator and contact details.
+          {tr("for operator and contact details.")}
         </p>
       </div>
     </details>
@@ -166,13 +157,14 @@ function Destination({
   return (
     <fieldset data-activity-ignore className="space-y-4">
       <legend className="mb-2 font-semibold">
-        Confidential payout details
+        {tr("Confidential payout details")}
       </legend>
       <p className="text-sm text-gray-500">
-        Used only for verification and manual payment. Updates require another
-        review.
+        {tr(
+          "Used only for verification and manual payment. Updates require another review."
+        )}
       </p>
-      <IconField label="Payment method" icon={WalletCards}>
+      <IconField label={tr("Payment method")} icon={WalletCards}>
         <select
           className={`${input} mt-1 w-full`}
           name="method"
@@ -180,17 +172,17 @@ function Destination({
           onChange={(e) => onChange({ ...emptyMethod, method: e.target.value })}
         >
           <option value="PAYPAL">PayPal</option>
-          <option value="BANK">Bank transfer</option>
+          <option value="BANK">{tr("Bank transfer")}</option>
         </select>
       </IconField>
-      {field("holder", "Account holder")}
+      {field("holder", tr("Account holder"))}
       {value.method === "BANK" ? (
         <>
-          {field("iban", "IBAN")}
+          {field("iban", tr("IBAN"))}
           {field("bic", "BIC (optional)", false)}
         </>
       ) : (
-        field("paypalEmail", "PayPal email", true, "email")
+        field("paypalEmail", tr("PayPal email"), true, "email")
       )}
     </fieldset>
   );
@@ -200,6 +192,7 @@ export default function PartnerPage({
 }: {
   settingsMode?: boolean;
 }) {
+  const { locale, dir } = useFeatureLocale();
   const registrationEmail = useSelector(
     (state: IStateType) => state.userAccount.user?.email
   );
@@ -257,11 +250,11 @@ export default function PartnerPage({
         result.months.length !== 6 ||
         !result.asOf
       )
-        throw new Error("Charts unavailable");
+        throw new Error(tr("Charts unavailable"));
       if (request === chartGeneration.current) setAnalytics(result);
     } catch {
       if (request === chartGeneration.current)
-        setAnalyticsError("Unable to load charts.");
+        setAnalyticsError(tr("Unable to load charts."));
     }
   }
   async function load() {
@@ -404,7 +397,7 @@ export default function PartnerPage({
       <Destination value={method} onChange={setMethod} />
       <div className="flex flex-wrap gap-3">
         <button className={button} disabled={busy}>
-          Save confidential details
+          {tr("Save confidential details")}
         </button>
         <button
           type="button"
@@ -415,7 +408,7 @@ export default function PartnerPage({
             setMethodOpen(false);
           }}
         >
-          Cancel
+          {tr("Cancel")}
         </button>
       </div>
     </form>
@@ -423,8 +416,8 @@ export default function PartnerPage({
   if (settingsMode) {
     if (!profile)
       return (
-        <p data-no-translate lang="en" role={error ? "alert" : "status"}>
-          {error || "Loading partner profile…"}
+        <p data-no-translate lang={locale} role={error ? "alert" : "status"}>
+          {tr(error) || tr("Loading partner profile\u2026")}
         </p>
       );
     if (!profile.id) return null;
@@ -432,25 +425,26 @@ export default function PartnerPage({
       <section
         id="partner-profile"
         data-no-translate
-        lang="en"
-        dir="ltr"
+        lang={locale}
+        dir={dir}
         className="mb-8 space-y-4"
       >
         <div>
-          <h2 className="text-2xl font-bold">Partner profile</h2>
+          <h2 className="text-2xl font-bold">{tr("Partner profile")}</h2>
           <p className="mt-2 text-sm text-gray-500">
-            Update your partner contact details, social profiles and payout
-            preferences.
+            {tr(
+              "Update your partner contact details, social profiles and payout preferences."
+            )}
           </p>
         </div>
         {error && (
           <p role="alert" className="rounded-xl bg-red-50 p-4 text-red-700">
-            {error}
+            {tr(error)}
           </p>
         )}
         {notice && (
           <p role="status" className="rounded-xl bg-blue-50 p-4 text-blue-800">
-            {notice}
+            {tr(notice)}
           </p>
         )}
         {editing ? (
@@ -467,14 +461,16 @@ export default function PartnerPage({
                 </p>
               </div>
               <button className={secondary} onClick={edit}>
-                Edit partner profile
+                {tr("Edit partner profile")}
               </button>
             </div>
             <div className={card}>
-              <h3 className="font-semibold">Payout details</h3>
+              <h3 className="font-semibold">{tr("Payout details")}</h3>
               <p className="mt-2 text-sm text-gray-500">
                 {profile.payoutMethod}: {profile.payoutMasked} ·{" "}
-                {profile.payoutVerified ? "Verified" : "Awaiting verification"}
+                {profile.payoutVerified
+                  ? tr("Verified")
+                  : tr("Awaiting verification")}
               </p>
               <button
                 className={`${secondary} mt-4`}
@@ -483,7 +479,7 @@ export default function PartnerPage({
                   setMethodOpen((v) => !v);
                 }}
               >
-                Update payout method
+                {tr("Update payout method")}
               </button>
               {payoutForm}
             </div>
@@ -502,7 +498,7 @@ export default function PartnerPage({
         },
       });
       if (!response.ok) {
-        let message = "Unable to request a payout.";
+        let message = tr("Unable to request a payout.");
         try {
           message = (await response.json()).message || message;
         } catch {}
@@ -529,8 +525,8 @@ export default function PartnerPage({
   return (
     <section
       data-no-translate
-      lang="en"
-      dir="ltr"
+      lang={locale}
+      dir={dir}
       className="mx-auto max-w-7xl space-y-6 px-4 py-6 text-gray-900 dark:text-white sm:px-8 sm:py-8"
     >
       <header className={`${panel} relative overflow-hidden px-6 py-7 sm:px-8`}>
@@ -542,17 +538,19 @@ export default function PartnerPage({
           <div>
             <p className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
               <Megaphone size={16} />
-              Partner workspace
+              {tr("Partner workspace")}
             </p>
             <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
               {profile?.id
-                ? "Your partner workspace"
-                : "Help learners prepare. Earn a commission."}
+                ? tr("Your partner workspace")
+                : tr("Help learners prepare. Earn a commission.")}
             </h1>
             <p className={`${muted} mt-2 max-w-xl`}>
               {profile?.id
-                ? "Your referrals, earnings and payouts. All in one place."
-                : "Share SmartPrüfung with your audience and earn on qualifying purchases."}
+                ? tr("Your referrals, earnings and payouts. All in one place.")
+                : tr(
+                    "Share SmartPr\u00FCfung with your audience and earn on qualifying purchases."
+                  )}
             </p>
           </div>
           {profile?.id && (
@@ -560,7 +558,7 @@ export default function PartnerPage({
               <PartnerBadge status={profile.status} />
               <button className={secondary} disabled={busy} onClick={edit}>
                 <Settings size={16} />
-                Edit profile
+                {tr("Edit profile")}
               </button>
             </div>
           )}
@@ -571,7 +569,7 @@ export default function PartnerPage({
           role="alert"
           className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700 dark:border-red-900 dark:bg-red-500/10 dark:text-red-300"
         >
-          <span>{error}</span>
+          <span>{tr(error)}</span>
           <button
             disabled={busy || refreshing}
             onClick={() => {
@@ -580,7 +578,7 @@ export default function PartnerPage({
             }}
             className="font-semibold underline"
           >
-            Try again
+            {tr("Try again")}
           </button>
         </div>
       )}
@@ -589,7 +587,7 @@ export default function PartnerPage({
           role="status"
           className="flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800 dark:border-emerald-900 dark:bg-emerald-500/10 dark:text-emerald-300"
         >
-          {notice}
+          {tr(notice)}
         </p>
       )}
       {!ready ? (
@@ -599,13 +597,15 @@ export default function PartnerPage({
             className={`${panel} flex min-h-[220px] items-center justify-center gap-3 p-8 text-gray-500`}
           >
             <RefreshCw size={20} className="animate-spin text-blue-600" />
-            Loading partner workspace…
+            {tr("Loading partner workspace\u2026")}
           </div>
         ) : (
           <div className={`${panel} p-8`}>
-            <h2 className="font-semibold">Your workspace couldn’t be loaded</h2>
+            <h2 className="font-semibold">
+              {tr("Your workspace couldn\u2019t be loaded")}
+            </h2>
             <p className={`${muted} mt-2`}>
-              Use Try again above to reload your account information.
+              {tr("Use Try again above to reload your account information.")}
             </p>
           </div>
         )

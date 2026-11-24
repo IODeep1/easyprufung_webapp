@@ -4093,5 +4093,2252 @@
     "ar": "الباقة الحالية",
     "uk": "Поточний план",
     "tr": "Mevcut plan"
+  },
+  "Account holder": {
+    "de": "Kontoinhaber",
+    "ar": "صاحب الحساب",
+    "fr": "Titulaire du compte",
+    "uk": "Власник рахунку",
+    "tr": "Hesap sahibi"
+  },
+  "Accruing": {
+    "de": "Wird gesammelt",
+    "ar": "قيد التجميع",
+    "fr": "En cours d’accumulation",
+    "uk": "Нараховується",
+    "tr": "Birikiyor"
+  },
+  "Add social profile": {
+    "de": "Social-Media-Profil hinzufügen",
+    "ar": "إضافة حساب تواصل",
+    "fr": "Ajouter un profil social",
+    "uk": "Додати профіль у соцмережі",
+    "tr": "Sosyal profil ekle"
+  },
+  "Adjustments": {
+    "de": "Korrekturen",
+    "ar": "التعديلات",
+    "fr": "Ajustements",
+    "uk": "Коригування",
+    "tr": "Düzeltmeler"
+  },
+  "Already applied?": {
+    "de": "Bereits beworben?",
+    "ar": "قدّمت طلبًا بالفعل؟",
+    "fr": "Déjà candidat ?",
+    "uk": "Уже подали заявку?",
+    "tr": "Zaten başvurdunuz mu?"
+  },
+  "Already helping German learners?": {
+    "de": "Du unterstützt bereits Deutschlernende?",
+    "ar": "هل تساعد متعلّمي الألمانية بالفعل؟",
+    "fr": "Vous aidez déjà des apprenants en allemand ?",
+    "uk": "Уже допомагаєте тим, хто вивчає німецьку?",
+    "tr": "Zaten Almanca öğrenenlere yardımcı oluyor musunuz?"
+  },
+  "Amount": {
+    "de": "Betrag",
+    "ar": "المبلغ",
+    "fr": "Montant",
+    "uk": "Сума",
+    "tr": "Tutar"
+  },
+  "Apply to become a partner": {
+    "de": "Als Partner bewerben",
+    "ar": "التقدّم لتصبح شريكًا",
+    "fr": "Devenir partenaire",
+    "uk": "Подати заявку на партнерство",
+    "tr": "Partner olmak için başvur"
+  },
+  "Approved": {
+    "de": "Genehmigt",
+    "ar": "مقبول",
+    "fr": "Approuvé",
+    "uk": "Схвалено",
+    "tr": "Onaylandı"
+  },
+  "Audience (optional)": {
+    "de": "Reichweite (optional)",
+    "ar": "عدد الجمهور (اختياري)",
+    "fr": "Audience (facultatif)",
+    "uk": "Аудиторія (необов’язково)",
+    "tr": "Kitle büyüklüğü (isteğe bağlı)"
+  },
+  "Available to request": {
+    "de": "Zur Auszahlung verfügbar",
+    "ar": "متاح لطلب الدفع",
+    "fr": "Disponible au versement",
+    "uk": "Доступно для виплати",
+    "tr": "Ödeme talebine uygun"
+  },
+  "Awaiting verification": {
+    "de": "Verifizierung ausstehend",
+    "ar": "بانتظار التحقق",
+    "fr": "En attente de vérification",
+    "uk": "Очікує перевірки",
+    "tr": "Doğrulama bekleniyor"
+  },
+  "Back": {
+    "de": "Zurück",
+    "ar": "رجوع",
+    "fr": "Retour",
+    "uk": "Назад",
+    "tr": "Geri"
+  },
+  "Bank transfer": {
+    "de": "Banküberweisung",
+    "ar": "تحويل بنكي",
+    "fr": "Virement bancaire",
+    "uk": "Банківський переказ",
+    "tr": "Banka havalesi"
+  },
+  "Become a partner": {
+    "de": "Partner werden",
+    "ar": "كن شريكًا",
+    "fr": "Devenir partenaire",
+    "uk": "Стати партнером",
+    "tr": "Partner ol"
+  },
+  "Blog": {
+    "de": "Blog",
+    "ar": "مدونة",
+    "fr": "Blog",
+    "uk": "Блог",
+    "tr": "Blog"
+  },
+  "Cancelled": {
+    "de": "Storniert",
+    "ar": "ملغى",
+    "fr": "Annulé",
+    "uk": "Скасовано",
+    "tr": "İptal edildi"
+  },
+  "Chart period": {
+    "de": "Diagrammzeitraum",
+    "ar": "فترة الرسم البياني",
+    "fr": "Période du graphique",
+    "uk": "Період графіка",
+    "tr": "Grafik dönemi"
+  },
+  "Charts are unavailable": {
+    "de": "Diagramme sind nicht verfügbar",
+    "ar": "الرسوم البيانية غير متاحة",
+    "fr": "Les graphiques sont indisponibles",
+    "uk": "Графіки недоступні",
+    "tr": "Grafikler kullanılamıyor"
+  },
+  "Charts unavailable": {
+    "de": "Diagramme nicht verfügbar",
+    "ar": "الرسوم البيانية غير متاحة",
+    "fr": "Graphiques indisponibles",
+    "uk": "Графіки недоступні",
+    "tr": "Grafikler kullanılamıyor"
+  },
+  "Check your information": {
+    "de": "Angaben prüfen",
+    "ar": "راجع معلوماتك",
+    "fr": "Vérifiez vos informations",
+    "uk": "Перевірте свої дані",
+    "tr": "Bilgilerinizi kontrol edin"
+  },
+  "Choose how you get paid": {
+    "de": "Auszahlungsmethode wählen",
+    "ar": "اختر طريقة استلام أرباحك",
+    "fr": "Choisissez votre mode de versement",
+    "uk": "Виберіть спосіб отримання виплат",
+    "tr": "Ödeme alma yönteminizi seçin"
+  },
+  "Closed": {
+    "de": "Geschlossen",
+    "ar": "مغلق",
+    "fr": "Fermé",
+    "uk": "Закрито",
+    "tr": "Kapatıldı"
+  },
+  "Code copied.": {
+    "de": "Code kopiert.",
+    "ar": "تم نسخ الرمز.",
+    "fr": "Code copié.",
+    "uk": "Код скопійовано.",
+    "tr": "Kod kopyalandı."
+  },
+  "Commission adjustment": {
+    "de": "Provisionskorrektur",
+    "ar": "تعديل العمولة",
+    "fr": "Ajustement de commission",
+    "uk": "Коригування комісії",
+    "tr": "Komisyon düzeltmesi"
+  },
+  "Commission earned": {
+    "de": "Provision verdient",
+    "ar": "عمولة مكتسبة",
+    "fr": "Commission acquise",
+    "uk": "Нарахована комісія",
+    "tr": "Kazanılan komisyon"
+  },
+  "Commission entries": {
+    "de": "Provisionsbuchungen",
+    "ar": "سجلات العمولات",
+    "fr": "Écritures de commission",
+    "uk": "Записи комісій",
+    "tr": "Komisyon kayıtları"
+  },
+  "Commission history": {
+    "de": "Provisionsverlauf",
+    "ar": "سجل العمولات",
+    "fr": "Historique des commissions",
+    "uk": "Історія комісій",
+    "tr": "Komisyon geçmişi"
+  },
+  "Commission restored": {
+    "de": "Provision wiederhergestellt",
+    "ar": "استعادة العمولة",
+    "fr": "Commission rétablie",
+    "uk": "Комісію відновлено",
+    "tr": "Komisyon geri yüklendi"
+  },
+  "Commissions": {
+    "de": "Provisionen",
+    "ar": "العمولات",
+    "fr": "Commissions",
+    "uk": "Комісії",
+    "tr": "Komisyonlar"
+  },
+  "Communities": {
+    "de": "Communitys",
+    "ar": "المجتمعات",
+    "fr": "Communautés",
+    "uk": "Спільноти",
+    "tr": "Topluluklar"
+  },
+  "Confidential payout details": {
+    "de": "Vertrauliche Auszahlungsdaten",
+    "ar": "بيانات الدفع السرية",
+    "fr": "Coordonnées de versement confidentielles",
+    "uk": "Конфіденційні платіжні дані",
+    "tr": "Gizli ödeme bilgileri"
+  },
+  "Contact email": {
+    "de": "Kontakt-E-Mail",
+    "ar": "البريد الإلكتروني للتواصل",
+    "fr": "E-mail de contact",
+    "uk": "Контактна електронна пошта",
+    "tr": "İletişim e-postası"
+  },
+  "Continue": {
+    "de": "Weiter",
+    "ar": "متابعة",
+    "fr": "Continuer",
+    "uk": "Продовжити",
+    "tr": "Devam et"
+  },
+  "Copy code": {
+    "de": "Code kopieren",
+    "ar": "نسخ الرمز",
+    "fr": "Copier le code",
+    "uk": "Копіювати код",
+    "tr": "Kodu kopyala"
+  },
+  "Copy failed. Select and copy the code manually.": {
+    "de": "Kopieren fehlgeschlagen. Markiere und kopiere den Code manuell.",
+    "ar": "تعذّر النسخ. حدّد الرمز وانسخه يدويًا.",
+    "fr": "Échec de la copie. Sélectionnez et copiez le code manuellement.",
+    "uk": "Не вдалося скопіювати. Виділіть і скопіюйте код вручну.",
+    "tr": "Kopyalanamadı. Kodu seçip elle kopyalayın."
+  },
+  "Copy is unavailable. Select and copy the code manually.": {
+    "de": "Kopieren ist nicht verfügbar. Markiere und kopiere den Code manuell.",
+    "ar": "النسخ غير متاح. حدّد الرمز وانسخه يدويًا.",
+    "fr": "La copie est indisponible. Sélectionnez et copiez le code manuellement.",
+    "uk": "Копіювання недоступне. Виділіть і скопіюйте код вручну.",
+    "tr": "Kopyalama kullanılamıyor. Kodu seçip elle kopyalayın."
+  },
+  "Copy sharing text": {
+    "de": "Empfehlungstext kopieren",
+    "ar": "نسخ نص المشاركة",
+    "fr": "Copier le texte de partage",
+    "uk": "Копіювати текст для поширення",
+    "tr": "Paylaşım metnini kopyala"
+  },
+  "Countries": {
+    "de": "Länder",
+    "ar": "الدول",
+    "fr": "Pays",
+    "uk": "Країни",
+    "tr": "Ülkeler"
+  },
+  "Country": {
+    "de": "Land",
+    "ar": "الدولة",
+    "fr": "Pays",
+    "uk": "Країна",
+    "tr": "Ülke"
+  },
+  "Creators": {
+    "de": "Content Creator",
+    "ar": "صنّاع المحتوى",
+    "fr": "Créateurs de contenu",
+    "uk": "Автори контенту",
+    "tr": "İçerik üreticileri"
+  },
+  "Default partner commission": {
+    "de": "Standard-Partnerprovision",
+    "ar": "عمولة الشريك الافتراضية",
+    "fr": "Commission partenaire par défaut",
+    "uk": "Стандартна комісія партнера",
+    "tr": "Varsayılan partner komisyonu"
+  },
+  "Destination / reference": {
+    "de": "Ziel / Referenz",
+    "ar": "الوجهة / المرجع",
+    "fr": "Destination / référence",
+    "uk": "Реквізити / призначення",
+    "tr": "Hedef / referans"
+  },
+  "Destination not set": {
+    "de": "Auszahlungsziel fehlt",
+    "ar": "لم تُحدّد وجهة الدفع",
+    "fr": "Destination non définie",
+    "uk": "Реквізити не вказано",
+    "tr": "Ödeme hedefi belirlenmedi"
+  },
+  "Display or business name": {
+    "de": "Anzeigename oder Firmenname",
+    "ar": "اسم العرض أو النشاط التجاري",
+    "fr": "Nom affiché ou nom commercial",
+    "uk": "Ім’я для відображення або назва компанії",
+    "tr": "Görünen ad veya işletme adı"
+  },
+  "Do teachers have to become partners?": {
+    "de": "Müssen Lehrkräfte Partner werden?",
+    "ar": "هل يجب على المعلّمين أن يصبحوا شركاء؟",
+    "fr": "Les enseignants doivent-ils devenir partenaires ?",
+    "uk": "Чи обов’язково викладачам ставати партнерами?",
+    "tr": "Öğretmenler partner olmak zorunda mı?"
+  },
+  "Does joining cost anything?": {
+    "de": "Kostet die Teilnahme etwas?",
+    "ar": "هل توجد رسوم للانضمام؟",
+    "fr": "L’inscription est-elle payante ?",
+    "uk": "Чи платна участь?",
+    "tr": "Katılım ücretli mi?"
+  },
+  "EUR · manual transfer": {
+    "de": "EUR · manuelle Überweisung",
+    "ar": "يورو · تحويل يدوي",
+    "fr": "EUR · versement manuel",
+    "uk": "EUR · ручний переказ",
+    "tr": "EUR · manuel transfer"
+  },
+  "Earn from your recommendations": {
+    "de": "Mit Empfehlungen verdienen",
+    "ar": "اربح من توصياتك",
+    "fr": "Vos recommandations sont récompensées",
+    "uk": "Заробляйте на рекомендаціях",
+    "tr": "Önerilerinizden kazanın"
+  },
+  "Earned": {
+    "de": "Verdient",
+    "ar": "المكتسب",
+    "fr": "Acquis",
+    "uk": "Нараховано",
+    "tr": "Kazanılan"
+  },
+  "Earned lifetime": {
+    "de": "Insgesamt verdient",
+    "ar": "إجمالي الأرباح المكتسبة",
+    "fr": "Total acquis",
+    "uk": "Усього нараховано",
+    "tr": "Toplam kazanılan"
+  },
+  "Edit partner profile": {
+    "de": "Partnerprofil bearbeiten",
+    "ar": "تعديل ملف الشريك",
+    "fr": "Modifier le profil partenaire",
+    "uk": "Редагувати профіль партнера",
+    "tr": "Partner profilini düzenle"
+  },
+  "Edit profile": {
+    "de": "Profil bearbeiten",
+    "ar": "تعديل الملف",
+    "fr": "Modifier le profil",
+    "uk": "Редагувати профіль",
+    "tr": "Profili düzenle"
+  },
+  "Edit your partner profile": {
+    "de": "Dein Partnerprofil bearbeiten",
+    "ar": "عدّل ملفك كشريك",
+    "fr": "Modifiez votre profil partenaire",
+    "uk": "Редагуйте свій профіль партнера",
+    "tr": "Partner profilinizi düzenleyin"
+  },
+  "Entry": {
+    "de": "Buchung",
+    "ar": "القيد",
+    "fr": "Écriture",
+    "uk": "Запис",
+    "tr": "Kayıt"
+  },
+  "For Partners": {
+    "de": "Für Partner",
+    "ar": "للشركاء",
+    "fr": "Pour les partenaires",
+    "uk": "Для партнерів",
+    "tr": "Partnerler için"
+  },
+  "For Partners | SmartPrüfung": {
+    "de": "Für Partner | SmartPrüfung",
+    "ar": "للشركاء | SmartPrüfung",
+    "fr": "Pour les partenaires | SmartPrüfung",
+    "uk": "Для партнерів | SmartPrüfung",
+    "tr": "Partnerler için | SmartPrüfung"
+  },
+  "Four steps to get started.": {
+    "de": "In vier Schritten starten.",
+    "ar": "أربع خطوات للبدء.",
+    "fr": "Quatre étapes pour commencer.",
+    "uk": "Чотири кроки для початку.",
+    "tr": "Başlamak için dört adım."
+  },
+  "Free registration · Application and approval required": {
+    "de": "Kostenlose Registrierung · Bewerbung und Freigabe erforderlich",
+    "ar": "تسجيل مجاني · يلزم تقديم طلب والموافقة عليه",
+    "fr": "Inscription gratuite · Candidature et approbation requises",
+    "uk": "Безкоштовна реєстрація · Потрібні заявка та схвалення",
+    "tr": "Ücretsiz kayıt · Başvuru ve onay gereklidir"
+  },
+  "Free to join · Application and approval required": {
+    "de": "Kostenlose Teilnahme · Bewerbung und Freigabe erforderlich",
+    "ar": "انضمام مجاني · يلزم تقديم طلب والموافقة عليه",
+    "fr": "Participation gratuite · Candidature et approbation requises",
+    "uk": "Безкоштовна участь · Потрібні заявка та схвалення",
+    "tr": "Ücretsiz katılım · Başvuru ve onay gereklidir"
+  },
+  "From your first application to your first referral": {
+    "de": "Von der Bewerbung zur ersten Empfehlung",
+    "ar": "من طلبك الأول إلى أول إحالة",
+    "fr": "De la candidature à la première recommandation",
+    "uk": "Від заявки до першої рекомендації",
+    "tr": "İlk başvurudan ilk yönlendirmeye"
+  },
+  "Get approved": {
+    "de": "Freigabe erhalten",
+    "ar": "احصل على الموافقة",
+    "fr": "Obtenir l’approbation",
+    "uk": "Отримайте схвалення",
+    "tr": "Onay alın"
+  },
+  "Get help": {
+    "de": "Hilfe erhalten",
+    "ar": "الحصول على مساعدة",
+    "fr": "Obtenir de l’aide",
+    "uk": "Отримати допомогу",
+    "tr": "Yardım al"
+  },
+  "Have a question? Get in touch.": {
+    "de": "Noch Fragen? Melde dich bei uns.",
+    "ar": "لديك سؤال؟ تواصل معنا.",
+    "fr": "Une question ? Contactez-nous.",
+    "uk": "Маєте запитання? Зв’яжіться з нами.",
+    "tr": "Sorunuz mu var? Bize ulaşın."
+  },
+  "Help learners prepare.": {
+    "de": "Hilf Lernenden bei der Vorbereitung.",
+    "ar": "ساعد المتعلّمين على الاستعداد.",
+    "fr": "Aidez les apprenants à se préparer.",
+    "uk": "Допоможіть учням підготуватися.",
+    "tr": "Öğrencilerin hazırlanmasına yardımcı olun."
+  },
+  "Help learners prepare. Earn a commission.": {
+    "de": "Lernende unterstützen. Provision verdienen.",
+    "ar": "ساعد المتعلّمين واستفد من عمولة.",
+    "fr": "Aidez les apprenants et gagnez une commission.",
+    "uk": "Допомагайте учням і отримуйте комісію.",
+    "tr": "Öğrencilere yardımcı olun. Komisyon kazanın."
+  },
+  "How do learners use my discount?": {
+    "de": "Wie nutzen Lernende meinen Rabatt?",
+    "ar": "كيف يستخدم المتعلّمون خصمي؟",
+    "fr": "Comment les apprenants utilisent-ils ma réduction ?",
+    "uk": "Як учні використовують мою знижку?",
+    "tr": "Öğrenciler indirimimi nasıl kullanır?"
+  },
+  "How would you share SmartPrüfung?": {
+    "de": "Wie würdest du SmartPrüfung empfehlen?",
+    "ar": "كيف ستشارك SmartPrüfung مع جمهورك؟",
+    "fr": "Comment présenteriez-vous SmartPrüfung ?",
+    "uk": "Як ви рекомендуватимете SmartPrüfung?",
+    "tr": "SmartPrüfung’u nasıl paylaşırsınız?"
+  },
+  "Initial learner discount": {
+    "de": "Anfänglicher Lernendenrabatt",
+    "ar": "الخصم الأولي للمتعلّم",
+    "fr": "Réduction initiale pour les apprenants",
+    "uk": "Початкова знижка для учнів",
+    "tr": "Başlangıç öğrenci indirimi"
+  },
+  "Let’s get to know you": {
+    "de": "Lass uns dich kennenlernen",
+    "ar": "لنتعرّف عليك",
+    "fr": "Faisons connaissance",
+    "uk": "Познайоммося",
+    "tr": "Sizi tanıyalım"
+  },
+  "Loading partner activity charts…": {
+    "de": "Partnerdiagramme werden geladen…",
+    "ar": "جارٍ تحميل رسوم نشاط الشريك…",
+    "fr": "Chargement des graphiques partenaire…",
+    "uk": "Завантаження графіків партнера…",
+    "tr": "Partner etkinlik grafikleri yükleniyor…"
+  },
+  "Loading partner profile…": {
+    "de": "Partnerprofil wird geladen…",
+    "ar": "جارٍ تحميل ملف الشريك…",
+    "fr": "Chargement du profil partenaire…",
+    "uk": "Завантаження профілю партнера…",
+    "tr": "Partner profili yükleniyor…"
+  },
+  "Loading partner workspace…": {
+    "de": "Partnerbereich wird geladen…",
+    "ar": "جارٍ تحميل مساحة الشريك…",
+    "fr": "Chargement de l’espace partenaire…",
+    "uk": "Завантаження простору партнера…",
+    "tr": "Partner çalışma alanı yükleniyor…"
+  },
+  "Make your first referral": {
+    "de": "Starte deine erste Empfehlung",
+    "ar": "ابدأ بأول إحالة",
+    "fr": "Faites votre première recommandation",
+    "uk": "Зробіть першу рекомендацію",
+    "tr": "İlk yönlendirmenizi yapın"
+  },
+  "Minimum available payout": {
+    "de": "Mindestens verfügbarer Auszahlungsbetrag",
+    "ar": "الحد الأدنى المتاح للدفع",
+    "fr": "Montant disponible minimum pour un versement",
+    "uk": "Мінімальна доступна сума для виплати",
+    "tr": "Minimum kullanılabilir ödeme tutarı"
+  },
+  "Month": {
+    "de": "Monat",
+    "ar": "الشهر",
+    "fr": "Mois",
+    "uk": "Місяць",
+    "tr": "Ay"
+  },
+  "Monthly net commission": {
+    "de": "Monatliche Nettoprovision",
+    "ar": "صافي العمولة الشهرية",
+    "fr": "Commission nette mensuelle",
+    "uk": "Щомісячна чиста комісія",
+    "tr": "Aylık net komisyon"
+  },
+  "Monthly partner performance in UTC": {
+    "de": "Monatliche Partnerleistung in UTC",
+    "ar": "أداء الشريك الشهري بتوقيت UTC",
+    "fr": "Performances mensuelles du partenaire en UTC",
+    "uk": "Щомісячні показники партнера за UTC",
+    "tr": "UTC’ye göre aylık partner performansı"
+  },
+  "Net commission": {
+    "de": "Nettoprovision",
+    "ar": "صافي العمولة",
+    "fr": "Commission nette",
+    "uk": "Чиста комісія",
+    "tr": "Net komisyon"
+  },
+  "Net lifetime commission": {
+    "de": "Gesamte Nettoprovision",
+    "ar": "إجمالي صافي العمولة",
+    "fr": "Commission nette totale",
+    "uk": "Загальна чиста комісія",
+    "tr": "Toplam net komisyon"
+  },
+  "Next": {
+    "de": "Weiter",
+    "ar": "التالي",
+    "fr": "Suivant",
+    "uk": "Далі",
+    "tr": "Sonraki"
+  },
+  "No payouts yet": {
+    "de": "Noch keine Auszahlungen",
+    "ar": "لا توجد دفعات بعد",
+    "fr": "Aucun versement pour le moment",
+    "uk": "Виплат ще немає",
+    "tr": "Henüz ödeme yok"
+  },
+  "Not approved": {
+    "de": "Nicht genehmigt",
+    "ar": "غير مقبول",
+    "fr": "Non approuvé",
+    "uk": "Не схвалено",
+    "tr": "Onaylanmadı"
+  },
+  "Other": {
+    "de": "Sonstiges",
+    "ar": "أخرى",
+    "fr": "Autre",
+    "uk": "Інше",
+    "tr": "Diğer"
+  },
+  "Overview": {
+    "de": "Übersicht",
+    "ar": "نظرة عامة",
+    "fr": "Vue d’ensemble",
+    "uk": "Огляд",
+    "tr": "Genel bakış"
+  },
+  "Paid lifetime": {
+    "de": "Insgesamt ausgezahlt",
+    "ar": "إجمالي المدفوع",
+    "fr": "Total versé",
+    "uk": "Усього виплачено",
+    "tr": "Toplam ödenen"
+  },
+  "Partner Program · Free to join": {
+    "de": "Partnerprogramm · Kostenlos teilnehmen",
+    "ar": "برنامج الشركاء · انضمام مجاني",
+    "fr": "Programme partenaire · Participation gratuite",
+    "uk": "Партнерська програма · Безкоштовна участь",
+    "tr": "Partner Programı · Ücretsiz katılım"
+  },
+  "Partner benefits": {
+    "de": "Partnervorteile",
+    "ar": "مزايا الشركاء",
+    "fr": "Avantages partenaires",
+    "uk": "Переваги партнерства",
+    "tr": "Partner avantajları"
+  },
+  "Partner pages": {
+    "de": "Partnerseiten",
+    "ar": "صفحات الشريك",
+    "fr": "Pages partenaire",
+    "uk": "Сторінки партнера",
+    "tr": "Partner sayfaları"
+  },
+  "Partner performance": {
+    "de": "Partnerleistung",
+    "ar": "أداء الشريك",
+    "fr": "Performances partenaire",
+    "uk": "Показники партнера",
+    "tr": "Partner performansı"
+  },
+  "Partner profile": {
+    "de": "Partnerprofil",
+    "ar": "ملف الشريك",
+    "fr": "Profil partenaire",
+    "uk": "Профіль партнера",
+    "tr": "Partner profili"
+  },
+  "Partner terms and privacy notice · 24 November 2026": {
+    "de": "Partnerbedingungen und Datenschutzhinweis · 24. November 2026",
+    "ar": "شروط الشراكة وإشعار الخصوصية · 24 نوفمبر 2026",
+    "fr": "Conditions partenaires et confidentialité · 24 novembre 2026",
+    "uk": "Умови партнерства та повідомлення про конфіденційність · 24 листопада 2026",
+    "tr": "Partner koşulları ve gizlilik bildirimi · 24 Kasım 2026"
+  },
+  "Partner workspace": {
+    "de": "Partnerbereich",
+    "ar": "مساحة الشريك",
+    "fr": "Espace partenaire",
+    "uk": "Простір партнера",
+    "tr": "Partner çalışma alanı"
+  },
+  "PayPal email": {
+    "de": "PayPal-E-Mail",
+    "ar": "بريد PayPal الإلكتروني",
+    "fr": "E-mail PayPal",
+    "uk": "Електронна пошта PayPal",
+    "tr": "PayPal e-postası"
+  },
+  "Payment method": {
+    "de": "Auszahlungsmethode",
+    "ar": "طريقة الدفع",
+    "fr": "Mode de versement",
+    "uk": "Спосіб виплати",
+    "tr": "Ödeme yöntemi"
+  },
+  "Payments recorded as completed": {
+    "de": "Als abgeschlossen erfasste Zahlungen",
+    "ar": "دفعات مسجّلة كمكتملة",
+    "fr": "Paiements enregistrés comme effectués",
+    "uk": "Виплати, позначені як завершені",
+    "tr": "Tamamlandı olarak kaydedilen ödemeler"
+  },
+  "Payout & review": {
+    "de": "Auszahlung und Prüfung",
+    "ar": "الدفع والمراجعة",
+    "fr": "Versement et vérification",
+    "uk": "Виплата та перевірка",
+    "tr": "Ödeme ve inceleme"
+  },
+  "Payout details": {
+    "de": "Auszahlungsdaten",
+    "ar": "بيانات الدفع",
+    "fr": "Coordonnées de versement",
+    "uk": "Платіжні дані",
+    "tr": "Ödeme bilgileri"
+  },
+  "Payout history": {
+    "de": "Auszahlungsverlauf",
+    "ar": "سجل الدفعات",
+    "fr": "Historique des versements",
+    "uk": "Історія виплат",
+    "tr": "Ödeme geçmişi"
+  },
+  "Payouts": {
+    "de": "Auszahlungen",
+    "ar": "الدفعات",
+    "fr": "Versements",
+    "uk": "Виплати",
+    "tr": "Ödemeler"
+  },
+  "Pending": {
+    "de": "Ausstehend",
+    "ar": "قيد الانتظار",
+    "fr": "En attente",
+    "uk": "Очікує",
+    "tr": "Beklemede"
+  },
+  "Platform": {
+    "de": "Plattform",
+    "ar": "المنصة",
+    "fr": "Plateforme",
+    "uk": "Платформа",
+    "tr": "Platform"
+  },
+  "Podcast": {
+    "de": "Podcast",
+    "ar": "بودكاست",
+    "fr": "Podcast",
+    "uk": "Подкаст",
+    "tr": "Podcast"
+  },
+  "Previous": {
+    "de": "Zurück",
+    "ar": "السابق",
+    "fr": "Précédent",
+    "uk": "Назад",
+    "tr": "Önceki"
+  },
+  "Profile URL or handle": {
+    "de": "Profil-URL oder Benutzername",
+    "ar": "رابط الملف أو اسم المستخدم",
+    "fr": "URL du profil ou identifiant",
+    "uk": "Посилання на профіль або ім’я користувача",
+    "tr": "Profil URL’si veya kullanıcı adı"
+  },
+  "Profile updated.": {
+    "de": "Profil aktualisiert.",
+    "ar": "تم تحديث الملف.",
+    "fr": "Profil mis à jour.",
+    "uk": "Профіль оновлено.",
+    "tr": "Profil güncellendi."
+  },
+  "Public social profiles": {
+    "de": "Öffentliche Social-Media-Profile",
+    "ar": "حسابات التواصل العامة",
+    "fr": "Profils sociaux publics",
+    "uk": "Публічні профілі в соцмережах",
+    "tr": "Herkese açık sosyal profiller"
+  },
+  "Purchases": {
+    "de": "Käufe",
+    "ar": "المشتريات",
+    "fr": "Achats",
+    "uk": "Покупки",
+    "tr": "Satın almalar"
+  },
+  "Qualified purchases": {
+    "de": "Qualifizierte Käufe",
+    "ar": "المشتريات المؤهّلة",
+    "fr": "Achats admissibles",
+    "uk": "Покупки, що відповідають умовам",
+    "tr": "Uygun satın almalar"
+  },
+  "Qualified uses lifetime": {
+    "de": "Qualifizierte Nutzungen insgesamt",
+    "ar": "إجمالي الاستخدامات المؤهّلة",
+    "fr": "Utilisations admissibles au total",
+    "uk": "Усього використань, що відповідають умовам",
+    "tr": "Toplam uygun kullanım"
+  },
+  "Ready after the hold period": {
+    "de": "Nach der Wartefrist verfügbar",
+    "ar": "متاح بعد فترة الانتظار",
+    "fr": "Disponible après le délai d’attente",
+    "uk": "Доступно після періоду очікування",
+    "tr": "Bekleme süresinden sonra kullanılabilir"
+  },
+  "Reference:": {
+    "de": "Referenz:",
+    "ar": "المرجع:",
+    "fr": "Référence :",
+    "uk": "Призначення:",
+    "tr": "Referans:"
+  },
+  "Refund / dispute adjustment": {
+    "de": "Erstattungs-/Streitfallkorrektur",
+    "ar": "تعديل الاسترداد أو النزاع",
+    "fr": "Ajustement pour remboursement ou litige",
+    "uk": "Коригування через повернення або спір",
+    "tr": "İade / itiraz düzeltmesi"
+  },
+  "Remove": {
+    "de": "Entfernen",
+    "ar": "إزالة",
+    "fr": "Supprimer",
+    "uk": "Видалити",
+    "tr": "Kaldır"
+  },
+  "Request payout": {
+    "de": "Auszahlung anfordern",
+    "ar": "طلب دفع",
+    "fr": "Demander un versement",
+    "uk": "Запросити виплату",
+    "tr": "Ödeme talep et"
+  },
+  "Request your payout": {
+    "de": "Deine Auszahlung anfordern",
+    "ar": "اطلب دفعتك",
+    "fr": "Demandez votre versement",
+    "uk": "Запросіть виплату",
+    "tr": "Ödemenizi talep edin"
+  },
+  "Requested": {
+    "de": "Angefordert",
+    "ar": "مطلوب",
+    "fr": "Demandé",
+    "uk": "Запитано",
+    "tr": "Talep edildi"
+  },
+  "Requested or approved payments": {
+    "de": "Angeforderte oder genehmigte Auszahlungen",
+    "ar": "دفعات مطلوبة أو معتمدة",
+    "fr": "Versements demandés ou approuvés",
+    "uk": "Запитані або схвалені виплати",
+    "tr": "Talep edilen veya onaylanan ödemeler"
+  },
+  "Reserved": {
+    "de": "Reserviert",
+    "ar": "محجوز",
+    "fr": "Réservé",
+    "uk": "Зарезервовано",
+    "tr": "Ayrıldı"
+  },
+  "Reserved for payout": {
+    "de": "Für Auszahlung reserviert",
+    "ar": "محجوز للدفع",
+    "fr": "Réservé au versement",
+    "uk": "Зарезервовано для виплати",
+    "tr": "Ödeme için ayrılan"
+  },
+  "Retry charts": {
+    "de": "Diagramme erneut laden",
+    "ar": "إعادة تحميل الرسوم",
+    "fr": "Recharger les graphiques",
+    "uk": "Повторно завантажити графіки",
+    "tr": "Grafikleri yeniden yükle"
+  },
+  "Reversed lifetime": {
+    "de": "Insgesamt zurückgebucht",
+    "ar": "إجمالي العمولات المعكوسة",
+    "fr": "Total annulé",
+    "uk": "Усього скасовано",
+    "tr": "Toplam geri alınan"
+  },
+  "Review your profile": {
+    "de": "Dein Profil prüfen",
+    "ar": "راجع ملفك",
+    "fr": "Vérifiez votre profil",
+    "uk": "Перевірте профіль",
+    "tr": "Profilinizi inceleyin"
+  },
+  "Save confidential details": {
+    "de": "Vertrauliche Daten speichern",
+    "ar": "حفظ البيانات السرية",
+    "fr": "Enregistrer les données confidentielles",
+    "uk": "Зберегти конфіденційні дані",
+    "tr": "Gizli bilgileri kaydet"
+  },
+  "Save profile": {
+    "de": "Profil speichern",
+    "ar": "حفظ الملف",
+    "fr": "Enregistrer le profil",
+    "uk": "Зберегти профіль",
+    "tr": "Profili kaydet"
+  },
+  "Search for a country": {
+    "de": "Land suchen",
+    "ar": "ابحث عن دولة",
+    "fr": "Rechercher un pays",
+    "uk": "Знайти країну",
+    "tr": "Ülke ara"
+  },
+  "See how you’re doing": {
+    "de": "Deine Ergebnisse im Blick",
+    "ar": "تابع أداءك",
+    "fr": "Suivez vos résultats",
+    "uk": "Стежте за своїми результатами",
+    "tr": "Performansınızı görün"
+  },
+  "Select your country.": {
+    "de": "Wähle dein Land.",
+    "ar": "اختر دولتك.",
+    "fr": "Sélectionnez votre pays.",
+    "uk": "Виберіть країну.",
+    "tr": "Ülkenizi seçin."
+  },
+  "Settled": {
+    "de": "Abgerechnet",
+    "ar": "تمت التسوية",
+    "fr": "Réglé",
+    "uk": "Розраховано",
+    "tr": "Hesap kapatıldı"
+  },
+  "Share & earn": {
+    "de": "Empfehlen und verdienen",
+    "ar": "شارك واربح",
+    "fr": "Partagez et gagnez",
+    "uk": "Рекомендуйте й заробляйте",
+    "tr": "Paylaş ve kazan"
+  },
+  "Share your code": {
+    "de": "Deinen Code teilen",
+    "ar": "شارك رمزك",
+    "fr": "Partagez votre code",
+    "uk": "Поділіться кодом",
+    "tr": "Kodunuzu paylaşın"
+  },
+  "Sharing text copied.": {
+    "de": "Empfehlungstext kopiert.",
+    "ar": "تم نسخ نص المشاركة.",
+    "fr": "Texte de partage copié.",
+    "uk": "Текст для поширення скопійовано.",
+    "tr": "Paylaşım metni kopyalandı."
+  },
+  "Submit application": {
+    "de": "Bewerbung absenden",
+    "ar": "إرسال الطلب",
+    "fr": "Envoyer la candidature",
+    "uk": "Надіслати заявку",
+    "tr": "Başvuruyu gönder"
+  },
+  "Suspended": {
+    "de": "Gesperrt",
+    "ar": "معلّق",
+    "fr": "Suspendu",
+    "uk": "Призупинено",
+    "tr": "Askıya alındı"
+  },
+  "Teachers": {
+    "de": "Lehrkräfte",
+    "ar": "المعلّمون",
+    "fr": "Enseignants",
+    "uk": "Викладачі",
+    "tr": "Öğretmenler"
+  },
+  "Tell us who you reach": {
+    "de": "Erzähle uns von deiner Zielgruppe",
+    "ar": "حدّثنا عن جمهورك",
+    "fr": "Parlez-nous de votre audience",
+    "uk": "Розкажіть про свою аудиторію",
+    "tr": "Kitlenizi bize anlatın"
+  },
+  "The rewards": {
+    "de": "Die Vergütung",
+    "ar": "المكافآت",
+    "fr": "Les récompenses",
+    "uk": "Винагороди",
+    "tr": "Kazançlar"
+  },
+  "This month · UTC": {
+    "de": "Diesen Monat · UTC",
+    "ar": "هذا الشهر · UTC",
+    "fr": "Ce mois-ci · UTC",
+    "uk": "Цього місяця · UTC",
+    "tr": "Bu ay · UTC"
+  },
+  "Unable to load charts.": {
+    "de": "Diagramme konnten nicht geladen werden.",
+    "ar": "تعذّر تحميل الرسوم البيانية.",
+    "fr": "Impossible de charger les graphiques.",
+    "uk": "Не вдалося завантажити графіки.",
+    "tr": "Grafikler yüklenemedi."
+  },
+  "Unable to request a payout.": {
+    "de": "Auszahlung konnte nicht angefordert werden.",
+    "ar": "تعذّر طلب الدفع.",
+    "fr": "Impossible de demander un versement.",
+    "uk": "Не вдалося запросити виплату.",
+    "tr": "Ödeme talep edilemedi."
+  },
+  "Unable to save. Please retry.": {
+    "de": "Speichern fehlgeschlagen. Bitte versuche es erneut.",
+    "ar": "تعذّر الحفظ. أعد المحاولة.",
+    "fr": "Impossible d’enregistrer. Réessayez.",
+    "uk": "Не вдалося зберегти. Спробуйте ще раз.",
+    "tr": "Kaydedilemedi. Lütfen tekrar deneyin."
+  },
+  "Unpaid cycle uses": {
+    "de": "Nutzungen im offenen Auszahlungszyklus",
+    "ar": "استخدامات دورة الدفع غير المسدّدة",
+    "fr": "Utilisations du cycle non payé",
+    "uk": "Використання в неоплаченому циклі",
+    "tr": "Ödenmemiş dönem kullanımları"
+  },
+  "Update payout method": {
+    "de": "Auszahlungsmethode ändern",
+    "ar": "تحديث طريقة الدفع",
+    "fr": "Modifier le mode de versement",
+    "uk": "Змінити спосіб виплати",
+    "tr": "Ödeme yöntemini güncelle"
+  },
+  "Verification pending": {
+    "de": "Verifizierung ausstehend",
+    "ar": "التحقق قيد الانتظار",
+    "fr": "Vérification en attente",
+    "uk": "Очікує перевірки",
+    "tr": "Doğrulama bekleniyor"
+  },
+  "Verified": {
+    "de": "Verifiziert",
+    "ar": "تم التحقق",
+    "fr": "Vérifié",
+    "uk": "Перевірено",
+    "tr": "Doğrulandı"
+  },
+  "Verified destination": {
+    "de": "Verifiziertes Auszahlungsziel",
+    "ar": "وجهة دفع موثّقة",
+    "fr": "Destination vérifiée",
+    "uk": "Реквізити перевірено",
+    "tr": "Doğrulanmış ödeme hedefi"
+  },
+  "View chart data": {
+    "de": "Diagrammdaten anzeigen",
+    "ar": "عرض بيانات الرسم البياني",
+    "fr": "Voir les données du graphique",
+    "uk": "Переглянути дані графіка",
+    "tr": "Grafik verilerini görüntüle"
+  },
+  "Website": {
+    "de": "Website",
+    "ar": "موقع إلكتروني",
+    "fr": "Site web",
+    "uk": "Вебсайт",
+    "tr": "Web sitesi"
+  },
+  "Website (optional)": {
+    "de": "Website (optional)",
+    "ar": "الموقع الإلكتروني (اختياري)",
+    "fr": "Site web (facultatif)",
+    "uk": "Вебсайт (необов’язково)",
+    "tr": "Web sitesi (isteğe bağlı)"
+  },
+  "Your audience": {
+    "de": "Deine Zielgruppe",
+    "ar": "جمهورك",
+    "fr": "Votre audience",
+    "uk": "Ваша аудиторія",
+    "tr": "Kitleniz"
+  },
+  "Your code is being prepared": {
+    "de": "Dein Code wird vorbereitet",
+    "ar": "جارٍ تجهيز رمزك",
+    "fr": "Votre code est en préparation",
+    "uk": "Ваш код готується",
+    "tr": "Kodunuz hazırlanıyor"
+  },
+  "Your details": {
+    "de": "Deine Angaben",
+    "ar": "بياناتك",
+    "fr": "Vos coordonnées",
+    "uk": "Ваші дані",
+    "tr": "Bilgileriniz"
+  },
+  "Your discount code": {
+    "de": "Dein Rabattcode",
+    "ar": "رمز الخصم الخاص بك",
+    "fr": "Votre code de réduction",
+    "uk": "Ваш код знижки",
+    "tr": "İndirim kodunuz"
+  },
+  "Your discount codes": {
+    "de": "Deine Rabattcodes",
+    "ar": "رموز الخصم الخاصة بك",
+    "fr": "Vos codes de réduction",
+    "uk": "Ваші коди знижки",
+    "tr": "İndirim kodlarınız"
+  },
+  "Your first commission starts here": {
+    "de": "Hier beginnt deine erste Provision",
+    "ar": "هنا تبدأ أول عمولة لك",
+    "fr": "Votre première commission commence ici",
+    "uk": "Тут починається ваша перша комісія",
+    "tr": "İlk komisyonunuz burada başlar"
+  },
+  "Your name or business": {
+    "de": "Dein Name oder Unternehmen",
+    "ar": "اسمك أو اسم نشاطك التجاري",
+    "fr": "Votre nom ou votre entreprise",
+    "uk": "Ваше ім’я або назва компанії",
+    "tr": "Adınız veya işletmeniz"
+  },
+  "Your next payout": {
+    "de": "Deine nächste Auszahlung",
+    "ar": "دفعتك القادمة",
+    "fr": "Votre prochain versement",
+    "uk": "Ваша наступна виплата",
+    "tr": "Sonraki ödemeniz"
+  },
+  "Your partner account needs attention": {
+    "de": "Dein Partnerkonto benötigt Aufmerksamkeit",
+    "ar": "يحتاج حساب الشريك إلى مراجعة",
+    "fr": "Votre compte partenaire nécessite une vérification",
+    "uk": "Ваш партнерський обліковий запис потребує уваги",
+    "tr": "Partner hesabınızın incelenmesi gerekiyor"
+  },
+  "Your partner profile": {
+    "de": "Dein Partnerprofil",
+    "ar": "ملفك كشريك",
+    "fr": "Votre profil partenaire",
+    "uk": "Ваш профіль партнера",
+    "tr": "Partner profiliniz"
+  },
+  "Your partner workspace": {
+    "de": "Dein Partnerbereich",
+    "ar": "مساحة الشريك الخاصة بك",
+    "fr": "Votre espace partenaire",
+    "uk": "Ваш партнерський простір",
+    "tr": "Partner çalışma alanınız"
+  },
+  "Your performance": {
+    "de": "Deine Ergebnisse",
+    "ar": "أداؤك",
+    "fr": "Vos performances",
+    "uk": "Ваші показники",
+    "tr": "Performansınız"
+  },
+  "Your workspace couldn’t be loaded": {
+    "de": "Dein Bereich konnte nicht geladen werden",
+    "ar": "تعذّر تحميل مساحة العمل",
+    "fr": "Impossible de charger votre espace",
+    "uk": "Не вдалося завантажити ваш простір",
+    "tr": "Çalışma alanınız yüklenemedi"
+  },
+  "10% learner discount": {
+    "de": "10 % Rabatt für Lernende",
+    "ar": "خصم 10٪ للمتعلّم",
+    "fr": "10 % de réduction apprenant",
+    "uk": "Знижка 10% для учнів",
+    "tr": "%10 öğrenci indirimi"
+  },
+  "6 months": {
+    "de": "6 Monate",
+    "ar": "6 أشهر",
+    "fr": "6 mois",
+    "uk": "6 місяців",
+    "tr": "6 ay"
+  },
+  "A discount for them. A commission for you.": {
+    "de": "Ein Rabatt für sie. Eine Provision für dich.",
+    "ar": "خصم لهم وعمولة لك.",
+    "fr": "Une réduction pour eux. Une commission pour vous.",
+    "uk": "Знижка для них. Комісія для вас.",
+    "tr": "Onlara indirim. Size komisyon."
+  },
+  "A few things to know.": {
+    "de": "Was du wissen solltest.",
+    "ar": "أمور تستحق أن تعرفها.",
+    "fr": "Quelques points à connaître.",
+    "uk": "Що варто знати.",
+    "tr": "Bilmeniz gerekenler."
+  },
+  "A little help for learners. A reward for you.": {
+    "de": "Unterstützung für Lernende. Eine Vergütung für dich.",
+    "ar": "مساعدة للمتعلّمين ومكافأة لك.",
+    "fr": "Un coup de pouce pour eux. Une récompense pour vous.",
+    "uk": "Допомога учням. Винагорода вам.",
+    "tr": "Öğrencilere destek. Size ödül."
+  },
+  "Accept the partner terms and acknowledge the privacy notice to apply.": {
+    "de": "Akzeptiere die Partnerbedingungen und bestätige den Datenschutzhinweis, um dich zu bewerben.",
+    "ar": "وافق على شروط الشراكة وأقرّ بالاطلاع على إشعار الخصوصية لتقديم الطلب.",
+    "fr": "Acceptez les conditions partenaires et prenez connaissance de la notice de confidentialité pour postuler.",
+    "uk": "Щоб подати заявку, прийміть умови партнерства та підтвердьте ознайомлення з повідомленням про конфіденційність.",
+    "tr": "Başvurmak için partner koşullarını kabul edin ve gizlilik bildirimini okuduğunuzu onaylayın."
+  },
+  "Add a platform and public profile for each social account.": {
+    "de": "Gib für jedes Social-Media-Konto eine Plattform und ein öffentliches Profil an.",
+    "ar": "أضف المنصة والملف العام لكل حساب تواصل.",
+    "fr": "Ajoutez une plateforme et un profil public pour chaque compte social.",
+    "uk": "Укажіть платформу та публічний профіль для кожного облікового запису.",
+    "tr": "Her sosyal hesap için platform ve herkese açık profil ekleyin."
+  },
+  "Add at least one place where you connect with German learners.": {
+    "de": "Füge mindestens einen Kanal hinzu, über den du Deutschlernende erreichst.",
+    "ar": "أضف قناة واحدة على الأقل تتواصل فيها مع متعلّمي الألمانية.",
+    "fr": "Ajoutez au moins un canal où vous échangez avec des apprenants en allemand.",
+    "uk": "Додайте хоча б один канал спілкування з тими, хто вивчає німецьку.",
+    "tr": "Almanca öğrenenlerle iletişim kurduğunuz en az bir kanal ekleyin."
+  },
+  "An administrator will link your discount code. Check back here before sharing.": {
+    "de": "Ein Administrator verknüpft deinen Rabattcode. Schau vor dem Teilen noch einmal hier nach.",
+    "ar": "سيربط المسؤول رمز الخصم بحسابك. راجع هذه الصفحة قبل مشاركته.",
+    "fr": "Un administrateur associera votre code. Revenez ici avant de le partager.",
+    "uk": "Адміністратор прив’яже ваш код знижки. Перевірте цю сторінку перед поширенням.",
+    "tr": "Bir yönetici indirim kodunuzu bağlayacak. Paylaşmadan önce burayı tekrar kontrol edin."
+  },
+  "Application received. We will review your details.": {
+    "de": "Bewerbung eingegangen. Wir prüfen deine Angaben.",
+    "ar": "تم استلام طلبك. سنراجع بياناتك.",
+    "fr": "Candidature reçue. Nous allons examiner vos informations.",
+    "uk": "Заявку отримано. Ми перевіримо ваші дані.",
+    "tr": "Başvurunuz alındı. Bilgilerinizi inceleyeceğiz."
+  },
+  "Apply once. After approval and code setup, you can start sharing with your audience.": {
+    "de": "Bewirb dich einmal. Nach Freigabe und Einrichtung deines Codes kannst du ihn mit deiner Zielgruppe teilen.",
+    "ar": "قدّم طلبًا واحدًا. بعد الموافقة وتجهيز الرمز، يمكنك مشاركته مع جمهورك.",
+    "fr": "Postulez une fois. Après approbation et création du code, partagez-le avec votre audience.",
+    "uk": "Подайте заявку один раз. Після схвалення й налаштування коду можете ділитися ним з аудиторією.",
+    "tr": "Bir kez başvurun. Onay ve kod kurulumu tamamlanınca kitlenizle paylaşmaya başlayabilirsiniz."
+  },
+  "Commission normally clears after 14 days. Request a manual bank or PayPal payout from €50.": {
+    "de": "Provisionen werden normalerweise nach 14 Tagen verfügbar. Ab 50 € kannst du eine manuelle Bank- oder PayPal-Auszahlung anfordern.",
+    "ar": "تُتاح العمولة عادةً بعد 14 يومًا. اطلب دفعًا يدويًا عبر البنك أو PayPal بدءًا من 50 يورو.",
+    "fr": "La commission est généralement disponible après 14 jours. Demandez un versement manuel par banque ou PayPal dès 50 €.",
+    "uk": "Комісія зазвичай стає доступною через 14 днів. Замовляйте ручну виплату банком або PayPal від 50 €.",
+    "tr": "Komisyon genellikle 14 gün sonra kullanılabilir. 50 €’dan itibaren banka veya PayPal ile manuel ödeme talep edin."
+  },
+  "Create your free account and tell us about your audience. We’ll take it from there.": {
+    "de": "Erstelle dein kostenloses Konto und erzähle uns von deiner Zielgruppe. Wir kümmern uns um die nächsten Schritte.",
+    "ar": "أنشئ حسابك المجاني وحدّثنا عن جمهورك. سنتولّى الخطوات التالية.",
+    "fr": "Créez votre compte gratuit et présentez votre audience. Nous nous occupons de la suite.",
+    "uk": "Створіть безкоштовний обліковий запис і розкажіть про аудиторію. Далі ми все організуємо.",
+    "tr": "Ücretsiz hesabınızı oluşturun ve kitlenizi anlatın. Sonraki adımları biz hallederiz."
+  },
+  "Earn on qualifying purchases made with your code.": {
+    "de": "Verdiene an qualifizierten Käufen mit deinem Code.",
+    "ar": "اربح من المشتريات المؤهّلة التي تستخدم رمزك.",
+    "fr": "Gagnez une commission sur les achats admissibles avec votre code.",
+    "uk": "Отримуйте комісію за покупки з вашим кодом, що відповідають умовам.",
+    "tr": "Kodunuzla yapılan uygun satın almalardan kazanın."
+  },
+  "Earn when they take the next step.": {
+    "de": "Verdiene mit, wenn sie den nächsten Schritt machen.",
+    "ar": "اربح عندما يخطون الخطوة التالية.",
+    "fr": "Gagnez lorsqu’ils passent à l’étape suivante.",
+    "uk": "Заробляйте, коли вони роблять наступний крок.",
+    "tr": "Onlar sonraki adımı attığında kazanın."
+  },
+  "Earned commission plus refund and dispute adjustments, by record date. This is not your payout balance.": {
+    "de": "Verdiente Provision zuzüglich Erstattungs- und Streitfallkorrekturen nach Buchungsdatum. Dies ist nicht dein Auszahlungsbetrag.",
+    "ar": "العمولة المكتسبة مع تعديلات الاسترداد والنزاعات حسب تاريخ القيد. هذا ليس رصيد الدفع المتاح.",
+    "fr": "Commission acquise et ajustements pour remboursements et litiges, par date d’écriture. Ce montant n’est pas votre solde de versement.",
+    "uk": "Нарахована комісія з коригуваннями повернень і спорів за датою запису. Це не баланс для виплати.",
+    "tr": "Kayıt tarihine göre kazanılan komisyon ve iade/itiraz düzeltmeleri. Bu, ödeme bakiyeniz değildir."
+  },
+  "Enter a valid IBAN.": {
+    "de": "Gib eine gültige IBAN ein.",
+    "ar": "أدخل رقم IBAN صالحًا.",
+    "fr": "Saisissez un IBAN valide.",
+    "uk": "Укажіть дійсний IBAN.",
+    "tr": "Geçerli bir IBAN girin."
+  },
+  "Enter a valid PayPal email address.": {
+    "de": "Gib eine gültige PayPal-E-Mail-Adresse ein.",
+    "ar": "أدخل بريدًا إلكترونيًا صالحًا لحساب PayPal.",
+    "fr": "Saisissez une adresse e-mail PayPal valide.",
+    "uk": "Укажіть дійсну електронну адресу PayPal.",
+    "tr": "Geçerli bir PayPal e-posta adresi girin."
+  },
+  "Enter a valid contact email.": {
+    "de": "Gib eine gültige Kontakt-E-Mail ein.",
+    "ar": "أدخل بريدًا إلكترونيًا صالحًا للتواصل.",
+    "fr": "Saisissez un e-mail de contact valide.",
+    "uk": "Укажіть дійсну контактну електронну адресу.",
+    "tr": "Geçerli bir iletişim e-postası girin."
+  },
+  "Enter a valid website URL starting with https:// or http://.": {
+    "de": "Gib eine gültige Website-URL ein, die mit https:// oder http:// beginnt.",
+    "ar": "أدخل رابط موقع صالحًا يبدأ بـ https:// أو http://.",
+    "fr": "Saisissez une URL valide commençant par https:// ou http://.",
+    "uk": "Укажіть дійсну адресу сайту, що починається з https:// або http://.",
+    "tr": "https:// veya http:// ile başlayan geçerli bir web adresi girin."
+  },
+  "Enter the account holder’s name.": {
+    "de": "Gib den Namen des Kontoinhabers ein.",
+    "ar": "أدخل اسم صاحب الحساب.",
+    "fr": "Saisissez le nom du titulaire du compte.",
+    "uk": "Укажіть ім’я власника рахунку.",
+    "tr": "Hesap sahibinin adını girin."
+  },
+  "Enter your display or business name (at least 2 characters).": {
+    "de": "Gib deinen Anzeigenamen oder Firmennamen ein (mindestens 2 Zeichen).",
+    "ar": "أدخل اسم العرض أو النشاط التجاري (حرفان على الأقل).",
+    "fr": "Saisissez votre nom affiché ou commercial (au moins 2 caractères).",
+    "uk": "Укажіть ім’я для відображення або назву компанії (щонайменше 2 символи).",
+    "tr": "Görünen adınızı veya işletme adını girin (en az 2 karakter)."
+  },
+  "Every earning and adjustment, including refunds and disputes.": {
+    "de": "Alle Einnahmen und Korrekturen, einschließlich Erstattungen und Streitfällen.",
+    "ar": "كل ربح وتعديل، بما في ذلك الاستردادات والنزاعات.",
+    "fr": "Tous les gains et ajustements, y compris les remboursements et litiges.",
+    "uk": "Усі нарахування й коригування, зокрема повернення та спори.",
+    "tr": "İade ve itirazlar dahil tüm kazançlar ve düzeltmeler."
+  },
+  "Follow purchases, monthly commission and payout progress from your own partner workspace.": {
+    "de": "Verfolge Käufe, monatliche Provisionen und Auszahlungen in deinem Partnerbereich.",
+    "ar": "تابع المشتريات والعمولة الشهرية وتقدّم الدفعات من مساحة الشريك الخاصة بك.",
+    "fr": "Suivez les achats, commissions mensuelles et versements depuis votre espace partenaire.",
+    "uk": "Стежте за покупками, щомісячною комісією та виплатами у своєму партнерському просторі.",
+    "tr": "Satın almaları, aylık komisyonları ve ödeme durumunu partner alanınızdan takip edin."
+  },
+  "Full program terms and privacy information are shown before you apply.": {
+    "de": "Alle Programmbedingungen und Datenschutzhinweise werden vor deiner Bewerbung angezeigt.",
+    "ar": "تظهر شروط البرنامج الكاملة ومعلومات الخصوصية قبل تقديم الطلب.",
+    "fr": "Les conditions complètes et les informations de confidentialité sont présentées avant votre candidature.",
+    "uk": "Повні умови програми й відомості про конфіденційність доступні перед поданням заявки.",
+    "tr": "Program koşulları ve gizlilik bilgileri başvurmadan önce gösterilir."
+  },
+  "Give your audience a reason to start practising.": {
+    "de": "Gib deiner Zielgruppe einen Anreiz zum Üben.",
+    "ar": "امنح جمهورك سببًا لبدء التدريب.",
+    "fr": "Donnez à votre audience une raison de s’entraîner.",
+    "uk": "Дайте аудиторії привід почати практикуватися.",
+    "tr": "Kitlenize pratik yapmaya başlamak için bir neden verin."
+  },
+  "Help German learners prepare for TELC B1. Share a learner discount, earn commission on qualifying purchases and track it in your partner workspace.": {
+    "de": "Hilf Deutschlernenden bei der TELC-B1-Vorbereitung. Teile einen Rabatt, verdiene Provision an qualifizierten Käufen und verfolge alles im Partnerbereich.",
+    "ar": "ساعد متعلّمي الألمانية على الاستعداد لـ TELC B1. شارك خصمًا واربح عمولة على المشتريات المؤهّلة وتابعها في مساحة الشريك.",
+    "fr": "Aidez les apprenants à préparer le TELC B1. Partagez une réduction, gagnez une commission sur les achats admissibles et suivez-la dans votre espace partenaire.",
+    "uk": "Допоможіть учням підготуватися до TELC B1. Діліться знижкою, отримуйте комісію за відповідні покупки та відстежуйте її у партнерському просторі.",
+    "tr": "Almanca öğrenenlerin TELC B1’e hazırlanmasına yardımcı olun. İndirim paylaşın, uygun satın almalardan komisyon kazanın ve partner alanınızdan takip edin."
+  },
+  "Help your audience access timed mock exams, instant results and feedback for their B1 preparation.": {
+    "de": "Ermögliche deiner Zielgruppe B1-Probeprüfungen mit Zeitlimit, sofortigen Ergebnissen und Feedback.",
+    "ar": "ساعد جمهورك على الوصول إلى اختبارات تجريبية بوقت محدّد ونتائج فورية وملاحظات للتحضير لـ B1.",
+    "fr": "Aidez votre audience à accéder à des examens blancs chronométrés, des résultats immédiats et des retours pour préparer le B1.",
+    "uk": "Допоможіть аудиторії отримати доступ до пробних іспитів із таймером, миттєвих результатів і відгуків для підготовки до B1.",
+    "tr": "Kitlenizin B1 hazırlığı için süreli deneme sınavlarına, anında sonuçlara ve geri bildirime ulaşmasını sağlayın."
+  },
+  "Help your group prepare for exam day.": {
+    "de": "Unterstütze deine Gruppe bei der Prüfungsvorbereitung.",
+    "ar": "ساعد مجموعتك على الاستعداد ليوم الامتحان.",
+    "fr": "Aidez votre groupe à préparer le jour de l’examen.",
+    "uk": "Допоможіть своїй групі підготуватися до іспиту.",
+    "tr": "Grubunuzun sınav gününe hazırlanmasına yardımcı olun."
+  },
+  "I accept the partner terms and acknowledge the privacy notice above.": {
+    "de": "Ich akzeptiere die Partnerbedingungen und habe den obigen Datenschutzhinweis zur Kenntnis genommen.",
+    "ar": "أوافق على شروط الشراكة وأقرّ بالاطلاع على إشعار الخصوصية أعلاه.",
+    "fr": "J’accepte les conditions partenaires et reconnais avoir pris connaissance de la notice de confidentialité ci-dessus.",
+    "uk": "Я приймаю умови партнерства та підтверджую ознайомлення з повідомленням про конфіденційність вище.",
+    "tr": "Partner koşullarını kabul ediyorum ve yukarıdaki gizlilik bildirimini okuduğumu onaylıyorum."
+  },
+  "Illustrative workspace and code. Example figures are not an earnings forecast.": {
+    "de": "Beispielbereich und Beispielcode. Die Zahlen sind keine Verdienstprognose.",
+    "ar": "مساحة عمل ورمز للتوضيح. الأرقام المعروضة ليست توقعًا للأرباح.",
+    "fr": "Espace et code illustratifs. Les chiffres ne constituent pas une prévision de gains.",
+    "uk": "Приклад простору й коду. Наведені суми не є прогнозом заробітку.",
+    "tr": "Örnek çalışma alanı ve kod. Gösterilen rakamlar kazanç tahmini değildir."
+  },
+  "Keep your contact details and audience information up to date.": {
+    "de": "Halte deine Kontaktdaten und Zielgruppenangaben aktuell.",
+    "ar": "حافظ على تحديث بيانات التواصل ومعلومات جمهورك.",
+    "fr": "Gardez vos coordonnées et les informations sur votre audience à jour.",
+    "uk": "Оновлюйте контактні дані та відомості про аудиторію.",
+    "tr": "İletişim ve kitle bilgilerinizi güncel tutun."
+  },
+  "Learners apply it at checkout.": {
+    "de": "Lernende geben ihn beim Bezahlen ein.",
+    "ar": "يستخدمه المتعلّمون عند الدفع.",
+    "fr": "Les apprenants l’utilisent au paiement.",
+    "uk": "Учні застосовують його під час оплати.",
+    "tr": "Öğrenciler ödeme sırasında uygular."
+  },
+  "Learners enter it at checkout. Let them know you may earn a commission when they purchase.": {
+    "de": "Lernende geben ihn beim Bezahlen ein. Weise darauf hin, dass du bei einem Kauf eine Provision erhalten kannst.",
+    "ar": "يدخله المتعلّمون عند الدفع. أخبرهم أنك قد تحصل على عمولة عند الشراء.",
+    "fr": "Les apprenants le saisissent au paiement. Précisez que vous pouvez recevoir une commission sur leur achat.",
+    "uk": "Учні вводять його під час оплати. Повідомте, що ви можете отримати комісію за їхню покупку.",
+    "tr": "Öğrenciler kodu ödemede girer. Satın aldıklarında komisyon kazanabileceğinizi belirtin."
+  },
+  "Learners must enter the code in Stripe Checkout for 10 Exams or Unlimited. Sharing a link alone does not apply the discount.": {
+    "de": "Lernende müssen den Code bei Stripe Checkout für 10 Prüfungen oder Unlimited eingeben. Ein geteilter Link allein aktiviert keinen Rabatt.",
+    "ar": "يجب إدخال الرمز في Stripe Checkout لباقة 10 اختبارات أو الباقة غير المحدودة. مشاركة الرابط وحدها لا تُفعّل الخصم.",
+    "fr": "Les apprenants doivent saisir le code dans Stripe Checkout pour 10 examens ou Illimité. Le lien seul n’applique pas la réduction.",
+    "uk": "Учні мають увести код у Stripe Checkout для пакета «10 іспитів» або «Безліміт». Саме посилання не застосовує знижку.",
+    "tr": "Öğrenciler 10 Sınav veya Sınırsız için Stripe Checkout’ta kodu girmelidir. Yalnızca bağlantı paylaşmak indirimi uygulamaz."
+  },
+  "Let learners know you may earn a commission when you recommend SmartPrüfung.": {
+    "de": "Weise bei Empfehlungen für SmartPrüfung darauf hin, dass du eine Provision erhalten kannst.",
+    "ar": "عند التوصية بـ SmartPrüfung، أخبر المتعلّمين أنك قد تحصل على عمولة.",
+    "fr": "Lorsque vous recommandez SmartPrüfung, précisez que vous pouvez recevoir une commission.",
+    "uk": "Рекомендуючи SmartPrüfung, повідомляйте учням, що можете отримати комісію.",
+    "tr": "SmartPrüfung’u önerirken komisyon kazanabileceğinizi öğrencilere bildirin."
+  },
+  "No commission recorded in this period. Your first qualifying purchase will appear here.": {
+    "de": "In diesem Zeitraum gibt es noch keine Provision. Dein erster qualifizierter Kauf erscheint hier.",
+    "ar": "لم تُسجّل عمولات خلال هذه الفترة. ستظهر أول عملية شراء مؤهّلة هنا.",
+    "fr": "Aucune commission sur cette période. Votre premier achat admissible apparaîtra ici.",
+    "uk": "За цей період комісій немає. Перша відповідна покупка з’явиться тут.",
+    "tr": "Bu dönemde komisyon kaydı yok. İlk uygun satın alma burada görünecek."
+  },
+  "No countries found. Try a name or country code.": {
+    "de": "Kein Land gefunden. Suche nach Name oder Ländercode.",
+    "ar": "لم يُعثر على دول. جرّب اسم الدولة أو رمزها.",
+    "fr": "Aucun pays trouvé. Essayez un nom ou un code pays.",
+    "uk": "Країн не знайдено. Спробуйте назву або код країни.",
+    "tr": "Ülke bulunamadı. Bir ad veya ülke kodu deneyin."
+  },
+  "No qualifying purchases in this period. Share your code to get started.": {
+    "de": "Keine qualifizierten Käufe in diesem Zeitraum. Teile deinen Code, um loszulegen.",
+    "ar": "لا توجد مشتريات مؤهّلة في هذه الفترة. شارك رمزك للبدء.",
+    "fr": "Aucun achat admissible sur cette période. Partagez votre code pour commencer.",
+    "uk": "За цей період немає відповідних покупок. Поділіться кодом, щоб почати.",
+    "tr": "Bu dönemde uygun satın alma yok. Başlamak için kodunuzu paylaşın."
+  },
+  "No. Applying is optional for teachers. You can keep using your Teacher workspace without joining the Partner Program.": {
+    "de": "Nein. Die Bewerbung ist für Lehrkräfte freiwillig. Du kannst den Lehrerbereich ohne Partnerprogramm weiter nutzen.",
+    "ar": "لا. التقدّم اختياري للمعلّمين. يمكنك الاستمرار في استخدام مساحة المعلّم دون الانضمام لبرنامج الشركاء.",
+    "fr": "Non. La candidature est facultative pour les enseignants. Vous pouvez utiliser votre espace enseignant sans rejoindre le programme partenaire.",
+    "uk": "Ні. Для викладачів участь добровільна. Ви можете користуватися простором викладача без партнерської програми.",
+    "tr": "Hayır. Öğretmenler için başvuru isteğe bağlıdır. Partner Programına katılmadan Öğretmen alanını kullanabilirsiniz."
+  },
+  "No. Registration and applying are free. You need an account and an approved application before sharing a partner code.": {
+    "de": "Nein. Registrierung und Bewerbung sind kostenlos. Zum Teilen eines Partnercodes brauchst du ein Konto und eine genehmigte Bewerbung.",
+    "ar": "لا. التسجيل وتقديم الطلب مجانيان. تحتاج إلى حساب وطلب مقبول قبل مشاركة رمز الشريك.",
+    "fr": "Non. L’inscription et la candidature sont gratuites. Un compte et une candidature approuvée sont nécessaires avant de partager un code.",
+    "uk": "Ні. Реєстрація та заявка безкоштовні. Для поширення партнерського коду потрібні обліковий запис і схвалена заявка.",
+    "tr": "Hayır. Kayıt ve başvuru ücretsizdir. Partner kodu paylaşmak için bir hesap ve onaylanmış başvuru gerekir."
+  },
+  "Payments will appear here when you request a payout. Reach the minimum and verify your destination to get started.": {
+    "de": "Angeforderte Auszahlungen erscheinen hier. Erreiche den Mindestbetrag und lass dein Auszahlungsziel verifizieren.",
+    "ar": "ستظهر الدفعات هنا عند طلب الدفع. ابلغ الحد الأدنى ووثّق وجهة الدفع للبدء.",
+    "fr": "Les versements apparaîtront ici après une demande. Atteignez le minimum et faites vérifier vos coordonnées.",
+    "uk": "Виплати з’являться тут після запиту. Досягніть мінімуму та підтвердьте реквізити.",
+    "tr": "Ödeme talep ettiğinizde burada görünecek. Başlamak için minimum tutara ulaşın ve ödeme hedefinizi doğrulatın."
+  },
+  "Payout destination updated. Open requests were cancelled and verification is required again.": {
+    "de": "Auszahlungsziel aktualisiert. Offene Anträge wurden storniert; eine erneute Verifizierung ist erforderlich.",
+    "ar": "تم تحديث وجهة الدفع. أُلغيت الطلبات المفتوحة ويلزم التحقق مجددًا.",
+    "fr": "Destination mise à jour. Les demandes en cours ont été annulées et une nouvelle vérification est requise.",
+    "uk": "Реквізити оновлено. Відкриті запити скасовано, потрібна повторна перевірка.",
+    "tr": "Ödeme hedefi güncellendi. Açık talepler iptal edildi; yeniden doğrulama gerekiyor."
+  },
+  "Payout requested. Your available funds are reserved for review.": {
+    "de": "Auszahlung angefordert. Dein verfügbarer Betrag ist zur Prüfung reserviert.",
+    "ar": "تم طلب الدفع. حُجز رصيدك المتاح للمراجعة.",
+    "fr": "Versement demandé. Vos fonds disponibles sont réservés pour examen.",
+    "uk": "Виплату запитано. Доступні кошти зарезервовано для перевірки.",
+    "tr": "Ödeme talep edildi. Kullanılabilir tutarınız inceleme için ayrıldı."
+  },
+  "Payouts unlock after your partner account is approved.": {
+    "de": "Auszahlungen sind nach der Freigabe deines Partnerkontos möglich.",
+    "ar": "تُتاح الدفعات بعد الموافقة على حساب الشريك.",
+    "fr": "Les versements sont accessibles après approbation du compte partenaire.",
+    "uk": "Виплати стануть доступні після схвалення партнерського облікового запису.",
+    "tr": "Partner hesabınız onaylandıktan sonra ödeme talep edebilirsiniz."
+  },
+  "Prefilled from your account. You can use a different contact email.": {
+    "de": "Aus deinem Konto übernommen. Du kannst eine andere Kontakt-E-Mail verwenden.",
+    "ar": "تمت تعبئته من حسابك. يمكنك استخدام بريد تواصل مختلف.",
+    "fr": "Prérempli depuis votre compte. Vous pouvez utiliser un autre e-mail de contact.",
+    "uk": "Заповнено з облікового запису. Можете вказати іншу контактну адресу.",
+    "tr": "Hesabınızdan otomatik dolduruldu. Farklı bir iletişim e-postası kullanabilirsiniz."
+  },
+  "Qualifying paid purchases of 10 Exams and Unlimited. Teacher seat purchases, your own purchases, refunds and chargebacks do not earn commission.": {
+    "de": "Qualifizierte bezahlte Käufe von 10 Prüfungen und Unlimited. Lehrer-Prüfungsplätze, eigene Käufe, Erstattungen und Rückbuchungen bringen keine Provision.",
+    "ar": "المشتريات المدفوعة المؤهّلة لباقة 10 اختبارات والباقة غير المحدودة. لا تُحتسب عمولة على مقاعد المعلّمين أو مشترياتك الشخصية أو الاستردادات أو عمليات رد المبالغ.",
+    "fr": "Les achats payés admissibles de 10 examens et Illimité. Les places enseignants, vos propres achats, remboursements et rétrofacturations ne donnent pas de commission.",
+    "uk": "Відповідні оплачені покупки пакетів «10 іспитів» і «Безліміт». Місця для викладачів, власні покупки, повернення й чарджбеки не дають комісії.",
+    "tr": "10 Sınav ve Sınırsız paketlerinin uygun ücretli satın almaları. Öğretmen kontenjanları, kendi satın almalarınız, iadeler ve ters ibrazlar komisyon kazandırmaz."
+  },
+  "Qualifying purchases and any adjustments will appear here once learners use your code.": {
+    "de": "Qualifizierte Käufe und Korrekturen erscheinen hier, sobald Lernende deinen Code verwenden.",
+    "ar": "ستظهر المشتريات المؤهّلة والتعديلات هنا عندما يستخدم المتعلّمون رمزك.",
+    "fr": "Les achats admissibles et ajustements apparaîtront ici lorsque les apprenants utiliseront votre code.",
+    "uk": "Відповідні покупки й коригування з’являться тут, коли учні використають ваш код.",
+    "tr": "Öğrenciler kodunuzu kullandığında uygun satın almalar ve düzeltmeler burada görünür."
+  },
+  "Receive a commission when learners use your approved code for a qualifying 10 Exams or Unlimited purchase.": {
+    "de": "Erhalte eine Provision, wenn Lernende deinen freigegebenen Code für einen qualifizierten Kauf von 10 Prüfungen oder Unlimited nutzen.",
+    "ar": "احصل على عمولة عندما يستخدم المتعلّمون رمزك المعتمد لشراء مؤهّل لباقة 10 اختبارات أو الباقة غير المحدودة.",
+    "fr": "Recevez une commission lorsque les apprenants utilisent votre code approuvé pour un achat admissible de 10 examens ou Illimité.",
+    "uk": "Отримуйте комісію, коли учні використовують схвалений код для відповідної покупки «10 іспитів» або «Безліміт».",
+    "tr": "Öğrenciler onaylı kodunuzla uygun bir 10 Sınav veya Sınırsız satın alımı yaptığında komisyon alın."
+  },
+  "Recommend realistic TELC Deutsch B1 practice to your audience. Give learners a discount and earn a commission on qualifying purchases.": {
+    "de": "Empfiehl deiner Zielgruppe realistische TELC-Deutsch-B1-Übungen. Gib Lernenden einen Rabatt und verdiene Provision an qualifizierten Käufen.",
+    "ar": "أوصِ جمهورك بتدريب واقعي لامتحان TELC Deutsch B1. امنح المتعلّمين خصمًا واربح عمولة على المشتريات المؤهّلة.",
+    "fr": "Recommandez à votre audience une préparation réaliste au TELC Deutsch B1. Offrez une réduction et gagnez une commission sur les achats admissibles.",
+    "uk": "Рекомендуйте аудиторії реалістичну підготовку до TELC Deutsch B1. Даруйте учням знижку й отримуйте комісію за відповідні покупки.",
+    "tr": "Kitlenize gerçekçi TELC Deutsch B1 pratiği önerin. Öğrencilere indirim sunun ve uygun satın almalardan komisyon kazanın."
+  },
+  "Register and tell us about your audience, social profiles and preferred payout method.": {
+    "de": "Registriere dich und erzähle uns von deiner Zielgruppe, deinen Social-Media-Profilen und deiner Auszahlungsmethode.",
+    "ar": "سجّل وحدّثنا عن جمهورك وحساباتك الاجتماعية وطريقة الدفع المفضّلة.",
+    "fr": "Inscrivez-vous et présentez votre audience, vos profils sociaux et votre mode de versement préféré.",
+    "uk": "Зареєструйтеся та розкажіть про аудиторію, соціальні профілі й бажаний спосіб виплат.",
+    "tr": "Kaydolun; kitlenizi, sosyal profillerinizi ve tercih ettiğiniz ödeme yöntemini anlatın."
+  },
+  "Request a payment and follow its progress from review to completion.": {
+    "de": "Fordere eine Auszahlung an und verfolge sie von der Prüfung bis zum Abschluss.",
+    "ar": "اطلب الدفع وتابع حالته من المراجعة حتى الاكتمال.",
+    "fr": "Demandez un versement et suivez-le de l’examen à la réalisation.",
+    "uk": "Запросіть виплату й відстежуйте її від перевірки до завершення.",
+    "tr": "Ödeme talep edin ve incelemeden tamamlanmasına kadar durumunu izleyin."
+  },
+  "Request payment by bank transfer or PayPal.": {
+    "de": "Fordere eine Bank- oder PayPal-Auszahlung an.",
+    "ar": "اطلب الدفع عبر تحويل بنكي أو PayPal.",
+    "fr": "Demandez un versement par banque ou PayPal.",
+    "uk": "Запросіть виплату банківським переказом або PayPal.",
+    "tr": "Banka havalesi veya PayPal ile ödeme talep edin."
+  },
+  "Reviewed and paid by bank transfer or PayPal. This request does not trigger an automatic payment.": {
+    "de": "Geprüft und per Bank oder PayPal ausgezahlt. Diese Anfrage löst keine automatische Zahlung aus.",
+    "ar": "تُراجع وتُدفع عبر البنك أو PayPal. لا يُنفّذ هذا الطلب دفعًا تلقائيًا.",
+    "fr": "Examiné puis versé par banque ou PayPal. Cette demande ne déclenche pas de paiement automatique.",
+    "uk": "Перевіряється та виплачується банком або PayPal. Цей запит не запускає автоматичний платіж.",
+    "tr": "İncelenir ve banka veya PayPal ile ödenir. Bu talep otomatik ödeme başlatmaz."
+  },
+  "Share SmartPrüfung with your audience and earn on qualifying purchases.": {
+    "de": "Empfiehl SmartPrüfung deiner Zielgruppe und verdiene an qualifizierten Käufen.",
+    "ar": "شارك SmartPrüfung مع جمهورك واربح من المشتريات المؤهّلة.",
+    "fr": "Présentez SmartPrüfung à votre audience et gagnez sur les achats admissibles.",
+    "uk": "Рекомендуйте SmartPrüfung своїй аудиторії й заробляйте на відповідних покупках.",
+    "tr": "SmartPrüfung’u kitlenizle paylaşın ve uygun satın almalardan kazanın."
+  },
+  "Share useful practice with your followers.": {
+    "de": "Teile hilfreiche Übungen mit deinen Followern.",
+    "ar": "شارك تدريبًا مفيدًا مع متابعيك.",
+    "fr": "Partagez des exercices utiles avec vos abonnés.",
+    "uk": "Діліться корисною практикою зі своїми підписниками.",
+    "tr": "Takipçilerinizle yararlı pratikler paylaşın."
+  },
+  "Share your code with your audience.": {
+    "de": "Teile deinen Code mit deiner Zielgruppe.",
+    "ar": "شارك رمزك مع جمهورك.",
+    "fr": "Partagez votre code avec votre audience.",
+    "uk": "Поділіться кодом зі своєю аудиторією.",
+    "tr": "Kodunuzu kitlenizle paylaşın."
+  },
+  "Support your learners beyond the classroom.": {
+    "de": "Unterstütze Lernende auch außerhalb des Unterrichts.",
+    "ar": "ادعم متعلّميك خارج الصف.",
+    "fr": "Accompagnez vos apprenants au-delà du cours.",
+    "uk": "Підтримуйте учнів поза заняттями.",
+    "tr": "Öğrencilerinizi sınıf dışında da destekleyin."
+  },
+  "Tell us a little more about your audience (at least 20 characters).": {
+    "de": "Erzähle uns mehr über deine Zielgruppe (mindestens 20 Zeichen).",
+    "ar": "حدّثنا أكثر عن جمهورك (20 حرفًا على الأقل).",
+    "fr": "Décrivez davantage votre audience (au moins 20 caractères).",
+    "uk": "Розкажіть більше про аудиторію (щонайменше 20 символів).",
+    "tr": "Kitleniz hakkında biraz daha bilgi verin (en az 20 karakter)."
+  },
+  "Tell us who you reach and how you help them prepare for German exams. At least 20 characters.": {
+    "de": "Beschreibe, wen du erreichst und wie du bei der Vorbereitung auf Deutschprüfungen hilfst. Mindestens 20 Zeichen.",
+    "ar": "أخبرنا من تصل إليهم وكيف تساعدهم في الاستعداد لامتحانات الألمانية. 20 حرفًا على الأقل.",
+    "fr": "Décrivez votre audience et votre aide à la préparation aux examens d’allemand. Au moins 20 caractères.",
+    "uk": "Розкажіть, кого охоплюєте та як допомагаєте готуватися до іспитів із німецької. Щонайменше 20 символів.",
+    "tr": "Kimlere ulaştığınızı ve Almanca sınavlarına hazırlanmalarına nasıl yardımcı olduğunuzu anlatın. En az 20 karakter."
+  },
+  "They enter your approved code in Stripe Checkout for 10 Exams or Unlimited. Sharing a link alone does not apply the discount.": {
+    "de": "Sie geben deinen freigegebenen Code bei Stripe Checkout für 10 Prüfungen oder Unlimited ein. Ein Link allein aktiviert keinen Rabatt.",
+    "ar": "يدخلون رمزك المعتمد في Stripe Checkout لباقة 10 اختبارات أو الباقة غير المحدودة. الرابط وحده لا يُفعّل الخصم.",
+    "fr": "Ils saisissent votre code approuvé dans Stripe Checkout pour 10 examens ou Illimité. Le lien seul n’applique pas la réduction.",
+    "uk": "Вони вводять схвалений код у Stripe Checkout для «10 іспитів» або «Безліміт». Саме посилання не застосовує знижку.",
+    "tr": "10 Sınav veya Sınırsız için onaylı kodunuzu Stripe Checkout’ta girerler. Yalnızca bağlantı indirimi uygulamaz."
+  },
+  "Three short steps. Your details stay here as you move between them.": {
+    "de": "Drei kurze Schritte. Deine Angaben bleiben beim Wechsel erhalten.",
+    "ar": "ثلاث خطوات قصيرة. تُحفظ بياناتك أثناء التنقّل بينها.",
+    "fr": "Trois étapes rapides. Vos informations restent enregistrées entre les étapes.",
+    "uk": "Три короткі кроки. Ваші дані зберігаються під час переходів.",
+    "tr": "Üç kısa adım. Adımlar arasında geçerken bilgileriniz korunur."
+  },
+  "Track commissions and request a bank or PayPal payout in one place.": {
+    "de": "Provisionen verfolgen und Bank- oder PayPal-Auszahlungen anfordern – an einem Ort.",
+    "ar": "تابع العمولات واطلب الدفع عبر البنك أو PayPal من مكان واحد.",
+    "fr": "Suivez vos commissions et demandez un versement bancaire ou PayPal au même endroit.",
+    "uk": "Відстежуйте комісії та запитуйте виплату банком або PayPal в одному місці.",
+    "tr": "Komisyonları takip edin, banka veya PayPal ödemesini tek yerden talep edin."
+  },
+  "Turn helpful recommendations into rewards.": {
+    "de": "Mach hilfreiche Empfehlungen zu deinem Verdienst.",
+    "ar": "حوّل التوصيات المفيدة إلى مكافآت.",
+    "fr": "Transformez vos recommandations utiles en récompenses.",
+    "uk": "Перетворіть корисні рекомендації на винагороду.",
+    "tr": "Yararlı önerilerinizi kazanca dönüştürün."
+  },
+  "Update your partner contact details, social profiles and payout preferences.": {
+    "de": "Aktualisiere deine Partner-Kontaktdaten, Social-Media-Profile und Auszahlungspräferenzen.",
+    "ar": "حدّث بيانات التواصل وحساباتك الاجتماعية وتفضيلات الدفع كشريك.",
+    "fr": "Mettez à jour vos coordonnées, profils sociaux et préférences de versement partenaire.",
+    "uk": "Оновлюйте партнерські контакти, соціальні профілі й налаштування виплат.",
+    "tr": "Partner iletişim bilgilerinizi, sosyal profillerinizi ve ödeme tercihlerinizi güncelleyin."
+  },
+  "Use Try again above to reload your account information.": {
+    "de": "Lade deine Kontodaten oben über „Erneut versuchen“ neu.",
+    "ar": "استخدم «أعد المحاولة» أعلاه لإعادة تحميل بيانات حسابك.",
+    "fr": "Utilisez « Réessayer » ci-dessus pour recharger les informations du compte.",
+    "uk": "Натисніть «Спробувати знову» вище, щоб завантажити дані облікового запису.",
+    "tr": "Hesap bilgilerinizi yeniden yüklemek için yukarıdaki Tekrar dene seçeneğini kullanın."
+  },
+  "Used only for verification and manual payment. Updates require another review.": {
+    "de": "Nur zur Verifizierung und manuellen Auszahlung. Änderungen erfordern eine erneute Prüfung.",
+    "ar": "تُستخدم للتحقق والدفع اليدوي فقط. تتطلّب التحديثات مراجعة جديدة.",
+    "fr": "Utilisé uniquement pour la vérification et les versements manuels. Toute modification nécessite un nouvel examen.",
+    "uk": "Лише для перевірки та ручної виплати. Зміни потребують повторної перевірки.",
+    "tr": "Yalnızca doğrulama ve manuel ödeme için kullanılır. Güncellemeler yeniden inceleme gerektirir."
+  },
+  "Verified purchases using your code, by payment date. Refunded purchases may remain counted; adjustments appear in net commission.": {
+    "de": "Verifizierte Käufe mit deinem Code nach Zahlungsdatum. Erstattete Käufe können weiter gezählt werden; Korrekturen erscheinen in der Nettoprovision.",
+    "ar": "مشتريات موثّقة باستخدام رمزك حسب تاريخ الدفع. قد تبقى المشتريات المستردّة محسوبة؛ تظهر التعديلات في صافي العمولة.",
+    "fr": "Achats vérifiés avec votre code, par date de paiement. Les achats remboursés peuvent rester comptés ; les ajustements figurent dans la commission nette.",
+    "uk": "Підтверджені покупки з вашим кодом за датою оплати. Повернені покупки можуть лишатися в підрахунку; коригування видно в чистій комісії.",
+    "tr": "Ödeme tarihine göre kodunuzla doğrulanmış satın almalar. İade edilenler sayılmaya devam edebilir; düzeltmeler net komisyonda görünür."
+  },
+  "We review your application and set up your code. Your assigned rates appear in your workspace.": {
+    "de": "Wir prüfen deine Bewerbung und richten deinen Code ein. Deine zugewiesenen Sätze stehen im Partnerbereich.",
+    "ar": "نراجع طلبك ونجهّز رمزك. تظهر النسب المخصّصة لك في مساحة العمل.",
+    "fr": "Nous examinons votre candidature et préparons votre code. Vos taux s’affichent dans votre espace.",
+    "uk": "Ми перевіримо заявку й налаштуємо код. Призначені ставки з’являться у вашому просторі.",
+    "tr": "Başvurunuzu inceler, kodunuzu hazırlarız. Size atanan oranlar çalışma alanınızda görünür."
+  },
+  "We’ll review your profile and payout details. Your sharing code will appear here after approval and setup.": {
+    "de": "Wir prüfen Profil und Auszahlungsdaten. Nach Freigabe und Einrichtung erscheint dein Code hier.",
+    "ar": "سنراجع ملفك وبيانات الدفع. سيظهر رمزك هنا بعد الموافقة والتجهيز.",
+    "fr": "Nous examinerons votre profil et vos coordonnées de versement. Votre code apparaîtra ici après approbation et configuration.",
+    "uk": "Ми перевіримо профіль і платіжні дані. Код з’явиться тут після схвалення й налаштування.",
+    "tr": "Profilinizi ve ödeme bilgilerinizi inceleyeceğiz. Kodunuz onay ve kurulumdan sonra burada görünecek."
+  },
+  "When can I receive a payout?": {
+    "de": "Wann kann ich eine Auszahlung erhalten?",
+    "ar": "متى يمكنني استلام دفعة؟",
+    "fr": "Quand puis-je recevoir un versement ?",
+    "uk": "Коли можна отримати виплату?",
+    "tr": "Ne zaman ödeme alabilirim?"
+  },
+  "Which purchases earn commission?": {
+    "de": "Welche Käufe bringen Provision?",
+    "ar": "ما المشتريات التي تمنح عمولة؟",
+    "fr": "Quels achats donnent droit à une commission ?",
+    "uk": "За які покупки нараховується комісія?",
+    "tr": "Hangi satın almalar komisyon kazandırır?"
+  },
+  "You can request a manual payout of your available commission.": {
+    "de": "Du kannst eine manuelle Auszahlung deiner verfügbaren Provision anfordern.",
+    "ar": "يمكنك طلب دفع يدوي لعمولتك المتاحة.",
+    "fr": "Vous pouvez demander un versement manuel de votre commission disponible.",
+    "uk": "Можете запросити ручну виплату доступної комісії.",
+    "tr": "Kullanılabilir komisyonunuz için manuel ödeme talep edebilirsiniz."
+  },
+  "You don’t need a huge audience. Tell us how you help learners and where you’d like to share SmartPrüfung.": {
+    "de": "Du brauchst keine riesige Zielgruppe. Erzähle uns, wie du Lernenden hilfst und wo du SmartPrüfung empfehlen möchtest.",
+    "ar": "لا تحتاج إلى جمهور ضخم. أخبرنا كيف تساعد المتعلّمين وأين ترغب في مشاركة SmartPrüfung.",
+    "fr": "Pas besoin d’une immense audience. Expliquez comment vous aidez les apprenants et où vous souhaitez partager SmartPrüfung.",
+    "uk": "Велика аудиторія не обов’язкова. Розкажіть, як допомагаєте учням і де плануєте рекомендувати SmartPrüfung.",
+    "tr": "Çok büyük bir kitleye gerek yok. Öğrencilere nasıl yardımcı olduğunuzu ve SmartPrüfung’u nerede paylaşmak istediğinizi anlatın."
+  },
+  "Your application is being reviewed": {
+    "de": "Deine Bewerbung wird geprüft",
+    "ar": "طلبك قيد المراجعة",
+    "fr": "Votre candidature est en cours d’examen",
+    "uk": "Ваша заявка на розгляді",
+    "tr": "Başvurunuz inceleniyor"
+  },
+  "Your approved rates are shown in your workspace. Commission is calculated after discounts and excluding tax. Refunds and disputes can reduce your balance. Payouts are reviewed and sent manually.": {
+    "de": "Deine genehmigten Sätze stehen im Partnerbereich. Provisionen werden nach Rabatten und ohne Steuern berechnet. Erstattungen und Streitfälle können dein Guthaben mindern. Auszahlungen werden geprüft und manuell ausgeführt.",
+    "ar": "تظهر النسب المعتمدة في مساحة العمل. تُحسب العمولة بعد الخصومات ومن دون الضرائب. قد تقلّل الاستردادات والنزاعات رصيدك. تُراجع الدفعات وتُرسل يدويًا.",
+    "fr": "Vos taux approuvés figurent dans votre espace. La commission est calculée après réduction et hors taxes. Les remboursements et litiges peuvent réduire votre solde. Les versements sont examinés et effectués manuellement.",
+    "uk": "Схвалені ставки видно у вашому просторі. Комісія розраховується після знижок і без податків. Повернення та спори можуть зменшити баланс. Виплати перевіряються й здійснюються вручну.",
+    "tr": "Onaylı oranlarınız çalışma alanınızda görünür. Komisyon indirimlerden sonra, vergi hariç hesaplanır. İade ve itirazlar bakiyenizi azaltabilir. Ödemeler incelenir ve manuel gönderilir."
+  },
+  "Your balances and history are still available. Try loading the charts again.": {
+    "de": "Guthaben und Verlauf sind weiter verfügbar. Versuche, die Diagramme erneut zu laden.",
+    "ar": "الأرصدة والسجل لا يزالان متاحين. حاول تحميل الرسوم مجددًا.",
+    "fr": "Vos soldes et votre historique restent accessibles. Réessayez de charger les graphiques.",
+    "uk": "Баланси й історія доступні. Спробуйте завантажити графіки знову.",
+    "tr": "Bakiyeleriniz ve geçmişiniz kullanılabilir. Grafikleri yeniden yüklemeyi deneyin."
+  },
+  "Your payout destination needs administrator verification before you can request a payment.": {
+    "de": "Dein Auszahlungsziel muss von einem Administrator verifiziert werden, bevor du eine Zahlung anfordern kannst.",
+    "ar": "يجب أن يتحقّق المسؤول من وجهة الدفع قبل أن تتمكّن من طلب دفعة.",
+    "fr": "Un administrateur doit vérifier vos coordonnées de versement avant toute demande de paiement.",
+    "uk": "Адміністратор має перевірити реквізити, перш ніж ви зможете запросити виплату.",
+    "tr": "Ödeme talep edebilmeniz için ödeme hedefinizin bir yönetici tarafından doğrulanması gerekir."
+  },
+  "Your payout details are encrypted and shared only with authorised administrators for verification and manual payment.": {
+    "de": "Deine Auszahlungsdaten werden verschlüsselt und nur befugten Administratoren zur Verifizierung und manuellen Zahlung bereitgestellt.",
+    "ar": "تُشفّر بيانات الدفع ولا تُشارك إلا مع المسؤولين المخوّلين للتحقق والدفع اليدوي.",
+    "fr": "Vos coordonnées de versement sont chiffrées et accessibles uniquement aux administrateurs autorisés pour vérification et paiement manuel.",
+    "uk": "Ваші платіжні дані зашифровані й доступні лише уповноваженим адміністраторам для перевірки та ручної виплати.",
+    "tr": "Ödeme bilgileriniz şifrelenir ve yalnızca doğrulama ve manuel ödeme için yetkili yöneticilerle paylaşılır."
+  },
+  "Your referrals, earnings and payouts. All in one place.": {
+    "de": "Deine Empfehlungen, Einnahmen und Auszahlungen. Alles an einem Ort.",
+    "ar": "إحالاتك وأرباحك ودفعاتك، كلها في مكان واحد.",
+    "fr": "Vos recommandations, gains et versements. Tout au même endroit.",
+    "uk": "Рекомендації, заробіток і виплати — усе в одному місці.",
+    "tr": "Yönlendirmeleriniz, kazançlarınız ve ödemeleriniz. Hepsi tek yerde."
+  },
+  "for operator and contact details.": {
+    "de": "für Betreiber- und Kontaktangaben.",
+    "ar": "لبيانات المشغّل والتواصل.",
+    "fr": "pour les coordonnées de l’opérateur.",
+    "uk": "для відомостей про оператора та контакти.",
+    "tr": "işletmeci ve iletişim bilgileri için."
+  },
+  "Accept the current partner terms and privacy notice.": {
+    "de": "Akzeptiere die aktuellen Partnerbedingungen und den Datenschutzhinweis.",
+    "ar": "وافق على شروط الشراكة وإشعار الخصوصية الحاليين.",
+    "fr": "Acceptez les conditions partenaires et la notice de confidentialité en vigueur.",
+    "uk": "Прийміть чинні умови партнерства та повідомлення про конфіденційність.",
+    "tr": "Güncel partner koşullarını ve gizlilik bildirimini kabul edin."
+  },
+  "Across these {{count}} months": {
+    "de": "In diesen {{count}} Monaten",
+    "ar": "خلال هذه الأشهر وعددها {{count}}",
+    "fr": "Sur ces {{count}} mois",
+    "uk": "За ці {{count}} місяців",
+    "tr": "Bu {{count}} ay boyunca"
+  },
+  "Add between one and ten social profiles.": {
+    "de": "Füge ein bis zehn Social-Media-Profile hinzu.",
+    "ar": "أضف من حساب واحد إلى عشرة حسابات تواصل.",
+    "fr": "Ajoutez entre un et dix profils sociaux.",
+    "uk": "Додайте від одного до десяти соціальних профілів.",
+    "tr": "Bir ile on arasında sosyal profil ekleyin."
+  },
+  "An administrator must verify your payout details first.": {
+    "de": "Ein Administrator muss zuerst deine Auszahlungsdaten verifizieren.",
+    "ar": "يجب أن يتحقّق المسؤول من بيانات الدفع أولًا.",
+    "fr": "Un administrateur doit d’abord vérifier vos coordonnées de versement.",
+    "uk": "Адміністратор має спочатку перевірити платіжні дані.",
+    "tr": "Önce bir yönetici ödeme bilgilerinizi doğrulamalıdır."
+  },
+  "Apply to join the partner program first.": {
+    "de": "Bewirb dich zuerst für das Partnerprogramm.",
+    "ar": "قدّم طلبًا للانضمام لبرنامج الشركاء أولًا.",
+    "fr": "Postulez d’abord au programme partenaire.",
+    "uk": "Спочатку подайте заявку на участь у партнерській програмі.",
+    "tr": "Önce Partner Programına başvurun."
+  },
+  "At least €50 in available commission is required.": {
+    "de": "Mindestens 50 € verfügbare Provision sind erforderlich.",
+    "ar": "يلزم توفر عمولة متاحة لا تقل عن 50 يورو.",
+    "fr": "Au moins 50 € de commission disponible sont nécessaires.",
+    "uk": "Потрібно щонайменше 50 € доступної комісії.",
+    "tr": "En az 50 € kullanılabilir komisyon gereklidir."
+  },
+  "BIC": {
+    "de": "BIC",
+    "ar": "BIC",
+    "fr": "BIC",
+    "uk": "BIC",
+    "tr": "BIC"
+  },
+  "IBAN": {
+    "de": "IBAN",
+    "ar": "IBAN",
+    "fr": "IBAN",
+    "uk": "IBAN",
+    "tr": "IBAN"
+  },
+  "Calendar months in UTC · updated {{date}}": {
+    "de": "Kalendermonate in UTC · Stand {{date}}",
+    "ar": "أشهر تقويمية بتوقيت UTC · آخر تحديث {{date}}",
+    "fr": "Mois calendaires en UTC · mis à jour le {{date}}",
+    "uk": "Календарні місяці за UTC · оновлено {{date}}",
+    "tr": "UTC takvim ayları · güncelleme {{date}}"
+  },
+  "Check audience size.": {
+    "de": "Prüfe die Reichweite.",
+    "ar": "تحقّق من عدد الجمهور.",
+    "fr": "Vérifiez la taille de l’audience.",
+    "uk": "Перевірте розмір аудиторії.",
+    "tr": "Kitle büyüklüğünü kontrol edin."
+  },
+  "Check payout details.": {
+    "de": "Prüfe die Auszahlungsdaten.",
+    "ar": "تحقّق من بيانات الدفع.",
+    "fr": "Vérifiez les coordonnées de versement.",
+    "uk": "Перевірте платіжні дані.",
+    "tr": "Ödeme bilgilerini kontrol edin."
+  },
+  "Check {{field}}.": {
+    "de": "Prüfe {{field}}.",
+    "ar": "تحقّق من {{field}}.",
+    "fr": "Vérifiez : {{field}}.",
+    "uk": "Перевірте: {{field}}.",
+    "tr": "Şu alanı kontrol edin: {{field}}."
+  },
+  "Choose BANK or PAYPAL.": {
+    "de": "Wähle Banküberweisung oder PayPal.",
+    "ar": "اختر التحويل البنكي أو PayPal.",
+    "fr": "Choisissez le virement bancaire ou PayPal.",
+    "uk": "Виберіть банківський переказ або PayPal.",
+    "tr": "Banka havalesi veya PayPal seçin."
+  },
+  "Choose a payout method.": {
+    "de": "Wähle eine Auszahlungsmethode.",
+    "ar": "اختر طريقة الدفع.",
+    "fr": "Choisissez un mode de versement.",
+    "uk": "Виберіть спосіб виплати.",
+    "tr": "Bir ödeme yöntemi seçin."
+  },
+  "Choose a valid country.": {
+    "de": "Wähle ein gültiges Land.",
+    "ar": "اختر دولة صالحة.",
+    "fr": "Choisissez un pays valide.",
+    "uk": "Виберіть дійсну країну.",
+    "tr": "Geçerli bir ülke seçin."
+  },
+  "Create your partner account": {
+    "de": "Erstelle dein Partnerkonto",
+    "ar": "أنشئ حساب الشريك الخاص بك",
+    "fr": "Créez votre compte partenaire",
+    "uk": "Створіть партнерський обліковий запис",
+    "tr": "Partner hesabınızı oluşturun"
+  },
+  "Discounts for your learners": {
+    "de": "Rabatte für deine Lernenden",
+    "ar": "خصومات لمتعلّميك",
+    "fr": "Des réductions pour vos apprenants",
+    "uk": "Знижки для ваших учнів",
+    "tr": "Öğrencileriniz için indirimler"
+  },
+  "Enter a valid BIC.": {
+    "de": "Gib einen gültigen BIC ein.",
+    "ar": "أدخل رمز BIC صالحًا.",
+    "fr": "Saisissez un BIC valide.",
+    "uk": "Укажіть дійсний BIC.",
+    "tr": "Geçerli bir BIC girin."
+  },
+  "Enter a valid email address.": {
+    "de": "Gib eine gültige E-Mail-Adresse ein.",
+    "ar": "أدخل بريدًا إلكترونيًا صالحًا.",
+    "fr": "Saisissez une adresse e-mail valide.",
+    "uk": "Укажіть дійсну електронну адресу.",
+    "tr": "Geçerli bir e-posta adresi girin."
+  },
+  "Free partner registration": {
+    "de": "Kostenlose Partnerregistrierung",
+    "ar": "تسجيل مجاني للشركاء",
+    "fr": "Inscription partenaire gratuite",
+    "uk": "Безкоштовна реєстрація партнера",
+    "tr": "Ücretsiz partner kaydı"
+  },
+  "Give learners {{discount}}% off. Earn {{commission}}% commission on qualifying purchases.": {
+    "de": "Gib Lernenden {{discount}} % Rabatt. Verdiene {{commission}} % Provision an qualifizierten Käufen.",
+    "ar": "امنح المتعلّمين خصمًا بنسبة {{discount}}٪ واربح عمولة {{commission}}٪ على المشتريات المؤهّلة.",
+    "fr": "Offrez {{discount}} % de réduction et gagnez {{commission}} % de commission sur les achats admissibles.",
+    "uk": "Надавайте учням знижку {{discount}}% і отримуйте {{commission}}% комісії за відповідні покупки.",
+    "tr": "Öğrencilere %{{discount}} indirim sunun. Uygun satın almalardan %{{commission}} komisyon kazanın."
+  },
+  "Google sign-in could not be completed. Please try again to access Partner Mode.": {
+    "de": "Die Google-Anmeldung konnte nicht abgeschlossen werden. Versuche es erneut, um den Partnermodus zu öffnen.",
+    "ar": "تعذّر إكمال تسجيل الدخول عبر Google. أعد المحاولة للوصول إلى وضع الشريك.",
+    "fr": "La connexion Google n’a pas abouti. Réessayez pour accéder au mode partenaire.",
+    "uk": "Не вдалося завершити вхід через Google. Спробуйте знову, щоб відкрити режим партнера.",
+    "tr": "Google ile giriş tamamlanamadı. Partner Moduna erişmek için tekrar deneyin."
+  },
+  "Have a partner code? Enter it in Stripe Checkout before paying.": {
+    "de": "Du hast einen Partnercode? Gib ihn vor dem Bezahlen bei Stripe Checkout ein.",
+    "ar": "لديك رمز شريك؟ أدخله في Stripe Checkout قبل الدفع.",
+    "fr": "Vous avez un code partenaire ? Saisissez-le dans Stripe Checkout avant de payer.",
+    "uk": "Маєте партнерський код? Уведіть його у Stripe Checkout перед оплатою.",
+    "tr": "Partner kodunuz mu var? Ödemeden önce Stripe Checkout’ta girin."
+  },
+  "Invalid social profiles.": {
+    "de": "Ungültige Social-Media-Profile.",
+    "ar": "حسابات التواصل غير صالحة.",
+    "fr": "Profils sociaux non valides.",
+    "uk": "Недійсні соціальні профілі.",
+    "tr": "Geçersiz sosyal profiller."
+  },
+  "Minimum {{amount}}": {
+    "de": "Mindestens {{amount}}",
+    "ar": "الحد الأدنى {{amount}}",
+    "fr": "Minimum {{amount}}",
+    "uk": "Мінімум {{amount}}",
+    "tr": "Minimum {{amount}}"
+  },
+  "Page {{page}} of {{total}}": {
+    "de": "Seite {{page}} von {{total}}",
+    "ar": "الصفحة {{page}} من {{total}}",
+    "fr": "Page {{page}} sur {{total}}",
+    "uk": "Сторінка {{page}} з {{total}}",
+    "tr": "Sayfa {{page}} / {{total}}"
+  },
+  "Paid {{date}}": {
+    "de": "Ausgezahlt am {{date}}",
+    "ar": "دُفع في {{date}}",
+    "fr": "Versé le {{date}}",
+    "uk": "Виплачено {{date}}",
+    "tr": "Ödeme tarihi {{date}}"
+  },
+  "Partner Mode": {
+    "de": "Partnermodus",
+    "ar": "وضع الشريك",
+    "fr": "Mode partenaire",
+    "uk": "Режим партнера",
+    "tr": "Partner Modu"
+  },
+  "Partner account must be approved.": {
+    "de": "Das Partnerkonto muss freigegeben sein.",
+    "ar": "يجب الموافقة على حساب الشريك.",
+    "fr": "Le compte partenaire doit être approuvé.",
+    "uk": "Партнерський обліковий запис має бути схвалений.",
+    "tr": "Partner hesabı onaylanmış olmalıdır."
+  },
+  "Partner applications are temporarily unavailable. Please try again later.": {
+    "de": "Partnerbewerbungen sind vorübergehend nicht verfügbar. Bitte versuche es später erneut.",
+    "ar": "طلبات الشراكة غير متاحة مؤقتًا. أعد المحاولة لاحقًا.",
+    "fr": "Les candidatures partenaires sont temporairement indisponibles. Réessayez plus tard.",
+    "uk": "Партнерські заявки тимчасово недоступні. Спробуйте пізніше.",
+    "tr": "Partner başvuruları geçici olarak kullanılamıyor. Lütfen daha sonra tekrar deneyin."
+  },
+  "Partner participation is optional. Apply if you would like to share discounts and earn commission.": {
+    "de": "Die Partnerteilnahme ist freiwillig. Bewirb dich, wenn du Rabatte teilen und Provision verdienen möchtest.",
+    "ar": "المشاركة كشريك اختيارية. قدّم طلبًا إذا أردت مشاركة الخصومات وربح عمولة.",
+    "fr": "La participation est facultative. Postulez si vous souhaitez partager des réductions et gagner une commission.",
+    "uk": "Участь у партнерстві добровільна. Подайте заявку, якщо хочете ділитися знижками й отримувати комісію.",
+    "tr": "Partner katılımı isteğe bağlıdır. İndirim paylaşmak ve komisyon kazanmak istiyorsanız başvurun."
+  },
+  "Partner program": {
+    "de": "Partnerprogramm",
+    "ar": "برنامج الشركاء",
+    "fr": "Programme partenaire",
+    "uk": "Партнерська програма",
+    "tr": "Partner programı"
+  },
+  "Please retry in a minute.": {
+    "de": "Bitte versuche es in einer Minute erneut.",
+    "ar": "أعد المحاولة بعد دقيقة.",
+    "fr": "Réessayez dans une minute.",
+    "uk": "Спробуйте за хвилину.",
+    "tr": "Lütfen bir dakika sonra tekrar deneyin."
+  },
+  "Prepare for TELC Deutsch B1 with SmartPrüfung: {{url}} — enter {{code}} in Stripe Checkout for your discount. I may earn a commission on qualifying purchases.": {
+    "de": "Bereite dich mit SmartPrüfung auf TELC Deutsch B1 vor: {{url}} — gib {{code}} bei Stripe Checkout für deinen Rabatt ein. Ich kann bei qualifizierten Käufen eine Provision erhalten.",
+    "ar": "استعدّ لـ TELC Deutsch B1 مع SmartPrüfung: {{url}} — أدخل {{code}} في Stripe Checkout للحصول على الخصم. قد أحصل على عمولة على المشتريات المؤهّلة.",
+    "fr": "Préparez le TELC Deutsch B1 avec SmartPrüfung : {{url}} — saisissez {{code}} dans Stripe Checkout pour votre réduction. Je peux recevoir une commission sur les achats admissibles.",
+    "uk": "Готуйтеся до TELC Deutsch B1 зі SmartPrüfung: {{url}} — уведіть {{code}} у Stripe Checkout для знижки. Я можу отримати комісію за відповідні покупки.",
+    "tr": "SmartPrüfung ile TELC Deutsch B1’e hazırlanın: {{url}} — indirim için Stripe Checkout’ta {{code}} girin. Uygun satın almalardan komisyon kazanabilirim."
+  },
+  "Progress toward {{amount}} payout": {
+    "de": "Fortschritt zur Auszahlung von {{amount}}",
+    "ar": "التقدّم نحو دفعة بقيمة {{amount}}",
+    "fr": "Progression vers un versement de {{amount}}",
+    "uk": "Прогрес до виплати {{amount}}",
+    "tr": "{{amount}} ödeme hedefine ilerleme"
+  },
+  "Reference: {{reference}}": {
+    "de": "Referenz: {{reference}}",
+    "ar": "المرجع: {{reference}}",
+    "fr": "Référence : {{reference}}",
+    "uk": "Призначення: {{reference}}",
+    "tr": "Referans: {{reference}}"
+  },
+  "Register for free, submit your partner application and get your own discount code after approval.": {
+    "de": "Registriere dich kostenlos, bewirb dich als Partner und erhalte nach Freigabe deinen eigenen Rabattcode.",
+    "ar": "سجّل مجانًا وقدّم طلب الشراكة واحصل على رمز خصم خاص بك بعد الموافقة.",
+    "fr": "Inscrivez-vous gratuitement, envoyez votre candidature et recevez votre code après approbation.",
+    "uk": "Зареєструйтеся безкоштовно, подайте заявку й отримайте власний код знижки після схвалення.",
+    "tr": "Ücretsiz kaydolun, partner başvurunuzu gönderin ve onaydan sonra indirim kodunuzu alın."
+  },
+  "Remove social account {{number}}": {
+    "de": "Social-Media-Konto {{number}} entfernen",
+    "ar": "إزالة حساب التواصل {{number}}",
+    "fr": "Supprimer le compte social {{number}}",
+    "uk": "Видалити соціальний обліковий запис {{number}}",
+    "tr": "{{number}} numaralı sosyal hesabı kaldır"
+  },
+  "Share discounts and earn commission": {
+    "de": "Rabatte teilen und Provision verdienen",
+    "ar": "شارك الخصومات واربح عمولة",
+    "fr": "Partagez des réductions et gagnez une commission",
+    "uk": "Діліться знижками й отримуйте комісію",
+    "tr": "İndirim paylaşın ve komisyon kazanın"
+  },
+  "Sign in to apply as a partner or manage your codes, commissions and payouts.": {
+    "de": "Melde dich an, um dich als Partner zu bewerben oder Codes, Provisionen und Auszahlungen zu verwalten.",
+    "ar": "سجّل الدخول للتقدّم كشريك أو إدارة الرموز والعمولات والدفعات.",
+    "fr": "Connectez-vous pour postuler comme partenaire ou gérer vos codes, commissions et versements.",
+    "uk": "Увійдіть, щоб подати заявку на партнерство або керувати кодами, комісіями й виплатами.",
+    "tr": "Partner başvurusu yapmak veya kodlarınızı, komisyonlarınızı ve ödemelerinizi yönetmek için giriş yapın."
+  },
+  "Social account {{number}}": {
+    "de": "Social-Media-Konto {{number}}",
+    "ar": "حساب التواصل {{number}}",
+    "fr": "Compte social {{number}}",
+    "uk": "Соціальний обліковий запис {{number}}",
+    "tr": "Sosyal hesap {{number}}"
+  },
+  "Step {{step}} of {{total}}": {
+    "de": "Schritt {{step}} von {{total}}",
+    "ar": "الخطوة {{step}} من {{total}}",
+    "fr": "Étape {{step}} sur {{total}}",
+    "uk": "Крок {{step}} з {{total}}",
+    "tr": "Adım {{step}} / {{total}}"
+  },
+  "Too many application attempts. Please retry in a minute.": {
+    "de": "Zu viele Bewerbungsversuche. Bitte versuche es in einer Minute erneut.",
+    "ar": "محاولات تقديم كثيرة. أعد المحاولة بعد دقيقة.",
+    "fr": "Trop de tentatives. Réessayez dans une minute.",
+    "uk": "Забагато спроб подати заявку. Спробуйте за хвилину.",
+    "tr": "Çok fazla başvuru denemesi. Bir dakika sonra tekrar deneyin."
+  },
+  "Track commissions and manual payouts": {
+    "de": "Provisionen und manuelle Auszahlungen verfolgen",
+    "ar": "تابع العمولات والدفعات اليدوية",
+    "fr": "Suivez les commissions et versements manuels",
+    "uk": "Відстежуйте комісії та ручні виплати",
+    "tr": "Komisyonları ve manuel ödemeleri takip edin"
+  },
+  "Use a public http or https website URL.": {
+    "de": "Verwende eine öffentliche http- oder https-Website-URL.",
+    "ar": "استخدم رابط موقع عامًا يبدأ بـ http أو https.",
+    "fr": "Utilisez une URL publique http ou https.",
+    "uk": "Використовуйте публічну адресу сайту http або https.",
+    "tr": "Herkese açık bir http veya https web adresi kullanın."
+  },
+  "Verified commission clears after {{days}} days.": {
+    "de": "Verifizierte Provision wird nach {{days}} Tagen verfügbar.",
+    "ar": "تُتاح العمولة الموثّقة بعد {{days}} يومًا.",
+    "fr": "La commission vérifiée est disponible après {{days}} jours.",
+    "uk": "Підтверджена комісія стає доступною через {{days}} днів.",
+    "tr": "Doğrulanmış komisyon {{days}} gün sonra kullanılabilir."
+  },
+  "Within the {{days}}-day hold": {
+    "de": "Innerhalb der {{days}}-tägigen Wartefrist",
+    "ar": "ضمن فترة الانتظار البالغة {{days}} يومًا",
+    "fr": "Pendant le délai de {{days}} jours",
+    "uk": "У межах {{days}}-денного періоду очікування",
+    "tr": "{{days}} günlük bekleme süresi içinde"
+  },
+  "You already have a partner application.": {
+    "de": "Du hast bereits eine Partnerbewerbung.",
+    "ar": "لديك طلب شراكة بالفعل.",
+    "fr": "Vous avez déjà une candidature partenaire.",
+    "uk": "Ви вже подали партнерську заявку.",
+    "tr": "Zaten bir partner başvurunuz var."
+  },
+  "account holder": {
+    "de": "Kontoinhaber",
+    "ar": "صاحب الحساب",
+    "fr": "titulaire du compte",
+    "uk": "власник рахунку",
+    "tr": "hesap sahibi"
+  },
+  "display name": {
+    "de": "Anzeigename",
+    "ar": "اسم العرض",
+    "fr": "nom affiché",
+    "uk": "ім’я для відображення",
+    "tr": "görünen ad"
+  },
+  "email": {
+    "de": "E-Mail",
+    "ar": "البريد الإلكتروني",
+    "fr": "e-mail",
+    "uk": "електронна пошта",
+    "tr": "e-posta"
+  },
+  "marketing approach (20–2000 characters)": {
+    "de": "Marketingansatz (20–2000 Zeichen)",
+    "ar": "أسلوب التسويق (20–2000 حرف)",
+    "fr": "approche marketing (20–2000 caractères)",
+    "uk": "маркетинговий підхід (20–2000 символів)",
+    "tr": "pazarlama yaklaşımı (20–2000 karakter)"
+  },
+  "request identifier": {
+    "de": "Anfragekennung",
+    "ar": "معرّف الطلب",
+    "fr": "identifiant de demande",
+    "uk": "ідентифікатор запиту",
+    "tr": "talep kimliği"
+  },
+  "social platform": {
+    "de": "Social-Media-Plattform",
+    "ar": "منصة التواصل",
+    "fr": "plateforme sociale",
+    "uk": "соціальна платформа",
+    "tr": "sosyal platform"
+  },
+  "social profile": {
+    "de": "Social-Media-Profil",
+    "ar": "حساب التواصل",
+    "fr": "profil social",
+    "uk": "соціальний профіль",
+    "tr": "sosyal profil"
+  },
+  "two-letter country code": {
+    "de": "zweistelliger Ländercode",
+    "ar": "رمز الدولة المكوّن من حرفين",
+    "fr": "code pays à deux lettres",
+    "uk": "дволітерний код країни",
+    "tr": "iki harfli ülke kodu"
+  },
+  "{{amount}} more available commission to reach the payout minimum.": {
+    "de": "Noch {{amount}} verfügbare Provision bis zum Mindestauszahlungsbetrag.",
+    "ar": "تحتاج إلى عمولة متاحة إضافية بقيمة {{amount}} لبلوغ الحد الأدنى للدفع.",
+    "fr": "Encore {{amount}} de commission disponible pour atteindre le minimum de versement.",
+    "uk": "Ще {{amount}} доступної комісії до мінімальної виплати.",
+    "tr": "Minimum ödeme tutarına ulaşmak için {{amount}} daha kullanılabilir komisyon gerekiyor."
+  },
+  "{{amount}} payout approved and awaiting manual payment. These funds are reserved separately.": {
+    "de": "Auszahlung von {{amount}} genehmigt und wartet auf manuelle Zahlung. Dieser Betrag ist separat reserviert.",
+    "ar": "دُفعة بقيمة {{amount}} معتمدة وتنتظر الدفع اليدوي. هذه الأموال محجوزة بشكل منفصل.",
+    "fr": "Versement de {{amount}} approuvé, en attente du paiement manuel. Ces fonds sont réservés séparément.",
+    "uk": "Виплату {{amount}} схвалено, очікується ручний платіж. Ці кошти зарезервовано окремо.",
+    "tr": "{{amount}} ödeme onaylandı, manuel ödeme bekleniyor. Bu tutar ayrıca ayrılmıştır."
+  },
+  "{{amount}} payout requested and awaiting review. These funds are reserved separately.": {
+    "de": "Auszahlung von {{amount}} angefordert und wartet auf Prüfung. Dieser Betrag ist separat reserviert.",
+    "ar": "تم طلب دفعة بقيمة {{amount}} وهي بانتظار المراجعة. هذه الأموال محجوزة بشكل منفصل.",
+    "fr": "Versement de {{amount}} demandé, en attente d’examen. Ces fonds sont réservés séparément.",
+    "uk": "Запитано виплату {{amount}}, очікується перевірка. Ці кошти зарезервовано окремо.",
+    "tr": "{{amount}} ödeme talep edildi, inceleme bekleniyor. Bu tutar ayrıca ayrılmıştır."
+  },
+  "{{count}} months": {
+    "de": "{{count}} Monate",
+    "ar": "{{count}} أشهر",
+    "fr": "{{count}} mois",
+    "uk": "{{count}} місяців",
+    "tr": "{{count}} ay"
+  },
+  "{{count}} purchases": {
+    "de": "{{count}} Käufe",
+    "ar": "{{count}} مشتريات",
+    "fr": "{{count}} achats",
+    "uk": "{{count}} покупок",
+    "tr": "{{count}} satın alma"
+  },
+  "{{count}} records": {
+    "de": "{{count}} Einträge",
+    "ar": "{{count}} سجلات",
+    "fr": "{{count}} enregistrements",
+    "uk": "{{count}} записів",
+    "tr": "{{count}} kayıt"
+  },
+  "{{title}}, {{months}} months. {{total}} total. Exact monthly figures are in View chart data.": {
+    "de": "{{title}}, {{months}} Monate. Gesamt: {{total}}. Genaue Monatswerte unter „Diagrammdaten anzeigen“.",
+    "ar": "{{title}}، {{months}} أشهر. الإجمالي {{total}}. الأرقام الشهرية الدقيقة في «عرض بيانات الرسم البياني».",
+    "fr": "{{title}}, {{months}} mois. Total : {{total}}. Chiffres mensuels exacts dans « Voir les données du graphique ».",
+    "uk": "{{title}}, {{months}} місяців. Усього: {{total}}. Точні місячні дані — у розділі «Переглянути дані графіка».",
+    "tr": "{{title}}, {{months}} ay. Toplam: {{total}}. Kesin aylık rakamlar Grafik verilerini görüntüle bölümündedir."
+  },
+  "Accounts and codes may be suspended or terminated for abuse or inaccurate information. Legitimate earlier earnings remain subject to refund and review rules. You can leave the program by contacting support.": {
+    "de": "Konten und Codes können bei Missbrauch oder falschen Angaben gesperrt oder beendet werden. Rechtmäßig erzielte frühere Einnahmen unterliegen weiterhin den Erstattungs- und Prüfregeln. Du kannst das Programm durch Kontaktaufnahme mit dem Support verlassen.",
+    "ar": "قد تُعلّق الحسابات والرموز أو تُنهى بسبب إساءة الاستخدام أو المعلومات غير الصحيحة. تبقى الأرباح السابقة المشروعة خاضعة لقواعد الاسترداد والمراجعة. يمكنك مغادرة البرنامج بالتواصل مع الدعم.",
+    "fr": "Les comptes et codes peuvent être suspendus ou clôturés en cas d’abus ou d’informations inexactes. Les gains antérieurs légitimes restent soumis aux règles de remboursement et de vérification. Vous pouvez quitter le programme en contactant l’assistance.",
+    "uk": "Облікові записи та коди можуть бути призупинені або закриті через зловживання чи недостовірні дані. Законно отримані попередні доходи залишаються предметом правил повернення та перевірки. Ви можете вийти з програми, звернувшись до підтримки.",
+    "tr": "Kötüye kullanım veya yanlış bilgi nedeniyle hesaplar ve kodlar askıya alınabilir ya da kapatılabilir. Önceden kazanılan meşru gelirler iade ve inceleme kurallarına tabi olmaya devam eder. Destek ekibiyle iletişime geçerek programdan ayrılabilirsiniz."
+  },
+  "Apply with an accurate profile and a bank or PayPal account you are authorised to use. Approval is required. The initial learner discount is 10%; your commission normally starts at 20%. Your dashboard shows your assigned rates. Rates can change for future purchases.": {
+    "de": "Bewirb dich mit korrekten Profilangaben und einem Bank- oder PayPal-Konto, das du nutzen darfst. Eine Freigabe ist erforderlich. Der anfängliche Lernendenrabatt beträgt 10 %; deine Provision beginnt normalerweise bei 20 %. Dein Dashboard zeigt deine zugewiesenen Sätze. Für zukünftige Käufe können sich die Sätze ändern.",
+    "ar": "قدّم طلبك بملف دقيق وحساب بنكي أو PayPal مخوّل باستخدامه. الموافقة مطلوبة. الخصم الأولي للمتعلّم هو 10٪، وتبدأ عمولتك عادةً من 20٪. تعرض لوحة التحكم النسب المخصّصة لك. يمكن تغيير النسب للمشتريات المستقبلية.",
+    "fr": "Postulez avec un profil exact et un compte bancaire ou PayPal que vous êtes autorisé à utiliser. Une approbation est requise. La réduction initiale est de 10 % ; votre commission commence normalement à 20 %. Votre tableau de bord affiche vos taux. Ils peuvent changer pour les achats futurs.",
+    "uk": "Подайте заявку з точними даними профілю та банківським або PayPal-рахунком, яким маєте право користуватися. Потрібне схвалення. Початкова знижка для учнів — 10%, а ваша комісія зазвичай починається з 20%. Призначені ставки видно на панелі. Для майбутніх покупок ставки можуть змінюватися.",
+    "tr": "Doğru profil bilgileri ve kullanmaya yetkili olduğunuz bir banka veya PayPal hesabıyla başvurun. Onay gereklidir. Başlangıç öğrenci indirimi %10’dur; komisyonunuz genellikle %20’den başlar. Paneliniz atanan oranları gösterir. Oranlar gelecekteki satın almalar için değişebilir."
+  },
+  "Commission applies to verified, paid purchases of 10 Exams (€19.99) and Unlimited (€39.99), after discounts and excluding tax. Teacher seats, free access, self-referrals, fraudulent purchases, refunds and chargebacks are excluded. Disclose that you may earn a commission whenever you recommend SmartPrüfung. Do not spam, mislead learners, impersonate SmartPrüfung or publish unauthorised offers.": {
+    "de": "Provision gilt für verifizierte, bezahlte Käufe von 10 Prüfungen (19,99 €) und Unlimited (39,99 €), nach Rabatten und ohne Steuern. Lehrer-Prüfungsplätze, kostenloser Zugang, Eigenempfehlungen, betrügerische Käufe, Erstattungen und Rückbuchungen sind ausgeschlossen. Lege bei jeder Empfehlung von SmartPrüfung offen, dass du eine Provision erhalten kannst. Versende keinen Spam, täusche keine Lernenden, gib dich nicht als SmartPrüfung aus und veröffentliche keine unzulässigen Angebote.",
+    "ar": "تُحتسب العمولة على المشتريات المدفوعة والموثّقة لباقة 10 اختبارات (19.99 يورو) والباقة غير المحدودة (39.99 يورو)، بعد الخصومات ومن دون الضرائب. تُستثنى مقاعد المعلّمين والوصول المجاني والإحالات الذاتية والمشتريات الاحتيالية والاستردادات وعمليات رد المبالغ. أفصح عن احتمال حصولك على عمولة عند التوصية بـ SmartPrüfung. لا ترسل رسائل مزعجة أو تضلّل المتعلّمين أو تنتحل صفة SmartPrüfung أو تنشر عروضًا غير مصرّح بها.",
+    "fr": "La commission s’applique aux achats vérifiés et payés de 10 examens (19,99 €) et Illimité (39,99 €), après réduction et hors taxes. Sont exclus les places enseignants, accès gratuits, auto-parrainages, achats frauduleux, remboursements et rétrofacturations. Indiquez que vous pouvez recevoir une commission chaque fois que vous recommandez SmartPrüfung. Ne diffusez pas de spam, ne trompez pas les apprenants, n’usurpez pas l’identité de SmartPrüfung et ne publiez pas d’offres non autorisées.",
+    "uk": "Комісія нараховується за підтверджені оплачені покупки «10 іспитів» (19,99 €) і «Безліміт» (39,99 €), після знижок і без податків. Місця для викладачів, безкоштовний доступ, власні рекомендації, шахрайські покупки, повернення та чарджбеки виключені. Щоразу рекомендуючи SmartPrüfung, повідомляйте про можливу комісію. Не надсилайте спам, не вводьте учнів в оману, не видавайте себе за SmartPrüfung і не публікуйте несанкціонованих пропозицій.",
+    "tr": "Komisyon, indirimlerden sonra vergi hariç doğrulanmış ve ödenmiş 10 Sınav (19,99 €) ve Sınırsız (39,99 €) satın almalarına uygulanır. Öğretmen kontenjanları, ücretsiz erişim, kendi yönlendirmeleriniz, sahte satın almalar, iadeler ve ters ibrazlar hariçtir. SmartPrüfung’u her önerdiğinizde komisyon kazanabileceğinizi açıklayın. Spam göndermeyin, öğrencileri yanıltmayın, SmartPrüfung adına hareket ettiğinizi iddia etmeyin veya izinsiz teklifler yayımlamayın."
+  },
+  "Commissions normally become available after a 14-day hold. Once at least €50 is available and your payout details are verified, request a manual bank or PayPal payment. There is no guaranteed payment date.": {
+    "de": "Provisionen werden normalerweise nach 14 Tagen verfügbar. Sobald mindestens 50 € verfügbar und deine Auszahlungsdaten verifiziert sind, kannst du eine manuelle Bank- oder PayPal-Zahlung anfordern. Ein Zahlungstermin ist nicht garantiert.",
+    "ar": "تُتاح العمولات عادةً بعد فترة انتظار مدتها 14 يومًا. عندما يتوفر 50 يورو على الأقل وتُوثّق بيانات الدفع، اطلب دفعًا يدويًا عبر البنك أو PayPal. لا يوجد موعد دفع مضمون.",
+    "fr": "Les commissions sont généralement disponibles après 14 jours d’attente. Dès que 50 € sont disponibles et que vos coordonnées sont vérifiées, demandez un versement manuel bancaire ou PayPal. Aucune date de paiement n’est garantie.",
+    "uk": "Комісії зазвичай стають доступними після 14 днів очікування. Коли доступно щонайменше 50 € та реквізити перевірено, запитуйте ручну виплату банком або PayPal. Гарантованої дати виплати немає.",
+    "tr": "Komisyonlar genellikle 14 günlük beklemeden sonra kullanılabilir. En az 50 € kullanılabilir olduğunda ve ödeme bilgileriniz doğrulandığında manuel banka veya PayPal ödemesi talep edin. Garantili bir ödeme tarihi yoktur."
+  },
+  "Commissions normally remain pending for 14 days. You may request a manual EUR payout once at least €50 is available and your destination is verified. Payments are reviewed and made by bank transfer or PayPal; there is no automatic transfer or guaranteed payout date. Refunds or disputes can reduce future balances even after a payout. SmartPrüfung bears ordinary transfer fees in this initial program; any exceptional fee adjustment must be agreed separately. You are responsible for your own taxes and any invoices or proof requested before payment.": {
+    "de": "Provisionen bleiben normalerweise 14 Tage ausstehend. Sobald mindestens 50 € verfügbar und dein Auszahlungsziel verifiziert sind, kannst du eine manuelle Auszahlung in EUR anfordern. Zahlungen werden geprüft und per Banküberweisung oder PayPal ausgeführt; es gibt keine automatische Überweisung und keinen garantierten Auszahlungstermin. Erstattungen oder Streitfälle können künftige Guthaben auch nach einer Auszahlung mindern. SmartPrüfung trägt in diesem anfänglichen Programm die üblichen Überweisungsgebühren; außergewöhnliche Gebührenanpassungen müssen separat vereinbart werden. Du bist für deine Steuern sowie vor der Zahlung angeforderte Rechnungen oder Nachweise verantwortlich.",
+    "ar": "تبقى العمولات معلّقة عادةً لمدة 14 يومًا. يمكنك طلب دفع يدوي باليورو عند توفر 50 يورو على الأقل والتحقق من وجهة الدفع. تُراجع الدفعات وتُنفّذ بتحويل بنكي أو PayPal؛ لا يوجد تحويل تلقائي أو موعد دفع مضمون. قد تقلّل الاستردادات أو النزاعات الأرصدة المستقبلية حتى بعد الدفع. تتحمّل SmartPrüfung رسوم التحويل العادية في هذه المرحلة من البرنامج؛ وأي تعديل استثنائي للرسوم يتطلّب اتفاقًا منفصلًا. أنت مسؤول عن ضرائبك وأي فواتير أو إثباتات تُطلب قبل الدفع.",
+    "fr": "Les commissions restent généralement en attente pendant 14 jours. Vous pouvez demander un versement manuel en EUR dès que 50 € sont disponibles et que votre destination est vérifiée. Les paiements sont examinés et effectués par virement ou PayPal ; aucun transfert automatique ni date de versement garantie. Les remboursements ou litiges peuvent réduire les soldes futurs même après un versement. SmartPrüfung prend en charge les frais de transfert habituels dans ce programme initial ; tout ajustement exceptionnel doit être convenu séparément. Vous êtes responsable de vos impôts et des factures ou justificatifs demandés avant paiement.",
+    "uk": "Комісії зазвичай залишаються в очікуванні 14 днів. Можна запросити ручну виплату в EUR, коли доступно щонайменше 50 € і реквізити перевірено. Платежі перевіряються та здійснюються банківським переказом або PayPal; автоматичного переказу чи гарантованої дати немає. Повернення або спори можуть зменшити майбутній баланс навіть після виплати. На початковому етапі SmartPrüfung покриває звичайні комісії за переказ; виняткові зміни комісій узгоджуються окремо. Ви відповідаєте за власні податки та рахунки чи підтвердження, запитані до виплати.",
+    "tr": "Komisyonlar genellikle 14 gün beklemede kalır. En az 50 € kullanılabilir olduğunda ve ödeme hedefiniz doğrulandığında EUR cinsinden manuel ödeme talep edebilirsiniz. Ödemeler incelenir, banka havalesi veya PayPal ile yapılır; otomatik transfer veya garantili ödeme tarihi yoktur. İade veya itirazlar ödeme sonrasında bile gelecekteki bakiyeleri azaltabilir. Bu ilk programda olağan transfer ücretlerini SmartPrüfung karşılar; istisnai ücret değişiklikleri ayrıca kararlaştırılmalıdır. Kendi vergilerinizden ve ödemeden önce istenen fatura veya belgelerden siz sorumlusunuz."
+  },
+  "We use your account, contact information, country, public social profiles and marketing description to review and operate your application. Payout information is encrypted and only authorised payout administrators can reveal it for verification or payment, with an access record. Partners see masked destinations. We retain application and financial records as needed to operate the program, resolve disputes and meet recordkeeping obligations. You can update your information here or contact support about access, correction, deletion or closing your account. Financial records may need to be retained after closure. See our": {
+    "de": "Wir verwenden dein Konto, Kontaktdaten, Land, öffentliche Social-Media-Profile und die Marketingbeschreibung zur Prüfung und Bearbeitung deiner Bewerbung. Auszahlungsdaten sind verschlüsselt; nur befugte Auszahlungsadministratoren können sie zur Verifizierung oder Zahlung einsehen, wobei der Zugriff protokolliert wird. Partner sehen maskierte Auszahlungsziele. Wir speichern Bewerbungs- und Finanzunterlagen, soweit dies für das Programm, Streitfälle und Aufbewahrungspflichten nötig ist. Du kannst deine Angaben hier ändern oder den Support zu Zugriff, Berichtigung, Löschung oder Kontoschließung kontaktieren. Finanzunterlagen müssen möglicherweise nach Schließung aufbewahrt werden. Betreiber- und Kontaktdaten findest du in unserer",
+    "ar": "نستخدم حسابك وبيانات التواصل والدولة والحسابات الاجتماعية العامة ووصف التسويق لمراجعة طلبك وإدارته. بيانات الدفع مشفّرة ولا يمكن عرضها إلا لمسؤولي الدفع المخوّلين للتحقق أو الدفع، مع تسجيل الوصول. يرى الشركاء وجهات دفع مخفية جزئيًا. نحتفظ بسجلات الطلبات والماليات حسب الحاجة لتشغيل البرنامج وحل النزاعات والوفاء بالتزامات حفظ السجلات. يمكنك تحديث بياناتك هنا أو التواصل مع الدعم بشأن الوصول أو التصحيح أو الحذف أو إغلاق الحساب. قد يلزم الاحتفاظ بالسجلات المالية بعد الإغلاق. راجع",
+    "fr": "Nous utilisons votre compte, coordonnées, pays, profils sociaux publics et description marketing pour examiner et gérer votre candidature. Les données de versement sont chiffrées ; seuls les administrateurs autorisés peuvent les consulter pour vérification ou paiement, avec journalisation de l’accès. Les partenaires voient des destinations masquées. Nous conservons les dossiers de candidature et financiers selon les besoins du programme, des litiges et des obligations de conservation. Vous pouvez modifier vos informations ici ou contacter l’assistance pour l’accès, la rectification, la suppression ou la clôture du compte. Certains documents financiers peuvent être conservés après clôture. Consultez notre",
+    "uk": "Ми використовуємо обліковий запис, контакти, країну, публічні соціальні профілі та маркетинговий опис для перевірки й обробки заявки. Платіжні дані зашифровані; лише уповноважені адміністратори можуть переглядати їх для перевірки або оплати з реєстрацією доступу. Партнери бачать замасковані реквізити. Ми зберігаємо заявки й фінансові записи для роботи програми, вирішення спорів і дотримання вимог зберігання. Ви можете оновити дані тут або звернутися до підтримки щодо доступу, виправлення, видалення чи закриття облікового запису. Фінансові записи можуть зберігатися після закриття. Перегляньте нашу",
+    "tr": "Başvurunuzu incelemek ve yönetmek için hesabınızı, iletişim bilgilerinizi, ülkenizi, herkese açık sosyal profillerinizi ve pazarlama açıklamanızı kullanırız. Ödeme bilgileri şifrelenir; yalnızca yetkili ödeme yöneticileri doğrulama veya ödeme amacıyla, erişim kaydı tutularak görüntüleyebilir. Partnerler maskelenmiş hedefleri görür. Başvuru ve mali kayıtları programın yürütülmesi, uyuşmazlıkların çözümü ve kayıt saklama yükümlülükleri için gerektiği kadar saklarız. Bilgilerinizi burada güncelleyebilir veya erişim, düzeltme, silme ya da hesap kapatma için desteğe başvurabilirsiniz. Hesap kapandıktan sonra mali kayıtların saklanması gerekebilir. Şuna bakın:"
+  },
+  "I help German learners through…": {
+    "de": "Ich unterstütze Deutschlernende durch…",
+    "ar": "أساعد متعلّمي الألمانية من خلال…",
+    "fr": "J’aide les apprenants en allemand grâce à…",
+    "uk": "Я допомагаю тим, хто вивчає німецьку, через…",
+    "tr": "Almanca öğrenenlere şu yollarla yardımcı oluyorum…"
+  },
+  "e.g. {{count}}": {
+    "de": "z. B. {{count}}",
+    "ar": "مثلًا {{count}}",
+    "fr": "p. ex. {{count}}",
+    "uk": "наприклад, {{count}}",
+    "tr": "ör. {{count}}"
+  },
+  "Back to sign in": {
+    "de": "Zurück zur Anmeldung",
+    "ar": "العودة لتسجيل الدخول",
+    "fr": "Retour à la connexion",
+    "uk": "Назад до входу",
+    "tr": "Girişe dön"
+  },
+  "Signing you in...": {
+    "de": "Du wirst angemeldet...",
+    "ar": "جارٍ تسجيل دخولك...",
+    "fr": "Connexion en cours...",
+    "uk": "Вхід у систему...",
+    "tr": "Giriş yapılıyor..."
+  },
+  "SmartPrüfung logo": {
+    "de": "SmartPrüfung-Logo",
+    "ar": "شعار SmartPrüfung",
+    "fr": "Logo SmartPrüfung",
+    "uk": "Логотип SmartPrüfung",
+    "tr": "SmartPrüfung logosu"
+  },
+  "Logging in...": {
+    "de": "Anmeldung läuft...",
+    "ar": "جارٍ تسجيل الدخول...",
+    "fr": "Connexion en cours...",
+    "uk": "Вхід у систему...",
+    "tr": "Giriş yapılıyor..."
+  },
+  "Practice in a familiar environment. Build confidence. Be ready for the real exam. Need help?": {
+    "de": "Übe in vertrauter Umgebung. Gewinne Sicherheit. Sei bereit für die echte Prüfung. Brauchst du Hilfe?",
+    "ar": "تدرّب في بيئة مألوفة وابنِ ثقتك واستعدّ للامتحان الحقيقي. تحتاج إلى مساعدة؟",
+    "fr": "Entraînez-vous dans un environnement familier. Prenez confiance. Préparez-vous au vrai examen. Besoin d’aide ?",
+    "uk": "Практикуйтеся у знайомому середовищі. Набувайте впевненості. Будьте готові до справжнього іспиту. Потрібна допомога?",
+    "tr": "Tanıdık bir ortamda pratik yapın. Özgüven kazanın. Gerçek sınava hazır olun. Yardım mı gerekiyor?"
+  },
+  "Connecting...": {
+    "de": "Verbindung wird hergestellt...",
+    "ar": "جارٍ الاتصال...",
+    "fr": "Connexion en cours...",
+    "uk": "З’єднання...",
+    "tr": "Bağlanıyor..."
+  },
+  "Google sign-in could not start. Please enable browser storage and try again.": {
+    "de": "Die Google-Anmeldung konnte nicht gestartet werden. Aktiviere den Browserspeicher und versuche es erneut.",
+    "ar": "تعذّر بدء تسجيل الدخول عبر Google. فعّل تخزين المتصفّح وأعد المحاولة.",
+    "fr": "Impossible de lancer la connexion Google. Activez le stockage du navigateur et réessayez.",
+    "uk": "Не вдалося почати вхід через Google. Увімкніть сховище браузера й повторіть спробу.",
+    "tr": "Google ile giriş başlatılamadı. Tarayıcı depolamasını etkinleştirip tekrar deneyin."
   }
 }

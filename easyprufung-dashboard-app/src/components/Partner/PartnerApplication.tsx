@@ -1,3 +1,8 @@
+import {
+  tr,
+  useFeatureLocale,
+  featureLocale,
+} from "../../localization/feature-i18n";
 import { FormEvent, ReactNode, useRef, useState } from "react";
 import {
   ArrowLeft,
@@ -27,7 +32,11 @@ export type PartnerApplicationData = {
   country: string;
   website: string;
   approach: string;
-  socials: { platform: string; profile: string; audienceSize?: number }[];
+  socials: {
+    platform: string;
+    profile: string;
+    audienceSize?: number;
+  }[];
 };
 export function IconField({
   label,
@@ -80,27 +89,28 @@ export default function PartnerApplication({
   onConsent: (checked: boolean) => void;
   payoutValid: () => string | null;
 }) {
+  useFeatureLocale();
   const lastStep = editing ? 1 : 2;
   const [step, setStep] = useState(0);
   const [error, setError] = useState("");
   const heading = useRef<HTMLHeadingElement>(null);
   const steps = [
     {
-      label: "Your details",
+      label: tr("Your details"),
       icon: UserRound,
-      description: "Let’s get to know you",
+      description: tr("Let\u2019s get to know you"),
     },
     {
-      label: "Your audience",
+      label: tr("Your audience"),
       icon: UsersRound,
-      description: "Tell us who you reach",
+      description: tr("Tell us who you reach"),
     },
     {
-      label: editing ? "Review" : "Payout & review",
+      label: editing ? tr("Review") : tr("Payout & review"),
       icon: ShieldCheck,
       description: editing
-        ? "Check your information"
-        : "Choose how you get paid",
+        ? tr("Check your information")
+        : tr("Choose how you get paid"),
     },
   ];
   const update = (
@@ -202,7 +212,7 @@ export default function PartnerApplication({
         }
         placeholder={
           key === "displayName"
-            ? "Your name or business"
+            ? tr("Your name or business")
             : key === "contactEmail"
             ? "you@example.com"
             : "https://your-website.com"
@@ -218,25 +228,32 @@ export default function PartnerApplication({
           <div>
             <h2 className="text-xl font-bold">
               {editing
-                ? "Edit your partner profile"
-                : "Apply to become a partner"}
+                ? tr("Edit your partner profile")
+                : tr("Apply to become a partner")}
             </h2>
             <p className="mt-1 text-sm text-gray-500">
               {editing
-                ? "Keep your contact details and audience information up to date."
-                : "Three short steps. Your details stay here as you move between them."}
+                ? tr(
+                    "Keep your contact details and audience information up to date."
+                  )
+                : tr(
+                    "Three short steps. Your details stay here as you move between them."
+                  )}
             </p>
           </div>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 dark:bg-blue-500/10 dark:text-blue-300">
             <CheckCircle2 size={14} aria-hidden="true" />
-            Free to join
+            {tr("Free to join")}
           </span>
         </div>
       </div>
       <form onSubmit={submit} className="px-5 py-6 sm:p-8" aria-busy={busy}>
         <div className="mb-6">
           <p className="text-xs font-semibold uppercase tracking-wider text-blue-600">
-            Step {step + 1} of {lastStep + 1}
+            {tr("Step {{step}} of {{total}}", {
+              step: step + 1,
+              total: lastStep + 1,
+            })}
           </p>
           <h3
             ref={heading}
@@ -250,22 +267,34 @@ export default function PartnerApplication({
           {step === 0 && (
             <>
               <div className="grid gap-5 sm:grid-cols-2">
-                {field("displayName", "Display or business name", UserRound)}
+                {field(
+                  "displayName",
+                  tr("Display or business name"),
+                  UserRound
+                )}
                 {field(
                   "contactEmail",
-                  "Contact email",
+                  tr("Contact email"),
                   Mail,
                   "email",
                   true,
-                  "Prefilled from your account. You can use a different contact email."
+                  tr(
+                    "Prefilled from your account. You can use a different contact email."
+                  )
                 )}
-                <IconField label="Country" icon={MapPin}>
+                <IconField label={tr("Country")} icon={MapPin}>
                   <CountryPicker
                     value={value.country}
                     onChange={(code) => update("country", code)}
                   />
                 </IconField>
-                {field("website", "Website (optional)", Globe2, "url", false)}
+                {field(
+                  "website",
+                  tr("Website (optional)"),
+                  Globe2,
+                  "url",
+                  false
+                )}
               </div>
             </>
           )}
@@ -274,10 +303,12 @@ export default function PartnerApplication({
               <fieldset className="space-y-4">
                 <legend className="mb-1 flex items-center gap-2 text-sm font-semibold">
                   <Instagram size={17} aria-hidden="true" />
-                  Public social profiles
+                  {tr("Public social profiles")}
                 </legend>
                 <p className="text-sm text-gray-500">
-                  Add at least one place where you connect with German learners.
+                  {tr(
+                    "Add at least one place where you connect with German learners."
+                  )}
                 </p>
                 {value.socials.map((social, i) => (
                   <div
@@ -286,7 +317,7 @@ export default function PartnerApplication({
                   >
                     <div className="mb-4 flex items-center justify-between">
                       <span className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                        Social account {i + 1}
+                        {tr("Social account {{number}}", { number: i + 1 })}
                       </span>
                       {value.socials.length > 1 && (
                         <button
@@ -298,15 +329,17 @@ export default function PartnerApplication({
                             })
                           }
                           className="inline-flex items-center gap-1 text-xs font-semibold text-gray-500 hover:text-red-600"
-                          aria-label={`Remove social account ${i + 1}`}
+                          aria-label={tr("Remove social account {{number}}", {
+                            number: i + 1,
+                          })}
                         >
                           <Trash2 size={14} aria-hidden="true" />
-                          Remove
+                          {tr("Remove")}
                         </button>
                       )}
                     </div>
                     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                      <IconField label="Platform" icon={Instagram}>
+                      <IconField label={tr("Platform")} icon={Instagram}>
                         <select
                           className={`${input} w-full`}
                           required
@@ -343,12 +376,15 @@ export default function PartnerApplication({
                             )
                           ).map((platform) => (
                             <option key={platform} value={platform}>
-                              {platform}
+                              {tr(platform)}
                             </option>
                           ))}
                         </select>
                       </IconField>
-                      <IconField label="Profile URL or handle" icon={AtSign}>
+                      <IconField
+                        label={tr("Profile URL or handle")}
+                        icon={AtSign}
+                      >
                         <input
                           className={`${input} w-full`}
                           required
@@ -365,14 +401,19 @@ export default function PartnerApplication({
                           }
                         />
                       </IconField>
-                      <IconField label="Audience (optional)" icon={UsersRound}>
+                      <IconField
+                        label={tr("Audience (optional)")}
+                        icon={UsersRound}
+                      >
                         <input
                           className={`${input} w-full`}
                           type="number"
                           min={0}
                           max={1000000000}
                           step={1}
-                          placeholder="e.g. 2500"
+                          placeholder={tr("e.g. {{count}}", {
+                            count: (2500).toLocaleString(featureLocale()),
+                          })}
                           value={social.audienceSize ?? ""}
                           onChange={(e) =>
                             onChange({
@@ -411,13 +452,15 @@ export default function PartnerApplication({
                   }
                 >
                   <Plus size={16} aria-hidden="true" />
-                  Add social profile
+                  {tr("Add social profile")}
                 </button>
               </fieldset>
               <IconField
-                label="How would you share SmartPrüfung?"
+                label={tr("How would you share SmartPr\u00FCfung?")}
                 icon={MessageSquare}
-                hint="Tell us who you reach and how you help them prepare for German exams. At least 20 characters."
+                hint={tr(
+                  "Tell us who you reach and how you help them prepare for German exams. At least 20 characters."
+                )}
               >
                 <textarea
                   className={`${input} w-full`}
@@ -425,7 +468,7 @@ export default function PartnerApplication({
                   minLength={20}
                   maxLength={2000}
                   rows={4}
-                  placeholder="I help German learners through…"
+                  placeholder={tr("I help German learners through…")}
                   value={value.approach}
                   onChange={(e) => update("approach", e.target.value)}
                 />
@@ -443,9 +486,9 @@ export default function PartnerApplication({
                       aria-hidden="true"
                     />
                     <p className="text-sm leading-6 text-gray-500">
-                      Your payout details are encrypted and shared only with
-                      authorised administrators for verification and manual
-                      payment.
+                      {tr(
+                        "Your payout details are encrypted and shared only with authorised administrators for verification and manual payment."
+                      )}
                     </p>
                   </div>
                   {payout}
@@ -458,8 +501,9 @@ export default function PartnerApplication({
                       onChange={(e) => onConsent(e.target.checked)}
                       className="mt-1 h-4 w-4 shrink-0 accent-blue-600"
                     />
-                    I accept the partner terms and acknowledge the privacy
-                    notice above.
+                    {tr(
+                      "I accept the partner terms and acknowledge the privacy notice above."
+                    )}
                   </label>
                 </>
               )}
@@ -470,7 +514,7 @@ export default function PartnerApplication({
               role="alert"
               className="rounded-xl bg-red-50 p-3 text-sm text-red-700"
             >
-              {error}
+              {tr(error)}
             </p>
           )}
         </div>
@@ -483,8 +527,12 @@ export default function PartnerApplication({
                 disabled={busy}
                 onClick={() => move(step - 1)}
               >
-                <ArrowLeft size={16} aria-hidden="true" />
-                Back
+                <ArrowLeft
+                  className="rtl:rotate-180"
+                  size={16}
+                  aria-hidden="true"
+                />
+                {tr("Back")}
               </button>
             )}
             {editing && (
@@ -494,7 +542,7 @@ export default function PartnerApplication({
                 disabled={busy}
                 onClick={onCancel}
               >
-                Cancel
+                {tr("Cancel")}
               </button>
             )}
           </div>
@@ -506,12 +554,16 @@ export default function PartnerApplication({
             {busy
               ? "Saving…"
               : step < lastStep
-              ? "Continue"
+              ? tr("Continue")
               : editing
-              ? "Save profile"
-              : "Submit application"}
+              ? tr("Save profile")
+              : tr("Submit application")}
             {step < lastStep ? (
-              <ArrowRight size={16} aria-hidden="true" />
+              <ArrowRight
+                className="rtl:rotate-180"
+                size={16}
+                aria-hidden="true"
+              />
             ) : (
               <Check size={16} aria-hidden="true" />
             )}

@@ -1,10 +1,12 @@
+import { tr, featureLocale } from "../../localization/feature-i18n";
 export const panel =
   "rounded-2xl border border-black/10 bg-white shadow-sm dark:border-white/10 dark:bg-gray-900";
 export const muted = "text-sm leading-6 text-gray-500 dark:text-gray-400";
 export const money = (n = 0) =>
-  new Intl.NumberFormat("en-IE", { style: "currency", currency: "EUR" }).format(
-    n / 100
-  );
+  new Intl.NumberFormat(featureLocale() === "en" ? "en-IE" : featureLocale(), {
+    style: "currency",
+    currency: "EUR",
+  }).format(n / 100);
 const labels: Record<string, string> = {
   APPROVED: "Approved",
   PENDING: "Under review",
@@ -23,11 +25,13 @@ const labels: Record<string, string> = {
   ADJUSTMENT: "Commission adjustment",
 };
 export const readable = (value = "") =>
-  labels[value] ||
-  value
-    .toLowerCase()
-    .replaceAll("_", " ")
-    .replace(/^./, (s) => s.toUpperCase());
+  tr(
+    labels[value] ||
+      value
+        .toLowerCase()
+        .replaceAll("_", " ")
+        .replace(/^./, (s) => s.toUpperCase())
+  );
 export function PartnerBadge({ status }: { status: string }) {
   return (
     <span

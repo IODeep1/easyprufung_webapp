@@ -1,7 +1,11 @@
+import {
+  tr,
+  useFeatureLocale,
+  featureLocale,
+} from "../../localization/feature-i18n";
 import { useState } from "react";
 import { BarChart3, TrendingUp } from "lucide-react";
 import { panel, muted, money } from "./workspace-ui";
-
 export type Month = {
   month: string;
   earnedCents: number;
@@ -9,9 +13,13 @@ export type Month = {
   netCents: number;
   qualifiedPurchases: number;
 };
-export type Analytics = { months: Month[]; timezone: string; asOf: string };
+export type Analytics = {
+  months: Month[];
+  timezone: string;
+  asOf: string;
+};
 const label = (month: string, long = false) =>
-  new Date(`${month}-01T00:00:00Z`).toLocaleDateString("en-GB", {
+  new Date(`${month}-01T00:00:00Z`).toLocaleDateString(featureLocale(), {
     month: long ? "long" : "short",
     year: long ? "numeric" : undefined,
     timeZone: "UTC",
@@ -25,45 +33,48 @@ export default function PartnerCharts({
   error: string;
   onRetry: () => void;
 }) {
+  const { locale } = useFeatureLocale();
   const [range, setRange] = useState(6);
   if (error)
     return (
       <div className={`${panel} p-6`} role="alert">
-        <h2 className="font-semibold">Charts are unavailable</h2>
+        <h2 className="font-semibold">{tr("Charts are unavailable")}</h2>
         <p className={`${muted} mt-2`}>
-          Your balances and history are still available. Try loading the charts
-          again.
+          {tr(
+            "Your balances and history are still available. Try loading the charts again."
+          )}
         </p>
         <button
           className="mt-3 text-sm font-semibold text-blue-600 dark:text-blue-400"
           onClick={onRetry}
         >
-          Retry charts
+          {tr("Retry charts")}
         </button>
       </div>
     );
   if (!data)
     return (
       <div role="status" className={`${panel} p-8 ${muted}`}>
-        Loading partner activity charts…
+        {tr("Loading partner activity charts\u2026")}
       </div>
     );
   const months = data.months.slice(-range);
   return (
-    <section aria-label="Partner performance" className="space-y-4">
+    <section aria-label={tr("Partner performance")} className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h2 className="text-lg font-semibold">Your performance</h2>
+          <h2 className="text-lg font-semibold">{tr("Your performance")}</h2>
           <p className={muted}>
-            Calendar months in UTC · updated{" "}
-            {new Date(data.asOf).toLocaleDateString("en-GB", {
-              timeZone: "UTC",
+            {tr("Calendar months in UTC · updated {{date}}", {
+              date: new Date(data.asOf).toLocaleDateString(locale, {
+                timeZone: "UTC",
+              }),
             })}
           </p>
         </div>
         <div
           className="flex rounded-xl border border-gray-200 p-1 dark:border-gray-700"
-          aria-label="Chart period"
+          aria-label={tr("Chart period")}
         >
           {[3, 6].map((n) => (
             <button
@@ -76,7 +87,7 @@ export default function PartnerCharts({
                   : "text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800"
               }`}
             >
-              {n} months
+              {tr("{{count}} months", { count: n })}
             </button>
           ))}
         </div>
@@ -87,21 +98,21 @@ export default function PartnerCharts({
       </div>
       <details className={`${panel} p-4 text-sm`}>
         <summary className="cursor-pointer font-semibold">
-          View chart data
+          {tr("View chart data")}
         </summary>
         <div className="mt-4 overflow-x-auto">
-          <table className="w-full text-left">
+          <table className="w-full text-start">
             <caption className="sr-only">
-              Monthly partner performance in UTC
+              {tr("Monthly partner performance in UTC")}
             </caption>
             <thead>
               <tr>
                 {[
-                  "Month",
-                  "Earned",
-                  "Adjustments",
-                  "Net commission",
-                  "Purchases",
+                  tr("Month"),
+                  tr("Earned"),
+                  tr("Adjustments"),
+                  tr("Net commission"),
+                  tr("Purchases"),
                 ].map((v) => (
                   <th
                     key={v}
@@ -141,6 +152,7 @@ function Chart({
   months: Month[];
   kind: "earnings" | "purchases";
 }) {
+  const { locale } = useFeatureLocale();
   const earnings = kind === "earnings",
     [selected, setSelected] = useState<string>();
   const values = months.map((m) =>
@@ -159,7 +171,7 @@ function Chart({
     months.find((m) => m.month === selected) || months[months.length - 1];
   const total = values.reduce((a, b) => a + b, 0),
     empty = values.every((v) => v === 0);
-  const title = earnings ? "Net commission" : "Qualified purchases",
+  const title = earnings ? tr("Net commission") : tr("Qualified purchases"),
     Icon = earnings ? TrendingUp : BarChart3;
   return (
     <article className={`${panel} min-w-0 p-5 sm:p-6`}>
@@ -170,20 +182,28 @@ function Chart({
             {title}
           </h3>
           <p className="mt-3 text-3xl font-bold tracking-tight">
-            {earnings ? money(total) : total.toLocaleString("en-GB")}
+            {earnings ? money(total) : total.toLocaleString(locale)}
           </p>
-          <p className={`${muted} mt-1`}>Across these {months.length} months</p>
+          <p className={`${muted} mt-1`}>
+            {tr("Across these {{count}} months", { count: months.length })}
+          </p>
         </div>
         <span className="rounded-lg bg-gray-100 px-2 py-1 text-xs text-gray-500 dark:bg-gray-800 dark:text-gray-400">
-          {earnings ? "EUR" : "Purchases"}
+          {earnings ? "EUR" : tr("Purchases")}
         </span>
       </div>
       <svg
+        style={{ direction: "ltr" }}
         viewBox="0 0 550 220"
         role="img"
-        aria-label={`${title}, ${months.length} months. ${
-          earnings ? money(total) : total
-        } total. Exact monthly figures are in View chart data.`}
+        aria-label={tr(
+          "{{title}}, {{months}} months. {{total}} total. Exact monthly figures are in View chart data.",
+          {
+            title,
+            months: months.length,
+            total: earnings ? money(total) : total,
+          }
+        )}
         className="mt-5 w-full overflow-visible"
       >
         {[max, (max + min) / 2, min].map((v, i) => (
@@ -205,7 +225,11 @@ function Chart({
               className="text-gray-500 dark:text-gray-400"
             >
               {earnings
-                ? `€${(v / 100).toFixed(0)}`
+                ? new Intl.NumberFormat(locale, {
+                    style: "currency",
+                    currency: "EUR",
+                    maximumFractionDigits: 0,
+                  }).format(v / 100)
                 : Number.isInteger(v)
                 ? v
                 : ""}
@@ -269,18 +293,28 @@ function Chart({
           <strong>
             {earnings
               ? money(current.netCents)
-              : `${current.qualifiedPurchases} purchases`}
+              : tr("{{count}} purchases", {
+                  count: current.qualifiedPurchases,
+                })}
           </strong>
         </p>
       )}
       <p className={`${muted} mt-3`}>
         {empty
           ? earnings
-            ? "No commission recorded in this period. Your first qualifying purchase will appear here."
-            : "No qualifying purchases in this period. Share your code to get started."
+            ? tr(
+                "No commission recorded in this period. Your first qualifying purchase will appear here."
+              )
+            : tr(
+                "No qualifying purchases in this period. Share your code to get started."
+              )
           : earnings
-          ? "Earned commission plus refund and dispute adjustments, by record date. This is not your payout balance."
-          : "Verified purchases using your code, by payment date. Refunded purchases may remain counted; adjustments appear in net commission."}
+          ? tr(
+              "Earned commission plus refund and dispute adjustments, by record date. This is not your payout balance."
+            )
+          : tr(
+              "Verified purchases using your code, by payment date. Refunded purchases may remain counted; adjustments appear in net commission."
+            )}
       </p>
     </article>
   );
