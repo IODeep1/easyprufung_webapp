@@ -1,5 +1,6 @@
 import { X } from "lucide-react";
-import {Fragment, useMemo, useState, type DragEvent, useRef} from "react";
+import {Fragment, useEffect, useMemo, useState, type DragEvent, useRef} from "react";
+import { useShortsMode } from "../shorts/shorts-mode";
 import type { AnswerMap, ExerciseView, QuestionResultView, QuestionView } from "../models/exam.ts";
 import { AnswerSelect, RadioAnswers, TrueFalseAnswers } from "./AnswerControls.tsx";
 import { ContentFrame } from "./ExamChrome";
@@ -90,7 +91,7 @@ function LesenTeil1({
     );
 
     return (
-        <ContentFrame>
+        <ContentFrame className="exam-reading-matches">
             <div className="space-y-5">
                 {exercise.questions.map((question) => {
                     const selectedKey =
@@ -137,7 +138,7 @@ function LesenTeil1({
 
 function LesenTeil2({ exercise, answers, onSelection, readOnly, reviewResults }: PartRendererProps) {
     return (
-        <ContentFrame>
+        <ContentFrame className="exam-reading-pair">
             <div className="grid items-start gap-6 lg:grid-cols-[1.1fr_0.9fr]">
                 <section className="rounded-2xl border border-black bg-white p-6 lg:p-8">
                     <p className="eyebrow">Lesetext</p>
@@ -207,7 +208,7 @@ function LesenTeil3({
     );
 
     return (
-        <ContentFrame>
+        <ContentFrame className="exam-situations-pair">
             <div className="grid items-start gap-6 lg:grid-cols-[0.85fr_1.15fr]">
                 <section className="rounded-2xl border border-black bg-white p-5 lg:p-6">
                     <p className="eyebrow mb-5">Situationen</p>
@@ -335,7 +336,7 @@ function SprachbausteineTeil1({ exercise, answers, onSelection, readOnly, review
     const hasMarkers = parts.some((part) => markerPattern.test(part));
 
     return (
-        <ContentFrame>
+        <ContentFrame className="exam-cloze-inline">
             <div className="rounded-2xl border border-black bg-white p-6 sm:p-9">
                 <p className="eyebrow">Text mit Lücken</p>
                 {hasMarkers ? (
@@ -560,7 +561,7 @@ function SprachbausteineTeil2({
     );
 
     return (
-        <ContentFrame>
+        <ContentFrame className="exam-cloze-pair">
             <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
                 {/* Text */}
                 <div className="rounded-2xl border border-black bg-white p-6 sm:p-8">
@@ -692,7 +693,7 @@ function SprachbausteineTeil2({
                                 >
                                     <span>
                                         {selected
-                                            ? selected.text
+                                            ? selected.text.toUpperCase()
                                             : `(____${question.number})`}
                                     </span>
 
@@ -748,7 +749,7 @@ function SprachbausteineTeil2({
                 </div>
 
                 {/* Word bank */}
-                <aside className="rounded-2xl border border-black bg-white p-6 lg:self-start">
+                <aside className="exam-word-bank rounded-2xl border border-black bg-white p-6 lg:self-start">
                     <p className="eyebrow">
                         Antworten
                     </p>
@@ -780,7 +781,7 @@ function SprachbausteineTeil2({
                             </div>
                         )}
 
-                    <div className="mt-5 space-y-2">
+                    <div className="exam-word-options mt-5 space-y-2">
                         {wordBank.map(
                             (option) => {
                                 const unavailable =
@@ -866,8 +867,11 @@ function Hoerverstehen({
                            readOnly,
                            reviewResults
                        }: PartRendererProps) {
+    const focusEnabled = useShortsMode();
+    const [focused, setFocused] = useState<string | null>(null);
+    useEffect(() => { setFocused(null); }, [exercise.id, focusEnabled]);
     return (
-        <ContentFrame>
+        <ContentFrame className="exam-listening-table">
             <div className="overflow-hidden rounded-2xl border border-black bg-white">
                 {/* Table header */}
                 <div className="grid grid-cols-[80px_80px_minmax(0,1fr)] items-center border-b border-black bg-white">
@@ -920,13 +924,19 @@ function Hoerverstehen({
                                 />
                             </div>
 
-                            <div className="border-l border-black px-5 py-5">
+                            <div className={`border-l border-black px-5 py-5${focusEnabled ? ` listening-focus-row${focused === question.number ? " is-listening-focused" : focused ? " is-listening-blurred" : ""}` : ""}`}>
                                 <p className="text-sm font-bold leading-6">
+                                    {focusEnabled ? <button type="button" className="listening-focus-trigger"
+                                        aria-pressed={focused === question.number}
+                                        onClick={() => setFocused(current => current === question.number ? null : question.number)}>
+                                        <span className="mr-2 font-black">{question.number}.</span>{question.prompt}
+                                    </button> : <>
                                     <span className="mr-2 font-black">
                                         {question.number}.
                                     </span>
 
                                     {question.prompt}
+                                    </>}
                                 </p>
 
                                 <WrongAnswerMark
@@ -964,7 +974,7 @@ function Schreiben({ exercise, answers, onText, readOnly }: PartRendererProps) {
     };
 
     return (
-        <ContentFrame>
+        <ContentFrame className="exam-writing-pair">
             <div className="grid gap-6 lg:grid-cols-2">
                 <div className="rounded-2xl border border-black bg-white p-6 text-black sm:p-8">
                     <p className="eyebrow">Aufgabe {question.number}</p>

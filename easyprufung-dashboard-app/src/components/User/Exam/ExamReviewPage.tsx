@@ -1,4 +1,5 @@
 import { PaperExam } from "./paper/PaperExam";
+import { ShortsFrame } from "./shorts/ShortsFrame";
 import { ExamOutcome } from "./components/ExamOutcome";
 import { ArrowLeft, ArrowRight, Check, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
@@ -166,7 +167,6 @@ export function ExamReviewPage({
 
         return restored;
     }, [questionsByNumber, result.questions]);
-
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     }, [index]);
@@ -194,7 +194,8 @@ export function ExamReviewPage({
     ) : undefined;
 
     return (
-        <div className="min-h-screen bg-white pb-10 text-black">
+        <ShortsFrame resetKey={index}>
+        <div className="exam-review min-h-screen bg-white pb-10 text-black" data-exam-part={exercise.partKey}>
             <header className="sticky top-0 z-30 border-b border-black bg-white">
                 <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4 px-4 py-4 sm:px-7 lg:px-10">
                     <button
@@ -233,7 +234,7 @@ export function ExamReviewPage({
                     extra={audio}
                 />}
 
-                <div className="mt-6">
+                <div className="exam-task-slot mt-6">
                     {session.format === "PAPER" ? <PaperExam session={session} index={index} answers={answers}
                         onSelection={() => undefined} onText={() => undefined} readOnly reviewResults={resultByNumber} audio={audio} /> : <PartRenderer
                         exercise={exercise}
@@ -273,5 +274,6 @@ export function ExamReviewPage({
                 </footer>
             </main>
         </div>
+        </ShortsFrame>
     );
 }

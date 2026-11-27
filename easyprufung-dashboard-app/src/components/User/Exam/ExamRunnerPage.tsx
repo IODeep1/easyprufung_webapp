@@ -1,4 +1,5 @@
 import { PaperExam } from "./paper/PaperExam";
+import { ShortsFrame } from "./shorts/ShortsFrame";
 import appI18n from "i18next";
 import { useTranslation } from "react-i18next";
 import { ExamApiError, ExamProgress, putExamProgress } from "../../../api/exam/api-helper";
@@ -381,7 +382,8 @@ export function ExamRunnerPage(props: {
     ) : undefined;
 
     return (
-        <div className={`min-h-screen pb-10 ${paper ? "bg-[#e9eaec]" : ""}`}>
+        <ShortsFrame resetKey={index}>
+        <div className={`exam-runner min-h-screen pb-10 ${paper ? "bg-[#e9eaec]" : ""}`} data-exam-part={exercise.partKey}>
             <ExamHeader
                 title={paper ? `${session.title} · Papierbasiert` : session.title}
                 level={session.level}
@@ -419,7 +421,7 @@ export function ExamRunnerPage(props: {
                     </div>
                 )}
 
-                <div className="mt-6">
+                <div className="exam-task-slot mt-6">
                     {paper ? <PaperExam session={session} index={index} answers={answers}
                         onSelection={setSelection} onText={setText} audio={audio}
                         registrationRequiredFrom={props.registrationRequiredFrom}
@@ -550,5 +552,6 @@ export function ExamRunnerPage(props: {
                 onConfirm={submit}
             />
         </div>
+        </ShortsFrame>
     );
 }

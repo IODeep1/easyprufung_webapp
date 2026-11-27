@@ -10,7 +10,7 @@ function compile(file, overrides = {}) {
         {exports, window, document, performance:{now:()=>{clock+=100000;return clock;}}, require:name => overrides[name] || (name.endsWith('.css') ? {} : require(name))});
     return exports;
 }
-const {PaperExam, paperGaps} = compile('paper/PaperExam.tsx');
+const {PaperExam, paperGaps} = compile('paper/PaperExam.tsx', {'../shorts/shorts-mode':{useShortsMode:()=>false}});
 const selectorLocale = require('../src/locales/de/translation.json').examFormatSelector;
 const {ExamFormatSelector} = compile('components/ExamFormatSelector.tsx', {'react-i18next':{useTranslation:()=>({t:key=>selectorLocale[key.split('.').pop()],i18n:{resolvedLanguage:'de',dir:()=> 'ltr'}})}});
 const parts = ['LESEN_1','LESEN_2','LESEN_3','SPRACHE_1','SPRACHE_2','HOEREN_1','HOEREN_2','HOEREN_3','SCHREIBEN_EMAIL'];
@@ -27,6 +27,7 @@ async function render(element) {await act(async()=>root.render(element));await f
 async function click(text) {const b=[...target.querySelectorAll('button')].find(b=>b.textContent===text);assert.ok(b,`Missing button ${text}`);await act(async()=>b.click());await flush();}
 const progress = {revision:0,index:0,answers:{}}; const saved = [], gates = [], submissions = [];
 const {ExamRunnerPage} = compile('ExamRunnerPage.tsx', {
+    './shorts/ShortsFrame':{ShortsFrame:p=>p.children},
     'i18next':{__esModule:true,default:{}},
     'react-i18next':{useTranslation:()=>({t:x=>x,i18n:{resolvedLanguage:'de',dir:()=> 'ltr'}})},
     '../../../api/exam/api-helper':{ExamApiError:class extends Error{}},

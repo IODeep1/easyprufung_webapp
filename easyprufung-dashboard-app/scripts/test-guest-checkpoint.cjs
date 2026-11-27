@@ -5,6 +5,7 @@ const root=path.resolve(__dirname,'../src/components/User/Exam');const exportsOb
 const saveProgress=async(id,draft)=>{saved.push(JSON.parse(JSON.stringify(draft)));if(releaseSave)await new Promise(resolve=>releaseSave=resolve);return{...draft,revision:draft.revision+1};};
 const requireRegistration=async draft=>gates.push(JSON.parse(JSON.stringify(draft)));
 vm.runInNewContext(ts.transpileModule(fs.readFileSync(path.join(root,'ExamRunnerPage.tsx'),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020,jsx:ts.JsxEmit.ReactJSX,esModuleInterop:true}}).outputText,{exports:exportsObject,window,document,require:name=>{
+ if(name.includes('shorts/ShortsFrame'))return{ShortsFrame:p=>p.children};
  if(name==='react')return React;if(name==='react/jsx-runtime')return require('react/jsx-runtime');
  if(name==='react-i18next')return{useTranslation:()=>({t:x=>x,i18n:{resolvedLanguage:'en',dir:()=> 'ltr'}})};
  if(name.includes('api/exam'))return{ExamApiError:class extends Error{}};

@@ -12,7 +12,9 @@ import GoogleLoginButton from "./GoogleLoginButton";
 import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../../images/logo.png";
 import JoinMakers from "./JoinMakers";
+import { setShortsMode, useShortsMode } from "../Exam/shorts/shorts-mode";
 const Login = () => {
+  const shortsMode = useShortsMode();
   const { locale, dir } = useFeatureLocale();
   // init
   const dispatch: Dispatch<any> = useDispatch();
@@ -185,7 +187,13 @@ const Login = () => {
                   />
 
                   <div className="flex items-center justify-between text-sm">
-                    <div className="flex select-none items-center gap-2"></div>
+                    <label className="flex cursor-pointer select-none items-center gap-2" dir="ltr">
+                      <input type="checkbox" checked={shortsMode}
+                        onChange={(event) => setShortsMode(event.target.checked)}
+                        aria-describedby="shorts-mode-description"
+                        className="h-4 w-4 accent-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" />
+                      <span>Shorts mode</span>
+                    </label>
                     <a
                       href="/forgot_password"
                       className="font-semibold text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
@@ -193,6 +201,9 @@ const Login = () => {
                       {tr("Forgot password?")}
                     </a>
                   </div>
+                  <p id="shorts-mode-description" className="text-xs leading-5 text-gray-600 dark:text-gray-400">
+                    Vertical exam layout with space for video captions. Saved on this browser.
+                  </p>
                 </div>
 
                 {/* Error */}

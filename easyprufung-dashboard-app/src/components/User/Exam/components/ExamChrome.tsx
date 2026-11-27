@@ -7,6 +7,7 @@ import {
 import { useEffect, useState, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import type { ExerciseView } from "../models/exam.ts";
+import { useShortsMode } from "../shorts/shorts-mode";
 
 function formatTime(totalSeconds: number): string {
     const safe = Math.max(0, totalSeconds);
@@ -78,6 +79,7 @@ interface ExamHeaderProps {
 }
 
 export function ExamHeader({ title, level, expiresAt, currentIndex, total }: ExamHeaderProps) {
+    const shortsMode = useShortsMode();
     const percentage = total === 0 ? 0 : ((currentIndex + 1) / total) * 100;
     return (
         <header lang="de" dir="ltr" className="sticky top-0 z-30 border-b border-black bg-white text-black">
@@ -85,11 +87,11 @@ export function ExamHeader({ title, level, expiresAt, currentIndex, total }: Exa
                 <div className="min-w-0">
                     <div className="flex items-center gap-3">
                         <div className="min-w-0">
-                            <p className="truncate text-lg text-black/55">{title.replace(/\btelc\b[\s-]*/gi, "").trim()} · {level}</p>
+                            <p className="truncate text-lg text-black/55">{level === "B1" ? "TELC. Deutsch B1" : `${title.replace(/\btelc\b[\s-]*/gi, "").trim()} · ${level}`}</p>
                         </div>
                     </div>
                 </div>
-                <CountdownTimer expiresAt={expiresAt} />
+                {!shortsMode && <CountdownTimer expiresAt={expiresAt} />}
             </div>
             <div className="h-1 bg-black/10">
                 <div className="h-full bg-black transition-all duration-500" style={{ width: `${percentage}%` }} />
@@ -110,7 +112,7 @@ export function PartInformation({
     extra?: ReactNode;
 }) {
     return (
-        <section lang="de" dir="ltr" className="overflow-hidden rounded-[1.75rem] border border-black bg-white shadow-frame">
+        <section lang="de" dir="ltr" className="exam-part-information overflow-hidden rounded-[1.75rem] border border-black bg-white shadow-frame">
             <div className="p-6 sm:p-8 lg:p-10">
                 <p className="text-sm font-bold text-black/50">
                     {exercise.sectionTitle}

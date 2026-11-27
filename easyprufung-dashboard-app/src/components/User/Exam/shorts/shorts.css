@@ -1,0 +1,274 @@
+/* All overrides are restricted to the recording canvas, including desktop recordings. */
+.shorts-backdrop {
+    position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center;
+    background: #fff; color: #111; font-family: Arial, Helvetica, sans-serif;
+}
+.shorts-stage {
+    --shorts-height: min(100dvh, 177.777778vw, 960px);
+    height: var(--shorts-height); width: calc(var(--shorts-height) * .5625);
+    display: flex; flex-direction: column; overflow: hidden; background: #fff;
+    isolation: isolate; transform: translateZ(0); box-shadow: 0 0 0 1px #0001;
+}
+.shorts-caption-space { flex: 0 0 21%; background: #fff; }
+.shorts-content {
+    flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden;
+    scrollbar-width: none; overscroll-behavior: contain; scroll-padding-top: 64px;
+    container: shorts / inline-size; color-scheme: light; background: #fff;
+}
+.shorts-content::-webkit-scrollbar { display: none; }
+.shorts-content:focus-visible { outline: 2px solid #2563eb; outline-offset: -2px; }
+.shorts-brand {
+    flex: 0 0 8%; display: flex; justify-content: center; align-items: center;
+    background: #111; color: #fff; font-size: clamp(18px, 3.2dvh, 30px);
+    font-weight: 800; letter-spacing: -.04em; padding-bottom: 4px;
+}
+.shorts-exit {
+    position: absolute; top: 12px; left: 12px; padding: 9px 12px;
+    border: 1px solid #bbb; border-radius: 8px; background: white; color: #111; font-size: 12px;
+}
+.shorts-exit:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+@media (max-aspect-ratio: 9/16) {
+    .shorts-exit { z-index: 2; opacity: 0; }
+    .shorts-exit:hover, .shorts-exit:focus-visible { opacity: 1; }
+}
+.shorts-stage .exam-runner, .shorts-stage .exam-review, .shorts-stage .exam-results {
+    min-height: 0; padding-bottom: 12px; background: #fff; color: #111;
+}
+.shorts-stage .exam-runner > header, .shorts-stage .exam-review > header {
+    position: sticky; top: 0; background: #fff; z-index: 30;
+}
+.shorts-stage header > div:first-child { padding: 10px 14px; gap: 8px; }
+.shorts-stage header p { font-size: 16px; }
+.shorts-stage header [aria-label$="verbleibend"],
+.shorts-stage header [aria-label="Prüfungszeit abgelaufen"] {
+    min-width: 112px; padding: 6px 9px; gap: 6px; font-size: 14px;
+}
+.shorts-stage .exam-runner > main, .shorts-stage .exam-review > main { padding: 12px; }
+.shorts-stage main > section:first-child { border-radius: 12px; }
+.shorts-stage main > section:first-child > div { padding: 14px; }
+.shorts-stage main > section:first-child h1 { font-size: 24px; line-height: 1.15; }
+.shorts-stage main > section:first-child p { font-size: 14px; line-height: 1.5; margin-top: 6px; }
+.shorts-stage .frame { padding: 12px; border-radius: 12px; box-shadow: none; }
+.shorts-stage .frame > .grid, .shorts-stage [class*="lg:grid-cols"],
+.shorts-stage .exam-results .grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.shorts-stage .frame article, .shorts-stage .frame section, .shorts-stage .frame aside,
+.shorts-stage .frame > .grid > div { padding: 14px; border-radius: 12px; min-width: 0; }
+.shorts-stage .frame p { font-size: 16px; line-height: 1.7; }
+.shorts-stage .frame .eyebrow { font-size: 11px; line-height: 1.4; }
+.shorts-stage .frame [class*="leading-[3.5rem]"] { line-height: 2.8; font-size: 16px; margin-top: 12px; }
+.shorts-stage .frame [class*="min-h-[34rem]"] { min-height: 300px; }
+.shorts-stage textarea { font-size: 18px; line-height: 1.65; padding: 12px; }
+.shorts-stage select { max-width: 100%; font-size: 16px; }
+.shorts-stage .exam-word-bank { position: sticky; bottom: 0; z-index: 10; box-shadow: 0 -4px 14px #0001; }
+.shorts-stage .exam-word-bank > p:not(.eyebrow) { display: none; }
+.shorts-stage .exam-word-bank > .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-top: 10px; }
+.shorts-stage .exam-word-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-top: 8px; }
+.shorts-stage .exam-word-options > button { margin: 0; }
+.shorts-stage [data-exam-part="SPRACHE_2"] .frame > .grid > div:first-child {
+    max-height: calc(var(--shorts-height) * .24); overflow-y: auto; scrollbar-width: thin;
+}
+.shorts-stage .exam-word-bank button { padding: 8px; min-width: 0; font-size: 16px; }
+.shorts-stage .exam-word-bank > div:not(.grid) { margin-top: 8px; padding: 8px; }
+.shorts-stage .exam-runner main > .mt-6, .shorts-stage .exam-review main > .mt-6 { margin-top: 12px; }
+.shorts-stage main > footer { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 12px; }
+.shorts-stage main > footer button { padding: 10px 14px; font-size: 12px; }
+.shorts-stage main > footer > div { font-size: 10px; }
+.shorts-stage [role="dialog"] { overflow-y: auto; padding: 14px; }
+.shorts-stage .exam-review > header button { padding: 8px 10px; font-size: 11px; }
+.shorts-stage .exam-review > header p { font-size: 10px; }
+.shorts-stage .exam-results > section { padding: 20px 16px; }
+.shorts-stage .exam-results h1 { font-size: 34px; }
+.shorts-stage .exam-results > div { padding: 16px; }
+
+/* Preserve the booklet/answer-sheet distinction without A4-sized blank space. */
+.shorts-stage .paper-toolbar { gap: 8px; margin-bottom: 10px; }
+.shorts-stage .paper-document-label { font-size: 13px; }
+.shorts-stage .paper-toolbar-actions { gap: 8px; }
+.shorts-stage .paper-part-select { flex-wrap: wrap; gap: 5px; }
+.shorts-stage .paper-part-select select { max-width: 100%; padding: 7px; font-size: 12px; }
+.shorts-stage .paper-answer-toggle { padding: 7px 10px; font-size: 12px !important; }
+.shorts-stage .paper-help { display: none; }
+.shorts-paper-pages { display: flex; gap: 6px; margin: 8px 0; }
+.shorts-paper-pages button { padding: 6px 12px; border: 1px solid #111; border-radius: 6px; font-size: 12px; }
+.shorts-paper-pages button[aria-pressed="true"] { background: #111; color: white; }
+.shorts-stage .paper-workspace, .shorts-stage .paper-booklet-spread { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.shorts-stage .paper-page, .shorts-stage .paper-booklet-spread--multiple .paper-page,
+.shorts-stage .paper-workspace--writing .paper-page {
+    min-height: 0; padding: 16px 16px 40px 24px; margin-bottom: 0;
+    font-size: 16px; box-shadow: none;
+}
+.shorts-stage .paper-page-header { font-size: 11px; margin-bottom: 14px; padding-bottom: 6px; }
+.shorts-stage .paper-page-header b { font-size: 12px; }
+.shorts-stage .paper-page-body h2 { font-size: 21px; margin-bottom: 12px; }
+.shorts-stage .paper-page-footer { left: 24px; right: 16px; bottom: 12px; font-size: 8px; }
+.shorts-stage .paper-side-label { top: 76px; padding: 12px 3px; font-size: 10px; }
+.shorts-stage .paper-instructions { margin-bottom: 14px; }
+.shorts-stage .paper-headlines { gap: 12px; margin-top: 12px; }
+.shorts-stage .paper-text-columns, .shorts-stage .paper-ad-columns { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.shorts-stage .paper-questions { gap: 16px; margin-top: 14px; }
+.shorts-stage .paper-letter { margin: 14px 0; padding: 12px; line-height: 1.9; }
+.shorts-stage .paper-language-options, .shorts-stage .paper-word-bank { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; font-size: 15px; }
+.shorts-stage .paper-word-bank { padding: 12px; margin-top: 16px; }
+.shorts-stage .paper-exercise-answers {
+    order: 0; position: static; max-height: none; overflow: visible; padding: 12px; box-shadow: none;
+}
+.shorts-stage .paper-answer-hint { font-size: 11px; margin: 8px 0; }
+.shorts-stage .paper-current-answer-rows { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+.shorts-stage .paper-answer-row { flex-wrap: wrap; align-items: center; margin: 0; gap: 4px; }
+.shorts-stage .paper-current-answer-rows .paper-bubbles { gap: 8px; }
+.shorts-stage .paper-current-answer-rows .paper-bubbles label { font-size: 16px; min-width: 30px; min-height: 48px; gap: 5px; }
+.shorts-stage .paper-current-answer-rows .paper-bubbles input { width: 30px; height: 21px; }
+.shorts-stage .paper-writing { min-height: 280px; line-height: 32px; padding: 0 6px; }
+@container shorts (max-width: 360px) {
+    .shorts-stage .frame { padding: 8px; }
+    .shorts-stage .frame article, .shorts-stage .frame section { padding: 10px; }
+    .shorts-stage .paper-current-answer-rows { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Use the original exam renderers; only constrain their recording layout. */
+.shorts-content:has(.exam-runner) { overflow: hidden; }
+.shorts-stage .exam-runner { height: 100%; display: flex; flex-direction: column; padding-bottom: 0; }
+.shorts-stage .exam-runner > header { flex: 0 0 auto; }
+.shorts-stage .exam-runner > main {
+    flex: 1; min-height: 0; width: 100%; display: flex; flex-direction: column; padding: 8px 10px; gap: 6px;
+}
+.shorts-stage .exam-part-information { flex: 0 0 auto; border-radius: 8px; }
+.shorts-stage .exam-runner main > .exam-part-information > div { padding: 8px 10px; }
+.shorts-stage .exam-runner main > .exam-part-information h1 { font-size: 20px; }
+.shorts-stage .exam-part-information > div > p:first-child { font-size: 11px; margin: 0; }
+.shorts-stage .exam-part-information > div > p:last-of-type { margin-top: 4px; font-size: 14px; line-height: 1.4; }
+.shorts-stage .exam-part-information > div > .mt-6 { margin-top: 6px; }
+.shorts-stage .exam-runner main > .exam-task-slot { flex: 1; min-height: 0; margin-top: 0; }
+.shorts-stage .exam-runner main > footer { flex: 0 0 auto; margin-top: 0; padding-top: 6px; }
+.shorts-stage .exam-runner main > footer button { padding: 7px 12px; }
+.shorts-stage .exam-review .exam-task-slot { height: calc(var(--shorts-height) * .58); }
+.shorts-stage .exam-task-slot > .frame { height: 100%; min-height: 0; padding: 8px; overflow-y: auto; }
+.shorts-stage .exam-task-slot > .frame > .grid {
+    height: 100%; min-height: 0; grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1.15fr); gap: 8px;
+}
+.shorts-stage .exam-task-slot > .frame > .grid > section,
+.shorts-stage .exam-task-slot > .frame > .grid > div,
+.shorts-stage .exam-task-slot > .frame > .grid > aside {
+    min-height: 0; height: 100%; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; padding: 10px;
+}
+.shorts-stage .exam-task-slot .frame p { font-size: 16px; line-height: 1.6; }
+.shorts-stage .exam-task-slot .frame label > span:last-child,
+.shorts-stage .exam-cloze-pair [role="button"] { font-size: 16px; line-height: 1.5; }
+.shorts-stage .paper-ad { font-size: 16px; }
+.shorts-stage .paper-answer-row > b { font-size: 18px; min-width: 28px; }
+.shorts-stage .exam-task-slot .frame .eyebrow { font-size: 10px; margin-bottom: 8px; }
+.shorts-stage .exam-task-slot .frame .mt-5, .shorts-stage .exam-task-slot .frame .mt-6 { margin-top: 10px; }
+.shorts-stage .exam-task-slot .frame article { padding: 10px; }
+.shorts-stage .exam-task-slot .frame article > p { margin-bottom: 8px; }
+.shorts-stage .exam-situations-pair > .grid > section:first-child { order: 2; }
+.shorts-stage .exam-situations-pair > .grid > section:last-child { order: 1; }
+.shorts-stage .exam-task-slot .exam-cloze-pair > .grid > div:first-child { max-height: none; }
+.shorts-stage .exam-task-slot .exam-word-bank { position: static; box-shadow: none; }
+.shorts-stage .exam-task-slot .exam-word-options { display: flex; flex-direction: column; gap: 6px; }
+.shorts-stage .exam-task-slot .exam-word-bank > div:not(.grid) { margin-top: 6px; padding: 0; }
+.shorts-stage .exam-task-slot .exam-writing-pair > .grid > div:last-child { display: flex; flex-direction: column; min-height: 0; }
+.shorts-stage .exam-task-slot .exam-writing-pair textarea { flex: 1; min-height: 0; padding: 10px; }
+.shorts-stage .exam-task-slot .exam-writing-pair [aria-label="Deutsche Sonderzeichen"] { gap: 4px; margin-top: 6px; }
+.shorts-stage .exam-task-slot .exam-writing-pair [aria-label="Deutsche Sonderzeichen"] button { height: 28px; min-width: 28px; padding: 0 6px; }
+.shorts-stage .exam-part-information .mb-4, .shorts-stage .paper-audio .mb-4 { margin-bottom: 4px; }
+.shorts-stage .exam-part-information .h-12, .shorts-stage .paper-audio .h-12 { height: 32px; width: 32px; }
+
+/* The original booklet remains above its original answer sheet, both in view. */
+.shorts-stage .exam-task-slot > .paper-exam { height: 100%; min-height: 0; display: flex; flex-direction: column; }
+.shorts-stage .paper-toolbar, .shorts-stage .paper-audio { flex: 0 0 auto; }
+.shorts-stage .paper-toolbar { margin-bottom: 6px; gap: 6px; }
+.shorts-stage .paper-audio { margin: 4px 0 8px; }
+.shorts-stage .paper-workspace {
+    flex: 1; min-height: 0; grid-template-rows: minmax(0, 1.2fr) minmax(0, 1fr); gap: 8px;
+}
+.shorts-stage .paper-workspace:not(.paper-workspace--with-answers):not(.paper-workspace--writing) { grid-template-rows: minmax(0, 1fr); }
+.shorts-stage .paper-booklet-spread { height: 100%; min-height: 0; display: block; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.shorts-stage .paper-booklet-spread > .paper-page + .paper-page { margin-top: 12px; }
+.shorts-stage .paper-exercise-answers { height: 100%; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.shorts-stage .paper-exercise-answers h3, .shorts-stage .paper-answer-hint { display: none; }
+.shorts-stage .paper-answer-panel-heading h2 { font-size: 18px; }
+.shorts-stage .paper-answer-progress { margin-top: 4px; font-size: 14px; }
+.shorts-stage .paper-current-answer-rows { display: block; margin-top: 6px; }
+.shorts-stage .paper-current-answer-rows .paper-answer-row { min-height: 48px; margin-bottom: 10px; }
+.shorts-stage .paper-writing-sheets { min-height: 0; height: 100%; overflow: hidden; }
+.shorts-stage .paper-writing-sheets > .paper-page { height: 100%; min-height: 0; display: flex; flex-direction: column; padding: 10px 12px 28px 24px; }
+.shorts-stage .paper-writing-sheets .paper-page-header { margin-bottom: 6px; }
+.shorts-stage .paper-writing-sheets .paper-page-body { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.shorts-stage .paper-writing-sheets h2, .shorts-stage .paper-writing-label { margin-bottom: 4px; font-size: 15px; }
+.shorts-stage .paper-writing { min-height: 0; height: 100%; flex: 1; resize: none; }
+
+/* Language elements retain the original paper workflow: text, then answer sheet. */
+.shorts-stage .exam-task-slot > .paper-exam--cloze { display: block; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.shorts-stage .paper-exam--cloze .paper-workspace { display: block; }
+.shorts-stage .paper-exam--cloze .paper-booklet-spread { height: auto; overflow: visible; }
+.shorts-stage .paper-exam--cloze .paper-exercise-answers { height: auto; overflow: visible; margin-top: 14px; }
+.paper-preview-gap-wrap { display: inline-block; position: relative; }
+.paper-preview-gap { font: inherit; font-weight: bold; color: #b02738; border-bottom: 1px dashed #b02738; }
+.paper-preview-gap[aria-expanded="true"] { background: #fff6cf; }
+.paper-preview-gap.paper-preview-gap--filled { color: #000; font-weight: 700; border-bottom: 0; background: transparent; }
+.paper-cloze-preview {
+    position: absolute; top: 100%; left: 0; z-index: 40; display: block;
+    width: min(300px, 70cqw); padding: 10px; border: 1px solid #555; background: #fff;
+    box-shadow: 0 3px 10px #0002; white-space: normal; color: #202020; font: 15px/1.5 Arial, sans-serif;
+}
+.paper-cloze-preview-heading { display: flex; justify-content: flex-end; align-items: center; margin-bottom: 6px; }
+.paper-cloze-preview-heading button { width: 24px; height: 24px; border: 1px solid #aaa; background: white; font-size: 18px; }
+.shorts-stage .paper-cloze-preview .paper-preview-original-options { grid-template-columns: 1fr; margin: 0; font-size: 15px; }
+.shorts-stage .paper-cloze-preview .paper-preview-original-bank { margin: 0; padding: 12px; font-size: 15px; }
+.paper-preview-option { display: block; width: 100%; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; line-height: inherit; text-align: left; cursor: pointer; }
+.paper-preview-original-options .paper-preview-option { display: flex; align-items: baseline; gap: 14px; }
+.paper-preview-option:disabled { cursor: default; }
+.paper-preview-option:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+.paper-preview-fallback { margin-top: 12px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* Listening: scroll the original booklet, followed by its answer sheet. */
+.shorts-stage .exam-task-slot > .paper-exam--listening { display: block; overflow-y: auto; scrollbar-width: thin; }
+.shorts-stage .paper-exam--listening .paper-workspace { display: block; }
+.shorts-stage .paper-exam--listening .paper-booklet-spread { height: auto; overflow: visible; }
+.shorts-stage .paper-exam--listening .paper-exercise-answers { height: auto; overflow: visible; margin-top: 14px; }
+
+/* Click-to-focus presentation for listening statements only. */
+.shorts-stage .listening-focus-row { transition: filter 180ms ease; }
+.shorts-stage .listening-focus-trigger {
+    display: block; width: 100%; padding: 0; border: 0; background: transparent;
+    color: inherit; font: inherit; text-align: left; cursor: pointer;
+    transition: font-size 180ms ease;
+}
+.shorts-stage .paper-listening-focus-trigger { grid-column: 1 / -1; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 9px; }
+.shorts-stage .is-listening-focused .listening-focus-trigger {
+    font-size: 18px; line-height: 1.65; text-decoration: underline;
+    text-underline-offset: 4px; text-decoration-thickness: 1.5px;
+}
+.shorts-stage .is-listening-blurred { filter: blur(2px); }
+.shorts-stage .listening-focus-trigger:focus-visible { outline: 2px solid #2563eb; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+    .shorts-stage .listening-focus-row, .shorts-stage .listening-focus-trigger { transition: none; }
+}
+
+/* A single paper scroll lets the answer sheet fill the entire recording area. */
+.shorts-content:has(.paper-exam) { overflow-y: auto; scroll-padding-top: 0; }
+.shorts-stage .exam-runner:has(.paper-exam) { height: auto; min-height: 100%; display: block; }
+.shorts-stage .exam-runner:has(.paper-exam) > header,
+.shorts-stage .exam-review:has(.paper-exam) > header { position: static; }
+.shorts-stage .exam-runner:has(.paper-exam) > main { display: block; }
+.shorts-stage .exam-review:has(.paper-exam) .exam-task-slot { height: auto; }
+.shorts-stage .exam-task-slot > .paper-exam { height: auto; display: block; overflow: visible; }
+.shorts-stage .paper-exam .paper-workspace { display: block; }
+.shorts-stage .paper-exam .paper-booklet-spread { height: auto; overflow: visible; }
+.shorts-stage .paper-exam .paper-booklet-spread > .paper-page {
+    min-height: calc(var(--shorts-height) * .71);
+}
+.shorts-stage .paper-exam .paper-exercise-answers {
+    height: auto; min-height: calc(var(--shorts-height) * .71); box-sizing: border-box;
+    margin-top: 14px; overflow: visible;
+}
+.shorts-stage .paper-exam .paper-writing-sheets { height: calc(var(--shorts-height) * .71); margin-top: 14px; }
+.shorts-stage .listening-answer-focus-row { transition: filter 180ms ease; }
+.shorts-stage .listening-answer-focus-row.is-answer-blurred { filter: blur(2px); }
+.shorts-stage .is-answer-focused .paper-answer-row > b { font-size: 20px; text-decoration: underline; text-underline-offset: 4px; }
+.shorts-stage .paper-current-answer-rows .is-answer-focused .paper-bubbles label { font-size: 18px; }
+@media (prefers-reduced-motion: reduce) {
+    .shorts-stage .listening-answer-focus-row { transition: none; }
+}
+

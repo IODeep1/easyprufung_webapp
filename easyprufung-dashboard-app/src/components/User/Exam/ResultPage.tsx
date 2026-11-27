@@ -1,4 +1,5 @@
 import Logo from "../../../images/logo.png";
+import { ShortsFrame } from "./shorts/ShortsFrame";
 import ExamUpgradeOffer from "../Pricing/ExamUpgradeOffer";
 import { ExamCertificateButton } from "./ExamCertificateButton";
 import ExamLanguageLock from "./ExamLanguageLock";
@@ -82,7 +83,8 @@ export function ResultPage(props: {
     }
 
     return (
-        <main className="min-h-screen bg-white text-black">
+        <ShortsFrame>
+        <main className="exam-results min-h-screen bg-white text-black">
             <section className={`border-b border-black bg-white px-5 text-black sm:px-10 ${showBrand ? "py-8 sm:py-10" : "py-12 sm:py-16"}`}>
                 <div className="mx-auto max-w-6xl">
                     {showBrand && <a href="/" dir="ltr" className="inline-flex shrink-0 items-center gap-3 self-start rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500" aria-label="SmartPrüfung">
@@ -272,5 +274,6 @@ export function ResultPage(props: {
                 </section>
             </div>
         </main>
+        </ShortsFrame>
     );
 }
